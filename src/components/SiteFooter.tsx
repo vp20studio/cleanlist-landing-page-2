@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Database, Twitter, Linkedin, Github, Mail, ArrowUpRight } from "lucide-react";
+import { Database, Twitter, Linkedin, Github, Mail } from "lucide-react";
 
 const footerLinks = {
   products: [
@@ -19,14 +19,10 @@ const footerLinks = {
   resources: [
     { label: "Case Studies", href: "/resources/case-studies" },
     { label: "Integrations", href: "/resources/integrations" },
-    { label: "API Documentation", href: "#" },
-    { label: "Blog", href: "#" },
   ],
   company: [
     { label: "About Us", href: "/about-us" },
     { label: "Pricing", href: "/pricing" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" },
   ],
 };
 
@@ -139,12 +135,9 @@ export default function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-white transition-colors flex items-center gap-1"
+                    className="text-sm text-gray-500 hover:text-white transition-colors"
                   >
                     {link.label}
-                    {link.href === "#" && (
-                      <ArrowUpRight className="w-3 h-3 opacity-50" />
-                    )}
                   </Link>
                 </li>
               ))}
@@ -178,15 +171,8 @@ export default function SiteFooter() {
               <span>&copy; {new Date().getFullYear()} Cleanlist. All rights reserved.</span>
             </div>
             <div className="flex items-center gap-6 text-sm text-gray-500">
-              <Link href="#" className="hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Terms of Service
-              </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Security
-              </Link>
+              <span>Privacy Policy</span>
+              <span>Terms of Service</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-gray-500">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
