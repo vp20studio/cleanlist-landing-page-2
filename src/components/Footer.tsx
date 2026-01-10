@@ -2,13 +2,15 @@
 
 import { motion } from "framer-motion";
 
+import Link from "next/link";
+
 const footerLinks = {
   Product: [
-    { label: "Features", href: "#features" },
-    { label: "Pricing", href: "#pricing" },
+    { label: "Waterfall Enrichment", href: "/product/enrichment" },
+    { label: "Email Verification", href: "/product/email-verification" },
+    { label: "LinkedIn Scraper", href: "/product/linkedin-scraper" },
+    { label: "Pricing", href: "/pricing" },
     { label: "API Docs", href: "/docs" },
-    { label: "Integrations", href: "/integrations" },
-    { label: "Changelog", href: "/changelog" },
   ],
   Company: [
     { label: "About", href: "/about" },
@@ -20,7 +22,7 @@ const footerLinks = {
   Resources: [
     { label: "Documentation", href: "/docs" },
     { label: "Help Center", href: "/help" },
-    { label: "Community", href: "/community" },
+    { label: "Integrations", href: "/integrations" },
     { label: "Templates", href: "/templates" },
     { label: "Status", href: "/status" },
   ],
@@ -41,7 +43,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand column */}
           <div className="col-span-2">
-            <a href="/" className="flex items-center gap-2 mb-4">
+            <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="relative w-8 h-8">
                 <div className="absolute inset-0 bg-[#3e8aff] rounded-lg opacity-20 blur-md" />
                 <div className="relative w-full h-full bg-gradient-to-br from-[#3e8aff] to-[#2563eb] rounded-lg flex items-center justify-center">
@@ -62,7 +64,7 @@ export default function Footer() {
               <span className="text-xl font-semibold text-white">
                 Cleanlist
               </span>
-            </a>
+            </Link>
             <p className="text-sm text-[#888888] mb-6 max-w-xs">
               Turn messy data into your greatest growth lever. Clean, verify,
               and enrich leads with 99% accuracy.
@@ -90,12 +92,12 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-sm text-[#888888] hover:text-white transition-colors"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
