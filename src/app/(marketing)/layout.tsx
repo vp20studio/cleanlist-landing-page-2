@@ -1,5 +1,5 @@
-import ProductNavbar from "@/components/ProductNavbar";
-import Footer from "@/components/Footer";
+import MegaMenuNavbar from "@/components/MegaMenuNavbar";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function MarketingLayout({
   children,
@@ -8,9 +8,9 @@ export default function MarketingLayout({
 }) {
   return (
     <div className="min-h-screen bg-[#030303]">
-      <ProductNavbar />
-      {children}
-      <Footer />
+      <MegaMenuNavbar />
+      <main>{children}</main>
+      <SiteFooter />
     </div>
   );
 }

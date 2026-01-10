@@ -1,349 +1,541 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   Check,
   X,
-  Sparkles,
-  Zap,
-  Building2,
   ArrowRight,
+  Zap,
+  Building,
   HelpCircle,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
-import { GlowCard, MagneticButton, SectionHeader } from "@/components/ui";
 
 const plans = [
   {
     name: "Starter",
-    description: "For individuals and small teams",
-    monthlyPrice: 24,
-    yearlyPrice: 19,
+    description: "For individuals and small teams getting started",
+    monthlyPrice: 29,
+    yearlyPrice: 24,
     credits: "1,000",
-    highlight: false,
-    icon: Zap,
-    features: {
-      core: ["1,000 credits/month", "Email verification", "Basic enrichment", "CSV export"],
-      limits: ["1 user", "100 API calls/day", "7-day data retention"],
-    },
+    features: [
+      "1,000 credits/month",
+      "Waterfall Enrichment (15+ sources)",
+      "Email Verification",
+      "Phone Finder",
+      "CSV Export",
+      "Email Support",
+    ],
     cta: "Start Free Trial",
+    popular: false,
   },
   {
     name: "Pro",
-    description: "For growing sales teams",
-    monthlyPrice: 83,
-    yearlyPrice: 66,
+    description: "For growing teams that need more power",
+    monthlyPrice: 99,
+    yearlyPrice: 83,
     credits: "5,000",
-    highlight: true,
-    badge: "Most Popular",
-    icon: Sparkles,
-    features: {
-      core: ["5,000 credits/month", "Email verification", "Full enrichment (25+ fields)", "LinkedIn Scraper", "CSV + API export"],
-      limits: ["5 users", "1,000 API calls/day", "30-day data retention", "HubSpot integration"],
-    },
+    features: [
+      "5,000 credits/month",
+      "Everything in Starter",
+      "Smart Columns (AI)",
+      "Sales Nav Scraper",
+      "Playbook Builder (5 playbooks)",
+      "CRM Integrations",
+      "API Access",
+      "Priority Support",
+    ],
     cta: "Start Free Trial",
+    popular: true,
+  },
+  {
+    name: "Business",
+    description: "For teams scaling their GTM operations",
+    monthlyPrice: 299,
+    yearlyPrice: 249,
+    credits: "20,000",
+    features: [
+      "20,000 credits/month",
+      "Everything in Pro",
+      "Unlimited Playbooks",
+      "Team Workspaces",
+      "Advanced Analytics",
+      "Custom Integrations",
+      "Dedicated CSM",
+      "SLA Guarantee",
+    ],
+    cta: "Start Free Trial",
+    popular: false,
   },
   {
     name: "Enterprise",
-    description: "For large organizations",
-    monthlyPrice: 374,
-    yearlyPrice: 299,
-    credits: "25,000",
-    highlight: false,
-    icon: Building2,
-    features: {
-      core: ["25,000 credits/month", "Email verification", "Full enrichment (25+ fields)", "LinkedIn Scraper", "All export formats"],
-      limits: ["Unlimited users", "Unlimited API calls", "90-day data retention", "All integrations", "Dedicated support"],
-    },
+    description: "For large organizations with custom needs",
+    monthlyPrice: null,
+    yearlyPrice: null,
+    credits: "Custom",
+    features: [
+      "Custom credit volume",
+      "Everything in Business",
+      "White-label Options",
+      "On-premise Deployment",
+      "Custom SLA",
+      "Dedicated Support Team",
+      "Security Review",
+      "Custom Contracts",
+    ],
     cta: "Contact Sales",
+    popular: false,
   },
 ];
 
-// Comprehensive feature comparison
 const featureCategories = [
   {
-    name: "Verification",
+    name: "Data Enrichment",
     features: [
-      { name: "Email syntax validation", starter: true, pro: true, enterprise: true },
-      { name: "MX/DNS record check", starter: true, pro: true, enterprise: true },
-      { name: "SMTP handshake verification", starter: true, pro: true, enterprise: true },
-      { name: "Catch-all detection", starter: false, pro: true, enterprise: true },
-      { name: "Disposable email detection", starter: true, pro: true, enterprise: true },
-      { name: "Role-based email detection", starter: false, pro: true, enterprise: true },
-      { name: "Real-time verification API", starter: false, pro: true, enterprise: true },
-      { name: "Bulk verification (10K+)", starter: false, pro: true, enterprise: true },
+      { name: "Waterfall Enrichment (15+ sources)", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Work Email Discovery", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Personal Email Discovery", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Direct Phone Numbers", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Mobile Phone Numbers", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Company Firmographics", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Technographics", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Intent Signals", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Social Profiles (LinkedIn, Twitter)", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Custom Field Mapping", starter: false, pro: true, business: true, enterprise: true },
     ],
   },
   {
-    name: "Enrichment",
+    name: "Email Verification",
     features: [
-      { name: "Full name", starter: true, pro: true, enterprise: true },
-      { name: "Job title", starter: true, pro: true, enterprise: true },
-      { name: "Company name", starter: true, pro: true, enterprise: true },
-      { name: "LinkedIn profile", starter: false, pro: true, enterprise: true },
-      { name: "Company size", starter: false, pro: true, enterprise: true },
-      { name: "Company revenue", starter: false, pro: true, enterprise: true },
-      { name: "Industry classification", starter: false, pro: true, enterprise: true },
-      { name: "Location data", starter: false, pro: true, enterprise: true },
-      { name: "Phone numbers", starter: false, pro: true, enterprise: true },
-      { name: "Technographic data", starter: false, pro: false, enterprise: true },
-      { name: "Intent signals", starter: false, pro: false, enterprise: true },
-      { name: "Waterfall (15+ sources)", starter: false, pro: true, enterprise: true },
+      { name: "Syntax Validation", starter: true, pro: true, business: true, enterprise: true },
+      { name: "MX/DNS Lookup", starter: true, pro: true, business: true, enterprise: true },
+      { name: "SMTP Handshake Verification", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Catch-all Detection", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Disposable Email Detection", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Role-based Email Flagging", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Spam Trap Detection", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Deliverability Scoring", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Bulk Verification (10K+/batch)", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Real-time API Verification", starter: false, pro: true, business: true, enterprise: true },
     ],
   },
   {
-    name: "LinkedIn Scraper",
+    name: "Smart Columns (AI)",
     features: [
-      { name: "Chrome Extension", starter: false, pro: true, enterprise: true },
-      { name: "Sales Navigator export", starter: false, pro: true, enterprise: true },
-      { name: "Bulk export (2,500/search)", starter: false, pro: true, enterprise: true },
-      { name: "Auto-enrichment on export", starter: false, pro: true, enterprise: true },
-      { name: "Saved leads export", starter: false, pro: true, enterprise: true },
-      { name: "Account list export", starter: false, pro: false, enterprise: true },
+      { name: "Job Title Normalization", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Company Name Standardization", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Name Parsing (First/Last)", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Phone Number Formatting", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Address Parsing", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Custom AI Prompts", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Seniority Level Classification", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Department Mapping", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Industry Categorization", starter: false, pro: true, business: true, enterprise: true },
+      { name: "GPT-4 Powered Transforms", starter: false, pro: true, business: true, enterprise: true },
+    ],
+  },
+  {
+    name: "Sales Navigator Scraper",
+    features: [
+      { name: "Chrome Extension", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Export up to 2,500 leads/search", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Auto-enrichment on Export", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Preserve Sales Nav Filters", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Safe Rate Limiting", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Background Processing", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Direct CRM Sync", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Team Sharing", starter: false, pro: false, business: true, enterprise: true },
+    ],
+  },
+  {
+    name: "Playbook Builder",
+    features: [
+      { name: "Visual Workflow Builder", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Number of Playbooks", starter: "0", pro: "5", business: "Unlimited", enterprise: "Unlimited" },
+      { name: "40+ Built-in Actions", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Scheduled Runs (Cron)", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Webhook Triggers", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Conditional Logic", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Error Handling & Retries", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Deduplication Actions", starter: false, pro: true, business: true, enterprise: true },
+      { name: "CRM Sync Actions", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Custom Templates", starter: false, pro: false, business: true, enterprise: true },
     ],
   },
   {
     name: "Integrations",
     features: [
-      { name: "CSV export", starter: true, pro: true, enterprise: true },
-      { name: "JSON/API export", starter: false, pro: true, enterprise: true },
-      { name: "HubSpot", starter: false, pro: true, enterprise: true },
-      { name: "Salesforce", starter: false, pro: false, enterprise: true },
-      { name: "Pipedrive", starter: false, pro: true, enterprise: true },
-      { name: "Outreach", starter: false, pro: false, enterprise: true },
-      { name: "Zapier", starter: false, pro: true, enterprise: true },
-      { name: "Webhooks", starter: false, pro: true, enterprise: true },
-      { name: "Custom integrations", starter: false, pro: false, enterprise: true },
+      { name: "CSV Import/Export", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Google Sheets", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Salesforce", starter: false, pro: true, business: true, enterprise: true },
+      { name: "HubSpot", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Pipedrive", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Outreach", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Salesloft", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Zapier/Make/n8n", starter: false, pro: true, business: true, enterprise: true },
+      { name: "REST API", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Webhooks", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Custom Integrations", starter: false, pro: false, business: true, enterprise: true },
     ],
   },
   {
-    name: "API & Developer",
+    name: "Team & Admin",
     features: [
-      { name: "REST API access", starter: false, pro: true, enterprise: true },
-      { name: "API rate limit", starter: "100/day", pro: "1K/day", enterprise: "Unlimited" },
-      { name: "Bulk processing API", starter: false, pro: true, enterprise: true },
-      { name: "Webhook delivery", starter: false, pro: true, enterprise: true },
-      { name: "Custom JSON schema", starter: false, pro: false, enterprise: true },
-      { name: "Dedicated endpoints", starter: false, pro: false, enterprise: true },
-      { name: "Priority queue", starter: false, pro: false, enterprise: true },
+      { name: "Team Members", starter: "1", pro: "5", business: "25", enterprise: "Unlimited" },
+      { name: "Workspaces", starter: "1", pro: "1", business: "5", enterprise: "Unlimited" },
+      { name: "Role-based Permissions", starter: false, pro: false, business: true, enterprise: true },
+      { name: "SSO (SAML)", starter: false, pro: false, business: false, enterprise: true },
+      { name: "Audit Logs", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Usage Analytics", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Credit Allocation by Team", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Admin Dashboard", starter: false, pro: true, business: true, enterprise: true },
+    ],
+  },
+  {
+    name: "Support & SLA",
+    features: [
+      { name: "Email Support", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Priority Support", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Dedicated CSM", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Slack Channel", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Phone Support", starter: false, pro: false, business: false, enterprise: true },
+      { name: "Uptime SLA", starter: "99%", pro: "99.5%", business: "99.9%", enterprise: "99.99%" },
+      { name: "Response Time SLA", starter: "48hrs", pro: "24hrs", business: "4hrs", enterprise: "1hr" },
+      { name: "Onboarding Session", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Quarterly Business Reviews", starter: false, pro: false, business: true, enterprise: true },
     ],
   },
   {
     name: "Security & Compliance",
     features: [
-      { name: "SOC 2 Type II", starter: true, pro: true, enterprise: true },
-      { name: "GDPR compliant", starter: true, pro: true, enterprise: true },
-      { name: "Data encryption (AES-256)", starter: true, pro: true, enterprise: true },
-      { name: "SSO/SAML", starter: false, pro: false, enterprise: true },
-      { name: "IP allowlisting", starter: false, pro: false, enterprise: true },
-      { name: "Audit logs", starter: false, pro: false, enterprise: true },
-      { name: "Custom DPA", starter: false, pro: false, enterprise: true },
-    ],
-  },
-  {
-    name: "Support",
-    features: [
-      { name: "Email support", starter: true, pro: true, enterprise: true },
-      { name: "Priority support", starter: false, pro: true, enterprise: true },
-      { name: "Dedicated CSM", starter: false, pro: false, enterprise: true },
-      { name: "SLA guarantee", starter: false, pro: false, enterprise: true },
-      { name: "Onboarding call", starter: false, pro: true, enterprise: true },
-      { name: "Quarterly reviews", starter: false, pro: false, enterprise: true },
+      { name: "SOC 2 Type II", starter: true, pro: true, business: true, enterprise: true },
+      { name: "GDPR Compliant", starter: true, pro: true, business: true, enterprise: true },
+      { name: "CCPA Compliant", starter: true, pro: true, business: true, enterprise: true },
+      { name: "256-bit Encryption", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Data Retention Controls", starter: false, pro: true, business: true, enterprise: true },
+      { name: "IP Allowlisting", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Custom DPA", starter: false, pro: false, business: false, enterprise: true },
+      { name: "Security Review", starter: false, pro: false, business: false, enterprise: true },
+      { name: "On-premise Option", starter: false, pro: false, business: false, enterprise: true },
     ],
   },
 ];
 
 const faqs = [
   {
-    question: "How do credits work?",
-    answer: "1 credit = 1 email verification or enrichment. Credits refresh monthly and don't roll over. Unused credits expire at the end of each billing cycle.",
+    question: "What is a credit?",
+    answer:
+      "One credit = one record processed. Whether you're enriching a contact, verifying an email, or running a Smart Column transformation, each record uses one credit. All 15+ data sources are included—no extra charge per source.",
   },
   {
-    question: "What's included in the Waterfall?",
-    answer: "Our Waterfall queries 15+ data providers (Apollo, RocketReach, Clearbit, etc.) in priority order. You only pay for successful matches, and we automatically use the most accurate source.",
+    question: "Do unused credits roll over?",
+    answer:
+      "Yes! Unused credits roll over for up to 3 months on Pro and Business plans. Enterprise plans have custom rollover terms.",
   },
   {
     question: "Can I upgrade or downgrade anytime?",
-    answer: "Yes! You can change your plan at any time. Upgrades take effect immediately with prorated billing. Downgrades take effect at the next billing cycle.",
+    answer:
+      "Absolutely. Upgrade instantly and get prorated access to your new plan. Downgrade at any time—changes take effect at your next billing cycle.",
+  },
+  {
+    question: "What happens if I run out of credits?",
+    answer:
+      "You can purchase additional credits at any time, or upgrade to a higher plan. We'll notify you when you're running low so you're never caught off guard.",
   },
   {
     question: "Is there a free trial?",
-    answer: "Yes, all plans include a 14-day free trial with 100 credits to test. No credit card required to start.",
+    answer:
+      "Yes! Every plan comes with a 14-day free trial and 100 free credits. No credit card required to start.",
   },
   {
-    question: "Do you offer volume discounts?",
-    answer: "For teams needing more than 25,000 credits/month, we offer custom Enterprise plans with volume discounts. Contact sales for a quote.",
+    question: "Do you offer discounts for startups or nonprofits?",
+    answer:
+      "Yes, we offer special pricing for early-stage startups and registered nonprofits. Contact us to learn more.",
   },
 ];
 
 export default function PricingPage() {
-  const [isYearly, setIsYearly] = useState(true);
+  const [annual, setAnnual] = useState(true);
+  const [expandedCategories, setExpandedCategories] = useState<string[]>(
+    featureCategories.map((c) => c.name)
+  );
+
+  const toggleCategory = (name: string) => {
+    setExpandedCategories((prev) =>
+      prev.includes(name) ? prev.filter((c) => c !== name) : [...prev, name]
+    );
+  };
 
   return (
-    <main className="min-h-screen bg-[#030303] pt-20">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(62, 138, 255, 0.15), transparent)",
-          }}
-        />
+    <>
+      {/* Hero */}
+      <section className="relative pt-20 pb-16 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-12"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-              Simple, credit-based{" "}
-              <span className="gradient-text-blue">pricing</span>
-            </h1>
-            <p className="text-lg md:text-xl text-[#888888]">
-              Pay only for what you use. 1 credit = 1 verified & enriched
-              email. No hidden fees.
-            </p>
+            <Zap className="w-4 h-4" />
+            Simple, Transparent Pricing
           </motion.div>
 
-          {/* Toggle */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex items-center justify-center gap-4 mb-12"
+            transition={{ delay: 0.1 }}
+            className="text-5xl md:text-6xl font-bold text-white mb-6"
           >
-            <span
-              className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-[#888888]"}`}
+            One Credit Per Record
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl text-gray-400 max-w-2xl mx-auto mb-8"
+          >
+            All 15+ data sources included. No hidden fees. No per-source charges.
+            Just simple, predictable pricing.
+          </motion.p>
+
+          {/* Billing Toggle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="inline-flex items-center gap-3 p-1 rounded-full bg-[#0a0a0a] border border-white/[0.08]"
+          >
+            <button
+              onClick={() => setAnnual(false)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                !annual ? "bg-[#3e8aff] text-white" : "text-gray-400"
+              }`}
             >
               Monthly
-            </span>
-
-            <button
-              onClick={() => setIsYearly(!isYearly)}
-              className="relative w-14 h-8 rounded-full bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] p-1 transition-colors hover:border-[rgba(255,255,255,0.2)]"
-            >
-              <motion.div
-                layout
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                className={`w-6 h-6 rounded-full bg-gradient-to-r from-[#3e8aff] to-[#2563eb] shadow-lg ${
-                  isYearly ? "ml-auto" : ""
-                }`}
-              />
             </button>
-
-            <span
-              className={`text-sm font-medium transition-colors flex items-center gap-2 ${isYearly ? "text-white" : "text-[#888888]"}`}
+            <button
+              onClick={() => setAnnual(true)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${
+                annual ? "bg-[#3e8aff] text-white" : "text-gray-400"
+              }`}
             >
-              Yearly
-              <span className="text-xs px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.1)] text-[#22c55e] border border-[rgba(34,197,94,0.2)]">
+              Annual
+              <span className="px-1.5 py-0.5 rounded text-xs bg-green-500/20 text-green-500">
                 Save 20%
               </span>
-            </span>
+            </button>
           </motion.div>
+        </div>
+      </section>
 
-          {/* Pricing Cards */}
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+      {/* Pricing Cards */}
+      <section className="py-12">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {plans.map((plan, index) => (
               <motion.div
                 key={plan.name}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ delay: 0.1 * index }}
+                className={`relative p-6 rounded-xl border ${
+                  plan.popular
+                    ? "bg-[#3e8aff]/5 border-[#3e8aff]/30"
+                    : "bg-[#0a0a0a] border-white/[0.08]"
+                }`}
               >
-                <PricingCard plan={plan} isYearly={isYearly} />
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold text-white">{plan.name}</h3>
+                  <p className="text-sm text-gray-500 mt-1">{plan.description}</p>
+                </div>
+
+                <div className="mb-6">
+                  {plan.monthlyPrice ? (
+                    <>
+                      <span className="text-4xl font-bold text-white">
+                        ${annual ? plan.yearlyPrice : plan.monthlyPrice}
+                      </span>
+                      <span className="text-gray-500">/month</span>
+                      <div className="text-sm text-gray-500 mt-1">
+                        {plan.credits} credits/month
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-4xl font-bold text-white">Custom</span>
+                      <div className="text-sm text-gray-500 mt-1">
+                        Volume pricing available
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                <Link
+                  href="#"
+                  className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${
+                    plan.popular
+                      ? "bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
+                      : "bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                  }`}
+                >
+                  {plan.cta}
+                </Link>
+
+                <div className="space-y-3">
+                  {plan.features.map((feature) => (
+                    <div key={feature} className="flex items-start gap-2 text-sm">
+                      <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-400">{feature}</span>
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-center text-sm text-[#888888] mt-8"
-          >
-            All plans include a 14-day free trial with 100 credits. No credit
-            card required.
-          </motion.p>
         </div>
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="Full Comparison"
-            badgeIcon={<Sparkles className="w-4 h-4 text-[#3e8aff]" />}
-            title="Compare Every Feature"
-            highlight="Every Feature"
-            description="See exactly what's included in each plan."
-          />
+      <section className="py-24 bg-[#080808]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Complete Feature Comparison
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Every capability across all plans. No hidden features.
+            </p>
+          </motion.div>
 
+          {/* Table */}
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[800px]">
-              {/* Table Header */}
+            <table className="w-full">
+              {/* Header */}
               <thead>
-                <tr className="border-b border-[rgba(255,255,255,0.08)]">
-                  <th className="text-left py-4 px-4 text-sm font-medium text-[#888888] w-1/3">
+                <tr className="border-b border-white/[0.08]">
+                  <th className="text-left py-4 px-4 text-gray-400 font-medium w-1/3">
                     Feature
                   </th>
-                  <th className="text-center py-4 px-4 text-sm font-medium text-[#888888]">
+                  <th className="text-center py-4 px-4 text-white font-medium w-1/6">
                     Starter
-                    <span className="block text-xs text-[#555] mt-1">
-                      ${isYearly ? 19 : 24}/mo
-                    </span>
                   </th>
-                  <th className="text-center py-4 px-4 text-sm font-medium text-[#3e8aff]">
+                  <th className="text-center py-4 px-4 text-white font-medium w-1/6 bg-[#3e8aff]/5">
                     Pro
-                    <span className="block text-xs text-[#3e8aff]/60 mt-1">
-                      ${isYearly ? 66 : 83}/mo
-                    </span>
                   </th>
-                  <th className="text-center py-4 px-4 text-sm font-medium text-[#888888]">
+                  <th className="text-center py-4 px-4 text-white font-medium w-1/6">
+                    Business
+                  </th>
+                  <th className="text-center py-4 px-4 text-white font-medium w-1/6">
                     Enterprise
-                    <span className="block text-xs text-[#555] mt-1">
-                      ${isYearly ? 299 : 374}/mo
-                    </span>
                   </th>
                 </tr>
               </thead>
 
-              {/* Table Body */}
               <tbody>
                 {featureCategories.map((category) => (
                   <>
                     {/* Category Header */}
-                    <tr key={category.name} className="bg-[rgba(255,255,255,0.02)]">
+                    <tr
+                      key={category.name}
+                      className="border-b border-white/[0.08] bg-[#0a0a0a] cursor-pointer hover:bg-[#0d0d0d]"
+                      onClick={() => toggleCategory(category.name)}
+                    >
                       <td
-                        colSpan={4}
-                        className="py-3 px-4 text-sm font-semibold text-white"
+                        colSpan={5}
+                        className="py-4 px-4"
                       >
-                        {category.name}
+                        <div className="flex items-center gap-2 font-semibold text-white">
+                          {expandedCategories.includes(category.name) ? (
+                            <ChevronUp className="w-4 h-4" />
+                          ) : (
+                            <ChevronDown className="w-4 h-4" />
+                          )}
+                          {category.name}
+                        </div>
                       </td>
                     </tr>
 
                     {/* Features */}
-                    {category.features.map((feature, i) => (
-                      <tr
-                        key={feature.name}
-                        className="border-b border-[rgba(255,255,255,0.05)] hover:bg-[rgba(255,255,255,0.02)] transition-colors"
-                      >
-                        <td className="py-3 px-4 text-sm text-[#888888]">
-                          {feature.name}
-                        </td>
-                        <td className="py-3 px-4 text-center">
-                          <FeatureValue value={feature.starter} />
-                        </td>
-                        <td className="py-3 px-4 text-center bg-[rgba(62,138,255,0.02)]">
-                          <FeatureValue value={feature.pro} highlight />
-                        </td>
-                        <td className="py-3 px-4 text-center">
-                          <FeatureValue value={feature.enterprise} />
-                        </td>
-                      </tr>
-                    ))}
+                    {expandedCategories.includes(category.name) &&
+                      category.features.map((feature) => (
+                        <tr
+                          key={feature.name}
+                          className="border-b border-white/[0.05] hover:bg-white/[0.02]"
+                        >
+                          <td className="py-3 px-4 text-sm text-gray-400">
+                            {feature.name}
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            {typeof feature.starter === "boolean" ? (
+                              feature.starter ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                              )
+                            ) : (
+                              <span className="text-sm text-gray-400">
+                                {feature.starter}
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-center bg-[#3e8aff]/5">
+                            {typeof feature.pro === "boolean" ? (
+                              feature.pro ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                              )
+                            ) : (
+                              <span className="text-sm text-gray-400">
+                                {feature.pro}
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            {typeof feature.business === "boolean" ? (
+                              feature.business ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                              )
+                            ) : (
+                              <span className="text-sm text-gray-400">
+                                {feature.business}
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-center">
+                            {typeof feature.enterprise === "boolean" ? (
+                              feature.enterprise ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                              )
+                            ) : (
+                              <span className="text-sm text-gray-400">
+                                {feature.enterprise}
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
                   </>
                 ))}
               </tbody>
@@ -352,23 +544,19 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(62, 138, 255, 0.05), transparent 60%)",
-          }}
-        />
-
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            badge="FAQ"
-            badgeIcon={<HelpCircle className="w-4 h-4 text-[#3e8aff]" />}
-            title="Common Questions"
-            highlight="Questions"
-          />
+      {/* FAQ */}
+      <section className="py-24">
+        <div className="max-w-3xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
 
           <div className="space-y-4">
             {faqs.map((faq, index) => (
@@ -377,220 +565,56 @@ export default function PricingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ delay: index * 0.1 }}
+                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
               >
-                <GlowCard>
-                  <h3 className="text-lg font-semibold text-white mb-2">
-                    {faq.question}
-                  </h3>
-                  <p className="text-sm text-[#888888]">{faq.answer}</p>
-                </GlowCard>
+                <h3 className="text-lg font-semibold text-white mb-2 flex items-start gap-2">
+                  <HelpCircle className="w-5 h-5 text-[#3e8aff] mt-0.5 flex-shrink-0" />
+                  {faq.question}
+                </h3>
+                <p className="text-gray-400 pl-7">{faq.answer}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 60% at 50% 100%, rgba(62, 138, 255, 0.15), transparent 70%)",
-          }}
-        />
+      {/* CTA */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
 
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to clean your data?
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Ready to Get Started?
             </h2>
-            <p className="text-lg text-[#888888] mb-8">
-              Start your 14-day free trial. 100 credits included.
+            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+              Start your free trial with 100 credits. No credit card required.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <MagneticButton href="/get-started" size="lg">
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="#"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
+              >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5" />
-              </MagneticButton>
-              <MagneticButton href="/contact" variant="secondary" size="lg">
-                Talk to Sales
-              </MagneticButton>
+              </Link>
+              <Link
+                href="#"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+              >
+                <Building className="w-5 h-5" />
+                Contact Sales
+              </Link>
             </div>
           </motion.div>
         </div>
       </section>
-    </main>
-  );
-}
-
-function PricingCard({
-  plan,
-  isYearly,
-}: {
-  plan: (typeof plans)[0];
-  isYearly: boolean;
-}) {
-  const price = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
-  const Icon = plan.icon;
-
-  return (
-    <div
-      className={`group relative h-full rounded-2xl border transition-all duration-500 ${
-        plan.highlight
-          ? "border-[rgba(62,138,255,0.4)] bg-gradient-to-b from-[rgba(62,138,255,0.08)] to-[rgba(10,10,10,0.8)]"
-          : "border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] hover:border-[rgba(255,255,255,0.15)]"
-      } backdrop-blur-xl p-6 lg:p-8 overflow-hidden`}
-    >
-      {plan.highlight && (
-        <>
-          <div className="absolute -inset-px rounded-2xl bg-gradient-to-b from-[#3e8aff] to-transparent opacity-20 blur-xl pointer-events-none" />
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-px bg-gradient-to-r from-transparent via-[#3e8aff] to-transparent" />
-        </>
-      )}
-
-      {plan.badge && (
-        <div className="absolute top-4 right-4">
-          <span className="text-xs font-medium px-3 py-1 rounded-full bg-gradient-to-r from-[#3e8aff] to-[#2563eb] text-white">
-            {plan.badge}
-          </span>
-        </div>
-      )}
-
-      <div className="relative z-10">
-        <div className="flex items-center gap-3 mb-4">
-          <div
-            className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-              plan.highlight
-                ? "bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5"
-                : "bg-[rgba(255,255,255,0.05)]"
-            }`}
-          >
-            <Icon
-              className={`w-5 h-5 ${plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}`}
-            />
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
-            <p className="text-xs text-[#888888]">{plan.description}</p>
-          </div>
-        </div>
-
-        <div className="mb-6">
-          <div className="flex items-baseline gap-1">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={price}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.2 }}
-                className="text-4xl lg:text-5xl font-bold text-white"
-              >
-                ${price}
-              </motion.span>
-            </AnimatePresence>
-            <span className="text-[#888888]">/mo</span>
-          </div>
-          <p className="text-sm text-[#888888] mt-1">
-            {plan.credits} credits/month
-          </p>
-        </div>
-
-        <MagneticButton
-          href="/get-started"
-          variant={plan.highlight ? "primary" : "secondary"}
-          size="md"
-          className="w-full justify-center mb-6"
-        >
-          {plan.cta}
-          <ArrowRight className="w-4 h-4" />
-        </MagneticButton>
-
-        <div className="space-y-4">
-          <div>
-            <p className="text-xs text-[#888888] uppercase tracking-wider mb-2">
-              Core Features
-            </p>
-            <ul className="space-y-2">
-              {plan.features.core.map((feature) => (
-                <li key={feature} className="flex items-center gap-2">
-                  <Check
-                    className={`w-4 h-4 ${plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}`}
-                  />
-                  <span className="text-sm text-[#888888]">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-xs text-[#888888] uppercase tracking-wider mb-2">
-              Limits & Extras
-            </p>
-            <ul className="space-y-2">
-              {plan.features.limits.map((feature) => (
-                <li key={feature} className="flex items-center gap-2">
-                  <Check
-                    className={`w-4 h-4 ${plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}`}
-                  />
-                  <span className="text-sm text-[#888888]">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function FeatureValue({
-  value,
-  highlight = false,
-}: {
-  value: boolean | string;
-  highlight?: boolean;
-}) {
-  if (typeof value === "string") {
-    return (
-      <span
-        className={`text-sm ${highlight ? "text-white font-medium" : "text-[#888888]"}`}
-      >
-        {value}
-      </span>
-    );
-  }
-
-  if (value) {
-    return (
-      <div className="flex justify-center">
-        <div
-          className={`w-6 h-6 rounded-full flex items-center justify-center ${
-            highlight
-              ? "bg-[rgba(62,138,255,0.1)] shadow-[0_0_10px_rgba(62,138,255,0.3)]"
-              : "bg-[rgba(255,255,255,0.05)]"
-          }`}
-        >
-          <Check
-            className={`w-3.5 h-3.5 ${highlight ? "text-[#3e8aff]" : "text-[#888888]"}`}
-          />
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex justify-center">
-      <div className="w-6 h-6 rounded-full bg-[rgba(239,68,68,0.1)] flex items-center justify-center">
-        <X className="w-3.5 h-3.5 text-[#ef4444]/50" />
-      </div>
-    </div>
+    </>
   );
 }

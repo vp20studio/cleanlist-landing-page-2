@@ -3,3 +3,7 @@ export { default as MagneticButton } from "./MagneticButton";
 export { default as SectionHeader } from "./SectionHeader";
 export { default as CodeBlock } from "./CodeBlock";
 export { default as ResultCard } from "./ResultCard";
+export { default as VerticalStepper } from "./VerticalStepper";
+export { default as TechnicalGrid } from "./TechnicalGrid";
+export { default as DashboardMockup } from "./DashboardMockup";
+export { default as DataSourcesGrid } from "./DataSourcesGrid";
