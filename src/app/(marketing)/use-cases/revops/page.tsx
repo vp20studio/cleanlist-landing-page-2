@@ -90,7 +90,7 @@ export default function RevOpsPage() {
       </section>
 
       {/* Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/10" : "border-black/[0.08]"} ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={4}
@@ -196,7 +196,7 @@ export default function RevOpsPage() {
       </section>
 
       {/* Playbook Builder Focus */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div
@@ -233,7 +233,7 @@ export default function RevOpsPage() {
                 ].map((playbook) => (
                   <div
                     key={playbook.title}
-                    className={`p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
+                    className={`p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
                   >
                     <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"} mb-1`}>{playbook.title}</h4>
                     <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>{playbook.description}</p>

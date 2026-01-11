@@ -124,7 +124,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={5}
@@ -256,7 +256,7 @@ export default function SalesNavScraperPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+              <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-6">
                   <Chrome className="w-5 h-5 text-[#0077b5]" />
                   <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Extension Preview</span>
@@ -293,7 +293,7 @@ export default function SalesNavScraperPage() {
                         <button className="flex-1 py-2 rounded bg-[#0077b5] text-white text-xs font-medium">
                           Export All + Enrich
                         </button>
-                        <button className={`px-3 py-2 rounded border ${isDark ? "border-white/10" : "border-black/[0.08]"} text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                        <button className={`px-3 py-2 rounded border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                           Select
                         </button>
                       </div>
@@ -335,7 +335,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Features Grid */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -474,13 +474,13 @@ export default function SalesNavScraperPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
+              className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>Sample Export (CSV)</div>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr className={`border-b ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                    <tr className={`border-b ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                       <th className="py-2 px-2 text-left text-gray-500">Name</th>
                       <th className="py-2 px-2 text-left text-gray-500">Email</th>
                       <th className="py-2 px-2 text-left text-gray-500">Phone</th>
@@ -512,7 +512,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Safety */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -546,7 +546,7 @@ export default function SalesNavScraperPage() {
                   description: "Conservative settings out of the box. Adjust based on your account age and health.",
                 },
               ].map((item) => (
-                <div key={item.title} className={`p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div key={item.title} className={`p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{item.title}</h4>
                   <p className="text-sm text-gray-500">{item.description}</p>
                 </div>

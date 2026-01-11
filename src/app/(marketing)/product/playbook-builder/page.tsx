@@ -129,7 +129,7 @@ export default function PlaybookBuilderPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={5}
@@ -201,10 +201,10 @@ export default function PlaybookBuilderPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} overflow-hidden`}
+            className={`rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} overflow-hidden`}
           >
             {/* Toolbar */}
-            <div className={`flex items-center justify-between px-4 py-3 border-b ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+            <div className={`flex items-center justify-between px-4 py-3 border-b ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
               <div className="flex items-center gap-4">
                 <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Lead Enrichment Pipeline</span>
                 <span className="px-2 py-0.5 rounded text-xs bg-green-500/10 text-green-500">
@@ -229,7 +229,7 @@ export default function PlaybookBuilderPage() {
               <div className="flex items-start gap-6">
                 {/* Step 1 */}
                 <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48`}>
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
                         <Upload className="w-4 h-4 text-[#3e8aff]" />
@@ -250,7 +250,7 @@ export default function PlaybookBuilderPage() {
 
                 {/* Step 2 */}
                 <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48`}>
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center">
                         <Copy className="w-4 h-4 text-yellow-500" />
@@ -292,7 +292,7 @@ export default function PlaybookBuilderPage() {
 
                 {/* Step 4 */}
                 <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48 opacity-50`}>
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48 opacity-50`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
                         <Mail className="w-4 h-4 text-green-500" />
@@ -313,7 +313,7 @@ export default function PlaybookBuilderPage() {
 
                 {/* Step 5 */}
                 <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48 opacity-50`}>
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48 opacity-50`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
                         <Download className="w-4 h-4 text-purple-500" />
@@ -333,7 +333,7 @@ export default function PlaybookBuilderPage() {
       </section>
 
       {/* Available Step Types */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -408,7 +408,7 @@ export default function PlaybookBuilderPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className={`p-4 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
+                className={`p-4 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
               >
                 <div
                   className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-medium mb-3 ${
@@ -510,7 +510,7 @@ export default function PlaybookBuilderPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`group p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors cursor-pointer`}
+                className={`group p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors cursor-pointer`}
               >
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2 group-hover:text-[#3e8aff] transition-colors`}>
                   {template.title}
@@ -527,7 +527,7 @@ export default function PlaybookBuilderPage() {
       </section>
 
       {/* Scheduling */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -568,7 +568,7 @@ export default function PlaybookBuilderPage() {
                 ].map((trigger) => (
                   <div
                     key={trigger.title}
-                    className={`flex items-start gap-3 p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
+                    className={`flex items-start gap-3 p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
                   >
                     <Check className="w-5 h-5 text-[#3e8aff] mt-0.5" />
                     <div>
@@ -584,7 +584,7 @@ export default function PlaybookBuilderPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
+              className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>Recent Runs</div>
               <div className="space-y-3">

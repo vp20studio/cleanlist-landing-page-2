@@ -106,7 +106,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Stats */}
-      <section className={`py-12 border-y transition-colors ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
@@ -166,7 +166,7 @@ export default function AboutUsPage() {
               ].map((item, i) => (
                 <div
                   key={item.label}
-                  className={`p-6 rounded-xl text-center ${isDark ? "bg-white/[0.04] border border-white/10" : "bg-white/70 border border-black/[0.08]"}`}
+                  className={`p-6 rounded-xl text-center ${isDark ? "bg-[#0a0a0a] border border-white/[0.08]" : "bg-white/70 border border-black/[0.08]"}`}
                 >
                   <div className="w-16 h-16 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mx-auto mb-3">
                     {item.icon}
@@ -180,7 +180,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Values */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -202,7 +202,7 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04] border border-white/10" : "bg-white/70 border border-black/[0.08]"}`}
+                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a] border border-white/[0.08]" : "bg-white/70 border border-black/[0.08]"}`}
               >
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                   {value.icon}
@@ -238,7 +238,7 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl text-center ${isDark ? "bg-white/[0.04] border border-white/10" : "bg-white/70 border border-black/[0.08]"}`}
+                className={`p-6 rounded-xl text-center ${isDark ? "bg-[#0a0a0a] border border-white/[0.08]" : "bg-white/70 border border-black/[0.08]"}`}
               >
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5 flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-[#3e8aff]">{member.image}</span>
@@ -252,7 +252,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Investors / Backed By */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

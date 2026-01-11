@@ -238,7 +238,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Stats */}
-      <section className={`py-12 border-y transition-colors ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -277,7 +277,7 @@ export default function CaseStudiesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className={`p-8 rounded-2xl border ${isDark ? "bg-gradient-to-br from-white/[0.03] to-white/[0.01] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
+                className={`p-8 rounded-2xl border ${isDark ? "bg-gradient-to-br from-white/[0.03] to-white/[0.01] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
               >
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">

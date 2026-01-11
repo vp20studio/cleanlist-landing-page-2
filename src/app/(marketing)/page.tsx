@@ -250,7 +250,7 @@ export default function HomePage() {
       </section>
 
       {/* Logo Bar */}
-      <section className={`py-6 md:py-8 border-y transition-colors ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-6 md:py-8 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <p className={`text-center text-xs md:text-sm mb-4 md:mb-6 ${isDark ? "text-gray-500" : "text-gray-600"}`}>Used by data-driven companies</p>
           <div className="flex items-center justify-center gap-6 md:gap-12 flex-wrap opacity-50">
@@ -343,7 +343,7 @@ export default function HomePage() {
                 transition={{ delay: index * 0.1 }}
                 className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-all ${
                   isDark
-                    ? "bg-white/[0.04] border-white/10 hover:border-[#3e8aff]/30"
+                    ? "bg-[#0a0a0a] border-white/[0.08] hover:border-[#3e8aff]/30"
                     : "bg-white/70 border-black/[0.08] hover:border-[#3e8aff]/50"
                 }`}
               >
@@ -378,7 +378,7 @@ export default function HomePage() {
       </section>
 
       {/* Data Transform Section */}
-      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -406,7 +406,7 @@ export default function HomePage() {
           >
             <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {/* Before */}
-              <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}>
+              <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Step 01: The Enrichment</span>
@@ -460,7 +460,7 @@ export default function HomePage() {
             </div>
 
             {/* Provider logos */}
-            <div className={`mt-6 md:mt-8 p-4 rounded-lg border transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}>
+            <div className={`mt-6 md:mt-8 p-4 rounded-lg border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
               <p className={`text-xs mb-3 text-center ${isDark ? "text-gray-500" : "text-gray-600"}`}>Powered by 10+ data providers</p>
               <div className="flex items-center justify-center gap-3 md:gap-4 flex-wrap">
                 {dataProviders.map((provider) => (
@@ -523,7 +523,7 @@ export default function HomePage() {
           >
             {activeTab === 0 && (
               <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}>
+                <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
                   <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Enrichment</h3>
                   <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     Query 10+ data providers simultaneously and get the best match for each field.
@@ -556,7 +556,7 @@ export default function HomePage() {
 
             {activeTab === 1 && (
               <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}>
+                <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
                   <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Enriched Fields</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {[
@@ -589,7 +589,7 @@ export default function HomePage() {
 
             {activeTab === 2 && (
               <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                <div className={`p-5 md:p-6 rounded-xl border overflow-hidden transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}>
+                <div className={`p-5 md:p-6 rounded-xl border overflow-hidden transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
                   <div className="flex items-center gap-2 mb-4">
                     <Code className="w-5 h-5 text-[#3e8aff]" />
                     <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>API Example</span>
@@ -623,7 +623,7 @@ export default function HomePage() {
       </section>
 
       {/* Where Cleanlist Sits - Comparison Section */}
-      <section id="compare" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section id="compare" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -653,9 +653,9 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="max-w-5xl mx-auto overflow-x-auto"
           >
-            <div className={`rounded-2xl border overflow-hidden min-w-[640px] ${isDark ? "bg-gradient-to-b from-white/[0.02] to-white/[0.05] border-white/10" : "bg-white/70 border-black/[0.08]"}`}>
+            <div className={`rounded-2xl border overflow-hidden min-w-[640px] ${isDark ? "bg-gradient-to-b from-white/[0.02] to-white/[0.05] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
               {/* Header */}
-              <div className={`grid grid-cols-5 gap-4 p-4 md:p-6 border-b ${isDark ? "border-white/10 bg-white/[0.02]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+              <div className={`grid grid-cols-5 gap-4 p-4 md:p-6 border-b ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
                 <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>Features</div>
                 <div className="text-center">
                   <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Workflow Builders</div>
@@ -694,7 +694,7 @@ export default function HomePage() {
               ))}
 
               {/* Legend */}
-              <div className={`flex items-center justify-center gap-4 md:gap-8 p-4 border-t flex-wrap ${isDark ? "bg-white/[0.02] border-white/10" : "bg-[#F8F9FA] border-black/[0.08]"}`}>
+              <div className={`flex items-center justify-center gap-4 md:gap-8 p-4 border-t flex-wrap ${isDark ? "bg-white/[0.02] border-white/[0.08]" : "bg-[#F8F9FA] border-black/[0.08]"}`}>
                 <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   <Check className="w-4 h-4 text-green-500" />
                   Full support
@@ -751,7 +751,7 @@ export default function HomePage() {
                 transition={{ delay: 0.1 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Sa
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Salesforce</span>
@@ -763,7 +763,7 @@ export default function HomePage() {
                 transition={{ delay: 0.15 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Hu
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>HubSpot</span>
@@ -775,7 +775,7 @@ export default function HomePage() {
                 transition={{ delay: 0.2 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Ou
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Outreach</span>
@@ -787,7 +787,7 @@ export default function HomePage() {
                 transition={{ delay: 0.25 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Ap
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Apollo</span>
@@ -799,7 +799,7 @@ export default function HomePage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Ma
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Marketo</span>
@@ -811,7 +811,7 @@ export default function HomePage() {
                 transition={{ delay: 0.35 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Mc
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Mailchimp</span>
@@ -823,7 +823,7 @@ export default function HomePage() {
                 transition={{ delay: 0.4 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Sn
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Snowflake</span>
@@ -835,7 +835,7 @@ export default function HomePage() {
                 transition={{ delay: 0.45 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Za
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Zapier</span>
@@ -847,7 +847,7 @@ export default function HomePage() {
                 transition={{ delay: 0.5 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Sl
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Slack</span>
@@ -863,7 +863,7 @@ export default function HomePage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Pi
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Pipedrive</span>
@@ -875,7 +875,7 @@ export default function HomePage() {
                 transition={{ delay: 0.35 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Kl
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Klaviyo</span>
@@ -909,7 +909,7 @@ export default function HomePage() {
                 transition={{ delay: 0.35 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Bi
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>BigQuery</span>
@@ -921,7 +921,7 @@ export default function HomePage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Se
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Segment</span>
@@ -937,7 +937,7 @@ export default function HomePage() {
                 transition={{ delay: 0.5 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Br
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Braze</span>
@@ -949,7 +949,7 @@ export default function HomePage() {
                 transition={{ delay: 0.55 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Pa
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Pardot</span>
@@ -961,7 +961,7 @@ export default function HomePage() {
                 transition={{ delay: 0.6 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   In
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Intercom</span>
@@ -973,7 +973,7 @@ export default function HomePage() {
                 transition={{ delay: 0.65 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Zo
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Zoho</span>
@@ -985,7 +985,7 @@ export default function HomePage() {
                 transition={{ delay: 0.7 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Rc
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Recruitcrm</span>
@@ -997,7 +997,7 @@ export default function HomePage() {
                 transition={{ delay: 0.75 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Lu
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Lusha</span>
@@ -1009,7 +1009,7 @@ export default function HomePage() {
                 transition={{ delay: 0.8 }}
                 className="flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Rr
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>RocketReach</span>
@@ -1021,7 +1021,7 @@ export default function HomePage() {
                 transition={{ delay: 0.85 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   Sf
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Seamless</span>
@@ -1033,7 +1033,7 @@ export default function HomePage() {
                 transition={{ delay: 0.9 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   +5
                 </div>
                 <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>More</span>
@@ -1073,7 +1073,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className={`text-center p-4 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
+                className={`text-center p-4 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
               >
                 <div className="text-xl md:text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
                 <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
@@ -1088,7 +1088,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <div className={`p-5 md:p-6 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}>
+            <div className={`p-5 md:p-6 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
               <div className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 <Zap className="w-5 h-5 text-[#3e8aff]" />
                 <span><span className="text-[#3e8aff] font-medium">REST API</span> and <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for custom integrations</span>
@@ -1102,7 +1102,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section with Tier Toggles */}
-      <section id="pricing" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section id="pricing" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1161,7 +1161,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
@@ -1194,7 +1194,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
@@ -1315,7 +1315,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>

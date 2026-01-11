@@ -76,10 +76,10 @@ export default function StickySubNav() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className={`fixed top-16 left-0 right-0 z-40 backdrop-blur-xl border-b ${
+          className={`fixed top-16 left-0 right-0 z-40 border-b ${
             theme === "dark"
-              ? "bg-[#1E1E1E]/90 border-white/10"
-              : "bg-white/90 border-black/[0.08]"
+              ? "bg-[#030303] border-white/[0.08]"
+              : "bg-white/90 backdrop-blur-xl border-black/[0.08]"
           }`}
         >
           <div className="max-w-7xl mx-auto px-4 md:px-6">

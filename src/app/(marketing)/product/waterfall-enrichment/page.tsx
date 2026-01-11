@@ -136,7 +136,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={6}
@@ -275,7 +275,7 @@ export default function WaterfallEnrichmentPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border`}>
+              <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border`}>
                 <div className={`text-sm font-medium mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   Waterfall Cascade Visualization
                 </div>
@@ -368,7 +368,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Enrichment Types */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -395,7 +395,7 @@ export default function WaterfallEnrichmentPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className={`p-8 rounded-xl ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border`}
+              className={`p-8 rounded-xl ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border`}
             >
               <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-6">
                 <Mail className="w-7 h-7" />
@@ -573,7 +573,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* API Example */}
-      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -620,9 +620,9 @@ export default function WaterfallEnrichmentPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`rounded-xl overflow-hidden ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border`}
+              className={`rounded-xl overflow-hidden ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border`}
             >
-              <div className={`flex items-center gap-2 px-4 py-3 border-b ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+              <div className={`flex items-center gap-2 px-4 py-3 border-b ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
                 <div className="flex items-center gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -719,7 +719,7 @@ export default function WaterfallEnrichmentPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border hover:border-[#3e8aff]/30`}
+                className={`p-6 rounded-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border hover:border-[#3e8aff]/30`}
               >
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                   {useCase.icon}
