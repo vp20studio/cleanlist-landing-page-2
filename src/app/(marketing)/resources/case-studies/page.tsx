@@ -6,23 +6,142 @@ import {
   ArrowRight,
   BookOpen,
   TrendingUp,
-  Users,
   Clock,
   Building,
   Quote,
+  Users,
+  Phone,
+  MessageSquare,
+  DollarSign,
+  Calendar,
+  Zap,
+  Target,
 } from "lucide-react";
 
 const caseStudies = [
   {
+    company: "Float",
+    logo: "F",
+    tag: "Full GTM Transformation",
+    tagColor: "#22c55e",
+    description: "Complete revenue operations overhaul across the entire team",
+    results: [
+      {
+        icon: <Users className="w-4 h-4" />,
+        before: "1x",
+        after: "2x",
+        label: "Qualified meetings/BDR",
+        change: "2x",
+        changeColor: "text-green-500"
+      },
+      {
+        icon: <TrendingUp className="w-4 h-4" />,
+        before: "1x",
+        after: "2x",
+        label: "Pipeline per rep",
+        change: "2x",
+        changeColor: "text-green-500"
+      },
+      {
+        icon: <Clock className="w-4 h-4" />,
+        before: "0",
+        after: "40hrs",
+        label: "Weekly time saved",
+        change: "→",
+        changeColor: "text-green-500"
+      },
+      {
+        icon: <Zap className="w-4 h-4" />,
+        before: "Manual",
+        after: "Automated",
+        label: "GTM workflows",
+        change: "✓",
+        changeColor: "text-green-500"
+      },
+    ],
+    color: "#22c55e",
+  },
+  {
+    company: "Proposify",
+    logo: "P",
+    tag: "Week 1 Pilot Results",
+    tagColor: "#3b82f6",
+    description: "CRM Auto-Enrich Playbook: From cold start to closed revenue in 7 days",
+    results: [
+      {
+        icon: <Phone className="w-4 h-4" />,
+        before: "30%",
+        after: "85%",
+        label: "Phone retrieval",
+        change: "+183%",
+        changeColor: "text-blue-500"
+      },
+      {
+        icon: <MessageSquare className="w-4 h-4" />,
+        before: "6%",
+        after: "20%",
+        label: "Connect rate",
+        change: "+233%",
+        changeColor: "text-blue-500"
+      },
+      {
+        icon: <Calendar className="w-4 h-4" />,
+        before: "0",
+        after: "6",
+        label: "Meetings booked",
+        change: "→",
+        changeColor: "text-blue-500"
+      },
+      {
+        icon: <DollarSign className="w-4 h-4" />,
+        before: "$0",
+        after: "1 closed",
+        label: "Closed won",
+        change: "🎉",
+        changeColor: "text-blue-500"
+      },
+    ],
+    color: "#3b82f6",
+  },
+  {
     company: "TechScale Inc.",
     logo: "T",
-    industry: "B2B SaaS",
-    challenge: "High bounce rates from purchased lead lists",
-    solution: "Waterfall Enrichment + Email Verification",
+    tag: "Email Deliverability",
+    tagColor: "#3e8aff",
+    description: "High bounce rates from purchased lead lists transformed into high-converting outbound",
     results: [
-      { metric: "Bounce Rate", before: "15%", after: "0.8%", improvement: "-95%" },
-      { metric: "Response Rate", before: "2%", after: "8%", improvement: "+300%" },
-      { metric: "Pipeline Generated", before: "$120K", after: "$480K", improvement: "+300%" },
+      {
+        icon: <Target className="w-4 h-4" />,
+        before: "15%",
+        after: "0.8%",
+        label: "Bounce Rate",
+        change: "-95%",
+        changeColor: "text-[#3e8aff]"
+      },
+      {
+        icon: <MessageSquare className="w-4 h-4" />,
+        before: "2%",
+        after: "8%",
+        label: "Response Rate",
+        change: "+300%",
+        changeColor: "text-[#3e8aff]"
+      },
+      {
+        icon: <TrendingUp className="w-4 h-4" />,
+        before: "$120K",
+        after: "$480K",
+        label: "Pipeline Generated",
+        change: "+300%",
+        changeColor: "text-[#3e8aff]"
+      },
+      {
+        icon: <Clock className="w-4 h-4" />,
+        before: "4hrs",
+        after: "30min",
+        label: "List prep time",
+        change: "-87%",
+        changeColor: "text-[#3e8aff]"
+      },
     ],
     quote: "Cleanlist completely transformed our outbound program. We went from dreading email campaigns to looking forward to them.",
     author: "Sarah Chen",
@@ -32,34 +151,47 @@ const caseStudies = [
   {
     company: "GrowthOps Agency",
     logo: "G",
-    industry: "Marketing Agency",
-    challenge: "Manual data cleaning for each client project",
-    solution: "Playbook Builder + Smart Columns",
+    tag: "Agency Scale",
+    tagColor: "#22c55e",
+    description: "Manual data cleaning for each client project automated with Playbook Builder",
     results: [
-      { metric: "Time Saved", before: "40hrs/week", after: "5hrs/week", improvement: "-87%" },
-      { metric: "Client Capacity", before: "8 clients", after: "22 clients", improvement: "+175%" },
-      { metric: "Profit Margin", before: "18%", after: "42%", improvement: "+133%" },
+      {
+        icon: <Clock className="w-4 h-4" />,
+        before: "40hrs/week",
+        after: "5hrs/week",
+        label: "Time Saved",
+        change: "-87%",
+        changeColor: "text-green-500"
+      },
+      {
+        icon: <Users className="w-4 h-4" />,
+        before: "8 clients",
+        after: "22 clients",
+        label: "Client Capacity",
+        change: "+175%",
+        changeColor: "text-green-500"
+      },
+      {
+        icon: <TrendingUp className="w-4 h-4" />,
+        before: "18%",
+        after: "42%",
+        label: "Profit Margin",
+        change: "+133%",
+        changeColor: "text-green-500"
+      },
+      {
+        icon: <Zap className="w-4 h-4" />,
+        before: "Manual",
+        after: "Automated",
+        label: "Data cleaning",
+        change: "✓",
+        changeColor: "text-green-500"
+      },
     ],
     quote: "We turned data cleaning from a cost center into a profit center. Our clients love the quality, and we love the margins.",
     author: "Mike Johnson",
     role: "Founder & CEO",
     color: "#22c55e",
-  },
-  {
-    company: "RevOps Central",
-    logo: "R",
-    industry: "RevOps Consulting",
-    challenge: "Clients had 30%+ duplicate records in CRM",
-    solution: "Automated Deduplication + CRM Sync",
-    results: [
-      { metric: "Duplicate Rate", before: "32%", after: "2%", improvement: "-94%" },
-      { metric: "Data Accuracy", before: "65%", after: "98%", improvement: "+51%" },
-      { metric: "Rep Productivity", before: "4hrs/day", after: "6hrs/day", improvement: "+50%" },
-    ],
-    quote: "Our clients used to think clean data was impossible. Now they can't imagine going back to the old way.",
-    author: "Lisa Park",
-    role: "Principal Consultant",
-    color: "#a855f7",
   },
 ];
 
@@ -120,106 +252,107 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* Case Studies */}
+      {/* Featured Case Studies - Card Style */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="space-y-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">Featured Success Stories</h2>
+            <p className="text-gray-400">Real metrics from real customers</p>
+          </motion.div>
+
+          <div className="space-y-8">
             {caseStudies.map((study, index) => (
               <motion.div
                 key={study.company}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="grid lg:grid-cols-2 gap-12 items-start"
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="p-8 rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.08]"
               >
-                {/* Content */}
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="flex items-center gap-4 mb-6">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-4">
                     <div
-                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-bold text-white"
-                      style={{ backgroundColor: `${study.color}20` }}
+                      className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-bold"
+                      style={{ backgroundColor: `${study.color}15`, color: study.color }}
                     >
-                      <span style={{ color: study.color }}>{study.logo}</span>
+                      {study.logo}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-white">{study.company}</h3>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <Building className="w-4 h-4" />
-                        {study.industry}
+                      <div className="flex items-center gap-3">
+                        <h3 className="text-xl font-semibold text-white">{study.company}</h3>
+                        <span
+                          className="px-2.5 py-1 rounded-full text-xs font-medium"
+                          style={{ backgroundColor: `${study.tagColor}20`, color: study.tagColor }}
+                        >
+                          {study.tag}
+                        </span>
                       </div>
+                      <p className="text-sm text-gray-500 mt-1">{study.description}</p>
                     </div>
                   </div>
+                  <Link
+                    href="#"
+                    className="hidden md:inline-flex items-center gap-2 text-sm font-medium hover:underline"
+                    style={{ color: study.color }}
+                  >
+                    Read full case study <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
 
-                  <div className="mb-6">
-                    <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
-                      The Challenge
-                    </h4>
-                    <p className="text-gray-300">{study.challenge}</p>
-                  </div>
+                {/* Results Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {study.results.map((result) => (
+                    <div
+                      key={result.label}
+                      className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]"
+                    >
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-gray-500">{result.icon}</span>
+                        <span className="text-gray-500 text-sm line-through">{result.before}</span>
+                        <span className="text-gray-400">→</span>
+                        <span className="text-white font-bold text-lg">{result.after}</span>
+                      </div>
+                      <div className="text-sm text-gray-400">{result.label}</div>
+                      <div className={`text-sm font-medium mt-1 ${result.changeColor}`}>
+                        {result.change}
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
-                  <div className="mb-6">
-                    <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-2">
-                      The Solution
-                    </h4>
-                    <p className="text-gray-300">{study.solution}</p>
-                  </div>
-
-                  {/* Quote */}
+                {/* Quote (if exists) */}
+                {study.quote && (
                   <div
-                    className="p-6 rounded-xl border-l-4"
+                    className="mt-6 p-6 rounded-xl border-l-4"
                     style={{
                       backgroundColor: `${study.color}08`,
                       borderColor: study.color,
                     }}
                   >
-                    <Quote className="w-8 h-8 mb-4" style={{ color: study.color }} />
-                    <p className="text-gray-300 italic mb-4">&ldquo;{study.quote}&rdquo;</p>
+                    <Quote className="w-6 h-6 mb-3" style={{ color: study.color }} />
+                    <p className="text-gray-300 italic mb-3">&ldquo;{study.quote}&rdquo;</p>
                     <div>
                       <div className="font-medium text-white">{study.author}</div>
                       <div className="text-sm text-gray-500">{study.role}</div>
                     </div>
                   </div>
-                </div>
+                )}
 
-                {/* Results */}
-                <div
-                  className={`p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] ${
-                    index % 2 === 1 ? "lg:order-1" : ""
-                  }`}
+                {/* Mobile CTA */}
+                <Link
+                  href="#"
+                  className="md:hidden inline-flex items-center gap-2 mt-6 text-sm font-medium hover:underline"
+                  style={{ color: study.color }}
                 >
-                  <h4 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-                    <TrendingUp className="w-5 h-5" style={{ color: study.color }} />
-                    Results
-                  </h4>
-
-                  <div className="space-y-6">
-                    {study.results.map((result) => (
-                      <div key={result.metric}>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className="text-sm text-gray-400">{result.metric}</span>
-                          <span
-                            className="text-sm font-medium"
-                            style={{ color: study.color }}
-                          >
-                            {result.improvement}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-4">
-                          <div className="flex-1">
-                            <div className="text-xs text-gray-500 mb-1">Before</div>
-                            <div className="text-lg text-gray-400">{result.before}</div>
-                          </div>
-                          <ArrowRight className="w-5 h-5 text-gray-600" />
-                          <div className="flex-1 text-right">
-                            <div className="text-xs text-gray-500 mb-1">After</div>
-                            <div className="text-lg text-white font-medium">{result.after}</div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                  Read full case study <ArrowRight className="w-4 h-4" />
+                </Link>
               </motion.div>
             ))}
           </div>

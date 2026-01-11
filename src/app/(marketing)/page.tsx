@@ -14,6 +14,7 @@ import {
   Sparkles,
   Check,
   X,
+  Minus,
   TrendingUp,
   Target,
   Megaphone,
@@ -24,6 +25,7 @@ import {
   Clock,
   DollarSign,
   Building,
+  Crown,
 } from "lucide-react";
 import { DashboardMockup } from "@/components/ui";
 import StickySubNav from "@/components/StickySubNav";
@@ -34,17 +36,112 @@ const dataProviders = [
   "Dropcontact", "Apollo", "Lusha", "RocketReach", "Seamless.ai"
 ];
 
-// CRM integrations
-const crmIntegrations = [
-  { name: "HubSpot", logo: "H" },
-  { name: "Salesforce", logo: "S" },
-  { name: "Pipedrive", logo: "P" },
-  { name: "Zoho", logo: "Z" },
-  { name: "Recruitcrm", logo: "R" },
+// All integrations for the hub visual
+const allIntegrations = [
+  { name: "Salesforce", abbr: "Sa", category: "crm", color: "#3b82f6" },
+  { name: "HubSpot", abbr: "Hu", category: "crm", color: "#3b82f6" },
+  { name: "Pipedrive", abbr: "Pi", category: "crm", color: "#3b82f6" },
+  { name: "Outreach", abbr: "Ou", category: "sales", color: "#22c55e" },
+  { name: "Apollo", abbr: "Ap", category: "prospecting", color: "#f59e0b" },
+  { name: "Marketo", abbr: "Ma", category: "marketing", color: "#14b8a6" },
+  { name: "Mailchimp", abbr: "Ma", category: "marketing", color: "#14b8a6" },
+  { name: "Klaviyo", abbr: "Kl", category: "marketing", color: "#14b8a6" },
+  { name: "Braze", abbr: "Br", category: "marketing", color: "#14b8a6" },
+  { name: "Pardot", abbr: "Pa", category: "marketing", color: "#14b8a6" },
+  { name: "Snowflake", abbr: "Sn", category: "cdp", color: "#8b5cf6" },
+  { name: "BigQuery", abbr: "Bi", category: "cdp", color: "#8b5cf6" },
+  { name: "Segment", abbr: "Se", category: "cdp", color: "#8b5cf6" },
+  { name: "Zapier", abbr: "Za", category: "automation", color: "#ec4899" },
+  { name: "Slack", abbr: "Sl", category: "automation", color: "#ec4899" },
+  { name: "Intercom", abbr: "In", category: "automation", color: "#ec4899" },
+];
+
+const integrationCategories = [
+  { id: "crm", label: "CRM", color: "#3b82f6" },
+  { id: "sales", label: "Sales", color: "#22c55e" },
+  { id: "marketing", label: "Marketing", color: "#14b8a6" },
+  { id: "prospecting", label: "Prospecting", color: "#f59e0b" },
+  { id: "automation", label: "Automation", color: "#ec4899" },
+  { id: "cdp", label: "CDP", color: "#8b5cf6" },
+];
+
+// Pricing data
+const pricingTiers = {
+  free: {
+    name: "Free",
+    price: "$0",
+    period: "/month",
+    credits: "30 credits",
+    description: "30 emails or 3 phones",
+    features: ["API Access", "CSV Export", "Email Support"],
+  },
+  starter: [
+    { tier: "I", price: "$29", credits: "500", email: "500", phone: "50" },
+    { tier: "II", price: "$54", credits: "1,000", email: "1,000", phone: "100" },
+    { tier: "III", price: "$79", credits: "1,500", email: "1,500", phone: "150" },
+  ],
+  pro: [
+    { tier: "I", price: "$99", credits: "2,000", email: "2,000", phone: "200" },
+    { tier: "II", price: "$169", credits: "3,500", email: "3,500", phone: "350" },
+    { tier: "III", price: "$229", credits: "5,000", email: "5,000", phone: "500" },
+  ],
+  enterprise: [
+    { tier: "I", price: "$449", credits: "10,000", email: "10,000", phone: "1,000" },
+    { tier: "II", price: "$799", credits: "20,000", email: "20,000", phone: "2,000" },
+    { tier: "III", price: "$1,899", credits: "50,000", email: "50,000", phone: "5,000" },
+  ],
+};
+
+// Comparison data for "Where Cleanlist sits"
+const comparisonFeatures = [
+  {
+    feature: "Pre-built playbooks",
+    workflow: false,
+    crm: false,
+    signal: false,
+    cleanlist: true,
+  },
+  {
+    feature: "Multi-provider enrichment",
+    workflow: true,
+    crm: "partial",
+    signal: false,
+    cleanlist: true,
+  },
+  {
+    feature: "Works on any stack",
+    workflow: true,
+    crm: "partial",
+    signal: false,
+    cleanlist: true,
+  },
+  {
+    feature: "No GTM engineer required",
+    workflow: false,
+    crm: true,
+    signal: true,
+    cleanlist: true,
+  },
+  {
+    feature: "Orchestration + actions",
+    workflow: true,
+    crm: false,
+    signal: "partial",
+    cleanlist: true,
+  },
 ];
 
 export default function HomePage() {
   const [activeTab, setActiveTab] = useState(0);
+  const [starterTier, setStarterTier] = useState(0);
+  const [proTier, setProTier] = useState(0);
+  const [enterpriseTier, setEnterpriseTier] = useState(0);
+
+  const renderSupportIcon = (value: boolean | string) => {
+    if (value === true) return <Check className="w-5 h-5 text-green-500" />;
+    if (value === false) return <X className="w-5 h-5 text-red-400" />;
+    return <Minus className="w-5 h-5 text-gray-400" />;
+  };
 
   return (
     <>
@@ -509,7 +606,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Compare Section */}
+      {/* Where Cleanlist Sits - Comparison Section */}
       <section id="compare" className="py-24 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -518,14 +615,18 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6">
+              COMPARISON
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Cleanlist vs.{" "}
+              Where Cleanlist{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                The Old Way
+                sits
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              See why teams switch to Cleanlist for their data enrichment needs.
+              Cleanlist gives you the playbooks Clay requires you to build and the orchestration
+              Apollo doesn&apos;t have.
             </p>
           </motion.div>
 
@@ -534,71 +635,78 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            <div className="grid grid-cols-3 gap-4 mb-4">
-              <div />
-              <div className="text-center p-4 rounded-t-xl bg-white/[0.03]">
-                <span className="text-sm text-gray-500">Traditional Way</span>
-              </div>
-              <div className="text-center p-4 rounded-t-xl bg-[#3e8aff]/10 border-t border-x border-[#3e8aff]/30">
-                <span className="text-sm font-medium text-[#3e8aff]">Cleanlist</span>
-              </div>
-            </div>
-
-            {[
-              { feature: "Verification Speed", old: "4 hours", new: "Real-time", icon: <Clock className="w-5 h-5" /> },
-              { feature: "# of Sources", old: "1-2 sources", new: "10+ sources", icon: <Database className="w-5 h-5" /> },
-              { feature: "Accuracy", old: "~60%", new: "95%+", icon: <Target className="w-5 h-5" /> },
-              { feature: "Price per Lead", old: "$0.15/lead", new: "From $0.01", icon: <DollarSign className="w-5 h-5" /> },
-              { feature: "CRM Integration", old: "Manual export", new: "Auto-sync", icon: <RefreshCw className="w-5 h-5" /> },
-              { feature: "Email Validation", old: "Separate tool", new: "Built-in", icon: <Mail className="w-5 h-5" /> },
-            ].map((row) => (
-              <div key={row.feature} className="grid grid-cols-3 gap-4 mb-2">
-                <div className="flex items-center gap-3 p-4 rounded-lg bg-[#0a0a0a]">
-                  <div className="text-gray-500">{row.icon}</div>
-                  <span className="text-sm text-gray-300">{row.feature}</span>
+            <div className="rounded-2xl bg-gradient-to-b from-white/[0.02] to-white/[0.05] border border-white/[0.08] overflow-hidden">
+              {/* Header */}
+              <div className="grid grid-cols-5 gap-4 p-6 border-b border-white/[0.08] bg-white/[0.02]">
+                <div className="text-sm text-gray-400">Features</div>
+                <div className="text-center">
+                  <div className="text-sm font-medium text-gray-300">Workflow Builders</div>
+                  <div className="text-xs text-gray-500">Clay, etc.</div>
                 </div>
-                <div className="flex items-center justify-center p-4 bg-white/[0.03]">
-                  <div className="flex items-center gap-2">
-                    <X className="w-4 h-4 text-red-500" />
-                    <span className="text-sm text-gray-400">{row.old}</span>
-                  </div>
+                <div className="text-center">
+                  <div className="text-sm font-medium text-gray-300">CRM Enrichment</div>
+                  <div className="text-xs text-gray-500">Apollo, ZoomInfo</div>
                 </div>
-                <div className="flex items-center justify-center p-4 bg-[#3e8aff]/10 border-x border-[#3e8aff]/30">
-                  <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-500" />
-                    <span className="text-sm text-white font-medium">{row.new}</span>
+                <div className="text-center">
+                  <div className="text-sm font-medium text-gray-300">Signal Platforms</div>
+                  <div className="text-xs text-gray-500">6sense, etc.</div>
+                </div>
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/30">
+                    <Crown className="w-3 h-3 text-yellow-500" />
+                    <span className="text-sm font-medium text-white">Cleanlist</span>
                   </div>
                 </div>
               </div>
-            ))}
 
-            <div className="grid grid-cols-3 gap-4">
-              <div />
-              <div className="p-4 rounded-b-xl bg-white/[0.03]" />
-              <div className="p-4 rounded-b-xl bg-[#3e8aff]/10 border-b border-x border-[#3e8aff]/30 text-center">
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-[#3e8aff] hover:underline"
+              {/* Rows */}
+              {comparisonFeatures.map((row, index) => (
+                <div
+                  key={row.feature}
+                  className={`grid grid-cols-5 gap-4 p-6 ${
+                    index !== comparisonFeatures.length - 1 ? "border-b border-white/[0.05]" : ""
+                  }`}
                 >
-                  Start Free Trial <ArrowRight className="w-4 h-4" />
-                </Link>
+                  <div className="text-sm text-gray-300 font-medium">{row.feature}</div>
+                  <div className="flex justify-center">{renderSupportIcon(row.workflow)}</div>
+                  <div className="flex justify-center">{renderSupportIcon(row.crm)}</div>
+                  <div className="flex justify-center">{renderSupportIcon(row.signal)}</div>
+                  <div className="flex justify-center">{renderSupportIcon(row.cleanlist)}</div>
+                </div>
+              ))}
+
+              {/* Legend */}
+              <div className="flex items-center justify-center gap-8 p-4 bg-white/[0.02] border-t border-white/[0.08]">
+                <div className="flex items-center gap-2 text-xs text-gray-400">
+                  <Check className="w-4 h-4 text-green-500" />
+                  Full support
+                </div>
+                <div className="flex items-center gap-2 text-xs text-gray-400">
+                  <Minus className="w-4 h-4 text-gray-400" />
+                  Partial support
+                </div>
+                <div className="flex items-center gap-2 text-xs text-gray-400">
+                  <X className="w-4 h-4 text-red-400" />
+                  Not supported
+                </div>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Integrations Section */}
+      {/* Integrations Section - Hub & Spoke Visual */}
       <section id="integrations" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8"
           >
+            <div className="text-sm font-medium text-[#3e8aff] tracking-wider mb-4">ECOSYSTEM</div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Lives in your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
@@ -606,53 +714,146 @@ export default function HomePage() {
               </span>
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Seamless integration with your CRM, sales tools, and workflows.
+              Cleanlist connects natively to 15+ tools you already use. No data silos, no manual exports—just
+              seamless, real-time data flow.
             </p>
           </motion.div>
 
-          {/* CRM Logos */}
+          {/* Hub & Spoke Visualization */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative max-w-4xl mx-auto h-[500px] mb-12"
+          >
+            {/* Center Hub - Cleanlist */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex flex-col items-center justify-center shadow-lg shadow-[#3e8aff]/30">
+                <Check className="w-8 h-8 text-white mb-1" />
+                <span className="text-sm font-semibold text-white">Cleanlist</span>
+              </div>
+            </div>
+
+            {/* Connection lines (SVG) */}
+            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+              {allIntegrations.map((integration, i) => {
+                const angle = (i * 360) / allIntegrations.length - 90;
+                const radius = 180;
+                const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
+                const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
+                return (
+                  <line
+                    key={integration.name}
+                    x1="50%"
+                    y1="50%"
+                    x2={`${x}%`}
+                    y2={`${y}%`}
+                    stroke="rgba(255,255,255,0.1)"
+                    strokeWidth="1"
+                  />
+                );
+              })}
+            </svg>
+
+            {/* Integration nodes */}
+            {allIntegrations.map((integration, i) => {
+              const angle = (i * 360) / allIntegrations.length - 90;
+              const radius = 180;
+              const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
+              const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
+              return (
+                <motion.div
+                  key={integration.name}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  className="absolute flex flex-col items-center"
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1]"
+                    style={{
+                      backgroundColor: `${integration.color}15`,
+                      color: integration.color,
+                    }}
+                  >
+                    {integration.abbr}
+                  </div>
+                  <span className="text-xs text-gray-400 mt-1">{integration.name}</span>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* Category Legend */}
+          <div className="flex items-center justify-center gap-6 flex-wrap mb-16">
+            {integrationCategories.map((cat) => (
+              <div key={cat.id} className="flex items-center gap-2">
+                <div
+                  className="w-2.5 h-2.5 rounded-full"
+                  style={{ backgroundColor: cat.color }}
+                />
+                <span className="text-sm text-gray-400">{cat.label}</span>
+              </div>
+            ))}
+            <span className="text-sm text-gray-500">+ more</span>
+          </div>
+
+          {/* Native Integrations Grid */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-4xl mx-auto"
+            className="max-w-5xl mx-auto"
           >
-            <div className="p-8 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
-              <p className="text-sm text-gray-500 text-center mb-8">Native Integrations</p>
-              <div className="flex items-center justify-center gap-8 flex-wrap mb-8">
-                {crmIntegrations.map((crm) => (
-                  <div key={crm.name} className="flex flex-col items-center gap-2">
-                    <div className="w-16 h-16 rounded-xl bg-white/[0.05] flex items-center justify-center text-2xl font-bold text-gray-400">
-                      {crm.logo}
+            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.08]">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-white">Native Integrations</h3>
+                  <p className="text-sm text-gray-500">One-click setup. No engineering required.</p>
+                </div>
+                <Link href="/resources/integrations" className="text-sm text-[#3e8aff] hover:underline">
+                  Can&apos;t find yours? Request integration
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-4 md:grid-cols-8 gap-4 mb-8">
+                {allIntegrations.slice(0, 16).map((integration) => (
+                  <div key={integration.name} className="flex flex-col items-center">
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.08] mb-2"
+                      style={{
+                        backgroundColor: `${integration.color}10`,
+                        color: integration.color,
+                      }}
+                    >
+                      {integration.abbr}
                     </div>
-                    <span className="text-sm text-gray-400">{crm.name}</span>
+                    <span className="text-xs text-gray-400 text-center">{integration.name}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-white/[0.08]">
-                {[
-                  { icon: <RefreshCw className="w-5 h-5" />, title: "Real-time Sync", desc: "Bi-directional data sync" },
-                  { icon: <Zap className="w-5 h-5" />, title: "One-click Export", desc: "Push leads instantly" },
-                  { icon: <Shield className="w-5 h-5" />, title: "OAuth 2.0", desc: "Secure authentication" },
-                ].map((feature) => (
-                  <div key={feature.title} className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff]">
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-medium text-white">{feature.title}</h4>
-                      <p className="text-sm text-gray-500">{feature.desc}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="flex items-center justify-between pt-6 border-t border-white/[0.08]">
+                <div className="flex items-center gap-2 text-sm text-gray-400">
+                  <Zap className="w-4 h-4 text-[#3e8aff]" />
+                  <span className="text-[#3e8aff] font-medium">REST API</span> and <span className="font-medium text-white">Webhooks</span> for custom integrations
+                </div>
+                <Link href="#" className="inline-flex items-center gap-1 text-sm text-[#3e8aff] hover:underline">
+                  View API Docs <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Pricing Section */}
+      {/* Pricing Section with Tier Toggles */}
       <section id="pricing" className="py-24 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -675,94 +876,190 @@ export default function HomePage() {
 
           {/* Pricing Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                name: "Starter",
-                price: "$29",
-                period: "/month",
-                credits: "500 credits",
-                description: "500 emails or 50 phones/month",
-                features: ["API Access", "Email Validation", "CSV Export", "Email Support"],
-                cta: "Start Free Trial",
-                popular: false,
-              },
-              {
-                name: "Pro",
-                price: "$99",
-                period: "/month",
-                credits: "2,000 credits",
-                description: "2,000 emails or 200 phones/month",
-                features: ["Everything in Starter", "CRM Integrations", "Smart Columns", "Priority Support"],
-                cta: "Start Free Trial",
-                popular: true,
-              },
-              {
-                name: "Enterprise",
-                price: "$449",
-                period: "/month",
-                credits: "10,000 credits",
-                description: "10,000 emails or 1,000 phones/month",
-                features: ["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"],
-                cta: "Start Free Trial",
-                popular: false,
-              },
-              {
-                name: "Custom",
-                price: "Contact",
-                period: "us",
-                credits: "Unlimited",
-                description: "Custom volume pricing",
-                features: ["Everything in Enterprise", "Custom SLA", "White-label Options", "Volume Discounts"],
-                cta: "Talk to Sales",
-                popular: false,
-              },
-            ].map((plan, index) => (
-              <motion.div
-                key={plan.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`relative p-6 rounded-xl border ${
-                  plan.popular
-                    ? "bg-[#3e8aff]/5 border-[#3e8aff]/30"
-                    : "bg-[#0a0a0a] border-white/[0.08]"
-                }`}
+            {/* Free Tier */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Free</h3>
+                <p className="text-sm text-gray-500">30 credits</p>
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">$0</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-6">30 emails or 3 phones</p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
               >
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
-                    Most Popular
+                Get Started
+              </Link>
+              <div className="space-y-3">
+                {pricingTiers.free.features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
                   </div>
-                )}
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
-                  <p className="text-sm text-gray-500">{plan.credits}</p>
-                </div>
-                <div className="mb-4">
-                  <span className="text-4xl font-bold text-white">{plan.price}</span>
-                  <span className="text-gray-500">{plan.period}</span>
-                </div>
-                <p className="text-sm text-gray-400 mb-6">{plan.description}</p>
-                <Link
-                  href="#"
-                  className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${
-                    plan.popular
-                      ? "bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
-                      : "bg-white/[0.05] text-white hover:bg-white/[0.1]"
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
-                <div className="space-y-3">
-                  {plan.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
-                      <Check className="w-4 h-4 text-green-500" />
-                      {feature}
-                    </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Starter Tier with Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Starter</h3>
+                <div className="flex gap-1 mt-2">
+                  {pricingTiers.starter.map((tier, i) => (
+                    <button
+                      key={tier.tier}
+                      onClick={() => setStarterTier(i)}
+                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                        starterTier === i
+                          ? "bg-[#3e8aff] text-white"
+                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                      }`}
+                    >
+                      {tier.tier}
+                    </button>
                   ))}
                 </div>
-              </motion.div>
-            ))}
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">{pricingTiers.starter[starterTier].price}</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-2">{pricingTiers.starter[starterTier].credits} credits</p>
+              <p className="text-xs text-gray-500 mb-6">
+                {pricingTiers.starter[starterTier].email} emails or {pricingTiers.starter[starterTier].phone} phones/mo
+              </p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+              >
+                Start Free Trial
+              </Link>
+              <div className="space-y-3">
+                {["Everything in Free", "Email Validation", "CRM Export", "Priority Support"].map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Pro Tier with Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative p-6 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/30"
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
+                Most Popular
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Pro</h3>
+                <div className="flex gap-1 mt-2">
+                  {pricingTiers.pro.map((tier, i) => (
+                    <button
+                      key={tier.tier}
+                      onClick={() => setProTier(i)}
+                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                        proTier === i
+                          ? "bg-[#3e8aff] text-white"
+                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                      }`}
+                    >
+                      {tier.tier}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">{pricingTiers.pro[proTier].price}</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-2">{pricingTiers.pro[proTier].credits} credits</p>
+              <p className="text-xs text-gray-500 mb-6">
+                {pricingTiers.pro[proTier].email} emails or {pricingTiers.pro[proTier].phone} phones/mo
+              </p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
+              >
+                Start Free Trial
+              </Link>
+              <div className="space-y-3">
+                {["Everything in Starter", "CRM Integrations", "Smart Columns", "ICP Scoring"].map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Enterprise Tier with Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Enterprise</h3>
+                <div className="flex gap-1 mt-2">
+                  {pricingTiers.enterprise.map((tier, i) => (
+                    <button
+                      key={tier.tier}
+                      onClick={() => setEnterpriseTier(i)}
+                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                        enterpriseTier === i
+                          ? "bg-[#3e8aff] text-white"
+                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                      }`}
+                    >
+                      {tier.tier}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">{pricingTiers.enterprise[enterpriseTier].price}</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-2">{pricingTiers.enterprise[enterpriseTier].credits} credits</p>
+              <p className="text-xs text-gray-500 mb-6">
+                {pricingTiers.enterprise[enterpriseTier].email} emails or {pricingTiers.enterprise[enterpriseTier].phone} phones/mo
+              </p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+              >
+                Start Free Trial
+              </Link>
+              <div className="space-y-3">
+                {["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"].map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
 
           {/* All plans include */}

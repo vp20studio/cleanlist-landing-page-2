@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
-  Plug,
   Check,
   RefreshCw,
   Zap,
@@ -12,45 +11,49 @@ import {
   Clock,
 } from "lucide-react";
 
-const integrations = {
-  crm: [
-    { name: "HubSpot", status: "live", type: "Native" },
-    { name: "Salesforce", status: "live", type: "Native" },
-    { name: "Pipedrive", status: "live", type: "Native" },
-    { name: "Zoho CRM", status: "live", type: "Native" },
-    { name: "Recruitcrm", status: "live", type: "Native" },
-  ],
-  dataExport: [
-    { name: "CSV Export", status: "live", type: "Native" },
-    { name: "Google Sheets", status: "live", type: "Native" },
-  ],
-  browser: [
-    { name: "Chrome Extension", status: "live", type: "Native" },
-    { name: "Edge", status: "live", type: "Native" },
-    { name: "Brave", status: "live", type: "Native" },
-    { name: "Firefox", status: "coming", type: "Native" },
-  ],
-  automation: [
-    { name: "Webhooks", status: "live", type: "Native" },
-    { name: "REST API", status: "live", type: "Native" },
-  ],
-};
+// All integrations for the hub visual
+const allIntegrations = [
+  { name: "Salesforce", abbr: "Sa", category: "crm", color: "#3b82f6" },
+  { name: "HubSpot", abbr: "Hu", category: "crm", color: "#3b82f6" },
+  { name: "Pipedrive", abbr: "Pi", category: "crm", color: "#3b82f6" },
+  { name: "Outreach", abbr: "Ou", category: "sales", color: "#22c55e" },
+  { name: "Apollo", abbr: "Ap", category: "prospecting", color: "#f59e0b" },
+  { name: "Marketo", abbr: "Ma", category: "marketing", color: "#14b8a6" },
+  { name: "Mailchimp", abbr: "Ma", category: "marketing", color: "#14b8a6" },
+  { name: "Klaviyo", abbr: "Kl", category: "marketing", color: "#14b8a6" },
+  { name: "Braze", abbr: "Br", category: "marketing", color: "#14b8a6" },
+  { name: "Pardot", abbr: "Pa", category: "marketing", color: "#14b8a6" },
+  { name: "Snowflake", abbr: "Sn", category: "cdp", color: "#8b5cf6" },
+  { name: "BigQuery", abbr: "Bi", category: "cdp", color: "#8b5cf6" },
+  { name: "Segment", abbr: "Se", category: "cdp", color: "#8b5cf6" },
+  { name: "Zapier", abbr: "Za", category: "automation", color: "#ec4899" },
+  { name: "Slack", abbr: "Sl", category: "automation", color: "#ec4899" },
+  { name: "Intercom", abbr: "In", category: "automation", color: "#ec4899" },
+];
+
+const integrationCategories = [
+  { id: "crm", label: "CRM", color: "#3b82f6" },
+  { id: "sales", label: "Sales", color: "#22c55e" },
+  { id: "marketing", label: "Marketing", color: "#14b8a6" },
+  { id: "prospecting", label: "Prospecting", color: "#f59e0b" },
+  { id: "automation", label: "Automation", color: "#ec4899" },
+  { id: "cdp", label: "CDP", color: "#8b5cf6" },
+];
 
 export default function IntegrationsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      {/* Hero with Hub & Spoke Visual */}
+      <section className="relative pt-20 pb-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
+            className="text-sm font-medium text-[#3e8aff] tracking-wider mb-4"
           >
-            <Plug className="w-4 h-4" />
-            Integrations
+            ECOSYSTEM
           </motion.div>
 
           <motion.h1
@@ -59,7 +62,10 @@ export default function IntegrationsPage() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-6xl font-bold text-white mb-6"
           >
-            Connect With Your Stack
+            Lives in your{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+              existing stack
+            </span>
           </motion.h1>
 
           <motion.p
@@ -68,9 +74,158 @@ export default function IntegrationsPage() {
             transition={{ delay: 0.2 }}
             className="text-xl text-gray-400 max-w-2xl mx-auto"
           >
-            Native integrations with your CRM, sales engagement tools, and data
-            warehouse. Sync enriched data anywhere.
+            Cleanlist connects natively to 15+ tools you already use. No data silos, no manual exports—just
+            seamless, real-time data flow.
           </motion.p>
+        </div>
+      </section>
+
+      {/* Hub & Spoke Visualization */}
+      <section className="py-8">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3 }}
+            className="relative max-w-4xl mx-auto h-[500px]"
+          >
+            {/* Center Hub - Cleanlist */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex flex-col items-center justify-center shadow-lg shadow-[#3e8aff]/30">
+                <Check className="w-8 h-8 text-white mb-1" />
+                <span className="text-sm font-semibold text-white">Cleanlist</span>
+              </div>
+            </div>
+
+            {/* Connection lines (SVG) */}
+            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+              {allIntegrations.map((integration, i) => {
+                const angle = (i * 360) / allIntegrations.length - 90;
+                const radius = 180;
+                const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
+                const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
+                return (
+                  <line
+                    key={integration.name}
+                    x1="50%"
+                    y1="50%"
+                    x2={`${x}%`}
+                    y2={`${y}%`}
+                    stroke="rgba(255,255,255,0.1)"
+                    strokeWidth="1"
+                  />
+                );
+              })}
+            </svg>
+
+            {/* Integration nodes */}
+            {allIntegrations.map((integration, i) => {
+              const angle = (i * 360) / allIntegrations.length - 90;
+              const radius = 180;
+              const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
+              const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
+              return (
+                <motion.div
+                  key={integration.name}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.4 + i * 0.05 }}
+                  className="absolute flex flex-col items-center"
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1]"
+                    style={{
+                      backgroundColor: `${integration.color}15`,
+                      color: integration.color,
+                    }}
+                  >
+                    {integration.abbr}
+                  </div>
+                  <span className="text-xs text-gray-400 mt-1">{integration.name}</span>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* Category Legend */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="flex items-center justify-center gap-6 flex-wrap mt-8"
+          >
+            {integrationCategories.map((cat) => (
+              <div key={cat.id} className="flex items-center gap-2">
+                <div
+                  className="w-2.5 h-2.5 rounded-full"
+                  style={{ backgroundColor: cat.color }}
+                />
+                <span className="text-sm text-gray-400">{cat.label}</span>
+              </div>
+            ))}
+            <span className="text-sm text-gray-500">+ more</span>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Native Integrations Grid */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.08]"
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h3 className="text-lg font-semibold text-white">Native Integrations</h3>
+                <p className="text-sm text-gray-500">One-click setup. No engineering required.</p>
+              </div>
+              <Link href="#" className="text-sm text-[#3e8aff] hover:underline">
+                Can&apos;t find yours? Request integration
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-4 md:grid-cols-8 gap-4 mb-8">
+              {allIntegrations.map((integration, index) => (
+                <motion.div
+                  key={integration.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.03 }}
+                  className="flex flex-col items-center"
+                >
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.08] mb-2"
+                    style={{
+                      backgroundColor: `${integration.color}10`,
+                      color: integration.color,
+                    }}
+                  >
+                    {integration.abbr}
+                  </div>
+                  <span className="text-xs text-gray-400 text-center">{integration.name}</span>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-between pt-6 border-t border-white/[0.08]">
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <Zap className="w-4 h-4 text-[#3e8aff]" />
+                <span className="text-[#3e8aff] font-medium">REST API</span> and <span className="font-medium text-white">Webhooks</span> for custom integrations
+              </div>
+              <Link href="#" className="inline-flex items-center gap-1 text-sm text-[#3e8aff] hover:underline">
+                View API Docs <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -79,10 +234,10 @@ export default function IntegrationsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: <Plug className="w-5 h-5" />, value: "5", label: "CRM Integrations" },
-              { icon: <RefreshCw className="w-5 h-5" />, value: "Real-time", label: "Bi-directional Sync" },
-              { icon: <Clock className="w-5 h-5" />, value: "<5 min", label: "Setup Time" },
-              { icon: <Shield className="w-5 h-5" />, value: "OAuth", label: "Secure Auth" },
+              { icon: <RefreshCw className="w-5 h-5" />, value: "15+", label: "Native Integrations" },
+              { icon: <Clock className="w-5 h-5" />, value: "Real-time", label: "Bi-directional Sync" },
+              { icon: <Zap className="w-5 h-5" />, value: "<5 min", label: "Setup Time" },
+              { icon: <Shield className="w-5 h-5" />, value: "OAuth 2.0", label: "Secure Auth" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mx-auto mb-3">
@@ -93,59 +248,6 @@ export default function IntegrationsPage() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Integration Categories */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          {Object.entries(integrations).map(([category, items], categoryIndex) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: categoryIndex * 0.1 }}
-              className="mb-16 last:mb-0"
-            >
-              <h2 className="text-2xl font-bold text-white mb-6 capitalize">
-                {category.replace(/([A-Z])/g, " $1").trim()}
-              </h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {items.map((integration) => (
-                  <div
-                    key={integration.name}
-                    className="p-4 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-[#3e8aff]/30 transition-colors flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-white/[0.05] flex items-center justify-center text-sm font-bold text-gray-400">
-                        {integration.name[0]}
-                      </div>
-                      <div>
-                        <div className="font-medium text-white">{integration.name}</div>
-                        <div className="text-xs text-gray-500">{integration.type}</div>
-                      </div>
-                    </div>
-                    <div
-                      className={`px-2 py-1 rounded text-xs font-medium ${
-                        integration.status === "live"
-                          ? "bg-green-500/10 text-green-500"
-                          : integration.status === "beta"
-                          ? "bg-yellow-500/10 text-yellow-500"
-                          : "bg-gray-500/10 text-gray-500"
-                      }`}
-                    >
-                      {integration.status === "live"
-                        ? "Live"
-                        : integration.status === "beta"
-                        ? "Beta"
-                        : "Coming Soon"}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
         </div>
       </section>
 
