@@ -167,7 +167,7 @@ export default function MegaMenuNavbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
               <Image
-                src={theme === "dark" ? "/images/logo-dark.png" : "/images/logo-dark.png"}
+                src={theme === "dark" ? "/images/logo-dark.png" : "/images/logo-light.png"}
                 alt="Cleanlist"
                 width={140}
                 height={32}

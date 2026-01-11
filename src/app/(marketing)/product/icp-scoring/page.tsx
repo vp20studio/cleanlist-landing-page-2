@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
   Target,
@@ -49,6 +50,9 @@ const geoTargeting = [
 ];
 
 export default function ICPScoringPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero */}
@@ -72,7 +76,7 @@ export default function ICPScoringPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+                className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
               >
                 Score Every Lead Against Your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
@@ -84,7 +88,7 @@ export default function ICPScoringPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-gray-400 mb-8"
+                className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}
               >
                 Define your Ideal Customer Profile with granular targeting criteria.
                 Automatically score and rank every lead to focus on your best-fit prospects.
@@ -105,7 +109,7 @@ export default function ICPScoringPage() {
                 </Link>
                 <Link
                   href="/pricing"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className={`inline-flex items-center gap-2 px-6 py-3 border font-medium rounded-lg transition-colors ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
                 >
                   View Pricing
                 </Link>
@@ -124,7 +128,7 @@ export default function ICPScoringPage() {
       </section>
 
       {/* Stats Bar */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10" : "border-black/[0.08]"} ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={4}
@@ -177,18 +181,18 @@ export default function ICPScoringPage() {
                   <BarChart3 className="w-4 h-4" />
                   How It Works
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                   Multi-Dimensional Scoring
                 </h2>
-                <p className="text-xl text-gray-400 mb-8">
+                <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
                   Each lead receives a comprehensive score based on four key dimensions,
                   with customizable weights for your specific priorities.
                 </p>
 
                 {/* Score Output Example */}
-                <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10">
+                <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-sm text-gray-400">Example Lead Score</span>
+                    <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>Example Lead Score</span>
                     <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">
                       Perfect Fit
                     </span>
@@ -204,7 +208,7 @@ export default function ICPScoringPage() {
                     ].map((score) => (
                       <div key={score.label}>
                         <div className="flex items-center justify-between text-sm mb-1">
-                          <span className="text-gray-300">{score.label}</span>
+                          <span className={isDark ? "text-gray-300" : "text-gray-700"}>{score.label}</span>
                           <span className={`text-${score.color}-400 font-medium`}>
                             {score.value}%
                           </span>
@@ -290,7 +294,7 @@ export default function ICPScoringPage() {
       </section>
 
       {/* Targeting Criteria */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -298,10 +302,10 @@ export default function ICPScoringPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Granular Targeting Criteria
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Define your ideal customer with precision using 20+ targeting dimensions.
             </p>
           </motion.div>
@@ -312,18 +316,18 @@ export default function ICPScoringPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
                 <Building className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Company Targeting</h3>
+              <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Company Targeting</h3>
               <div className="space-y-3">
                 {companyTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-purple-400 mt-1 shrink-0" />
                     <div>
-                      <div className="text-sm font-medium text-white">{item.label}</div>
+                      <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
                     </div>
                   </div>
@@ -337,18 +341,18 @@ export default function ICPScoringPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
               <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4">
                 <Users className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Prospect Targeting</h3>
+              <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Prospect Targeting</h3>
               <div className="space-y-3">
                 {prospectTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
                     <div>
-                      <div className="text-sm font-medium text-white">{item.label}</div>
+                      <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
                     </div>
                   </div>
@@ -362,18 +366,18 @@ export default function ICPScoringPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
               <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 mb-4">
                 <Globe className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-4">Geographic Targeting</h3>
+              <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Geographic Targeting</h3>
               <div className="space-y-3">
                 {geoTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-green-400 mt-1 shrink-0" />
                     <div>
-                      <div className="text-sm font-medium text-white">{item.label}</div>
+                      <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
                     </div>
                   </div>
@@ -393,8 +397,8 @@ export default function ICPScoringPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">Four Fit Levels</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Four Fit Levels</h2>
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Leads are automatically classified based on their overall ICP score.
             </p>
           </motion.div>
@@ -459,8 +463,8 @@ export default function ICPScoringPage() {
                 >
                   {fit.range}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{fit.level}</h3>
-                <p className="text-sm text-gray-400 mb-4">{fit.description}</p>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{fit.level}</h3>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{fit.description}</p>
                 <p className="text-xs text-gray-500">{fit.action}</p>
               </motion.div>
             ))}
@@ -469,7 +473,7 @@ export default function ICPScoringPage() {
       </section>
 
       {/* Integration with Platform */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -477,10 +481,10 @@ export default function ICPScoringPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Native Platform Integration
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               ICP Scoring works seamlessly with other Cleanlist features.
             </p>
           </motion.div>
@@ -490,18 +494,18 @@ export default function ICPScoringPage() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center">
                   <Sparkles className="w-6 h-6 text-[#3e8aff]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Smart Columns</h3>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Smart Columns</h3>
                   <p className="text-sm text-gray-500">ICP Fit Analysis column</p>
                 </div>
               </div>
-              <p className="text-gray-400 mb-4">
+              <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>
                 Add an ICP Fit Analysis Smart Column to any lead list. Automatically
                 score all leads against your selected ICP profile with detailed
                 breakdowns of matching and missing criteria.
@@ -518,18 +522,18 @@ export default function ICPScoringPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center">
                   <Layers className="w-6 h-6 text-[#3e8aff]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Playbook Builder</h3>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Playbook Builder</h3>
                   <p className="text-sm text-gray-500">ICP Scoring step</p>
                 </div>
               </div>
-              <p className="text-gray-400 mb-4">
+              <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>
                 Include ICP Scoring as a step in your automated workflows. Score leads
                 as they flow through your pipeline and route them based on fit level
                 to different sequences or CRM stages.
@@ -556,10 +560,10 @@ export default function ICPScoringPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Stop Wasting Time on Bad-Fit Leads
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               Define your ICP once, score every lead automatically. Focus your team
               on prospects that actually convert.
             </p>

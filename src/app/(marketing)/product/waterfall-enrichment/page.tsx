@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
   Database,
@@ -35,6 +36,9 @@ import {
 } from "@/components/ui";
 
 export default function WaterfallEnrichmentPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero Section */}
@@ -58,7 +62,7 @@ export default function WaterfallEnrichmentPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+                className={`text-5xl md:text-6xl font-bold leading-[1.1] mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
               >
                 Waterfall{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
@@ -70,7 +74,7 @@ export default function WaterfallEnrichmentPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-gray-400 mb-8 max-w-lg"
+                className={`text-xl mb-8 max-w-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}
               >
                 Multi-provider enrichment that queries premium data sources and merges
                 the best results into one complete record. Partial (email) or full enrichment.
@@ -91,7 +95,7 @@ export default function WaterfallEnrichmentPage() {
                 </Link>
                 <Link
                   href="#how-it-works"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className={`inline-flex items-center gap-2 px-6 py-3 border font-medium rounded-lg transition-colors ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
                 >
                   See How It Works
                 </Link>
@@ -111,7 +115,7 @@ export default function WaterfallEnrichmentPage() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]"
+                    className={`p-3 rounded-lg ${isDark ? "bg-white/[0.03] border-white/[0.05]" : "bg-[#F8F9FA] border-black/[0.05]"} border`}
                   >
                     <div className="text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
                     <div className="text-xs text-gray-500">{stat.label}</div>
@@ -132,7 +136,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={6}
@@ -197,10 +201,10 @@ export default function WaterfallEnrichmentPage() {
               <GitMerge className="w-4 h-4" />
               The Cascade Logic
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               How Waterfall Enrichment Works
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Our proprietary cascade algorithm queries sources in parallel, validates
               responses, and merges the best data into one complete record.
             </p>
@@ -271,20 +275,20 @@ export default function WaterfallEnrichmentPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10">
-                <div className="text-sm font-medium text-gray-400 mb-6">
+              <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border`}>
+                <div className={`text-sm font-medium mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   Waterfall Cascade Visualization
                 </div>
 
                 {/* Input */}
-                <div className="p-4 rounded-lg bg-[#111] border border-white/[0.05] mb-4">
+                <div className={`p-4 rounded-lg mb-4 ${isDark ? "bg-[#111] border-white/[0.05]" : "bg-[#F8F9FA] border-black/[0.05]"} border`}>
                   <div className="text-xs text-gray-500 mb-2">INPUT RECORD</div>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-[#3e8aff]/10 flex items-center justify-center">
                       <User className="w-5 h-5 text-[#3e8aff]" />
                     </div>
                     <div>
-                      <div className="text-sm text-white">John Smith</div>
+                      <div className={`text-sm ${isDark ? "text-white" : "text-gray-900"}`}>John Smith</div>
                       <div className="text-xs text-gray-500">Acme Corp</div>
                     </div>
                   </div>
@@ -308,9 +312,9 @@ export default function WaterfallEnrichmentPage() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="p-2 rounded bg-[#111] border border-white/[0.05] text-center"
+                        className={`p-2 rounded text-center ${isDark ? "bg-[#111] border-white/[0.05]" : "bg-[#F8F9FA] border-black/[0.05]"} border`}
                       >
-                        <div className="text-xs text-gray-400">{source.name}</div>
+                        <div className={`text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>{source.name}</div>
                         <div className="text-[10px] text-green-500 mt-1">
                           {source.status}
                         </div>
@@ -331,27 +335,27 @@ export default function WaterfallEnrichmentPage() {
                 <div className="p-4 rounded-lg bg-gradient-to-r from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/20">
                   <div className="text-xs text-[#3e8aff] mb-3">GOLDEN RECORD</div>
                   <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div className="flex items-center gap-2 text-gray-300">
+                    <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                       <Mail className="w-3.5 h-3.5 text-[#3e8aff]" />
                       john@acme.com
                     </div>
-                    <div className="flex items-center gap-2 text-gray-300">
+                    <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                       <Phone className="w-3.5 h-3.5 text-[#3e8aff]" />
                       +1 (555) 123-4567
                     </div>
-                    <div className="flex items-center gap-2 text-gray-300">
+                    <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                       <Building className="w-3.5 h-3.5 text-[#3e8aff]" />
                       Acme Corporation
                     </div>
-                    <div className="flex items-center gap-2 text-gray-300">
+                    <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                       <Briefcase className="w-3.5 h-3.5 text-[#3e8aff]" />
                       VP of Sales
                     </div>
-                    <div className="flex items-center gap-2 text-gray-300">
+                    <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                       <MapPin className="w-3.5 h-3.5 text-[#3e8aff]" />
                       San Francisco, CA
                     </div>
-                    <div className="flex items-center gap-2 text-gray-300">
+                    <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                       <Link2 className="w-3.5 h-3.5 text-[#3e8aff]" />
                       linkedin.com/in/jsmith
                     </div>
@@ -364,7 +368,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Enrichment Types */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -376,10 +380,10 @@ export default function WaterfallEnrichmentPage() {
               <Database className="w-4 h-4" />
               Enrichment Options
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Choose Your Enrichment Level
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Pick partial enrichment for email-focused campaigns or full enrichment
               for complete contact data including phone numbers.
             </p>
@@ -391,19 +395,19 @@ export default function WaterfallEnrichmentPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-8 rounded-xl ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border`}
             >
               <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-6">
                 <Mail className="w-7 h-7" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Partial Enrichment</h3>
+              <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Partial Enrichment</h3>
               <div className="text-4xl font-bold text-[#3e8aff] mb-4">1 Credit</div>
-              <p className="text-gray-400 mb-6">
+              <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 Get verified work emails for your contacts. Perfect for email outreach campaigns.
               </p>
               <ul className="space-y-3">
                 {["Verified work email", "Email deliverability check", "Company data enrichment", "LinkedIn profile URL"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
+                  <li key={item} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {item}
                   </li>
@@ -422,14 +426,14 @@ export default function WaterfallEnrichmentPage() {
               <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/20 flex items-center justify-center text-[#3e8aff] mb-6">
                 <Phone className="w-7 h-7" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Full Enrichment</h3>
+              <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Full Enrichment</h3>
               <div className="text-4xl font-bold text-[#3e8aff] mb-4">10 Credits</div>
-              <p className="text-gray-400 mb-6">
+              <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 Complete contact data including direct dial phone numbers for multi-channel outreach.
               </p>
               <ul className="space-y-3">
                 {["Everything in Partial", "Direct dial phone number", "Mobile phone number", "Complete firmographics", "Social profiles"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
+                  <li key={item} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {item}
                   </li>
@@ -453,10 +457,10 @@ export default function WaterfallEnrichmentPage() {
               <Target className="w-4 h-4" />
               Output Schema
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               25+ Fields Per Record
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Every enriched record includes comprehensive contact and company data.
             </p>
           </motion.div>
@@ -469,7 +473,7 @@ export default function WaterfallEnrichmentPage() {
                   <User className="w-5 h-5 text-[#3e8aff]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Contact Data</h3>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Contact Data</h3>
                   <p className="text-xs text-gray-500">Personal & professional info</p>
                 </div>
               </div>
@@ -488,7 +492,7 @@ export default function WaterfallEnrichmentPage() {
                 ].map((field) => (
                   <div
                     key={field}
-                    className="flex items-center gap-2 text-sm text-gray-400"
+                    className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                   >
                     <Check className="w-4 h-4 text-green-500" />
                     {field}
@@ -504,7 +508,7 @@ export default function WaterfallEnrichmentPage() {
                   <Building className="w-5 h-5 text-[#3e8aff]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Company Data</h3>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Company Data</h3>
                   <p className="text-xs text-gray-500">Firmographic details</p>
                 </div>
               </div>
@@ -523,7 +527,7 @@ export default function WaterfallEnrichmentPage() {
                 ].map((field) => (
                   <div
                     key={field}
-                    className="flex items-center gap-2 text-sm text-gray-400"
+                    className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                   >
                     <Check className="w-4 h-4 text-green-500" />
                     {field}
@@ -539,7 +543,7 @@ export default function WaterfallEnrichmentPage() {
                   <BarChart3 className="w-5 h-5 text-[#3e8aff]" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">Metadata</h3>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Metadata</h3>
                   <p className="text-xs text-gray-500">Quality & source info</p>
                 </div>
               </div>
@@ -556,7 +560,7 @@ export default function WaterfallEnrichmentPage() {
                 ].map((field) => (
                   <div
                     key={field}
-                    className="flex items-center gap-2 text-sm text-gray-400"
+                    className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                   >
                     <Check className="w-4 h-4 text-green-500" />
                     {field}
@@ -569,7 +573,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* API Example */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -581,10 +585,10 @@ export default function WaterfallEnrichmentPage() {
                 <RefreshCw className="w-4 h-4" />
                 API Integration
               </div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className={`text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                 One API Call, Complete Data
               </h2>
-              <p className="text-lg text-gray-400 mb-6">
+              <p className={`text-lg mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 Integrate waterfall enrichment into your application with our simple REST
                 API. SDKs available for Python, Node.js, and Go.
               </p>
@@ -597,7 +601,7 @@ export default function WaterfallEnrichmentPage() {
                   "Rate limits: 1,000 requests/minute",
                   "SDKs: Python, Node.js, Go, Ruby",
                 ].map((feature) => (
-                  <div key={feature} className="flex items-center gap-3 text-gray-300">
+                  <div key={feature} className={`flex items-center gap-3 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <Check className="w-5 h-5 text-green-500" />
                     {feature}
                   </div>
@@ -616,9 +620,9 @@ export default function WaterfallEnrichmentPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-white/[0.04] rounded-xl border border-white/10 overflow-hidden"
+              className={`rounded-xl overflow-hidden ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border`}
             >
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-[#1E1E1E]">
+              <div className={`flex items-center gap-2 px-4 py-3 border-b ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
                 <div className="flex items-center gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -626,8 +630,8 @@ export default function WaterfallEnrichmentPage() {
                 </div>
                 <span className="text-xs text-gray-500 ml-2">api-request.sh</span>
               </div>
-              <pre className="p-4 text-sm overflow-x-auto">
-                <code className="text-gray-300">
+              <pre className={`p-4 text-sm overflow-x-auto ${isDark ? "" : "bg-gray-50"}`}>
+                <code className={`${isDark ? "text-gray-300" : "text-gray-700"}`}>
                   <span className="text-green-400"># Enrich a single record</span>
                   {"\n"}curl -X POST https://api.cleanlist.ai/v1/enrich \{"\n"}
                   {"  "}-H <span className="text-yellow-400">&quot;Authorization: Bearer $API_KEY&quot;</span> \{"\n"}
@@ -656,10 +660,10 @@ export default function WaterfallEnrichmentPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Popular Use Cases
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               See how teams use waterfall enrichment to power their GTM motions.
             </p>
           </motion.div>
@@ -715,13 +719,13 @@ export default function WaterfallEnrichmentPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#3e8aff]/30 transition-colors"
+                className={`p-6 rounded-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"} border hover:border-[#3e8aff]/30`}
               >
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                   {useCase.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{useCase.title}</h3>
-                <p className="text-sm text-gray-400 mb-4">{useCase.description}</p>
+                <h3 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{useCase.title}</h3>
+                <p className={`text-sm mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{useCase.description}</p>
                 <div className="flex items-center gap-2 text-xs text-green-500">
                   <Check className="w-4 h-4" />
                   {useCase.result}
@@ -743,10 +747,10 @@ export default function WaterfallEnrichmentPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
               Start Enriching Your Data
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Get 100 free credits to test our waterfall enrichment. No credit card required.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -759,7 +763,7 @@ export default function WaterfallEnrichmentPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+                className={`inline-flex items-center gap-2 px-8 py-4 border font-medium rounded-lg transition-colors text-lg ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
               >
                 View Pricing
               </Link>

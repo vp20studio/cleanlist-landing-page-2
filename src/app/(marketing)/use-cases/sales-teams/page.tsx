@@ -17,8 +17,12 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { TechnicalGrid, GlowCard } from "@/components/ui";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function SalesTeamsPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero */}
@@ -41,7 +45,7 @@ export default function SalesTeamsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+              className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
             >
               Close More Deals With{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
@@ -53,7 +57,7 @@ export default function SalesTeamsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400 mb-8"
+              className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}
             >
               Stop wasting time on bad data. Get verified emails and direct dials for every
               prospect. Spend more time selling, less time researching.
@@ -74,7 +78,7 @@ export default function SalesTeamsPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
               >
                 View Pricing
               </Link>
@@ -84,7 +88,7 @@ export default function SalesTeamsPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10" : "border-black/[0.08]"} ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={4}
@@ -131,10 +135,10 @@ export default function SalesTeamsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Sound Familiar?
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Sales teams waste hours every week dealing with bad data.
             </p>
           </motion.div>
@@ -172,7 +176,7 @@ export default function SalesTeamsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+                className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
               >
                 <div className="text-red-500/60 text-sm mb-3 line-through">{item.problem}</div>
                 <div className="flex items-center gap-2 text-green-500">
@@ -186,7 +190,7 @@ export default function SalesTeamsPage() {
       </section>
 
       {/* Workflow */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -194,7 +198,7 @@ export default function SalesTeamsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Your New Prospecting Workflow
             </h2>
           </motion.div>
@@ -234,13 +238,13 @@ export default function SalesTeamsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10 h-full">
+                <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} h-full`}>
                   <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                     {item.icon}
                   </div>
                   <div className="text-sm text-[#3e8aff] mb-2">Step {item.step}</div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-400">{item.description}</p>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{item.title}</h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{item.description}</p>
                 </div>
                 {index < 3 && (
                   <div className="hidden md:block absolute top-1/2 -right-3 w-6 h-px bg-white/[0.1]" />
@@ -260,7 +264,7 @@ export default function SalesTeamsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Built for Sales Teams
             </h2>
           </motion.div>
@@ -309,8 +313,8 @@ export default function SalesTeamsPage() {
                   <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-400">{feature.description}</p>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>
               </motion.div>
             ))}
@@ -329,10 +333,10 @@ export default function SalesTeamsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Ready to Supercharge Your Sales?
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               Get 100 free credits and see why 500+ sales teams trust Cleanlist.
             </p>
             <Link

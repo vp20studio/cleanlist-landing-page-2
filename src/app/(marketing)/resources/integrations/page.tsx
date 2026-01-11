@@ -233,7 +233,7 @@ export default function IntegrationsPage() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
               <div>
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Native Integrations</h3>
-                <p className="text-sm text-gray-500">One-click setup. No engineering required.</p>
+                <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>One-click setup. No engineering required.</p>
               </div>
               <Link href="#" className="text-sm text-[#3e8aff] hover:underline">
                 Can&apos;t find yours? Request integration
@@ -289,7 +289,7 @@ export default function IntegrationsPage() {
                   {stat.icon}
                 </div>
                 <div className={`text-xl md:text-2xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{stat.value}</div>
-                <div className="text-sm text-gray-500">{stat.label}</div>
+                <div className={`text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -349,7 +349,7 @@ export default function IntegrationsPage() {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                 </div>
-                <span className="text-xs text-gray-500 ml-2">example.py</span>
+                <span className={`text-xs ml-2 ${isDark ? "text-gray-500" : "text-gray-600"}`}>example.py</span>
               </div>
               <pre className="p-4 text-sm overflow-x-auto">
                 <code className={isDark ? "text-gray-300" : "text-gray-700"}>

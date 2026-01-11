@@ -19,8 +19,12 @@ import {
   Layers,
 } from "lucide-react";
 import { TechnicalGrid, GlowCard, VerticalStepper } from "@/components/ui";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function RevOpsPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero */}
@@ -43,7 +47,7 @@ export default function RevOpsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+              className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
             >
               Automate Data Hygiene{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-violet-400">
@@ -55,7 +59,7 @@ export default function RevOpsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400 mb-8"
+              className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}
             >
               Stop firefighting bad data. Automate deduplication, enrichment, and verification
               across your entire GTM stack. Keep your CRM pristine with zero manual effort.
@@ -76,7 +80,7 @@ export default function RevOpsPage() {
               </Link>
               <Link
                 href="/product/playbook-builder"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
               >
                 Learn More
               </Link>
@@ -86,7 +90,7 @@ export default function RevOpsPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10" : "border-black/[0.08]"} ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={4}
@@ -133,10 +137,10 @@ export default function RevOpsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               The Data Quality Challenge
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               RevOps teams spend 30% of their time cleaning data. It doesn&apos;t have to be this way.
             </p>
           </motion.div>
@@ -157,7 +161,7 @@ export default function RevOpsPage() {
                   "Hours spent merging and deduping",
                   "No visibility into data quality trends",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-gray-400">
+                  <li key={item} className={`flex items-start gap-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" />
                     {item}
                   </li>
@@ -180,7 +184,7 @@ export default function RevOpsPage() {
                   "Zero-touch data maintenance",
                   "Full audit trail and quality dashboards",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-gray-300">
+                  <li key={item} className={`flex items-start gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                     <Check className="w-4 h-4 text-green-500 mt-0.5" />
                     {item}
                   </li>
@@ -192,7 +196,7 @@ export default function RevOpsPage() {
       </section>
 
       {/* Playbook Builder Focus */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div
@@ -204,10 +208,10 @@ export default function RevOpsPage() {
                 <Workflow className="w-4 h-4" />
                 Playbook Builder
               </div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Automate Your Data Pipeline
               </h2>
-              <p className="text-lg text-gray-400 mb-8">
+              <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
                 Use our visual Playbook Builder to create automated data workflows.
                 Set it once, let it run forever.
               </p>
@@ -229,10 +233,10 @@ export default function RevOpsPage() {
                 ].map((playbook) => (
                   <div
                     key={playbook.title}
-                    className="p-4 rounded-lg bg-white/[0.04] border border-white/10"
+                    className={`p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
                   >
-                    <h4 className="font-medium text-white mb-1">{playbook.title}</h4>
-                    <p className="text-sm text-gray-500">{playbook.description}</p>
+                    <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"} mb-1`}>{playbook.title}</h4>
+                    <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>{playbook.description}</p>
                   </div>
                 ))}
               </div>
@@ -306,10 +310,10 @@ export default function RevOpsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Data Governance Made Easy
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Maintain data quality standards across your entire organization.
             </p>
           </motion.div>
@@ -358,8 +362,8 @@ export default function RevOpsPage() {
                   <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-400">{feature.description}</p>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>
               </motion.div>
             ))}
@@ -378,10 +382,10 @@ export default function RevOpsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Automate Your Data Operations
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               See how Playbook Builder can transform your data hygiene workflows.
             </p>
             <Link

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
   Linkedin,
@@ -23,6 +24,9 @@ import {
 import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
 
 export default function SalesNavScraperPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero Section */}
@@ -46,7 +50,7 @@ export default function SalesNavScraperPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+                className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
               >
                 Sales Nav{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0077b5] to-[#00a0dc]">
@@ -58,7 +62,7 @@ export default function SalesNavScraperPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-gray-400 mb-8 max-w-lg"
+                className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-lg`}
               >
                 Bulk export leads from LinkedIn Sales Navigator search results.
                 Enrich with emails and phones. Push directly to your CRM.
@@ -79,7 +83,7 @@ export default function SalesNavScraperPage() {
                 </Link>
                 <Link
                   href="#how-it-works"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
                 >
                   Watch Demo
                 </Link>
@@ -99,7 +103,7 @@ export default function SalesNavScraperPage() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]"
+                    className={`p-3 rounded-lg ${isDark ? "bg-white/[0.03] border-white/[0.05]" : "bg-white/70 border-black/[0.08]"} border`}
                   >
                     <div className="text-2xl font-bold text-[#0077b5]">{stat.value}</div>
                     <div className="text-xs text-gray-500">{stat.label}</div>
@@ -120,7 +124,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={5}
@@ -178,10 +182,10 @@ export default function SalesNavScraperPage() {
               <Chrome className="w-4 h-4" />
               Simple Workflow
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               From Search to CRM in Minutes
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Our Chrome extension integrates seamlessly with Sales Navigator.
               Build your list, click export, get enriched leads.
             </p>
@@ -252,10 +256,10 @@ export default function SalesNavScraperPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10">
+              <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-6">
                   <Chrome className="w-5 h-5 text-[#0077b5]" />
-                  <span className="text-sm font-medium text-gray-400">Extension Preview</span>
+                  <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Extension Preview</span>
                 </div>
 
                 {/* Browser Mockup */}
@@ -289,7 +293,7 @@ export default function SalesNavScraperPage() {
                         <button className="flex-1 py-2 rounded bg-[#0077b5] text-white text-xs font-medium">
                           Export All + Enrich
                         </button>
-                        <button className="px-3 py-2 rounded border border-white/10 text-xs text-gray-400">
+                        <button className={`px-3 py-2 rounded border ${isDark ? "border-white/10" : "border-black/[0.08]"} text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                           Select
                         </button>
                       </div>
@@ -331,7 +335,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Features Grid */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -339,10 +343,10 @@ export default function SalesNavScraperPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Enterprise-Grade Features
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Built for sales teams who need reliable, high-volume lead extraction.
             </p>
           </motion.div>
@@ -403,8 +407,8 @@ export default function SalesNavScraperPage() {
                   <div className="w-12 h-12 rounded-xl bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5] mb-4">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-400 mb-4">{feature.description}</p>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{feature.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {feature.stats.map((stat) => (
                       <span
@@ -435,10 +439,10 @@ export default function SalesNavScraperPage() {
                 <Database className="w-4 h-4" />
                 Rich Output
               </div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Complete Lead Records
               </h2>
-              <p className="text-lg text-gray-400 mb-8">
+              <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
                 Every export includes LinkedIn profile data plus enriched contact
                 and company information.
               </p>
@@ -458,7 +462,7 @@ export default function SalesNavScraperPage() {
                   "Technologies",
                   "Seniority Level",
                 ].map((field) => (
-                  <div key={field} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={field} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-[#0077b5]" />
                     {field}
                   </div>
@@ -470,13 +474,13 @@ export default function SalesNavScraperPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
-              <div className="text-sm font-medium text-gray-400 mb-4">Sample Export (CSV)</div>
+              <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>Sample Export (CSV)</div>
               <div className="overflow-x-auto">
                 <table className="w-full text-xs">
                   <thead>
-                    <tr className="border-b border-white/10">
+                    <tr className={`border-b ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
                       <th className="py-2 px-2 text-left text-gray-500">Name</th>
                       <th className="py-2 px-2 text-left text-gray-500">Email</th>
                       <th className="py-2 px-2 text-left text-gray-500">Phone</th>
@@ -489,11 +493,11 @@ export default function SalesNavScraperPage() {
                       { name: "Mike Johnson", email: "mike@scaleup.com", phone: "+1 555-0124", company: "ScaleUp" },
                       { name: "Lisa Park", email: "lisa@growthco.io", phone: "+1 555-0125", company: "GrowthCo" },
                     ].map((row, i) => (
-                      <tr key={i} className="border-b border-white/[0.05]">
-                        <td className="py-2 px-2 text-gray-300">{row.name}</td>
+                      <tr key={i} className={`border-b ${isDark ? "border-white/[0.05]" : "border-black/[0.05]"}`}>
+                        <td className={`py-2 px-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>{row.name}</td>
                         <td className="py-2 px-2 text-[#0077b5]">{row.email}</td>
-                        <td className="py-2 px-2 text-gray-400">{row.phone}</td>
-                        <td className="py-2 px-2 text-gray-400">{row.company}</td>
+                        <td className={`py-2 px-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{row.phone}</td>
+                        <td className={`py-2 px-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{row.company}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -508,7 +512,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Safety */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -519,10 +523,10 @@ export default function SalesNavScraperPage() {
             <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-6">
               <Lock className="w-8 h-8 text-green-500" />
             </div>
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Your Account is Safe
             </h2>
-            <p className="text-lg text-gray-400 mb-8">
+            <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
               We&apos;ve built intelligent safeguards to protect your LinkedIn account while
               enabling high-volume prospecting.
             </p>
@@ -542,8 +546,8 @@ export default function SalesNavScraperPage() {
                   description: "Conservative settings out of the box. Adjust based on your account age and health.",
                 },
               ].map((item) => (
-                <div key={item.title} className="p-4 rounded-lg bg-white/[0.04] border border-white/10">
-                  <h4 className="font-medium text-white mb-2">{item.title}</h4>
+                <div key={item.title} className={`p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
+                  <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{item.title}</h4>
                   <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
               ))}
@@ -563,10 +567,10 @@ export default function SalesNavScraperPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Start Exporting From Sales Navigator
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               Install our Chrome extension and export your first 100 leads free.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -579,7 +583,7 @@ export default function SalesNavScraperPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+                className={`inline-flex items-center gap-2 px-8 py-4 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors text-lg`}
               >
                 View Pricing
               </Link>

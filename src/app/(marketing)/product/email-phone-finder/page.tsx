@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
   Mail,
@@ -24,6 +25,9 @@ import {
 import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
 
 export default function EmailPhoneFinderPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero Section */}
@@ -47,7 +51,7 @@ export default function EmailPhoneFinderPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+                className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
               >
                 Email & Phone{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-400">
@@ -59,7 +63,7 @@ export default function EmailPhoneFinderPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-gray-400 mb-8 max-w-lg"
+                className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-lg`}
               >
                 Find verified work emails and direct phone numbers for any professional.
                 Email-only enrichment for 1 credit, or full contact data for 10 credits.
@@ -80,7 +84,7 @@ export default function EmailPhoneFinderPage() {
                 </Link>
                 <Link
                   href="#verification"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
                 >
                   See Verification Process
                 </Link>
@@ -100,7 +104,7 @@ export default function EmailPhoneFinderPage() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="p-3 rounded-lg bg-white/[0.03] border border-white/[0.05]"
+                    className={`p-3 rounded-lg ${isDark ? "bg-white/[0.03] border-white/[0.05]" : "bg-white/70 border-black/[0.08]"} border`}
                   >
                     <div className="text-2xl font-bold text-green-500">{stat.value}</div>
                     <div className="text-xs text-gray-500">{stat.label}</div>
@@ -121,7 +125,7 @@ export default function EmailPhoneFinderPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={5}
@@ -179,10 +183,10 @@ export default function EmailPhoneFinderPage() {
               <Shield className="w-4 h-4" />
               Email Validation
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               How We Verify Every Email
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Our email validation process ensures high deliverability. No bounces,
               no spam traps, no wasted sends.
             </p>
@@ -240,9 +244,9 @@ export default function EmailPhoneFinderPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10">
+              <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
                 <div className="flex items-center justify-between mb-6">
-                  <span className="text-sm font-medium text-gray-400">Verification Result</span>
+                  <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Verification Result</span>
                   <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-500 text-xs font-medium">
                     Valid
                   </span>
@@ -254,7 +258,7 @@ export default function EmailPhoneFinderPage() {
                       <Mail className="w-5 h-5 text-green-500" />
                     </div>
                     <div>
-                      <div className="text-white font-medium">john.smith@acme.com</div>
+                      <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>john.smith@acme.com</div>
                       <div className="text-xs text-gray-500">Verified 0.8s ago</div>
                     </div>
                   </div>
@@ -273,7 +277,7 @@ export default function EmailPhoneFinderPage() {
                       key={item.check}
                       className="flex items-center justify-between py-2 border-b border-white/[0.05] last:border-0"
                     >
-                      <span className="text-sm text-gray-300">{item.check}</span>
+                      <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{item.check}</span>
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-gray-500">{item.detail}</span>
                         {item.status === "pass" ? (
@@ -304,7 +308,7 @@ export default function EmailPhoneFinderPage() {
       </section>
 
       {/* Detection Capabilities */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -312,10 +316,10 @@ export default function EmailPhoneFinderPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Advanced Detection
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               We don&apos;t just verify—we detect risky email types that hurt your sender reputation.
             </p>
           </motion.div>
@@ -383,8 +387,8 @@ export default function EmailPhoneFinderPage() {
                   >
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-400">{feature.description}</p>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>
               </motion.div>
             ))}
@@ -405,10 +409,10 @@ export default function EmailPhoneFinderPage() {
                 <Phone className="w-4 h-4" />
                 Direct Dial Discovery
               </div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Find Direct Phone Numbers
               </h2>
-              <p className="text-lg text-gray-400 mb-8">
+              <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
                 Get mobile and direct dial numbers for B2B prospects. Verified against
                 carrier databases for accuracy.
               </p>
@@ -433,14 +437,14 @@ export default function EmailPhoneFinderPage() {
                 ].map((item) => (
                   <div
                     key={item.title}
-                    className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.04] border border-white/10"
+                    className={`flex items-start gap-4 p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
                   >
                     <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
                       <Phone className="w-5 h-5 text-[#3e8aff]" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
-                        <h4 className="font-medium text-white">{item.title}</h4>
+                        <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.title}</h4>
                         <span className="text-xs text-green-500">{item.coverage}</span>
                       </div>
                       <p className="text-sm text-gray-500">{item.description}</p>
@@ -454,9 +458,9 @@ export default function EmailPhoneFinderPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
-              <div className="text-sm font-medium text-gray-400 mb-6">Phone Discovery Result</div>
+              <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"} mb-6`}>Phone Discovery Result</div>
 
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-[#111] border border-white/[0.05]">
@@ -465,7 +469,7 @@ export default function EmailPhoneFinderPage() {
                       <Phone className="w-5 h-5 text-[#3e8aff]" />
                     </div>
                     <div>
-                      <div className="text-white font-medium">+1 (555) 123-4567</div>
+                      <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>+1 (555) 123-4567</div>
                       <div className="text-xs text-gray-500">Mobile • Verified</div>
                     </div>
                   </div>
@@ -481,7 +485,7 @@ export default function EmailPhoneFinderPage() {
                       <Phone className="w-5 h-5 text-[#3e8aff]" />
                     </div>
                     <div>
-                      <div className="text-white font-medium">+1 (555) 987-6543</div>
+                      <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>+1 (555) 987-6543</div>
                       <div className="text-xs text-gray-500">Direct Dial • Office</div>
                     </div>
                   </div>
@@ -508,7 +512,7 @@ export default function EmailPhoneFinderPage() {
       </section>
 
       {/* Lookup Methods */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -516,10 +520,10 @@ export default function EmailPhoneFinderPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Multiple Lookup Methods
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Find contacts using any identifier you have.
             </p>
           </motion.div>
@@ -551,13 +555,13 @@ export default function EmailPhoneFinderPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#3e8aff]/30 transition-colors"
+                className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors`}
               >
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                   {method.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{method.title}</h3>
-                <p className="text-sm text-gray-400 mb-4">{method.description}</p>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{method.title}</h3>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{method.description}</p>
                 <div className="p-2 rounded bg-[#111] border border-white/[0.05] text-xs text-gray-500 font-mono">
                   {method.input}
                 </div>
@@ -578,10 +582,10 @@ export default function EmailPhoneFinderPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Start Finding Verified Contacts
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               Get started with free credits. Find emails and phone numbers with 98% accuracy.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -594,7 +598,7 @@ export default function EmailPhoneFinderPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+                className={`inline-flex items-center gap-2 px-8 py-4 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors text-lg`}
               >
                 View Pricing
               </Link>

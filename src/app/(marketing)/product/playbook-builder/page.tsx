@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
   Workflow,
@@ -28,6 +29,9 @@ import {
 import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
 
 export default function PlaybookBuilderPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero Section */}
@@ -51,7 +55,7 @@ export default function PlaybookBuilderPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+                className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
               >
                 Playbook{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
@@ -63,7 +67,7 @@ export default function PlaybookBuilderPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-gray-400 mb-8 max-w-lg"
+                className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-lg`}
               >
                 Build automated GTM workflows with our visual canvas. Dedupe, enrich,
                 verify, and sync—all on autopilot. No code required.
@@ -84,7 +88,7 @@ export default function PlaybookBuilderPage() {
                 </Link>
                 <Link
                   href="#templates"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
                 >
                   View Templates
                 </Link>
@@ -125,7 +129,7 @@ export default function PlaybookBuilderPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={5}
@@ -183,10 +187,10 @@ export default function PlaybookBuilderPage() {
               <GitBranch className="w-4 h-4" />
               Visual Canvas
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Drag, Drop, Automate
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Build complex data workflows visually. Connect actions, set conditions,
               and let your playbook run on autopilot.
             </p>
@@ -197,24 +201,24 @@ export default function PlaybookBuilderPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-xl bg-white/[0.04] border border-white/10 overflow-hidden"
+            className={`rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} overflow-hidden`}
           >
             {/* Toolbar */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-[#1E1E1E]">
+            <div className={`flex items-center justify-between px-4 py-3 border-b ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
               <div className="flex items-center gap-4">
-                <span className="text-sm font-medium text-white">Lead Enrichment Pipeline</span>
+                <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Lead Enrichment Pipeline</span>
                 <span className="px-2 py-0.5 rounded text-xs bg-green-500/10 text-green-500">
                   Active
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <button className="p-2 rounded hover:bg-white/[0.05] text-gray-400">
+                <button className={`p-2 rounded ${isDark ? "hover:bg-white/[0.05] text-gray-400" : "hover:bg-gray-100 text-gray-600"}`}>
                   <Play className="w-4 h-4" />
                 </button>
-                <button className="p-2 rounded hover:bg-white/[0.05] text-gray-400">
+                <button className={`p-2 rounded ${isDark ? "hover:bg-white/[0.05] text-gray-400" : "hover:bg-gray-100 text-gray-600"}`}>
                   <Pause className="w-4 h-4" />
                 </button>
-                <button className="p-2 rounded hover:bg-white/[0.05] text-gray-400">
+                <button className={`p-2 rounded ${isDark ? "hover:bg-white/[0.05] text-gray-400" : "hover:bg-gray-100 text-gray-600"}`}>
                   <Settings className="w-4 h-4" />
                 </button>
               </div>
@@ -225,101 +229,101 @@ export default function PlaybookBuilderPage() {
               <div className="flex items-start gap-6">
                 {/* Step 1 */}
                 <div className="flex flex-col items-center">
-                  <div className="p-4 rounded-xl bg-[#111] border border-white/10 w-48">
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
                         <Upload className="w-4 h-4 text-[#3e8aff]" />
                       </div>
-                      <span className="text-sm font-medium text-white">Import</span>
+                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Import</span>
                     </div>
                     <p className="text-xs text-gray-500">CSV Upload</p>
                     <div className="mt-2 text-xs text-green-500">5,000 records</div>
                   </div>
-                  <div className="w-px h-8 bg-white/[0.1]" />
+                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.1]" : "bg-black/[0.1]"}`} />
                   <div className="w-3 h-3 rounded-full bg-[#3e8aff]" />
                 </div>
 
                 {/* Arrow */}
                 <div className="mt-8">
-                  <ChevronRight className="w-6 h-6 text-white/[0.2]" />
+                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.2]" : "text-black/[0.2]"}`} />
                 </div>
 
                 {/* Step 2 */}
                 <div className="flex flex-col items-center">
-                  <div className="p-4 rounded-xl bg-[#111] border border-white/10 w-48">
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center">
                         <Copy className="w-4 h-4 text-yellow-500" />
                       </div>
-                      <span className="text-sm font-medium text-white">Dedupe</span>
+                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Dedupe</span>
                     </div>
                     <p className="text-xs text-gray-500">By email + company</p>
                     <div className="mt-2 text-xs text-yellow-500">-800 duplicates</div>
                   </div>
-                  <div className="w-px h-8 bg-white/[0.1]" />
+                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.1]" : "bg-black/[0.1]"}`} />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 </div>
 
                 {/* Arrow */}
                 <div className="mt-8">
-                  <ChevronRight className="w-6 h-6 text-white/[0.2]" />
+                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.2]" : "text-black/[0.2]"}`} />
                 </div>
 
                 {/* Step 3 */}
                 <div className="flex flex-col items-center">
-                  <div className="p-4 rounded-xl bg-[#111] border border-[#3e8aff]/30 w-48">
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border border-[#3e8aff]/30 w-48`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
                         <Database className="w-4 h-4 text-[#3e8aff]" />
                       </div>
-                      <span className="text-sm font-medium text-white">Enrich</span>
+                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Enrich</span>
                     </div>
                     <p className="text-xs text-gray-500">Email + Phone</p>
                     <div className="mt-2 text-xs text-[#3e8aff]">Processing...</div>
                   </div>
-                  <div className="w-px h-8 bg-white/[0.1]" />
+                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.1]" : "bg-black/[0.1]"}`} />
                   <div className="w-3 h-3 rounded-full bg-[#3e8aff] animate-pulse" />
                 </div>
 
                 {/* Arrow */}
                 <div className="mt-8">
-                  <ChevronRight className="w-6 h-6 text-white/[0.2]" />
+                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.2]" : "text-black/[0.2]"}`} />
                 </div>
 
                 {/* Step 4 */}
                 <div className="flex flex-col items-center">
-                  <div className="p-4 rounded-xl bg-[#111] border border-white/10 w-48 opacity-50">
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48 opacity-50`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
                         <Mail className="w-4 h-4 text-green-500" />
                       </div>
-                      <span className="text-sm font-medium text-white">Validate</span>
+                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Validate</span>
                     </div>
                     <p className="text-xs text-gray-500">Email validation</p>
                     <div className="mt-2 text-xs text-gray-600">Pending</div>
                   </div>
-                  <div className="w-px h-8 bg-white/[0.05]" />
+                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.05]" : "bg-black/[0.05]"}`} />
                   <div className="w-3 h-3 rounded-full border-2 border-gray-600" />
                 </div>
 
                 {/* Arrow */}
                 <div className="mt-8">
-                  <ChevronRight className="w-6 h-6 text-white/[0.1]" />
+                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.1]" : "text-black/[0.1]"}`} />
                 </div>
 
                 {/* Step 5 */}
                 <div className="flex flex-col items-center">
-                  <div className="p-4 rounded-xl bg-[#111] border border-white/10 w-48 opacity-50">
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} w-48 opacity-50`}>
                     <div className="flex items-center gap-2 mb-2">
                       <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
                         <Download className="w-4 h-4 text-purple-500" />
                       </div>
-                      <span className="text-sm font-medium text-white">Sync CRM</span>
+                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Sync CRM</span>
                     </div>
                     <p className="text-xs text-gray-500">Push to Salesforce</p>
                     <div className="mt-2 text-xs text-gray-600">Pending</div>
                   </div>
-                  <div className="w-px h-8 bg-white/[0.05]" />
+                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.05]" : "bg-black/[0.05]"}`} />
                   <div className="w-3 h-3 rounded-full border-2 border-gray-600" />
                 </div>
               </div>
@@ -329,7 +333,7 @@ export default function PlaybookBuilderPage() {
       </section>
 
       {/* Available Step Types */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -337,10 +341,10 @@ export default function PlaybookBuilderPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               25+ Built-in Step Types
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Connect any combination of steps across 10 categories to build your perfect workflow.
             </p>
           </motion.div>
@@ -404,7 +408,7 @@ export default function PlaybookBuilderPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="p-4 rounded-xl bg-white/[0.04] border border-white/10"
+                className={`p-4 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
               >
                 <div
                   className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-medium mb-3 ${
@@ -427,7 +431,7 @@ export default function PlaybookBuilderPage() {
                   {group.actions.map((action) => (
                     <div
                       key={action}
-                      className="flex items-center gap-2 text-xs text-gray-400"
+                      className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}
                     >
                       <Check className="w-3 h-3 text-gray-600" />
                       {action}
@@ -453,10 +457,10 @@ export default function PlaybookBuilderPage() {
               <Sparkles className="w-4 h-4" />
               Templates
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Start With a Template
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Pre-built playbooks for common GTM workflows. Clone and customize.
             </p>
           </motion.div>
@@ -506,12 +510,12 @@ export default function PlaybookBuilderPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group p-6 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#3e8aff]/30 transition-colors cursor-pointer"
+                className={`group p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors cursor-pointer`}
               >
-                <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#3e8aff] transition-colors">
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2 group-hover:text-[#3e8aff] transition-colors`}>
                   {template.title}
                 </h3>
-                <p className="text-sm text-gray-400 mb-4">{template.description}</p>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{template.description}</p>
                 <div className="flex items-center justify-between text-xs text-gray-500">
                   <span>{template.steps} steps</span>
                   <span>{template.users} users</span>
@@ -523,7 +527,7 @@ export default function PlaybookBuilderPage() {
       </section>
 
       {/* Scheduling */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -535,10 +539,10 @@ export default function PlaybookBuilderPage() {
                 <Clock className="w-4 h-4" />
                 Scheduling
               </div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Run on Your Schedule
               </h2>
-              <p className="text-lg text-gray-400 mb-8">
+              <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
                 Trigger playbooks on a schedule, via webhook, or manually.
                 Set it and forget it.
               </p>
@@ -564,11 +568,11 @@ export default function PlaybookBuilderPage() {
                 ].map((trigger) => (
                   <div
                     key={trigger.title}
-                    className="flex items-start gap-3 p-4 rounded-lg bg-white/[0.04] border border-white/10"
+                    className={`flex items-start gap-3 p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
                   >
                     <Check className="w-5 h-5 text-[#3e8aff] mt-0.5" />
                     <div>
-                      <h4 className="font-medium text-white">{trigger.title}</h4>
+                      <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{trigger.title}</h4>
                       <p className="text-sm text-gray-500">{trigger.description}</p>
                     </div>
                   </div>
@@ -580,9 +584,9 @@ export default function PlaybookBuilderPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+              className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
             >
-              <div className="text-sm font-medium text-gray-400 mb-4">Recent Runs</div>
+              <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>Recent Runs</div>
               <div className="space-y-3">
                 {[
                   { name: "Lead Cleanup", status: "completed", time: "2 min ago", records: 1250 },
@@ -592,7 +596,7 @@ export default function PlaybookBuilderPage() {
                 ].map((run, i) => (
                   <div
                     key={i}
-                    className="flex items-center justify-between p-3 rounded-lg bg-[#111] border border-white/[0.05]"
+                    className={`flex items-center justify-between p-3 rounded-lg ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.05]" : "border-black/[0.05]"}`}
                   >
                     <div className="flex items-center gap-3">
                       <div
@@ -605,12 +609,12 @@ export default function PlaybookBuilderPage() {
                         }`}
                       />
                       <div>
-                        <div className="text-sm text-white">{run.name}</div>
+                        <div className={`text-sm ${isDark ? "text-white" : "text-gray-900"}`}>{run.name}</div>
                         <div className="text-xs text-gray-500">{run.time}</div>
                       </div>
                     </div>
                     {run.records && (
-                      <span className="text-xs text-gray-400">{run.records} records</span>
+                      <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>{run.records} records</span>
                     )}
                   </div>
                 ))}
@@ -631,10 +635,10 @@ export default function PlaybookBuilderPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Automate Your GTM Pipeline
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               Build your first playbook in minutes. No code required.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -647,7 +651,7 @@ export default function PlaybookBuilderPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+                className={`inline-flex items-center gap-2 px-8 py-4 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors text-lg`}
               >
                 View Pricing
               </Link>

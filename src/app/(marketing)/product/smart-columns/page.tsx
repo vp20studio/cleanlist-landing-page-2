@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
   Sparkles,
@@ -21,6 +22,9 @@ import {
 import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
 
 export default function SmartColumnsPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero Section */}
@@ -44,7 +48,7 @@ export default function SmartColumnsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+                className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
               >
                 Smart{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-violet-400">
@@ -56,7 +60,7 @@ export default function SmartColumnsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-gray-400 mb-8 max-w-lg"
+                className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-lg`}
               >
                 AI-powered data normalization and transformation. Standardize job titles,
                 format phone numbers, parse names, and more—all with natural language prompts.
@@ -77,7 +81,7 @@ export default function SmartColumnsPage() {
                 </Link>
                 <Link
                   href="#examples"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
                 >
                   See Examples
                 </Link>
@@ -118,7 +122,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10" : "border-black/[0.08]"} ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={5}
@@ -176,10 +180,10 @@ export default function SmartColumnsPage() {
               <Wand2 className="w-4 h-4" />
               Natural Language
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Describe What You Want
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               No formulas, no regex. Just tell Smart Columns what you need in plain English.
             </p>
           </motion.div>
@@ -233,10 +237,10 @@ export default function SmartColumnsPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10">
+              <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-4">
                   <Sparkles className="w-5 h-5 text-purple-500" />
-                  <span className="text-sm font-medium text-gray-400">Live Example</span>
+                  <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Live Example</span>
                 </div>
 
                 {/* Prompt */}
@@ -265,7 +269,7 @@ export default function SmartColumnsPage() {
                       ].map((title, i) => (
                         <div
                           key={i}
-                          className="p-2 rounded bg-red-500/5 border border-red-500/20 text-xs text-gray-400"
+                          className={`p-2 rounded bg-red-500/5 border border-red-500/20 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}
                         >
                           {title}
                         </div>
@@ -292,7 +296,7 @@ export default function SmartColumnsPage() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.1 }}
-                          className="p-2 rounded bg-green-500/5 border border-green-500/20 text-xs text-gray-300"
+                          className={`p-2 rounded bg-green-500/5 border border-green-500/20 text-xs ${isDark ? "text-gray-300" : "text-gray-700"}`}
                         >
                           {title}
                         </motion.div>
@@ -312,7 +316,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Smart Column Types */}
-      <section id="examples" className="py-24 bg-[#1E1E1E]">
+      <section id="examples" className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -320,10 +324,10 @@ export default function SmartColumnsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               12 Smart Column Types
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Purpose-built transformations for every data enrichment need.
             </p>
           </motion.div>
@@ -397,15 +401,15 @@ export default function SmartColumnsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="p-6 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/30 transition-colors"
+                className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} hover:border-purple-500/30 transition-colors`}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-lg font-semibold text-white">{column.title}</h3>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{column.title}</h3>
                   <span className="text-xs px-2 py-1 rounded-full bg-purple-500/10 text-purple-400">
                     {column.category}
                   </span>
                 </div>
-                <p className="text-sm text-gray-400">{column.description}</p>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{column.description}</p>
               </motion.div>
             ))}
           </div>
@@ -425,10 +429,10 @@ export default function SmartColumnsPage() {
                 <Brain className="w-4 h-4" />
                 Custom AI Prompts
               </div>
-              <h2 className="text-4xl font-bold text-white mb-4">
+              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Unlimited Possibilities
               </h2>
-              <p className="text-lg text-gray-400 mb-8">
+              <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
                 Beyond built-in rules, create any transformation with natural language.
                 Our GPT-4 engine understands context and handles edge cases.
               </p>
@@ -450,7 +454,7 @@ export default function SmartColumnsPage() {
                 ].map((example, i) => (
                   <div
                     key={i}
-                    className="p-4 rounded-lg bg-white/[0.04] border border-white/10"
+                    className={`p-4 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
                   >
                     <div className="text-sm text-purple-400 font-mono mb-2">{example.prompt}</div>
                     <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -480,12 +484,12 @@ export default function SmartColumnsPage() {
                   <Brain className="w-5 h-5 text-purple-500" />
                 </div>
                 <div>
-                  <div className="text-white font-medium">GPT-4 Powered</div>
+                  <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>GPT-4 Powered</div>
                   <div className="text-xs text-gray-500">Latest AI model</div>
                 </div>
               </div>
 
-              <div className="space-y-4 text-sm text-gray-400">
+              <div className={`space-y-4 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 <p>
                   Smart Columns uses OpenAI&apos;s GPT-4 model—the same technology behind
                   ChatGPT—to understand your transformation requests.
@@ -494,7 +498,7 @@ export default function SmartColumnsPage() {
                   This means it can handle complex, context-dependent transformations
                   that traditional rule-based systems cannot.
                 </p>
-                <div className="pt-4 border-t border-white/10">
+                <div className={`pt-4 border-t ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
                   <div className="flex items-center gap-2 text-green-500 text-xs">
                     <Shield className="w-4 h-4" />
                     Your data is never used for model training
@@ -507,7 +511,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Integration */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -515,10 +519,10 @@ export default function SmartColumnsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Works With Your Data
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Import from any source, transform with AI, export anywhere.
             </p>
           </motion.div>
@@ -547,15 +551,15 @@ export default function SmartColumnsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-white/[0.04] border border-white/10 text-center"
+                className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} text-center`}
               >
                 <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 mx-auto mb-4">
                   {step.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-4">{step.title}</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>{step.title}</h3>
                 <div className="space-y-2">
                   {step.items.map((item) => (
-                    <div key={item} className="text-sm text-gray-400">
+                    <div key={item} className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                       {item}
                     </div>
                   ))}
@@ -577,10 +581,10 @@ export default function SmartColumnsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Transform Your Data With AI
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               Start cleaning and normalizing your data in seconds. No coding required.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -593,7 +597,7 @@ export default function SmartColumnsPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+                className={`inline-flex items-center gap-2 px-8 py-4 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors text-lg`}
               >
                 View Pricing
               </Link>

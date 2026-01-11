@@ -19,8 +19,12 @@ import {
   Layers,
 } from "lucide-react";
 import { TechnicalGrid, GlowCard } from "@/components/ui";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function AgenciesPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero */}
@@ -43,7 +47,7 @@ export default function AgenciesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6"
+              className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
             >
               White-Label Data{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-400">
@@ -55,7 +59,7 @@ export default function AgenciesPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-xl text-gray-400 mb-8"
+              className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}
             >
               Offer data services to your clients without building infrastructure.
               Bulk processing, team workspaces, and margin controls built for agencies.
@@ -76,7 +80,7 @@ export default function AgenciesPage() {
               </Link>
               <Link
                 href="/pricing"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
               >
                 View Pricing
               </Link>
@@ -86,7 +90,7 @@ export default function AgenciesPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
+      <section className={`py-12 border-y ${isDark ? "border-white/10" : "border-black/[0.08]"} ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={4}
@@ -133,10 +137,10 @@ export default function AgenciesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Built for Agency Scale
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Everything you need to offer data services to your clients.
             </p>
           </motion.div>
@@ -191,8 +195,8 @@ export default function AgenciesPage() {
                   <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500 mb-4">
                     {feature.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-gray-400">{feature.description}</p>
+                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>
               </motion.div>
             ))}
@@ -201,7 +205,7 @@ export default function AgenciesPage() {
       </section>
 
       {/* How Agencies Use Cleanlist */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -209,7 +213,7 @@ export default function AgenciesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Agency Use Cases
             </h2>
           </motion.div>
@@ -267,10 +271,10 @@ export default function AgenciesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
+                className={`p-6 rounded-xl ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"}`}
               >
-                <h3 className="text-xl font-semibold text-white mb-2">{useCase.title}</h3>
-                <p className="text-gray-400 mb-4">{useCase.description}</p>
+                <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{useCase.title}</h3>
+                <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{useCase.description}</p>
                 <div className="grid grid-cols-2 gap-2">
                   {useCase.services.map((service) => (
                     <div key={service} className="flex items-center gap-2 text-sm text-gray-500">
@@ -294,10 +298,10 @@ export default function AgenciesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Agency Pricing
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
               Volume discounts and flexible terms for agencies.
             </p>
           </motion.div>
@@ -353,20 +357,20 @@ export default function AgenciesPage() {
                 className={`p-6 rounded-xl border ${
                   tier.popular
                     ? "bg-green-500/5 border-green-500/30"
-                    : "bg-white/[0.04] border-white/10"
+                    : `${isDark ? "bg-white/[0.04]" : "bg-white/70"} ${isDark ? "border-white/10" : "border-black/[0.08]"}`
                 }`}
               >
                 {tier.popular && (
                   <div className="text-xs font-medium text-green-500 mb-2">Most Popular</div>
                 )}
-                <h3 className="text-lg font-semibold text-white mb-1">{tier.tier}</h3>
-                <div className="text-3xl font-bold text-white mb-1">{tier.price}</div>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-1`}>{tier.tier}</h3>
+                <div className={`text-3xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-1`}>{tier.price}</div>
                 <div className="text-sm text-gray-500 mb-4">
                   {tier.credits} credits • {tier.pricePerCredit}/credit
                 </div>
                 <div className="space-y-2 mb-6">
                   {tier.features.map((feature) => (
-                    <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                       <Check className="w-4 h-4 text-green-500" />
                       {feature}
                     </div>
@@ -377,7 +381,7 @@ export default function AgenciesPage() {
                   className={`block w-full py-2.5 text-center rounded-lg font-medium transition-colors ${
                     tier.popular
                       ? "bg-green-500 text-white hover:bg-green-500/90"
-                      : "bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                      : `${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`
                   }`}
                 >
                   {tier.price === "Custom" ? "Contact Sales" : "Get Started"}
@@ -389,16 +393,16 @@ export default function AgenciesPage() {
       </section>
 
       {/* Trust */}
-      <section className="py-24 bg-[#1E1E1E]">
+      <section className={`py-24 ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-6">
               <Shield className="w-8 h-8 text-green-500" />
             </div>
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className={`text-3xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Enterprise-Grade Security
             </h2>
-            <p className="text-gray-400 mb-8">
+            <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
               Your clients&apos; data is protected with the same security standards as Fortune 500 companies.
             </p>
             <div className="flex flex-wrap justify-center gap-6">
@@ -410,7 +414,7 @@ export default function AgenciesPage() {
               ].map((cert) => (
                 <div
                   key={cert}
-                  className="px-4 py-2 rounded-lg bg-white/[0.04] border border-white/10 text-sm text-gray-400"
+                  className={`px-4 py-2 rounded-lg ${isDark ? "bg-white/[0.04]" : "bg-white/70"} border ${isDark ? "border-white/10" : "border-black/[0.08]"} text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                 >
                   {cert}
                 </div>
@@ -431,10 +435,10 @@ export default function AgenciesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
               Ready to Scale Your Agency?
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
               Apply for our agency program and start offering data services to your clients.
             </p>
             <Link
