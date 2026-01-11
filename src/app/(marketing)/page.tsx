@@ -29,12 +29,15 @@ import {
 } from "lucide-react";
 import { DashboardMockup } from "@/components/ui";
 import StickySubNav from "@/components/StickySubNav";
+import InteractiveDemo from "@/components/InteractiveDemo";
+import PlaybooksSection from "@/components/PlaybooksSection";
 import { useTheme } from "@/context/ThemeContext";
 
-// Data providers for waterfall enrichment
+// Data providers for waterfall enrichment (15+)
 const dataProviders = [
   "Clearbit", "Findymail", "Datagma", "ZoomInfo", "Hunter",
-  "Dropcontact", "Apollo", "Lusha", "RocketReach", "Seamless.ai"
+  "Dropcontact", "Apollo", "Lusha", "RocketReach", "Seamless.ai",
+  "Cognism", "LeadIQ", "Snov.io", "Kaspr", "FullContact", "People Data Labs"
 ];
 
 // All integrations for the hub visual
@@ -153,7 +156,7 @@ export default function HomePage() {
       <StickySubNav />
 
       {/* Hero Section */}
-      <section className="relative pt-16 md:pt-20 pb-16 md:pb-24 overflow-hidden">
+      <section className="relative pt-16 md:pt-24 pb-16 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
 
@@ -166,7 +169,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4 md:mb-6"
               >
                 <Sparkles className="w-4 h-4" />
-                95%+ Accuracy for Prospecting
+                85% Phone Discovery • 98% Verified Emails
               </motion.div>
 
               <motion.h1
@@ -175,9 +178,9 @@ export default function HomePage() {
                 transition={{ delay: 0.1 }}
                 className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-4 md:mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
               >
-                Turn messy data into your{" "}
+                The GTM{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                  greatest growth lever
+                  Playbook Engine
                 </span>
               </motion.h1>
 
@@ -187,8 +190,8 @@ export default function HomePage() {
                 transition={{ delay: 0.2 }}
                 className={`text-lg md:text-xl mb-6 md:mb-8 max-w-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}
               >
-                Clean, verify & enrich your leads with 95%+ accuracy. Now starting at just
-                $29/month.
+                Find 85% of phone numbers and 98% of verified emails in seconds.
+                15+ data sources. One waterfall. Zero manual work.
               </motion.p>
 
               <motion.div
@@ -199,24 +202,24 @@ export default function HomePage() {
               >
                 <Link
                   href="#"
-                  className="inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30"
                 >
-                  Get started for free
+                  Start Free — 30 Credits
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="#pricing"
-                  className={`inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3 border font-medium rounded-lg transition-colors ${
+                  href="#demo"
+                  className={`inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3.5 border font-medium rounded-lg transition-colors ${
                     isDark
                       ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
                       : "border-gray-300 text-gray-900 hover:bg-gray-100"
                   }`}
                 >
-                  View Pricing
+                  See It In Action
                 </Link>
               </motion.div>
 
-              {/* Hero Stats */}
+              {/* Hero Stats - Updated with accurate metrics */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -224,10 +227,10 @@ export default function HomePage() {
                 className="grid grid-cols-4 gap-2 md:gap-4"
               >
                 {[
-                  { value: "10+", label: "Data Sources" },
-                  { value: "5,500", label: "Credits" },
-                  { value: "95%+", label: "Accuracy" },
-                  { value: "10K+", label: "Records" },
+                  { value: "15+", label: "Data Sources" },
+                  { value: "85%", label: "Phone Rate" },
+                  { value: "98%", label: "Email Accuracy" },
+                  { value: "50%", label: "Higher Replies" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
                     <div className="text-lg md:text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
@@ -249,133 +252,31 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Logo Bar */}
+      {/* Social Proof Bar */}
       <section className={`py-6 md:py-8 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <p className={`text-center text-xs md:text-sm mb-4 md:mb-6 ${isDark ? "text-gray-500" : "text-gray-600"}`}>Used by data-driven companies</p>
-          <div className="flex items-center justify-center gap-6 md:gap-12 flex-wrap opacity-50">
-            {["SMTP", "NIEP", "LINEA", "API", "FIBIFY", "IAFI"].map((name) => (
-              <div key={name} className={`text-base md:text-xl font-bold tracking-wider ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                {name}
+          <p className={`text-center text-xs md:text-sm mb-4 md:mb-6 ${isDark ? "text-gray-500" : "text-gray-600"}`}>
+            Trusted by 1,000+ GTM teams for verified contact data
+          </p>
+          <div className="flex items-center justify-center gap-8 md:gap-16 flex-wrap">
+            {[
+              { name: "Uber", rating: "4.8" },
+              { name: "Klaviyo", rating: "4.9" },
+              { name: "Dropbox", rating: "4.7" },
+              { name: "Salesforce", rating: "4.8" },
+            ].map((company) => (
+              <div key={company.name} className="flex items-center gap-2">
+                <span className={`text-base md:text-lg font-semibold ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                  {company.name}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Solutions Section */}
-      <section id="solutions" className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10 md:mb-16"
-          >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              One platform, tailored to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                how you work
-              </span>
-            </h2>
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Whether you&apos;re a solo sales rep or a scaling GTM team, Cleanlist adapts to
-              your workflow.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {[
-              {
-                icon: <TrendingUp className="w-6 h-6" />,
-                title: "BDR/SDR",
-                subtitle: "Growth Engine",
-                description: "Spend less time finding prospects and more time selling.",
-                stats: [
-                  { value: "95%", label: "Accuracy" },
-                  { value: "5x", label: "Faster" },
-                  { value: "60%", label: "Time Saved" },
-                ],
-                color: "blue",
-              },
-              {
-                icon: <Scale className="w-6 h-6" />,
-                title: "Lead Gen Agency",
-                subtitle: "Scale Operations",
-                description: "Scale your prospecting with verified contacts and emails.",
-                stats: [
-                  { value: "10K+", label: "Records/mo" },
-                  { value: "Bulk", label: "Processing" },
-                  { value: "API", label: "Access" },
-                ],
-                color: "purple",
-              },
-              {
-                icon: <Target className="w-6 h-6" />,
-                title: "Sales Teams",
-                subtitle: "Hit Targets",
-                description: "Build high-quality prospect lists with accurate contact info.",
-                stats: [
-                  { value: "5", label: "CRMs" },
-                  { value: "Real-time", label: "Sync" },
-                  { value: "ICP", label: "Scoring" },
-                ],
-                color: "green",
-              },
-              {
-                icon: <Megaphone className="w-6 h-6" />,
-                title: "Marketing Teams",
-                subtitle: "Target Right",
-                description: "Target the right audience with verified business contacts.",
-                stats: [
-                  { value: "Email", label: "Validation" },
-                  { value: "Segment", label: "Data" },
-                  { value: "Enrich", label: "Lists" },
-                ],
-                color: "yellow",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-all ${
-                  isDark
-                    ? "bg-[#0a0a0a] border-white/[0.08] hover:border-[#3e8aff]/30"
-                    : "bg-white/70 border-black/[0.08] hover:border-[#3e8aff]/50"
-                }`}
-              >
-                <div
-                  className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-3 md:mb-4 ${
-                    item.color === "blue"
-                      ? "bg-[#3e8aff]/10 text-[#3e8aff]"
-                      : item.color === "purple"
-                      ? "bg-purple-500/10 text-purple-500"
-                      : item.color === "green"
-                      ? "bg-green-500/10 text-green-500"
-                      : "bg-yellow-500/10 text-yellow-500"
-                  }`}
-                >
-                  {item.icon}
-                </div>
-                <h3 className={`text-base md:text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{item.title}</h3>
-                <p className="text-sm text-[#3e8aff] mb-2">{item.subtitle}</p>
-                <p className={`text-sm mb-3 md:mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{item.description}</p>
-                <div className="grid grid-cols-3 gap-1 md:gap-2">
-                  {item.stats.map((stat) => (
-                    <div key={stat.label} className={`text-center p-1.5 md:p-2 rounded ${isDark ? "bg-white/[0.03]" : "bg-[#F8F9FA]"}`}>
-                      <div className={`text-xs md:text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{stat.value}</div>
-                      <div className={`text-[10px] md:text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Interactive Product Demo */}
+      <InteractiveDemo />
 
       {/* Data Transform Section */}
       <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
@@ -461,7 +362,7 @@ export default function HomePage() {
 
             {/* Provider logos */}
             <div className={`mt-6 md:mt-8 p-4 rounded-lg border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
-              <p className={`text-xs mb-3 text-center ${isDark ? "text-gray-500" : "text-gray-600"}`}>Powered by 10+ data providers</p>
+              <p className={`text-xs mb-3 text-center ${isDark ? "text-gray-500" : "text-gray-600"}`}>Powered by 15+ data providers</p>
               <div className="flex items-center justify-center gap-3 md:gap-4 flex-wrap">
                 {dataProviders.map((provider) => (
                   <span key={provider} className={`text-xs px-2 py-1 rounded ${isDark ? "text-gray-400 bg-white/[0.03]" : "text-gray-600 bg-gray-100"}`}>
@@ -474,153 +375,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10 md:mb-16"
-          >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Three steps to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                perfect data
-              </span>
-            </h2>
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Our AI manages everything while you focus on closing deals.
-            </p>
-          </motion.div>
-
-          {/* Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
-            {["Multi-Functionality", "Deep Enrichment", "Plug & Play API"].map((tab, index) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(index)}
-                className={`px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium transition-colors text-sm md:text-base ${
-                  activeTab === index
-                    ? "bg-[#3e8aff] text-white"
-                    : isDark
-                      ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          {/* Tab Content */}
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="max-w-4xl mx-auto"
-          >
-            {activeTab === 0 && (
-              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
-                  <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Enrichment</h3>
-                  <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    Query 10+ data providers simultaneously and get the best match for each field.
-                  </p>
-                  <div className="space-y-3">
-                    {dataProviders.slice(0, 5).map((provider, i) => (
-                      <div key={provider} className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full ${i === 0 ? "bg-green-500" : (isDark ? "bg-gray-600" : "bg-gray-300")}`} />
-                        <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{provider}</span>
-                        {i === 0 && <span className="text-xs text-green-500">Best match</span>}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    "Query multiple providers in parallel",
-                    "Smart merge picks best data per field",
-                    "Fallback to secondary sources automatically",
-                    "Pay only for successful enrichments",
-                  ].map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                      <span className={isDark ? "text-gray-300" : "text-gray-700"}>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeTab === 1 && (
-              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
-                  <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Enriched Fields</h3>
-                  <div className="grid grid-cols-2 gap-3">
-                    {[
-                      "Work Email", "Direct Phone", "Mobile Phone", "Job Title",
-                      "Department", "Seniority", "Company Size", "Industry",
-                      "Revenue Range", "Technologies", "LinkedIn URL", "Location"
-                    ].map((field) => (
-                      <div key={field} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                        <Check className="w-4 h-4 text-[#3e8aff]" />
-                        {field}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    "Email deliverability validation included",
-                    "Phone numbers verified as direct dials",
-                    "Company firmographics auto-populated",
-                    "ICP scoring against your criteria",
-                  ].map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                      <span className={isDark ? "text-gray-300" : "text-gray-700"}>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {activeTab === 2 && (
-              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
-                <div className={`p-5 md:p-6 rounded-xl border overflow-hidden transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Code className="w-5 h-5 text-[#3e8aff]" />
-                    <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>API Example</span>
-                  </div>
-                  <pre className={`text-xs overflow-x-auto ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-{`curl -X POST https://api.cleanlist.ai/enrich \\
-  -H "Authorization: Bearer YOUR_KEY" \\
-  -d '{
-    "email": "john@acme.com",
-    "enrich_phone": true
-  }'`}
-                  </pre>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    "RESTful API with SDKs for Python, Node, Go",
-                    "Webhook callbacks for async workflows",
-                    "Batch processing for high-volume ops",
-                    "99.9% uptime SLA guaranteed",
-                  ].map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                      <span className={isDark ? "text-gray-300" : "text-gray-700"}>{feature}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </motion.div>
-        </div>
-      </section>
+      {/* Playbooks Section */}
+      <PlaybooksSection />
 
       {/* Where Cleanlist Sits - Comparison Section */}
       <section id="compare" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
@@ -1400,20 +1156,24 @@ export default function HomePage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6">
+              <Sparkles className="w-4 h-4" />
+              No credit card required
+            </div>
             <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Ready to reclaim your{" "}
+              Your first{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                data quality
-              </span>
-              ?
+                30 credits
+              </span>{" "}
+              are free
             </h2>
             <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Join thousands of GTM teams using Cleanlist. Start free, no credit card required.
+              No credit card. No commitment. See why 1,000+ GTM teams trust Cleanlist for verified contact data.
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4">
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center shadow-lg shadow-[#3e8aff]/25"
               >
                 Start Free
                 <ArrowRight className="w-5 h-5" />
@@ -1427,7 +1187,7 @@ export default function HomePage() {
                 }`}
               >
                 <Building className="w-5 h-5" />
-                Talk to Sales
+                Book a Demo
               </Link>
             </div>
           </motion.div>
