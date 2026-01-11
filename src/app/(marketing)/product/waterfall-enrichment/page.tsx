@@ -132,7 +132,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className="py-12 border-y border-white/[0.08] bg-[#080808]">
+      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={6}
@@ -271,7 +271,7 @@ export default function WaterfallEnrichmentPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
+              <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10">
                 <div className="text-sm font-medium text-gray-400 mb-6">
                   Waterfall Cascade Visualization
                 </div>
@@ -364,7 +364,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Enrichment Types */}
-      <section className="py-24 bg-[#080808]">
+      <section className="py-24 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -391,7 +391,7 @@ export default function WaterfallEnrichmentPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-8 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              className="p-8 rounded-xl bg-white/[0.04] border border-white/10"
             >
               <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-6">
                 <Mail className="w-7 h-7" />
@@ -569,7 +569,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* API Example */}
-      <section className="py-24 bg-[#080808]">
+      <section className="py-24 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -616,9 +616,9 @@ export default function WaterfallEnrichmentPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0a0a0a] rounded-xl border border-white/[0.08] overflow-hidden"
+              className="bg-white/[0.04] rounded-xl border border-white/10 overflow-hidden"
             >
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.08] bg-[#080808]">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-[#1E1E1E]">
                 <div className="flex items-center gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500/80" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
@@ -715,7 +715,7 @@ export default function WaterfallEnrichmentPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-[#3e8aff]/30 transition-colors"
+                className="p-6 rounded-xl bg-white/[0.04] border border-white/10 hover:border-[#3e8aff]/30 transition-colors"
               >
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                   {useCase.icon}

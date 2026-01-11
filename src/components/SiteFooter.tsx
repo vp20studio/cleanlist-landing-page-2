@@ -41,9 +41,9 @@ export default function SiteFooter() {
   const isDark = theme === "dark";
 
   return (
-    <footer className={`border-t transition-colors ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.08] bg-gray-50"}`}>
+    <footer className={`border-t transition-colors ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
       {/* Stats Bar */}
-      <div className={`border-b ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
+      <div className={`border-b ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat) => (
@@ -162,7 +162,7 @@ export default function SiteFooter() {
       </div>
 
       {/* Bottom Bar */}
-      <div className={`border-t ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
+      <div className={`border-t ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
             <div className={`flex items-center gap-6 text-xs md:text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>

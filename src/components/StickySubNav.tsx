@@ -78,7 +78,7 @@ export default function StickySubNav() {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className={`fixed top-16 left-0 right-0 z-40 backdrop-blur-xl border-b ${
             theme === "dark"
-              ? "bg-[#030303]/90 border-white/[0.08]"
+              ? "bg-[#1E1E1E]/90 border-white/10"
               : "bg-white/90 border-black/[0.08]"
           }`}
         >

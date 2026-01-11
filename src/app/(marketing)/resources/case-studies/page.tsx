@@ -17,6 +17,7 @@ import {
   Zap,
   Target,
 } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 const caseStudies = [
   {
@@ -196,6 +197,9 @@ const caseStudies = [
 ];
 
 export default function CaseStudiesPage() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Hero */}
@@ -216,7 +220,7 @@ export default function CaseStudiesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className={`text-5xl md:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
           >
             Real Results From Real Teams
           </motion.h1>
@@ -225,7 +229,7 @@ export default function CaseStudiesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-400 max-w-2xl mx-auto"
+            className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}
           >
             See how sales teams, agencies, and RevOps leaders use Cleanlist to transform
             their data operations.
@@ -234,7 +238,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-y border-white/[0.08] bg-[#080808]">
+      <section className={`py-12 border-y transition-colors ${isDark ? "border-white/10 bg-[#1E1E1E]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -261,8 +265,8 @@ export default function CaseStudiesPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-white mb-4">Featured Success Stories</h2>
-            <p className="text-gray-400">Real metrics from real customers</p>
+            <h2 className={`text-3xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Featured Success Stories</h2>
+            <p className={isDark ? "text-gray-400" : "text-gray-600"}>Real metrics from real customers</p>
           </motion.div>
 
           <div className="space-y-8">
@@ -273,7 +277,7 @@ export default function CaseStudiesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="p-8 rounded-2xl bg-gradient-to-br from-white/[0.03] to-white/[0.01] border border-white/[0.08]"
+                className={`p-8 rounded-2xl border ${isDark ? "bg-gradient-to-br from-white/[0.03] to-white/[0.01] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
               >
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
@@ -286,7 +290,7 @@ export default function CaseStudiesPage() {
                     </div>
                     <div>
                       <div className="flex items-center gap-3">
-                        <h3 className="text-xl font-semibold text-white">{study.company}</h3>
+                        <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{study.company}</h3>
                         <span
                           className="px-2.5 py-1 rounded-full text-xs font-medium"
                           style={{ backgroundColor: `${study.tagColor}20`, color: study.tagColor }}
@@ -311,13 +315,13 @@ export default function CaseStudiesPage() {
                   {study.results.map((result) => (
                     <div
                       key={result.label}
-                      className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.05]"
+                      className={`p-4 rounded-xl ${isDark ? "bg-white/[0.02] border border-white/[0.05]" : "bg-[#F8F9FA] border border-black/[0.05]"}`}
                     >
                       <div className="flex items-center gap-2 mb-3">
                         <span className="text-gray-500">{result.icon}</span>
                         <span className="text-gray-500 text-sm line-through">{result.before}</span>
                         <span className="text-gray-400">→</span>
-                        <span className="text-white font-bold text-lg">{result.after}</span>
+                        <span className={`font-bold text-lg ${isDark ? "text-white" : "text-gray-900"}`}>{result.after}</span>
                       </div>
                       <div className="text-sm text-gray-400">{result.label}</div>
                       <div className={`text-sm font-medium mt-1 ${result.changeColor}`}>
@@ -337,9 +341,9 @@ export default function CaseStudiesPage() {
                     }}
                   >
                     <Quote className="w-6 h-6 mb-3" style={{ color: study.color }} />
-                    <p className="text-gray-300 italic mb-3">&ldquo;{study.quote}&rdquo;</p>
+                    <p className={`italic mb-3 ${isDark ? "text-gray-300" : "text-gray-700"}`}>&ldquo;{study.quote}&rdquo;</p>
                     <div>
-                      <div className="font-medium text-white">{study.author}</div>
+                      <div className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{study.author}</div>
                       <div className="text-sm text-gray-500">{study.role}</div>
                     </div>
                   </div>
@@ -369,10 +373,10 @@ export default function CaseStudiesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
               Ready to Write Your Success Story?
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Join 500+ teams achieving real results with clean data.
             </p>
             <Link

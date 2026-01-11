@@ -118,7 +118,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className="py-12 border-y border-white/[0.08] bg-[#080808]">
+      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={5}
@@ -233,7 +233,7 @@ export default function SmartColumnsPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
+              <div className="p-6 rounded-xl bg-white/[0.04] border border-white/10">
                 <div className="flex items-center gap-2 mb-4">
                   <Sparkles className="w-5 h-5 text-purple-500" />
                   <span className="text-sm font-medium text-gray-400">Live Example</span>
@@ -312,7 +312,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Smart Column Types */}
-      <section id="examples" className="py-24 bg-[#080808]">
+      <section id="examples" className="py-24 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -397,7 +397,7 @@ export default function SmartColumnsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-purple-500/30 transition-colors"
+                className="p-6 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/30 transition-colors"
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-lg font-semibold text-white">{column.title}</h3>
@@ -450,7 +450,7 @@ export default function SmartColumnsPage() {
                 ].map((example, i) => (
                   <div
                     key={i}
-                    className="p-4 rounded-lg bg-[#0a0a0a] border border-white/[0.08]"
+                    className="p-4 rounded-lg bg-white/[0.04] border border-white/10"
                   >
                     <div className="text-sm text-purple-400 font-mono mb-2">{example.prompt}</div>
                     <div className="flex items-center gap-2 text-xs text-gray-500">
@@ -494,7 +494,7 @@ export default function SmartColumnsPage() {
                   This means it can handle complex, context-dependent transformations
                   that traditional rule-based systems cannot.
                 </p>
-                <div className="pt-4 border-t border-white/[0.08]">
+                <div className="pt-4 border-t border-white/10">
                   <div className="flex items-center gap-2 text-green-500 text-xs">
                     <Shield className="w-4 h-4" />
                     Your data is never used for model training
@@ -507,7 +507,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Integration */}
-      <section className="py-24 bg-[#080808]">
+      <section className="py-24 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -547,7 +547,7 @@ export default function SmartColumnsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] text-center"
+                className="p-6 rounded-xl bg-white/[0.04] border border-white/10 text-center"
               >
                 <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 mx-auto mb-4">
                   {step.icon}

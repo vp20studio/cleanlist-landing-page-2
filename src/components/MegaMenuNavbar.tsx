@@ -158,7 +158,7 @@ export default function MegaMenuNavbar() {
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 border-b backdrop-blur-xl transition-colors ${
           theme === "dark"
-            ? "border-white/[0.08] bg-[#030303]/80"
+            ? "border-white/10 bg-[#1E1E1E]/80"
             : "border-black/[0.08] bg-white/80"
         }`}
       >
@@ -207,14 +207,14 @@ export default function MegaMenuNavbar() {
                     >
                       <div className={`w-[540px] border rounded-xl shadow-2xl overflow-hidden ${
                         theme === "dark"
-                          ? "bg-[#0a0a0a] border-white/[0.08]"
+                          ? "bg-white/[0.04] border-white/10"
                           : "bg-white border-gray-200"
                       }`}>
                         <div className="grid grid-cols-2 gap-0">
                           {productSections.map((section, idx) => (
                             <div
                               key={section.title}
-                              className={`p-4 ${idx === 1 ? (theme === "dark" ? "bg-[#0d0d0d]" : "bg-gray-50") : ""}`}
+                              className={`p-4 ${idx === 1 ? (theme === "dark" ? "bg-white/[0.02]" : "bg-gray-50") : ""}`}
                             >
                               <div className={`text-xs font-medium uppercase tracking-wider mb-3 ${
                                 theme === "dark" ? "text-gray-500" : "text-gray-400"
@@ -264,7 +264,7 @@ export default function MegaMenuNavbar() {
                         {/* Footer with stats */}
                         <div className={`border-t px-4 py-3 ${
                           theme === "dark"
-                            ? "border-white/[0.08] bg-[#080808]"
+                            ? "border-white/10 bg-[#1E1E1E]"
                             : "border-gray-200 bg-gray-50"
                         }`}>
                           <div className="flex items-center justify-between">
@@ -324,7 +324,7 @@ export default function MegaMenuNavbar() {
                     >
                       <div className={`w-[320px] border rounded-xl shadow-2xl p-2 ${
                         theme === "dark"
-                          ? "bg-[#0a0a0a] border-white/[0.08]"
+                          ? "bg-white/[0.04] border-white/10"
                           : "bg-white border-gray-200"
                       }`}>
                         {useCaseItems.map((item) => (
@@ -390,7 +390,7 @@ export default function MegaMenuNavbar() {
                     >
                       <div className={`w-[280px] border rounded-xl shadow-2xl p-2 ${
                         theme === "dark"
-                          ? "bg-[#0a0a0a] border-white/[0.08]"
+                          ? "bg-white/[0.04] border-white/10"
                           : "bg-white border-gray-200"
                       }`}>
                         {resourceItems.map((item) => (
@@ -526,7 +526,7 @@ export default function MegaMenuNavbar() {
               exit={{ opacity: 0, height: 0 }}
               className={`lg:hidden border-t ${
                 theme === "dark"
-                  ? "border-white/[0.08] bg-[#0a0a0a]"
+                  ? "border-white/10 bg-white/[0.04]"
                   : "border-gray-200 bg-white"
               }`}
             >
@@ -625,7 +625,7 @@ export default function MegaMenuNavbar() {
 
                 {/* Links */}
                 <div className={`flex items-center gap-4 pt-4 border-t ${
-                  theme === "dark" ? "border-white/[0.08]" : "border-gray-200"
+                  theme === "dark" ? "border-white/10" : "border-gray-200"
                 }`}>
                   <Link
                     href="/pricing"

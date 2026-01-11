@@ -86,7 +86,7 @@ export default function RevOpsPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-y border-white/[0.08] bg-[#080808]">
+      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={4}
@@ -192,7 +192,7 @@ export default function RevOpsPage() {
       </section>
 
       {/* Playbook Builder Focus */}
-      <section className="py-24 bg-[#080808]">
+      <section className="py-24 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <motion.div
@@ -229,7 +229,7 @@ export default function RevOpsPage() {
                 ].map((playbook) => (
                   <div
                     key={playbook.title}
-                    className="p-4 rounded-lg bg-[#0a0a0a] border border-white/[0.08]"
+                    className="p-4 rounded-lg bg-white/[0.04] border border-white/10"
                   >
                     <h4 className="font-medium text-white mb-1">{playbook.title}</h4>
                     <p className="text-sm text-gray-500">{playbook.description}</p>

@@ -86,7 +86,7 @@ export default function AgenciesPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 border-y border-white/[0.08] bg-[#080808]">
+      <section className="py-12 border-y border-white/10 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <TechnicalGrid
             columns={4}
@@ -201,7 +201,7 @@ export default function AgenciesPage() {
       </section>
 
       {/* How Agencies Use Cleanlist */}
-      <section className="py-24 bg-[#080808]">
+      <section className="py-24 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -267,7 +267,7 @@ export default function AgenciesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+                className="p-6 rounded-xl bg-white/[0.04] border border-white/10"
               >
                 <h3 className="text-xl font-semibold text-white mb-2">{useCase.title}</h3>
                 <p className="text-gray-400 mb-4">{useCase.description}</p>
@@ -353,7 +353,7 @@ export default function AgenciesPage() {
                 className={`p-6 rounded-xl border ${
                   tier.popular
                     ? "bg-green-500/5 border-green-500/30"
-                    : "bg-[#0a0a0a] border-white/[0.08]"
+                    : "bg-white/[0.04] border-white/10"
                 }`}
               >
                 {tier.popular && (
@@ -389,7 +389,7 @@ export default function AgenciesPage() {
       </section>
 
       {/* Trust */}
-      <section className="py-24 bg-[#080808]">
+      <section className="py-24 bg-[#1E1E1E]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-6">
@@ -410,7 +410,7 @@ export default function AgenciesPage() {
               ].map((cert) => (
                 <div
                   key={cert}
-                  className="px-4 py-2 rounded-lg bg-[#0a0a0a] border border-white/[0.08] text-sm text-gray-400"
+                  className="px-4 py-2 rounded-lg bg-white/[0.04] border border-white/10 text-sm text-gray-400"
                 >
                   {cert}
                 </div>

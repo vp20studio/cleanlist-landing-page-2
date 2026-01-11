@@ -2,30 +2,30 @@
 
 /* Cleanlist Design System - Dark & Light Theme */
 
-/* Dark Theme (Default) */
+/* Dark Theme (Default) - Matching Portal v2 */
 :root,
 .dark {
-  /* Core Colors */
-  --background: #030303;
-  --surface: #0a0a0a;
-  --surface-elevated: #111111;
-  --foreground: #ededed;
-  --foreground-secondary: #888888;
-  --muted: #666666;
+  /* Core Colors - Portal v2 */
+  --background: #1E1E1E;
+  --surface: #252525;
+  --surface-elevated: #2a2a2a;
+  --foreground: #FFFFFF;
+  --foreground-secondary: rgba(255, 255, 255, 0.7);
+  --muted: rgba(255, 255, 255, 0.5);
 
   /* Brand Colors */
-  --cleanlist-blue: #3e8aff;
-  --cleanlist-blue-glow: rgba(62, 138, 255, 0.15);
-  --cleanlist-blue-subtle: rgba(62, 138, 255, 0.08);
+  --cleanlist-blue: #3E8BFF;
+  --cleanlist-blue-glow: rgba(62, 139, 255, 0.15);
+  --cleanlist-blue-subtle: rgba(62, 139, 255, 0.08);
 
-  /* Borders */
+  /* Borders - Portal v2 */
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-default: rgba(255, 255, 255, 0.1);
   --border-hover: rgba(255, 255, 255, 0.15);
 
-  /* Card backgrounds */
-  --card-bg: rgba(10, 10, 10, 0.8);
-  --card-bg-solid: #0a0a0a;
+  /* Card backgrounds - Glass morphism */
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-bg-solid: #252525;
 
   /* Success/Error states */
   --success: #22c55e;
@@ -33,34 +33,34 @@
   --warning: #f59e0b;
 
   /* Text colors for specific elements */
-  --text-on-surface: #ededed;
-  --text-muted: #888888;
-  --text-highlight: #3e8aff;
+  --text-on-surface: #FFFFFF;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --text-highlight: #3E8BFF;
 }
 
-/* Light Theme */
+/* Light Theme - Matching Portal v2 */
 .light {
-  /* Core Colors */
-  --background: #ffffff;
-  --surface: #f8f9fa;
-  --surface-elevated: #ffffff;
+  /* Core Colors - Portal v2 */
+  --background: #F8F9FA;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
   --foreground: #1a1a1a;
-  --foreground-secondary: #555555;
-  --muted: #888888;
+  --foreground-secondary: rgba(0, 0, 0, 0.6);
+  --muted: rgba(0, 0, 0, 0.5);
 
-  /* Brand Colors - slightly deeper for light mode visibility */
-  --cleanlist-blue: #2563eb;
-  --cleanlist-blue-glow: rgba(37, 99, 235, 0.1);
-  --cleanlist-blue-subtle: rgba(37, 99, 235, 0.05);
+  /* Brand Colors - same primary blue */
+  --cleanlist-blue: #3E8BFF;
+  --cleanlist-blue-glow: rgba(62, 139, 255, 0.1);
+  --cleanlist-blue-subtle: rgba(62, 139, 255, 0.05);
 
-  /* Borders */
-  --border-subtle: rgba(0, 0, 0, 0.06);
-  --border-default: rgba(0, 0, 0, 0.1);
-  --border-hover: rgba(0, 0, 0, 0.15);
+  /* Borders - Portal v2 */
+  --border-subtle: rgba(0, 0, 0, 0.05);
+  --border-default: rgba(0, 0, 0, 0.08);
+  --border-hover: rgba(0, 0, 0, 0.12);
 
-  /* Card backgrounds */
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --card-bg-solid: #ffffff;
+  /* Card backgrounds - Glass morphism */
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-bg-solid: #FFFFFF;
 
   /* Success/Error states */
   --success: #16a34a;
@@ -69,8 +69,8 @@
 
   /* Text colors for specific elements */
   --text-on-surface: #1a1a1a;
-  --text-muted: #666666;
-  --text-highlight: #2563eb;
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --text-highlight: #3E8BFF;
 }
 
 @theme inline {
@@ -209,17 +209,19 @@ h1, h2, h3, h4, h5, h6 {
   background: #a1a1a1;
 }
 
-/* Glassmorphism utility */
+/* Glassmorphism utility - Portal v2 style */
 .dark .glass {
-  background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .light .glass {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Blue glow effect */
@@ -227,20 +229,20 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 60px rgba(62, 138, 255, 0.2), 0 0 100px rgba(62, 138, 255, 0.1);
 }
 
-/* Card styling */
+/* Card styling - Portal v2 glass effect */
 .dark .card-glass {
-  background: rgba(17, 17, 17, 0.6);
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .light .card-glass {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-subtle);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Gradient text */

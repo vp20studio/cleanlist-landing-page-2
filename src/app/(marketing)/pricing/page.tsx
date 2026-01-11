@@ -301,7 +301,7 @@ export default function PricingPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
@@ -333,7 +333,7 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
@@ -452,7 +452,7 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>
@@ -527,7 +527,7 @@ export default function PricingPage() {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-gray-50"}`}>
+      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#1E1E1E]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -548,7 +548,7 @@ export default function PricingPage() {
             <table className="w-full min-w-[640px]">
               {/* Header */}
               <thead>
-                <tr className={`border-b ${isDark ? "border-white/[0.08]" : "border-gray-200"}`}>
+                <tr className={`border-b ${isDark ? "border-white/10" : "border-black/[0.08]"}`}>
                   <th className={`text-left py-4 px-4 font-medium w-1/3 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     Feature
                   </th>
@@ -573,7 +573,7 @@ export default function PricingPage() {
                     {/* Category Header */}
                     <tr
                       key={category.name}
-                      className={`border-b cursor-pointer transition-colors ${isDark ? "border-white/[0.08] bg-[#0a0a0a] hover:bg-[#0d0d0d]" : "border-gray-200 bg-gray-100 hover:bg-gray-200"}`}
+                      className={`border-b cursor-pointer transition-colors ${isDark ? "border-white/10 bg-white/[0.04] hover:bg-[#0d0d0d]" : "border-black/[0.08] bg-gray-100 hover:bg-gray-200"}`}
                       onClick={() => toggleCategory(category.name)}
                     >
                       <td
@@ -596,7 +596,7 @@ export default function PricingPage() {
                       category.features.map((feature) => (
                         <tr
                           key={feature.name}
-                          className={`border-b transition-colors ${isDark ? "border-white/[0.05] hover:bg-white/[0.02]" : "border-gray-100 hover:bg-gray-50"}`}
+                          className={`border-b transition-colors ${isDark ? "border-white/[0.05] hover:bg-white/[0.02]" : "border-gray-100 hover:bg-[#F8F9FA]"}`}
                         >
                           <td className={`py-3 px-4 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                             {feature.name}
@@ -685,7 +685,7 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
+                className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-white/[0.04] border-white/10" : "bg-white/70 border-black/[0.08]"}`}
               >
                 <h3 className={`text-base md:text-lg font-semibold mb-2 flex items-start gap-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                   <HelpCircle className="w-5 h-5 text-[#3e8aff] mt-0.5 flex-shrink-0" />
