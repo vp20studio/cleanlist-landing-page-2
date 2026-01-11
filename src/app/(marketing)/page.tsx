@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -7,111 +8,129 @@ import {
   Database,
   Mail,
   Phone,
-  Building,
   Users,
   Zap,
   Shield,
-  Layers,
   Sparkles,
-  Linkedin,
-  Workflow,
   Check,
-  ChevronRight,
-  Globe,
-  BarChart3,
+  X,
+  TrendingUp,
+  Target,
+  Megaphone,
+  Scale,
+  Code,
+  Layers,
   RefreshCw,
+  Clock,
+  DollarSign,
+  Building,
 } from "lucide-react";
-import { DashboardMockup, TechnicalGrid, VerticalStepper } from "@/components/ui";
+import { DashboardMockup } from "@/components/ui";
+import StickySubNav from "@/components/StickySubNav";
+
+// Data providers for waterfall enrichment
+const dataProviders = [
+  "Clearbit", "Findymail", "Datagma", "ZoomInfo", "Hunter",
+  "Dropcontact", "Apollo", "Lusha", "RocketReach", "Seamless.ai"
+];
+
+// CRM integrations
+const crmIntegrations = [
+  { name: "HubSpot", logo: "H" },
+  { name: "Salesforce", logo: "S" },
+  { name: "Pipedrive", logo: "P" },
+  { name: "Zoho", logo: "Z" },
+  { name: "Recruitcrm", logo: "R" },
+];
 
 export default function HomePage() {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
     <>
+      <StickySubNav />
+
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
-        {/* Background Effects */}
+      <section className="relative pt-20 pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Content */}
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
               >
                 <Sparkles className="w-4 h-4" />
-                The Data Operating System for GTM Teams
+                95%+ Accuracy for Prospecting
               </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ delay: 0.1 }}
                 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6"
               >
-                Turn Messy Data Into Your{" "}
+                Turn messy data into your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                  Growth Engine
+                  greatest growth lever
                 </span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ delay: 0.2 }}
                 className="text-xl text-gray-400 mb-8 max-w-lg"
               >
-                Enrich, verify, and score your leads with 98% accuracy. From email-only
-                to full contact data. The complete data platform for GTM teams.
+                Clean, verify & enrich your leads with 95%+ accuracy. Now starting at just
+                $29/month.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="flex flex-wrap items-center gap-4 mb-12"
+                transition={{ delay: 0.3 }}
+                className="flex flex-wrap items-center gap-4 mb-10"
               >
                 <Link
                   href="#"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
                 >
-                  Start Free Trial
+                  Get started for free
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
-                  href="#"
+                  href="#pricing"
                   className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
                 >
-                  Watch Demo
+                  View Pricing
                 </Link>
               </motion.div>
 
-              {/* Trust Indicators */}
+              {/* Hero Stats */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="flex flex-wrap items-center gap-6 text-sm text-gray-500"
+                transition={{ delay: 0.4 }}
+                className="grid grid-cols-4 gap-4"
               >
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
-                  No credit card required
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
-                  Thousands of teams
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-green-500" />
-                  98% accuracy guarantee
-                </div>
+                {[
+                  { value: "10+", label: "Data Sources" },
+                  { value: "5,500", label: "Credits" },
+                  { value: "95%+", label: "Accuracy" },
+                  { value: "10K+", label: "Records" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
+                    <div className="text-xs text-gray-500">{stat.label}</div>
+                  </div>
+                ))}
               </motion.div>
             </div>
 
-            {/* Right: Dashboard Mockup */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -123,443 +142,646 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="py-12 border-y border-white/[0.08] bg-[#080808]">
+      {/* Logo Bar */}
+      <section className="py-8 border-y border-white/[0.08] bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6">
-          <TechnicalGrid
-            columns={5}
-            blocks={[
+          <p className="text-center text-sm text-gray-500 mb-6">Used by data-driven companies</p>
+          <div className="flex items-center justify-center gap-12 flex-wrap opacity-50">
+            {["SMTP", "NIEP", "LINEA", "API", "FIBIFY", "IAFI"].map((name) => (
+              <div key={name} className="text-xl font-bold text-gray-400 tracking-wider">
+                {name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section id="solutions" className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              One platform, tailored to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                how you work
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Whether you&apos;re a solo sales rep or a scaling GTM team, Cleanlist adapts to
+              your workflow.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
               {
-                icon: <Database className="w-5 h-5" />,
-                label: "Enrichment",
-                value: "Multi-Source",
-                subValue: "Premium providers",
+                icon: <TrendingUp className="w-6 h-6" />,
+                title: "BDR/SDR",
+                subtitle: "Growth Engine",
+                description: "Spend less time finding prospects and more time selling.",
+                stats: [
+                  { value: "95%", label: "Accuracy" },
+                  { value: "5x", label: "Faster" },
+                  { value: "60%", label: "Time Saved" },
+                ],
                 color: "blue",
               },
               {
-                icon: <Shield className="w-5 h-5" />,
-                label: "Accuracy",
-                value: "98%",
-                subValue: "Verified contacts",
-                color: "green",
-              },
-              {
-                icon: <Zap className="w-5 h-5" />,
-                label: "Pricing",
-                value: "From 1 Credit",
-                subValue: "Email or full contact",
-                color: "yellow",
-              },
-              {
-                icon: <Users className="w-5 h-5" />,
-                label: "Teams",
-                value: "Thousands",
-                subValue: "Trust Cleanlist",
+                icon: <Scale className="w-6 h-6" />,
+                title: "Lead Gen Agency",
+                subtitle: "Scale Operations",
+                description: "Scale your prospecting with verified contacts and emails.",
+                stats: [
+                  { value: "10K+", label: "Records/mo" },
+                  { value: "Bulk", label: "Processing" },
+                  { value: "API", label: "Access" },
+                ],
                 color: "purple",
               },
               {
-                icon: <BarChart3 className="w-5 h-5" />,
-                label: "Records",
-                value: "Millions",
-                subValue: "Processed monthly",
-                highlight: true,
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* Product Suite */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Layers className="w-4 h-4" />
-              Platform
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              One Platform. Complete Data Control.
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              From lead generation to CRM sync, Cleanlist handles every step of your data pipeline.
-            </p>
-          </motion.div>
-
-          {/* Product Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Layers className="w-6 h-6" />,
-                title: "Waterfall Enrichment",
-                description:
-                  "Multi-provider lead enrichment. Query multiple data sources and merge into a unified record.",
-                href: "/product/waterfall-enrichment",
-                badge: "Flagship",
-                stats: ["Multi-Source", "Real-time", "Bulk Processing"],
-              },
-              {
-                icon: <Mail className="w-6 h-6" />,
-                title: "Email & Phone Finder",
-                description:
-                  "Find verified contact information. Email-only (1 credit) or full contact (10 credits).",
-                href: "/product/email-phone-finder",
-                stats: ["Email Validation", "Phone Discovery", "98% Accuracy"],
-              },
-              {
-                icon: <Sparkles className="w-6 h-6" />,
-                title: "Smart Columns",
-                description:
-                  "AI-powered data enrichment. 12 column types for cleaning, research, and analysis.",
-                href: "/product/smart-columns",
-                badge: "AI",
-                stats: ["12 Column Types", "Custom Prompts", "ICP Scoring"],
-              },
-              {
-                icon: <Linkedin className="w-6 h-6" />,
-                title: "Chrome Extension",
-                description:
-                  "Enrich LinkedIn profiles and export from Sales Navigator directly to your lists.",
-                href: "/product/sales-nav-scraper",
-                stats: ["LinkedIn Enrichment", "Sales Nav Export", "1-Click Import"],
-              },
-              {
-                icon: <Workflow className="w-6 h-6" />,
-                title: "Playbook Builder",
-                description:
-                  "Visual workflow automation. Build data pipelines with 25+ actions and CRM sync.",
-                href: "/product/playbook-builder",
-                badge: "New",
-                stats: ["Visual Builder", "25+ Actions", "CRM Sync"],
-              },
-              {
-                icon: <Globe className="w-6 h-6" />,
-                title: "CRM Integrations",
-                description:
-                  "Connect to HubSpot, Salesforce, Pipedrive, Zoho, and Recruitcrm.",
-                href: "/resources/integrations",
-                stats: ["5 CRMs", "Bi-directional Sync", "Field Mapping"],
-              },
-            ].map((product, index) => (
-              <motion.div
-                key={product.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-              >
-                <Link
-                  href={product.href}
-                  className="group block h-full p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-[#3e8aff]/30 transition-all"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] group-hover:bg-[#3e8aff]/20 transition-colors">
-                      {product.icon}
-                    </div>
-                    {product.badge && (
-                      <span className="px-2 py-1 text-xs font-medium bg-[#3e8aff]/20 text-[#3e8aff] rounded">
-                        {product.badge}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-[#3e8aff] transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-sm text-gray-400 mb-4">{product.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {product.stats.map((stat) => (
-                      <span
-                        key={stat}
-                        className="px-2 py-1 text-xs bg-white/[0.05] text-gray-500 rounded"
-                      >
-                        {stat}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-4 flex items-center gap-1 text-sm text-[#3e8aff] opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more <ChevronRight className="w-4 h-4" />
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-24 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="sticky top-24"
-              >
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                  <RefreshCw className="w-4 h-4" />
-                  How It Works
-                </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                  Data Hygiene on Autopilot
-                </h2>
-                <p className="text-xl text-gray-400 mb-8">
-                  From messy spreadsheets to CRM-ready records in three steps.
-                </p>
-
-                <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm text-gray-400">Average Results</span>
-                    <span className="text-xs text-[#3e8aff]">Based on 10M+ records</span>
-                  </div>
-                  <div className="space-y-4">
-                    <div>
-                      <div className="flex items-center justify-between text-sm mb-1">
-                        <span className="text-gray-300">Enrichment Match Rate</span>
-                        <span className="text-green-500 font-medium">95%</span>
-                      </div>
-                      <div className="h-2 bg-white/[0.05] rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: "95%" }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, ease: "easeOut" }}
-                          className="h-full bg-gradient-to-r from-[#3e8aff] to-green-500 rounded-full"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-center justify-between text-sm mb-1">
-                        <span className="text-gray-300">Email Deliverability</span>
-                        <span className="text-green-500 font-medium">98%</span>
-                      </div>
-                      <div className="h-2 bg-white/[0.05] rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: "98%" }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                          className="h-full bg-gradient-to-r from-[#3e8aff] to-green-500 rounded-full"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex items-center justify-between text-sm mb-1">
-                        <span className="text-gray-300">Duplicate Removal</span>
-                        <span className="text-yellow-500 font-medium">15-30%</span>
-                      </div>
-                      <div className="h-2 bg-white/[0.05] rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: "25%" }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-                          className="h-full bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            <VerticalStepper
-              steps={[
-                {
-                  number: "01",
-                  title: "Connect Your Data",
-                  description:
-                    "Upload CSV, connect your CRM, or use the Chrome extension.",
-                  details: [
-                    "CSV/Excel upload with smart column mapping",
-                    "CRM integrations (HubSpot, Salesforce, Pipedrive, Zoho)",
-                    "LinkedIn enrichment via Chrome extension",
-                    "Manual prospect entry with LinkedIn URL or name",
-                  ],
-                },
-                {
-                  number: "02",
-                  title: "Enrich & Score",
-                  description:
-                    "Multi-provider enrichment with email validation and ICP scoring.",
-                  details: [
-                    "Multi-source enrichment for best results",
-                    "Email-only (1 credit) or full contact (10 credits)",
-                    "AI Smart Columns for data transformation",
-                    "ICP scoring against your ideal customer profile",
-                  ],
-                },
-                {
-                  number: "03",
-                  title: "Export & Sync",
-                  description:
-                    "Push clean data back to your CRM or download enriched files.",
-                  details: [
-                    "Bi-directional CRM sync with field mapping",
-                    "Export to CSV with custom column selection",
-                    "Playbook automation for recurring workflows",
-                    "Real-time data quality tracking",
-                  ],
-                },
-              ]}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Enrichment Types */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Database className="w-4 h-4" />
-              Enrichment Options
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Simple, Transparent Pricing
-            </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Choose the enrichment level that fits your needs. Pay only for what you use.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="p-8 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
-                <Mail className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Partial Enrichment</h3>
-              <div className="text-3xl font-bold text-[#3e8aff] mb-4">1 Credit</div>
-              <p className="text-gray-400 mb-6">Email address only. Perfect for email campaigns.</p>
-              <ul className="space-y-3">
-                {["Verified business email", "Email validation status", "Reliability scoring"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
-                    <Check className="w-4 h-4 text-green-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="p-8 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/20"
-            >
-              <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
-                <Phone className="w-6 h-6" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Full Enrichment</h3>
-              <div className="text-3xl font-bold text-[#3e8aff] mb-4">10 Credits</div>
-              <p className="text-gray-400 mb-6">Complete contact data for multi-channel outreach.</p>
-              <ul className="space-y-3">
-                {["Everything in Partial", "Mobile phone numbers", "Direct dial numbers", "Company data enrichment"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
-                    <Check className="w-4 h-4 text-green-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Use Cases */}
-      <section className="py-24 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Users className="w-4 h-4" />
-              Use Cases
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Built for Every GTM Team
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <Users className="w-6 h-6" />,
+                icon: <Target className="w-6 h-6" />,
                 title: "Sales Teams",
-                description:
-                  "Spend less time researching, more time selling. Get verified contact data instantly.",
-                href: "/use-cases/sales-teams",
-                stats: ["50% less research time", "3x more conversations", "98% deliverability"],
+                subtitle: "Hit Targets",
+                description: "Build high-quality prospect lists with accurate contact info.",
+                stats: [
+                  { value: "5", label: "CRMs" },
+                  { value: "Real-time", label: "Sync" },
+                  { value: "ICP", label: "Scoring" },
+                ],
+                color: "green",
               },
               {
-                icon: <Building className="w-6 h-6" />,
-                title: "RevOps",
-                description:
-                  "Automate data hygiene across your entire stack. Keep your CRM clean at scale.",
-                href: "/use-cases/revops",
-                stats: ["Automated deduplication", "CRM enrichment", "Data governance"],
+                icon: <Megaphone className="w-6 h-6" />,
+                title: "Marketing Teams",
+                subtitle: "Target Right",
+                description: "Target the right audience with verified business contacts.",
+                stats: [
+                  { value: "Email", label: "Validation" },
+                  { value: "Segment", label: "Data" },
+                  { value: "Enrich", label: "Lists" },
+                ],
+                color: "yellow",
               },
-              {
-                icon: <Globe className="w-6 h-6" />,
-                title: "Agencies",
-                description:
-                  "White-label data services for your clients. Bulk processing with margin controls.",
-                href: "/use-cases/agencies",
-                stats: ["White-label ready", "Team workspaces", "Usage analytics"],
-              },
-            ].map((useCase, index) => (
+            ].map((item, index) => (
               <motion.div
-                key={useCase.title}
+                key={item.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ delay: index * 0.1 }}
+                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-[#3e8aff]/30 transition-all"
               >
-                <Link
-                  href={useCase.href}
-                  className="group block h-full p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-[#3e8aff]/30 transition-all"
+                <div
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                    item.color === "blue"
+                      ? "bg-[#3e8aff]/10 text-[#3e8aff]"
+                      : item.color === "purple"
+                      ? "bg-purple-500/10 text-purple-500"
+                      : item.color === "green"
+                      ? "bg-green-500/10 text-green-500"
+                      : "bg-yellow-500/10 text-yellow-500"
+                  }`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4 group-hover:bg-[#3e8aff]/20 transition-colors">
-                    {useCase.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-[#3e8aff] transition-colors">
-                    {useCase.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4">{useCase.description}</p>
-                  <div className="space-y-2">
-                    {useCase.stats.map((stat) => (
-                      <div key={stat} className="flex items-center gap-2 text-sm text-gray-500">
-                        <Check className="w-4 h-4 text-green-500" />
-                        {stat}
-                      </div>
-                    ))}
-                  </div>
-                </Link>
+                  {item.icon}
+                </div>
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="text-sm text-[#3e8aff] mb-2">{item.subtitle}</p>
+                <p className="text-sm text-gray-400 mb-4">{item.description}</p>
+                <div className="grid grid-cols-3 gap-2">
+                  {item.stats.map((stat) => (
+                    <div key={stat.label} className="text-center p-2 rounded bg-white/[0.03]">
+                      <div className="text-sm font-semibold text-white">{stat.value}</div>
+                      <div className="text-xs text-gray-500">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Data Transform Section */}
+      <section className="py-24 bg-[#080808]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Watch your data{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                transform
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Follow a real data record through our enrichment pipeline.
+            </p>
+          </motion.div>
+
+          {/* Data Transformation Visualization */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Before */}
+              <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <span className="text-sm font-medium text-gray-400">Step 01: The Enrichment</span>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { label: "Name", value: "John Smith", status: "found" },
+                    { label: "Company", value: "Acme Corp", status: "found" },
+                    { label: "Email", value: "—", status: "missing" },
+                    { label: "Phone", value: "—", status: "missing" },
+                    { label: "Title", value: "—", status: "missing" },
+                    { label: "LinkedIn", value: "—", status: "missing" },
+                  ].map((field) => (
+                    <div key={field.label} className="flex items-center justify-between p-3 rounded-lg bg-[#111]">
+                      <span className="text-sm text-gray-400">{field.label}</span>
+                      <span className={`text-sm ${field.status === "found" ? "text-white" : "text-gray-600"}`}>
+                        {field.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* After */}
+              <div className="p-6 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/30">
+                <div className="flex items-center gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <span className="text-sm font-medium text-[#3e8aff]">Step 02: Enriched Result</span>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { label: "Name", value: "John Smith", status: "found" },
+                    { label: "Company", value: "Acme Corp", status: "found" },
+                    { label: "Email", value: "john@acmecorp.com", status: "enriched" },
+                    { label: "Phone", value: "+1 (555) 123-4567", status: "enriched" },
+                    { label: "Title", value: "VP of Sales", status: "enriched" },
+                    { label: "LinkedIn", value: "linkedin.com/in/johnsmith", status: "enriched" },
+                  ].map((field) => (
+                    <div key={field.label} className="flex items-center justify-between p-3 rounded-lg bg-[#111]/50">
+                      <span className="text-sm text-gray-400">{field.label}</span>
+                      <div className="flex items-center gap-2">
+                        <span className={`text-sm ${field.status === "enriched" ? "text-[#3e8aff]" : "text-white"}`}>
+                          {field.value}
+                        </span>
+                        {field.status === "enriched" && <Check className="w-4 h-4 text-green-500" />}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Provider logos */}
+            <div className="mt-8 p-4 rounded-lg bg-[#0a0a0a] border border-white/[0.08]">
+              <p className="text-xs text-gray-500 mb-3 text-center">Powered by 10+ data providers</p>
+              <div className="flex items-center justify-center gap-4 flex-wrap">
+                {dataProviders.map((provider) => (
+                  <span key={provider} className="text-xs text-gray-400 px-2 py-1 rounded bg-white/[0.03]">
+                    {provider}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section id="how-it-works" className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Three steps to{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                perfect data
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Our AI manages everything while you focus on closing deals.
+            </p>
+          </motion.div>
+
+          {/* Tabs */}
+          <div className="flex justify-center gap-2 mb-12">
+            {["Multi-Functionality", "Deep Enrichment", "Plug & Play API"].map((tab, index) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(index)}
+                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+                  activeTab === index
+                    ? "bg-[#3e8aff] text-white"
+                    : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="max-w-4xl mx-auto"
+          >
+            {activeTab === 0 && (
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
+                  <h3 className="text-xl font-semibold text-white mb-4">Waterfall Enrichment</h3>
+                  <p className="text-gray-400 mb-6">
+                    Query 10+ data providers simultaneously and get the best match for each field.
+                  </p>
+                  <div className="space-y-3">
+                    {dataProviders.slice(0, 5).map((provider, i) => (
+                      <div key={provider} className="flex items-center gap-3">
+                        <div className={`w-2 h-2 rounded-full ${i === 0 ? "bg-green-500" : "bg-gray-600"}`} />
+                        <span className="text-sm text-gray-300">{provider}</span>
+                        {i === 0 && <span className="text-xs text-green-500">Best match</span>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Query multiple providers in parallel",
+                    "Smart merge picks best data per field",
+                    "Fallback to secondary sources automatically",
+                    "Pay only for successful enrichments",
+                  ].map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-500 mt-0.5" />
+                      <span className="text-gray-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 1 && (
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
+                  <h3 className="text-xl font-semibold text-white mb-4">Enriched Fields</h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      "Work Email", "Direct Phone", "Mobile Phone", "Job Title",
+                      "Department", "Seniority", "Company Size", "Industry",
+                      "Revenue Range", "Technologies", "LinkedIn URL", "Location"
+                    ].map((field) => (
+                      <div key={field} className="flex items-center gap-2 text-sm text-gray-400">
+                        <Check className="w-4 h-4 text-[#3e8aff]" />
+                        {field}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Email deliverability validation included",
+                    "Phone numbers verified as direct dials",
+                    "Company firmographics auto-populated",
+                    "ICP scoring against your criteria",
+                  ].map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-500 mt-0.5" />
+                      <span className="text-gray-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {activeTab === 2 && (
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] overflow-hidden">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Code className="w-5 h-5 text-[#3e8aff]" />
+                    <span className="text-sm font-medium text-gray-400">API Example</span>
+                  </div>
+                  <pre className="text-xs text-gray-300 overflow-x-auto">
+{`curl -X POST https://api.cleanlist.ai/enrich \\
+  -H "Authorization: Bearer YOUR_KEY" \\
+  -d '{
+    "email": "john@acme.com",
+    "enrich_phone": true
+  }'`}
+                  </pre>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "RESTful API with SDKs for Python, Node, Go",
+                    "Webhook callbacks for async workflows",
+                    "Batch processing for high-volume ops",
+                    "99.9% uptime SLA guaranteed",
+                  ].map((feature) => (
+                    <div key={feature} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-green-500 mt-0.5" />
+                      <span className="text-gray-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Compare Section */}
+      <section id="compare" className="py-24 bg-[#080808]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Cleanlist vs.{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                The Old Way
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              See why teams switch to Cleanlist for their data enrichment needs.
+            </p>
+          </motion.div>
+
+          {/* Comparison Table */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="grid grid-cols-3 gap-4 mb-4">
+              <div />
+              <div className="text-center p-4 rounded-t-xl bg-white/[0.03]">
+                <span className="text-sm text-gray-500">Traditional Way</span>
+              </div>
+              <div className="text-center p-4 rounded-t-xl bg-[#3e8aff]/10 border-t border-x border-[#3e8aff]/30">
+                <span className="text-sm font-medium text-[#3e8aff]">Cleanlist</span>
+              </div>
+            </div>
+
+            {[
+              { feature: "Verification Speed", old: "4 hours", new: "Real-time", icon: <Clock className="w-5 h-5" /> },
+              { feature: "# of Sources", old: "1-2 sources", new: "10+ sources", icon: <Database className="w-5 h-5" /> },
+              { feature: "Accuracy", old: "~60%", new: "95%+", icon: <Target className="w-5 h-5" /> },
+              { feature: "Price per Lead", old: "$0.15/lead", new: "From $0.01", icon: <DollarSign className="w-5 h-5" /> },
+              { feature: "CRM Integration", old: "Manual export", new: "Auto-sync", icon: <RefreshCw className="w-5 h-5" /> },
+              { feature: "Email Validation", old: "Separate tool", new: "Built-in", icon: <Mail className="w-5 h-5" /> },
+            ].map((row) => (
+              <div key={row.feature} className="grid grid-cols-3 gap-4 mb-2">
+                <div className="flex items-center gap-3 p-4 rounded-lg bg-[#0a0a0a]">
+                  <div className="text-gray-500">{row.icon}</div>
+                  <span className="text-sm text-gray-300">{row.feature}</span>
+                </div>
+                <div className="flex items-center justify-center p-4 bg-white/[0.03]">
+                  <div className="flex items-center gap-2">
+                    <X className="w-4 h-4 text-red-500" />
+                    <span className="text-sm text-gray-400">{row.old}</span>
+                  </div>
+                </div>
+                <div className="flex items-center justify-center p-4 bg-[#3e8aff]/10 border-x border-[#3e8aff]/30">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4 text-green-500" />
+                    <span className="text-sm text-white font-medium">{row.new}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+            <div className="grid grid-cols-3 gap-4">
+              <div />
+              <div className="p-4 rounded-b-xl bg-white/[0.03]" />
+              <div className="p-4 rounded-b-xl bg-[#3e8aff]/10 border-b border-x border-[#3e8aff]/30 text-center">
+                <Link
+                  href="#"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-[#3e8aff] hover:underline"
+                >
+                  Start Free Trial <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Integrations Section */}
+      <section id="integrations" className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Lives in your{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                existing stack
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Seamless integration with your CRM, sales tools, and workflows.
+            </p>
+          </motion.div>
+
+          {/* CRM Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto"
+          >
+            <div className="p-8 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
+              <p className="text-sm text-gray-500 text-center mb-8">Native Integrations</p>
+              <div className="flex items-center justify-center gap-8 flex-wrap mb-8">
+                {crmIntegrations.map((crm) => (
+                  <div key={crm.name} className="flex flex-col items-center gap-2">
+                    <div className="w-16 h-16 rounded-xl bg-white/[0.05] flex items-center justify-center text-2xl font-bold text-gray-400">
+                      {crm.logo}
+                    </div>
+                    <span className="text-sm text-gray-400">{crm.name}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 pt-8 border-t border-white/[0.08]">
+                {[
+                  { icon: <RefreshCw className="w-5 h-5" />, title: "Real-time Sync", desc: "Bi-directional data sync" },
+                  { icon: <Zap className="w-5 h-5" />, title: "One-click Export", desc: "Push leads instantly" },
+                  { icon: <Shield className="w-5 h-5" />, title: "OAuth 2.0", desc: "Secure authentication" },
+                ].map((feature) => (
+                  <div key={feature.title} className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff]">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-white">{feature.title}</h4>
+                      <p className="text-sm text-gray-500">{feature.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-24 bg-[#080808]">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-4"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
+              <Sparkles className="w-4 h-4" />
+              Pricing
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              Simple, credit-based pricing
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-2">
+              1 email = 1 credit. 1 phone = 10 credits. No hidden fees.
+            </p>
+          </motion.div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                name: "Starter",
+                price: "$29",
+                period: "/month",
+                credits: "500 credits",
+                description: "500 emails or 50 phones/month",
+                features: ["API Access", "Email Validation", "CSV Export", "Email Support"],
+                cta: "Start Free Trial",
+                popular: false,
+              },
+              {
+                name: "Pro",
+                price: "$99",
+                period: "/month",
+                credits: "2,000 credits",
+                description: "2,000 emails or 200 phones/month",
+                features: ["Everything in Starter", "CRM Integrations", "Smart Columns", "Priority Support"],
+                cta: "Start Free Trial",
+                popular: true,
+              },
+              {
+                name: "Enterprise",
+                price: "$449",
+                period: "/month",
+                credits: "10,000 credits",
+                description: "10,000 emails or 1,000 phones/month",
+                features: ["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"],
+                cta: "Start Free Trial",
+                popular: false,
+              },
+              {
+                name: "Custom",
+                price: "Contact",
+                period: "us",
+                credits: "Unlimited",
+                description: "Custom volume pricing",
+                features: ["Everything in Enterprise", "Custom SLA", "White-label Options", "Volume Discounts"],
+                cta: "Talk to Sales",
+                popular: false,
+              },
+            ].map((plan, index) => (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`relative p-6 rounded-xl border ${
+                  plan.popular
+                    ? "bg-[#3e8aff]/5 border-[#3e8aff]/30"
+                    : "bg-[#0a0a0a] border-white/[0.08]"
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
+                    Most Popular
+                  </div>
+                )}
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold text-white">{plan.name}</h3>
+                  <p className="text-sm text-gray-500">{plan.credits}</p>
+                </div>
+                <div className="mb-4">
+                  <span className="text-4xl font-bold text-white">{plan.price}</span>
+                  <span className="text-gray-500">{plan.period}</span>
+                </div>
+                <p className="text-sm text-gray-400 mb-6">{plan.description}</p>
+                <Link
+                  href="#"
+                  className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${
+                    plan.popular
+                      ? "bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
+                      : "bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                  }`}
+                >
+                  {plan.cta}
+                </Link>
+                <div className="space-y-3">
+                  {plan.features.map((feature) => (
+                    <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                      <Check className="w-4 h-4 text-green-500" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* All plans include */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-12 text-center"
+          >
+            <p className="text-sm text-gray-500 mb-4">All plans include</p>
+            <div className="flex items-center justify-center gap-8 flex-wrap">
+              {["Credit Rollover", "Unlimited Users", "GDPR Compliant", "SOC II Certified"].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-sm text-gray-400">
+                  <Check className="w-4 h-4 text-[#3e8aff]" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -575,25 +797,29 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Ready to Clean Your Data?
+              Ready to reclaim your{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                data quality
+              </span>
+              ?
             </h2>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-              Join thousands of teams using Cleanlist to power their GTM engine. Start your
-              free trial today.
+              Join thousands of GTM teams using Cleanlist. Start free, no credit card required.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="#"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
               >
-                Start Free Trial
+                Start Free
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
-                href="/pricing"
+                href="#"
                 className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
               >
-                View Pricing
+                <Building className="w-5 h-5" />
+                Talk to Sales
               </Link>
             </div>
           </motion.div>
