@@ -91,9 +91,9 @@ export default function SmartColumnsPage() {
                 className="grid grid-cols-3 gap-4"
               >
                 {[
-                  { value: "GPT-4", label: "Powered" },
-                  { value: "40+", label: "Built-in Rules" },
-                  { value: "Instant", label: "Processing" },
+                  { value: "AI", label: "Powered" },
+                  { value: "12", label: "Column Types" },
+                  { value: "Fast", label: "Processing" },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -126,36 +126,36 @@ export default function SmartColumnsPage() {
               {
                 icon: <Brain className="w-5 h-5" />,
                 label: "AI Model",
-                value: "GPT-4",
-                subValue: "Latest generation",
+                value: "AI",
+                subValue: "Powered transforms",
                 color: "purple",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
-                label: "Processing",
-                value: "<0.5s",
-                subValue: "Per 100 rows",
-                color: "yellow",
-              },
-              {
                 icon: <Settings className="w-5 h-5" />,
-                label: "Built-in Rules",
-                value: "40+",
+                label: "Column Types",
+                value: "12",
                 subValue: "Ready to use",
                 color: "blue",
               },
               {
+                icon: <Sparkles className="w-5 h-5" />,
+                label: "Custom AI",
+                value: "Yes",
+                subValue: "Any prompt",
+                color: "yellow",
+              },
+              {
                 icon: <Shield className="w-5 h-5" />,
                 label: "Accuracy",
-                value: "99%",
-                subValue: "Normalization rate",
+                value: "98%",
+                subValue: "Data guarantee",
                 color: "green",
               },
               {
-                icon: <Cpu className="w-5 h-5" />,
-                label: "Per Transform",
-                value: "0.1 Cr",
-                subValue: "Per 100 rows",
+                icon: <Zap className="w-5 h-5" />,
+                label: "Processing",
+                value: "Fast",
+                subValue: "Batch & real-time",
                 highlight: true,
               },
             ]}
@@ -201,14 +201,14 @@ export default function SmartColumnsPage() {
                 },
                 {
                   number: "02",
-                  title: "Describe the Transformation",
+                  title: "Choose Column Type",
                   description:
-                    "Type what you want in plain English, or select from 40+ built-in rules.",
+                    "Select from 12 built-in column types or use Custom AI for any transformation.",
                   icon: <Brain className="w-5 h-5" />,
                   details: [
-                    'Example: "Standardize job titles to VP, Director, Manager levels"',
-                    'Example: "Extract first name only"',
-                    'Example: "Format phone as (XXX) XXX-XXXX"',
+                    'Built-in: Clean names, format phones, validate emails',
+                    'Research: LinkedIn, competitors, website analysis',
+                    'AI: ICP scoring, custom prompts, cold intro emails',
                   ],
                 },
                 {
@@ -311,7 +311,7 @@ export default function SmartColumnsPage() {
         </div>
       </section>
 
-      {/* Built-in Transformations */}
+      {/* Smart Column Types */}
       <section id="examples" className="py-24 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -321,90 +321,91 @@ export default function SmartColumnsPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              40+ Built-in Transformations
+              12 Smart Column Types
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              One-click transformations for the most common data cleaning tasks.
+              Purpose-built transformations for every data enrichment need.
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                category: "Name Parsing",
-                transforms: [
-                  "Extract first name",
-                  "Extract last name",
-                  "Title case formatting",
-                  "Remove salutations (Mr., Dr.)",
-                ],
-              },
-              {
-                category: "Job Title Normalization",
-                transforms: [
-                  "Seniority level (C-Level, VP, etc.)",
-                  "Department mapping",
-                  "Function categorization",
-                  "Abbreviation standardization",
-                ],
-              },
-              {
-                category: "Phone Formatting",
-                transforms: [
-                  "US format: (XXX) XXX-XXXX",
-                  "International: +1 XXX XXX XXXX",
-                  "Strip extensions",
-                  "Extract country code",
-                ],
-              },
-              {
-                category: "Company Normalization",
-                transforms: [
-                  "Remove Inc., LLC, Ltd.",
-                  "Capitalize properly",
-                  "Standardize DBA names",
-                  "Parent company mapping",
-                ],
-              },
-              {
-                category: "Address Parsing",
-                transforms: [
-                  "Extract city",
-                  "Extract state/province",
-                  "Extract ZIP/postal code",
-                  "Country standardization",
-                ],
-              },
-              {
+                title: "Clean First Name",
+                description: "Extract and format first names from full name fields",
                 category: "Data Cleanup",
-                transforms: [
-                  "Remove duplicates",
-                  "Trim whitespace",
-                  "Fix encoding issues",
-                  "Merge columns",
-                ],
               },
-            ].map((group, index) => (
+              {
+                title: "Format Phone",
+                description: "Standardize phone numbers to consistent formats",
+                category: "Data Cleanup",
+              },
+              {
+                title: "Email Validation",
+                description: "Verify email deliverability and catch bounces",
+                category: "Validation",
+              },
+              {
+                title: "Enrich Company",
+                description: "Add firmographic data like size, industry, and revenue",
+                category: "Enrichment",
+              },
+              {
+                title: "LinkedIn Research",
+                description: "Pull data from LinkedIn profiles automatically",
+                category: "Research",
+              },
+              {
+                title: "Website Analysis",
+                description: "Extract key information from company websites",
+                category: "Research",
+              },
+              {
+                title: "Find Competitors",
+                description: "Discover competitors for any company",
+                category: "Research",
+              },
+              {
+                title: "Find Similar Companies",
+                description: "Identify lookalike companies based on attributes",
+                category: "Research",
+              },
+              {
+                title: "ICP Fit Analysis",
+                description: "Score leads against your ideal customer profile",
+                category: "AI Analysis",
+              },
+              {
+                title: "Cold Intro Email",
+                description: "Generate personalized outreach emails with AI",
+                category: "AI Generation",
+              },
+              {
+                title: "Custom AI",
+                description: "Create any transformation with natural language prompts",
+                category: "AI",
+              },
+              {
+                title: "CRM Contact Lookup",
+                description: "Check if contact exists in your CRM before adding",
+                category: "CRM",
+              },
+            ].map((column, index) => (
               <motion.div
-                key={group.category}
+                key={column.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+                transition={{ delay: index * 0.05 }}
+                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-purple-500/30 transition-colors"
               >
-                <h3 className="text-lg font-semibold text-white mb-4">{group.category}</h3>
-                <div className="space-y-2">
-                  {group.transforms.map((transform) => (
-                    <div
-                      key={transform}
-                      className="flex items-center gap-2 text-sm text-gray-400"
-                    >
-                      <Check className="w-4 h-4 text-purple-500" />
-                      {transform}
-                    </div>
-                  ))}
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-lg font-semibold text-white">{column.title}</h3>
+                  <span className="text-xs px-2 py-1 rounded-full bg-purple-500/10 text-purple-400">
+                    {column.category}
+                  </span>
                 </div>
+                <p className="text-sm text-gray-400">{column.description}</p>
               </motion.div>
             ))}
           </div>

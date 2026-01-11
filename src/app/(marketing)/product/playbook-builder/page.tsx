@@ -98,7 +98,7 @@ export default function PlaybookBuilderPage() {
                 className="grid grid-cols-3 gap-4"
               >
                 {[
-                  { value: "40+", label: "Actions" },
+                  { value: "25+", label: "Step Types" },
                   { value: "Visual", label: "Builder" },
                   { value: "24/7", label: "Automation" },
                 ].map((stat) => (
@@ -132,16 +132,16 @@ export default function PlaybookBuilderPage() {
             blocks={[
               {
                 icon: <GitBranch className="w-5 h-5" />,
-                label: "Actions",
-                value: "40+",
+                label: "Step Types",
+                value: "25+",
                 subValue: "Built-in steps",
                 color: "blue",
               },
               {
                 icon: <Layers className="w-5 h-5" />,
-                label: "Templates",
-                value: "15+",
-                subValue: "Ready to use",
+                label: "Categories",
+                value: "10",
+                subValue: "Organized steps",
                 color: "purple",
               },
               {
@@ -274,7 +274,7 @@ export default function PlaybookBuilderPage() {
                       </div>
                       <span className="text-sm font-medium text-white">Enrich</span>
                     </div>
-                    <p className="text-xs text-gray-500">Waterfall (15+ sources)</p>
+                    <p className="text-xs text-gray-500">Email + Phone</p>
                     <div className="mt-2 text-xs text-[#3e8aff]">Processing...</div>
                   </div>
                   <div className="w-px h-8 bg-white/[0.1]" />
@@ -293,9 +293,9 @@ export default function PlaybookBuilderPage() {
                       <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
                         <Mail className="w-4 h-4 text-green-500" />
                       </div>
-                      <span className="text-sm font-medium text-white">Verify</span>
+                      <span className="text-sm font-medium text-white">Validate</span>
                     </div>
-                    <p className="text-xs text-gray-500">Triple verification</p>
+                    <p className="text-xs text-gray-500">Email validation</p>
                     <div className="mt-2 text-xs text-gray-600">Pending</div>
                   </div>
                   <div className="w-px h-8 bg-white/[0.05]" />
@@ -328,7 +328,7 @@ export default function PlaybookBuilderPage() {
         </div>
       </section>
 
-      {/* Available Actions */}
+      {/* Available Step Types */}
       <section className="py-24 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -338,34 +338,64 @@ export default function PlaybookBuilderPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              40+ Built-in Actions
+              25+ Built-in Step Types
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Connect any combination of actions to build your perfect data workflow.
+              Connect any combination of steps across 10 categories to build your perfect workflow.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
             {[
               {
-                category: "Import",
+                category: "Input",
                 color: "blue",
-                actions: ["CSV Upload", "Google Sheets", "CRM Pull", "Webhook Trigger", "API Endpoint", "Scheduled Import"],
+                actions: ["CSV Upload", "CRM Import", "Sales Nav List", "Existing List"],
+              },
+              {
+                category: "Enrichment",
+                color: "green",
+                actions: ["Email Finder", "Phone Finder", "Company Enrich"],
+              },
+              {
+                category: "Validation",
+                color: "yellow",
+                actions: ["Email Validation", "Data Quality Check"],
               },
               {
                 category: "Transform",
                 color: "purple",
-                actions: ["Deduplicate", "Smart Columns", "Filter Rows", "Merge Records", "Split Data", "Format Fields"],
+                actions: ["Normalization", "Deduplication"],
               },
               {
-                category: "Enrich",
+                category: "AI",
+                color: "pink",
+                actions: ["Smart Column", "ICP Scoring", "Champion Finding"],
+              },
+              {
+                category: "Filter",
+                color: "orange",
+                actions: ["Conditional Filter", "Segmentation"],
+              },
+              {
+                category: "CRM Lookup",
+                color: "blue",
+                actions: ["Contact Lookup", "Company Lookup", "Last Activity", "Owner"],
+              },
+              {
+                category: "Decision",
+                color: "purple",
+                actions: ["If Property Equals", "If Any", "If All", "Branch Router"],
+              },
+              {
+                category: "Output",
                 color: "green",
-                actions: ["Waterfall Enrich", "Email Finder", "Phone Finder", "Company Data", "Technographics", "Intent Signals"],
+                actions: ["CRM Export", "CSV Download"],
               },
               {
-                category: "Export",
+                category: "Notifications",
                 color: "yellow",
-                actions: ["Salesforce Sync", "HubSpot Push", "CSV Download", "Webhook Send", "Email Alert", "Slack Notify"],
+                actions: ["Slack Alert", "Email Notification"],
               },
             ].map((group, index) => (
               <motion.div
@@ -373,29 +403,33 @@ export default function PlaybookBuilderPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+                transition={{ delay: index * 0.05 }}
+                className="p-4 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
               >
                 <div
-                  className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-medium mb-4 ${
+                  className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-medium mb-3 ${
                     group.color === "blue"
                       ? "bg-[#3e8aff]/10 text-[#3e8aff]"
                       : group.color === "purple"
                       ? "bg-purple-500/10 text-purple-500"
                       : group.color === "green"
                       ? "bg-green-500/10 text-green-500"
-                      : "bg-yellow-500/10 text-yellow-500"
+                      : group.color === "yellow"
+                      ? "bg-yellow-500/10 text-yellow-500"
+                      : group.color === "pink"
+                      ? "bg-pink-500/10 text-pink-500"
+                      : "bg-orange-500/10 text-orange-500"
                   }`}
                 >
                   {group.category}
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   {group.actions.map((action) => (
                     <div
                       key={action}
-                      className="flex items-center gap-2 text-sm text-gray-400"
+                      className="flex items-center gap-2 text-xs text-gray-400"
                     >
-                      <Check className="w-4 h-4 text-gray-600" />
+                      <Check className="w-3 h-3 text-gray-600" />
                       {action}
                     </div>
                   ))}

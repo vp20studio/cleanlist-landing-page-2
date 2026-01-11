@@ -23,8 +23,8 @@ const plans = [
     credits: "1,000",
     features: [
       "1,000 credits/month",
-      "Waterfall Enrichment (15+ sources)",
-      "Email Verification",
+      "Lead Enrichment (Email: 1 cr, Full: 10 cr)",
+      "Email Validation",
       "Phone Finder",
       "CSV Export",
       "Email Support",
@@ -41,10 +41,10 @@ const plans = [
     features: [
       "5,000 credits/month",
       "Everything in Starter",
-      "Smart Columns (AI)",
+      "Smart Columns (12 types)",
       "Sales Nav Scraper",
       "Playbook Builder (5 playbooks)",
-      "CRM Integrations",
+      "CRM Integrations (5 CRMs)",
       "API Access",
       "Priority Support",
     ],
@@ -61,9 +61,9 @@ const plans = [
       "20,000 credits/month",
       "Everything in Pro",
       "Unlimited Playbooks",
+      "ICP Scoring",
       "Team Workspaces",
       "Advanced Analytics",
-      "Custom Integrations",
       "Dedicated CSM",
       "SLA Guarantee",
     ],
@@ -80,7 +80,7 @@ const plans = [
       "Custom credit volume",
       "Everything in Business",
       "White-label Options",
-      "On-premise Deployment",
+      "Custom Integrations",
       "Custom SLA",
       "Dedicated Support Team",
       "Security Review",
@@ -95,15 +95,14 @@ const featureCategories = [
   {
     name: "Data Enrichment",
     features: [
-      { name: "Waterfall Enrichment (15+ sources)", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Work Email Discovery", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Personal Email Discovery", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Multi-Provider Lead Enrichment", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Email Enrichment (1 credit)", starter: true, pro: true, business: true, enterprise: true },
+      { name: "Full Contact Enrichment (10 credits)", starter: true, pro: true, business: true, enterprise: true },
       { name: "Direct Phone Numbers", starter: true, pro: true, business: true, enterprise: true },
       { name: "Mobile Phone Numbers", starter: false, pro: true, business: true, enterprise: true },
       { name: "Company Firmographics", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Technographics", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Intent Signals", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Social Profiles (LinkedIn, Twitter)", starter: true, pro: true, business: true, enterprise: true },
+      { name: "98% Accuracy Guarantee", starter: true, pro: true, business: true, enterprise: true },
+      { name: "LinkedIn Profile URLs", starter: true, pro: true, business: true, enterprise: true },
       { name: "Custom Field Mapping", starter: false, pro: true, business: true, enterprise: true },
     ],
   },
@@ -141,7 +140,7 @@ const featureCategories = [
     name: "Sales Navigator Scraper",
     features: [
       { name: "Chrome Extension", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Export up to 2,500 leads/search", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Bulk Lead Export", starter: false, pro: true, business: true, enterprise: true },
       { name: "Auto-enrichment on Export", starter: false, pro: true, business: true, enterprise: true },
       { name: "Preserve Sales Nav Filters", starter: false, pro: true, business: true, enterprise: true },
       { name: "Safe Rate Limiting", starter: false, pro: true, business: true, enterprise: true },
@@ -155,14 +154,14 @@ const featureCategories = [
     features: [
       { name: "Visual Workflow Builder", starter: false, pro: true, business: true, enterprise: true },
       { name: "Number of Playbooks", starter: "0", pro: "5", business: "Unlimited", enterprise: "Unlimited" },
-      { name: "40+ Built-in Actions", starter: false, pro: true, business: true, enterprise: true },
+      { name: "25+ Step Types (10 categories)", starter: false, pro: true, business: true, enterprise: true },
       { name: "Scheduled Runs (Cron)", starter: false, pro: true, business: true, enterprise: true },
       { name: "Webhook Triggers", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Conditional Logic", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Conditional Logic & Branching", starter: false, pro: false, business: true, enterprise: true },
       { name: "Error Handling & Retries", starter: false, pro: true, business: true, enterprise: true },
       { name: "Deduplication Actions", starter: false, pro: true, business: true, enterprise: true },
       { name: "CRM Sync Actions", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Custom Templates", starter: false, pro: false, business: true, enterprise: true },
+      { name: "ICP Scoring Step", starter: false, pro: false, business: true, enterprise: true },
     ],
   },
   {
@@ -228,7 +227,7 @@ const faqs = [
   {
     question: "What is a credit?",
     answer:
-      "One credit = one record processed. Whether you're enriching a contact, verifying an email, or running a Smart Column transformation, each record uses one credit. All 15+ data sources are included—no extra charge per source.",
+      "Credits are used for enrichment and transformations. Email-only enrichment costs 1 credit per record. Full contact enrichment (email + phone) costs 10 credits per record. Smart Column transformations have variable costs depending on the type.",
   },
   {
     question: "Do unused credits roll over?",
@@ -291,7 +290,7 @@ export default function PricingPage() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-6xl font-bold text-white mb-6"
           >
-            One Credit Per Record
+            Simple Credit Pricing
           </motion.h1>
 
           <motion.p
@@ -300,8 +299,8 @@ export default function PricingPage() {
             transition={{ delay: 0.2 }}
             className="text-xl text-gray-400 max-w-2xl mx-auto mb-8"
           >
-            All 15+ data sources included. No hidden fees. No per-source charges.
-            Just simple, predictable pricing.
+            1 credit for email enrichment, 10 credits for full contact (email + phone).
+            No hidden fees. 98% accuracy guarantee.
           </motion.p>
 
           {/* Billing Toggle */}

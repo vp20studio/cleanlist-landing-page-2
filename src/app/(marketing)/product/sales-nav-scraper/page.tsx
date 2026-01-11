@@ -60,8 +60,8 @@ export default function SalesNavScraperPage() {
                 transition={{ delay: 0.2 }}
                 className="text-xl text-gray-400 mb-8 max-w-lg"
               >
-                Export up to 2,500 leads per search from LinkedIn Sales Navigator.
-                Auto-enriched with emails, phones, and company data. One-click export.
+                Bulk export leads from LinkedIn Sales Navigator search results.
+                Enrich with emails and phones. Push directly to your CRM.
               </motion.p>
 
               <motion.div
@@ -93,9 +93,9 @@ export default function SalesNavScraperPage() {
                 className="grid grid-cols-3 gap-4"
               >
                 {[
-                  { value: "2,500", label: "Leads/Search" },
+                  { value: "Bulk", label: "Export" },
                   { value: "Auto", label: "Enrichment" },
-                  { value: "1-Click", label: "Export" },
+                  { value: "CRM", label: "Sync" },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -127,37 +127,37 @@ export default function SalesNavScraperPage() {
             blocks={[
               {
                 icon: <Users className="w-5 h-5" />,
-                label: "Per Search",
-                value: "2,500",
-                subValue: "Maximum leads",
+                label: "Export",
+                value: "Bulk",
+                subValue: "List export",
                 color: "blue",
               },
               {
-                icon: <Clock className="w-5 h-5" />,
-                label: "Export Speed",
-                value: "~3 min",
-                subValue: "Per 1,000 leads",
-                color: "green",
-              },
-              {
                 icon: <Database className="w-5 h-5" />,
-                label: "Auto-Enrich",
-                value: "100%",
-                subValue: "All exports",
+                label: "Enrichment",
+                value: "Auto",
+                subValue: "Email & phone",
                 color: "purple",
               },
               {
                 icon: <Shield className="w-5 h-5" />,
                 label: "Safe Limits",
                 value: "Yes",
-                subValue: "LinkedIn compliant",
+                subValue: "Smart rate limiting",
                 color: "yellow",
               },
               {
+                icon: <RefreshCw className="w-5 h-5" />,
+                label: "CRM Sync",
+                value: "Yes",
+                subValue: "Direct push",
+                color: "green",
+              },
+              {
                 icon: <Zap className="w-5 h-5" />,
-                label: "Per Lead",
-                value: "1 Credit",
-                subValue: "Export + Enrich",
+                label: "Pricing",
+                value: "1-10 Cr",
+                subValue: "Per lead enriched",
                 highlight: true,
               },
             ]}
@@ -211,7 +211,7 @@ export default function SalesNavScraperPage() {
                   icon: <Download className="w-5 h-5" />,
                   details: [
                     "Select all or choose specific results",
-                    "Export up to 2,500 leads per search",
+                    "Bulk export from search results",
                     "Smart rate limiting protects your account",
                     "Background processing—keep working",
                   ],
@@ -353,15 +353,15 @@ export default function SalesNavScraperPage() {
                 icon: <Users className="w-6 h-6" />,
                 title: "Bulk Export",
                 description:
-                  "Export up to 2,500 leads per search. Build massive prospecting lists in minutes.",
-                stats: ["2,500 max/search", "Unlimited searches", "Batch processing"],
+                  "Export leads in bulk from Sales Navigator search results and saved lists.",
+                stats: ["Bulk export", "Saved lists", "Batch processing"],
               },
               {
                 icon: <RefreshCw className="w-6 h-6" />,
                 title: "Auto-Enrichment",
                 description:
                   "Every exported lead is automatically enriched with verified emails and phones.",
-                stats: ["Email + Phone", "Company data", "15+ sources"],
+                stats: ["Email + Phone", "Company data", "98% accuracy"],
               },
               {
                 icon: <Filter className="w-6 h-6" />,

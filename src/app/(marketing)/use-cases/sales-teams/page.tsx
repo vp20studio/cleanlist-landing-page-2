@@ -143,11 +143,11 @@ export default function SalesTeamsPage() {
             {[
               {
                 problem: "Emails bounce, hurting sender reputation",
-                solution: "99% verified deliverability",
+                solution: "98% accuracy guarantee",
               },
               {
                 problem: "Hours spent researching each prospect",
-                solution: "Instant enrichment from 15+ sources",
+                solution: "Multi-provider instant enrichment",
               },
               {
                 problem: "Can't get past the gatekeeper",
@@ -270,7 +270,7 @@ export default function SalesTeamsPage() {
               {
                 icon: <Mail className="w-6 h-6" />,
                 title: "Verified Work Emails",
-                description: "Triple-verified emails with 99% deliverability guarantee.",
+                description: "Validated emails with 98% accuracy guarantee.",
               },
               {
                 icon: <Phone className="w-6 h-6" />,

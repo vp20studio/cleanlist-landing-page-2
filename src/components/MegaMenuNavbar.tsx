@@ -21,6 +21,7 @@ import {
   Database,
   Shield,
   Zap,
+  Target,
 } from "lucide-react";
 
 interface NavItem {
@@ -44,21 +45,27 @@ const productSections: NavSection[] = [
         label: "Waterfall Enrichment",
         href: "/product/waterfall-enrichment",
         icon: <Layers className="w-5 h-5" />,
-        description: "15+ sources, one unified record",
+        description: "Multi-provider lead enrichment",
         badge: "Flagship",
       },
       {
         label: "Email & Phone Finder",
         href: "/product/email-phone-finder",
         icon: <Mail className="w-5 h-5" />,
-        description: "Direct contact discovery at scale",
+        description: "Verified contact discovery",
       },
       {
         label: "Smart Columns",
         href: "/product/smart-columns",
         icon: <Sparkles className="w-5 h-5" />,
-        description: "AI-driven data normalization",
+        description: "AI-powered data enrichment",
         badge: "AI",
+      },
+      {
+        label: "ICP Scoring",
+        href: "/product/icp-scoring",
+        icon: <Target className="w-5 h-5" />,
+        description: "Score leads against your ICP",
       },
     ],
   },
@@ -66,16 +73,16 @@ const productSections: NavSection[] = [
     title: "Acquisition",
     items: [
       {
-        label: "Sales Nav Scraper",
+        label: "Chrome Extension",
         href: "/product/sales-nav-scraper",
         icon: <Linkedin className="w-5 h-5" />,
-        description: "Bulk LinkedIn extraction",
+        description: "LinkedIn profile enrichment",
       },
       {
         label: "Playbook Builder",
         href: "/product/playbook-builder",
         icon: <Workflow className="w-5 h-5" />,
-        description: "GTM automation workflows",
+        description: "Visual workflow automation",
         badge: "New",
       },
     ],
@@ -233,11 +240,11 @@ export default function MegaMenuNavbar() {
                             <div className="flex items-center gap-6 text-xs text-gray-500">
                               <div className="flex items-center gap-1.5">
                                 <Shield className="w-3.5 h-3.5 text-green-500" />
-                                <span>99% Accuracy</span>
+                                <span>98% Accuracy</span>
                               </div>
                               <div className="flex items-center gap-1.5">
                                 <Zap className="w-3.5 h-3.5 text-yellow-500" />
-                                <span>1 Credit/Record</span>
+                                <span>From 1 Credit</span>
                               </div>
                             </div>
                             <Link

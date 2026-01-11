@@ -8,6 +8,7 @@ const footerLinks = {
     { label: "Waterfall Enrichment", href: "/product/waterfall-enrichment" },
     { label: "Email & Phone Finder", href: "/product/email-phone-finder" },
     { label: "Smart Columns", href: "/product/smart-columns" },
+    { label: "ICP Scoring", href: "/product/icp-scoring" },
     { label: "Sales Nav Scraper", href: "/product/sales-nav-scraper" },
     { label: "Playbook Builder", href: "/product/playbook-builder" },
   ],
@@ -27,10 +28,10 @@ const footerLinks = {
 };
 
 const stats = [
-  { value: "15+", label: "Data Sources" },
-  { value: "99%", label: "Accuracy" },
-  { value: "500+", label: "Teams" },
-  { value: "10M+", label: "Records/Month" },
+  { value: "5", label: "CRM Integrations" },
+  { value: "98%", label: "Accuracy" },
+  { value: "1-10", label: "Credits/Record" },
+  { value: "12", label: "Smart Columns" },
 ];
 
 export default function SiteFooter() {
@@ -63,7 +64,7 @@ export default function SiteFooter() {
             </Link>
             <p className="text-sm text-gray-500 mb-6 max-w-xs">
               The data operating system for modern GTM teams. Clean, verify, and enrich
-              your leads with 99% accuracy.
+              your leads with 98% accuracy.
             </p>
             <div className="flex items-center gap-4">
               <a

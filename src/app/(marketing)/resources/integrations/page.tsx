@@ -14,39 +14,25 @@ import {
 
 const integrations = {
   crm: [
-    { name: "Salesforce", status: "live", type: "Native" },
     { name: "HubSpot", status: "live", type: "Native" },
+    { name: "Salesforce", status: "live", type: "Native" },
     { name: "Pipedrive", status: "live", type: "Native" },
     { name: "Zoho CRM", status: "live", type: "Native" },
-    { name: "Microsoft Dynamics", status: "beta", type: "Native" },
-    { name: "Freshsales", status: "coming", type: "Native" },
+    { name: "Recruitcrm", status: "live", type: "Native" },
   ],
-  engagement: [
-    { name: "Outreach", status: "live", type: "Native" },
-    { name: "Salesloft", status: "live", type: "Native" },
-    { name: "Apollo", status: "live", type: "Native" },
-    { name: "Lemlist", status: "live", type: "Native" },
-    { name: "Instantly", status: "beta", type: "Native" },
-    { name: "Reply.io", status: "coming", type: "Native" },
+  dataExport: [
+    { name: "CSV Export", status: "live", type: "Native" },
+    { name: "Google Sheets", status: "live", type: "Native" },
   ],
-  dataWarehouse: [
-    { name: "Snowflake", status: "live", type: "Native" },
-    { name: "BigQuery", status: "live", type: "Native" },
-    { name: "Redshift", status: "live", type: "Native" },
-    { name: "Databricks", status: "beta", type: "Native" },
+  browser: [
+    { name: "Chrome Extension", status: "live", type: "Native" },
+    { name: "Edge", status: "live", type: "Native" },
+    { name: "Brave", status: "live", type: "Native" },
+    { name: "Firefox", status: "coming", type: "Native" },
   ],
   automation: [
-    { name: "Zapier", status: "live", type: "Zapier" },
-    { name: "Make", status: "live", type: "Make" },
-    { name: "n8n", status: "live", type: "n8n" },
-    { name: "Tray.io", status: "live", type: "Native" },
-    { name: "Workato", status: "beta", type: "Native" },
-  ],
-  spreadsheets: [
-    { name: "Google Sheets", status: "live", type: "Native" },
-    { name: "Excel Online", status: "live", type: "Native" },
-    { name: "Airtable", status: "live", type: "Native" },
-    { name: "Notion", status: "beta", type: "Native" },
+    { name: "Webhooks", status: "live", type: "Native" },
+    { name: "REST API", status: "live", type: "Native" },
   ],
 };
 
@@ -93,7 +79,7 @@ export default function IntegrationsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: <Plug className="w-5 h-5" />, value: "30+", label: "Native Integrations" },
+              { icon: <Plug className="w-5 h-5" />, value: "5", label: "CRM Integrations" },
               { icon: <RefreshCw className="w-5 h-5" />, value: "Real-time", label: "Bi-directional Sync" },
               { icon: <Clock className="w-5 h-5" />, value: "<5 min", label: "Setup Time" },
               { icon: <Shield className="w-5 h-5" />, value: "OAuth", label: "Secure Auth" },

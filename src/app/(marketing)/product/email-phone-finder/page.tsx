@@ -62,7 +62,7 @@ export default function EmailPhoneFinderPage() {
                 className="text-xl text-gray-400 mb-8 max-w-lg"
               >
                 Find verified work emails and direct phone numbers for any professional.
-                Triple-verified in real-time. 99% deliverability guaranteed.
+                Email-only enrichment for 1 credit, or full contact data for 10 credits.
               </motion.p>
 
               <motion.div
@@ -94,9 +94,9 @@ export default function EmailPhoneFinderPage() {
                 className="grid grid-cols-3 gap-4"
               >
                 {[
-                  { value: "99%", label: "Deliverability" },
-                  { value: "Triple", label: "Verification" },
-                  { value: "<1s", label: "Lookup Time" },
+                  { value: "98%", label: "Accuracy" },
+                  { value: "1 Credit", label: "Email Only" },
+                  { value: "10 Credits", label: "Full Contact" },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -128,37 +128,37 @@ export default function EmailPhoneFinderPage() {
             blocks={[
               {
                 icon: <Shield className="w-5 h-5" />,
-                label: "Deliverability",
-                value: "99%",
-                subValue: "Bounce-free guarantee",
+                label: "Accuracy",
+                value: "98%",
+                subValue: "Data guarantee",
                 color: "green",
               },
               {
-                icon: <Clock className="w-5 h-5" />,
-                label: "Lookup Speed",
-                value: "<1s",
-                subValue: "Real-time verification",
+                icon: <Mail className="w-5 h-5" />,
+                label: "Email Only",
+                value: "1 Credit",
+                subValue: "Partial enrichment",
                 color: "blue",
               },
               {
-                icon: <Target className="w-5 h-5" />,
-                label: "Find Rate",
-                value: "87%",
-                subValue: "Work email coverage",
-                color: "yellow",
-              },
-              {
                 icon: <Phone className="w-5 h-5" />,
-                label: "Direct Dials",
-                value: "65%",
-                subValue: "Phone number coverage",
+                label: "Full Contact",
+                value: "10 Credits",
+                subValue: "Email + Phone",
                 color: "purple",
               },
               {
+                icon: <Target className="w-5 h-5" />,
+                label: "Validation",
+                value: "Email",
+                subValue: "Deliverability check",
+                color: "yellow",
+              },
+              {
                 icon: <Zap className="w-5 h-5" />,
-                label: "Per Lookup",
-                value: "1 Credit",
-                subValue: "Email + Phone",
+                label: "Processing",
+                value: "Fast",
+                subValue: "Real-time & batch",
                 highlight: true,
               },
             ]}
@@ -166,7 +166,7 @@ export default function EmailPhoneFinderPage() {
         </div>
       </section>
 
-      {/* Triple Verification */}
+      {/* Email Validation */}
       <section id="verification" className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -177,13 +177,13 @@ export default function EmailPhoneFinderPage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-500 mb-4">
               <Shield className="w-4 h-4" />
-              Triple Verification
+              Email Validation
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
               How We Verify Every Email
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Our three-step verification process ensures 99% deliverability. No bounces,
+              Our email validation process ensures high deliverability. No bounces,
               no spam traps, no wasted sends.
             </p>
           </motion.div>
@@ -291,7 +291,7 @@ export default function EmailPhoneFinderPage() {
                 <div className="mt-6 p-4 rounded-lg bg-green-500/5 border border-green-500/20">
                   <div className="flex items-center gap-2 text-sm text-green-500 mb-1">
                     <Shield className="w-4 h-4" />
-                    Deliverability Score: 99%
+                    Email Validated
                   </div>
                   <p className="text-xs text-gray-500">
                     This email is safe to send. Low bounce risk.
@@ -418,17 +418,17 @@ export default function EmailPhoneFinderPage() {
                   {
                     title: "Mobile Numbers",
                     description: "Cell phone numbers for direct outreach",
-                    coverage: "55% coverage",
+                    coverage: "When available",
                   },
                   {
                     title: "Direct Dials",
                     description: "Office direct lines bypassing switchboards",
-                    coverage: "65% coverage",
+                    coverage: "When available",
                   },
                   {
                     title: "Company HQ",
                     description: "Main company phone numbers",
-                    coverage: "95% coverage",
+                    coverage: "High coverage",
                   },
                 ].map((item) => (
                   <div
@@ -582,7 +582,7 @@ export default function EmailPhoneFinderPage() {
               Start Finding Verified Contacts
             </h2>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-              Get 100 free lookups. Find emails and phone numbers with 99% accuracy.
+              Get started with free credits. Find emails and phone numbers with 98% accuracy.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link

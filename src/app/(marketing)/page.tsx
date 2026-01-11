@@ -21,7 +21,7 @@ import {
   BarChart3,
   RefreshCw,
 } from "lucide-react";
-import { DashboardMockup, TechnicalGrid, VerticalStepper, DataSourcesGrid } from "@/components/ui";
+import { DashboardMockup, TechnicalGrid, VerticalStepper } from "@/components/ui";
 
 export default function HomePage() {
   return (
@@ -64,8 +64,8 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-xl text-gray-400 mb-8 max-w-lg"
               >
-                Clean, verify, and enrich your leads with 99% accuracy. 15+ data sources.
-                1 credit per record. The only data platform your GTM team needs.
+                Enrich, verify, and score your leads with 98% accuracy. From email-only
+                to full contact data. The complete data platform for GTM teams.
               </motion.p>
 
               <motion.div
@@ -102,11 +102,11 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" />
-                  500+ teams trust us
+                  Thousands of teams
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-green-500" />
-                  GDPR & SOC2 Compliant
+                  98% accuracy guarantee
                 </div>
               </motion.div>
             </div>
@@ -131,37 +131,37 @@ export default function HomePage() {
             blocks={[
               {
                 icon: <Database className="w-5 h-5" />,
-                label: "Data Sources",
-                value: "15+",
-                subValue: "Unified cascade",
+                label: "Enrichment",
+                value: "Multi-Source",
+                subValue: "Premium providers",
                 color: "blue",
               },
               {
                 icon: <Shield className="w-5 h-5" />,
                 label: "Accuracy",
-                value: "99%",
-                subValue: "Triple verification",
+                value: "98%",
+                subValue: "Verified contacts",
                 color: "green",
               },
               {
                 icon: <Zap className="w-5 h-5" />,
-                label: "Per Record",
-                value: "1 Credit",
-                subValue: "Simple pricing",
+                label: "Pricing",
+                value: "From 1 Credit",
+                subValue: "Email or full contact",
                 color: "yellow",
               },
               {
                 icon: <Users className="w-5 h-5" />,
                 label: "Teams",
-                value: "500+",
+                value: "Thousands",
                 subValue: "Trust Cleanlist",
                 color: "purple",
               },
               {
                 icon: <BarChart3 className="w-5 h-5" />,
-                label: "Records/Month",
-                value: "10M+",
-                subValue: "Processed",
+                label: "Records",
+                value: "Millions",
+                subValue: "Processed monthly",
                 highlight: true,
               },
             ]}
@@ -197,52 +197,52 @@ export default function HomePage() {
                 icon: <Layers className="w-6 h-6" />,
                 title: "Waterfall Enrichment",
                 description:
-                  "Query 15+ data sources in parallel. Get the best data from each, merged into one golden record.",
+                  "Multi-provider lead enrichment. Query multiple data sources and merge into a unified record.",
                 href: "/product/waterfall-enrichment",
                 badge: "Flagship",
-                stats: ["15+ Sources", "95% Match Rate", "<2s Response"],
+                stats: ["Multi-Source", "Real-time", "Bulk Processing"],
               },
               {
                 icon: <Mail className="w-6 h-6" />,
                 title: "Email & Phone Finder",
                 description:
-                  "Find direct contact information for any professional. Verified in real-time.",
+                  "Find verified contact information. Email-only (1 credit) or full contact (10 credits).",
                 href: "/product/email-phone-finder",
-                stats: ["Triple Verified", "Catch-all Detection", "Disposable Check"],
+                stats: ["Email Validation", "Phone Discovery", "98% Accuracy"],
               },
               {
                 icon: <Sparkles className="w-6 h-6" />,
                 title: "Smart Columns",
                 description:
-                  "AI-powered data normalization. Standardize job titles, company names, and more.",
+                  "AI-powered data enrichment. 12 column types for cleaning, research, and analysis.",
                 href: "/product/smart-columns",
                 badge: "AI",
-                stats: ["GPT-4 Powered", "Custom Rules", "Batch Processing"],
+                stats: ["12 Column Types", "Custom Prompts", "ICP Scoring"],
               },
               {
                 icon: <Linkedin className="w-6 h-6" />,
-                title: "Sales Nav Scraper",
+                title: "Chrome Extension",
                 description:
-                  "Export up to 2,500 leads per search from Sales Navigator. Auto-enriched.",
+                  "Enrich LinkedIn profiles and export from Sales Navigator directly to your lists.",
                 href: "/product/sales-nav-scraper",
-                stats: ["2,500/Search", "Chrome Extension", "Auto-Enrich"],
+                stats: ["LinkedIn Enrichment", "Sales Nav Export", "1-Click Import"],
               },
               {
                 icon: <Workflow className="w-6 h-6" />,
                 title: "Playbook Builder",
                 description:
-                  "Build automated GTM workflows. Dedupe, enrich, verify, and sync on autopilot.",
+                  "Visual workflow automation. Build data pipelines with 25+ actions and CRM sync.",
                 href: "/product/playbook-builder",
                 badge: "New",
-                stats: ["Visual Builder", "40+ Actions", "CRM Sync"],
+                stats: ["Visual Builder", "25+ Actions", "CRM Sync"],
               },
               {
                 icon: <Globe className="w-6 h-6" />,
-                title: "API Access",
+                title: "CRM Integrations",
                 description:
-                  "Full REST API for programmatic access. Build Cleanlist into your stack.",
-                href: "#",
-                stats: ["REST API", "Webhooks", "SDKs"],
+                  "Connect to HubSpot, Salesforce, Pipedrive, Zoho, and Recruitcrm.",
+                href: "/resources/integrations",
+                stats: ["5 CRMs", "Bi-directional Sync", "Field Mapping"],
               },
             ].map((product, index) => (
               <motion.div
@@ -377,24 +377,24 @@ export default function HomePage() {
                   number: "01",
                   title: "Connect Your Data",
                   description:
-                    "Upload CSV, connect your CRM, or use our API. We accept any format.",
+                    "Upload CSV, connect your CRM, or use the Chrome extension.",
                   details: [
                     "CSV/Excel upload with smart column mapping",
-                    "Direct CRM integrations (Salesforce, HubSpot, Pipedrive)",
-                    "REST API with batch processing",
-                    "Webhook triggers for real-time flows",
+                    "CRM integrations (HubSpot, Salesforce, Pipedrive, Zoho)",
+                    "LinkedIn enrichment via Chrome extension",
+                    "Manual prospect entry with LinkedIn URL or name",
                   ],
                 },
                 {
                   number: "02",
-                  title: "Enrich & Verify",
+                  title: "Enrich & Score",
                   description:
-                    "Our waterfall engine queries 15+ sources. Every email is triple-verified.",
+                    "Multi-provider enrichment with email validation and ICP scoring.",
                   details: [
-                    "Parallel queries to all data providers",
-                    "Best-match algorithm selects highest quality",
-                    "Syntax, MX, and SMTP verification",
-                    "Catch-all and disposable detection",
+                    "Multi-source enrichment for best results",
+                    "Email-only (1 credit) or full contact (10 credits)",
+                    "AI Smart Columns for data transformation",
+                    "ICP scoring against your ideal customer profile",
                   ],
                 },
                 {
@@ -403,10 +403,10 @@ export default function HomePage() {
                   description:
                     "Push clean data back to your CRM or download enriched files.",
                   details: [
-                    "One-click CRM sync with field mapping",
-                    "Export to CSV, JSON, or direct API",
-                    "Scheduled recurring runs",
-                    "Audit trail and version history",
+                    "Bi-directional CRM sync with field mapping",
+                    "Export to CSV with custom column selection",
+                    "Playbook automation for recurring workflows",
+                    "Real-time data quality tracking",
                   ],
                 },
               ]}
@@ -415,7 +415,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Data Sources */}
+      {/* Enrichment Types */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -426,18 +426,62 @@ export default function HomePage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
               <Database className="w-4 h-4" />
-              Data Sources
+              Enrichment Options
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              15+ Sources. One API Call.
+              Simple, Transparent Pricing
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              We query the industry&apos;s top data providers in parallel and merge results
-              into a single, high-quality record.
+              Choose the enrichment level that fits your needs. Pay only for what you use.
             </p>
           </motion.div>
 
-          <DataSourcesGrid />
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
+                <Mail className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Partial Enrichment</h3>
+              <div className="text-3xl font-bold text-[#3e8aff] mb-4">1 Credit</div>
+              <p className="text-gray-400 mb-6">Email address only. Perfect for email campaigns.</p>
+              <ul className="space-y-3">
+                {["Verified business email", "Email validation status", "Reliability scoring"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-8 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/20"
+            >
+              <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
+                <Phone className="w-6 h-6" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Full Enrichment</h3>
+              <div className="text-3xl font-bold text-[#3e8aff] mb-4">10 Credits</div>
+              <p className="text-gray-400 mb-6">Complete contact data for multi-channel outreach.</p>
+              <ul className="space-y-3">
+                {["Everything in Partial", "Mobile phone numbers", "Direct dial numbers", "Company data enrichment"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -534,8 +578,8 @@ export default function HomePage() {
               Ready to Clean Your Data?
             </h2>
             <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-              Join 500+ teams using Cleanlist to power their GTM engine. Start with 100 free
-              credits.
+              Join thousands of teams using Cleanlist to power their GTM engine. Start your
+              free trial today.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link

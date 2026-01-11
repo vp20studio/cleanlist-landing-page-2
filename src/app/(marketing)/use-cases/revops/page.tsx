@@ -264,7 +264,7 @@ export default function RevOpsPage() {
                   description: "Drag and drop actions to create your data workflow.",
                   icon: <Layers className="w-5 h-5" />,
                   details: [
-                    "40+ built-in actions",
+                    "25+ built-in step types",
                     "Conditional logic",
                     "Error handling",
                   ],

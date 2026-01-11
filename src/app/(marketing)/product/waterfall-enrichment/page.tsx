@@ -31,7 +31,6 @@ import {
   DashboardMockup,
   TechnicalGrid,
   VerticalStepper,
-  DataSourcesGrid,
   GlowCard,
 } from "@/components/ui";
 
@@ -73,8 +72,8 @@ export default function WaterfallEnrichmentPage() {
                 transition={{ delay: 0.2 }}
                 className="text-xl text-gray-400 mb-8 max-w-lg"
               >
-                Query 15+ premium data providers in parallel. Get the best data from each,
-                merged into one complete golden record. One API call. One credit.
+                Multi-provider enrichment that queries premium data sources and merges
+                the best results into one complete record. Partial (email) or full enrichment.
               </motion.p>
 
               <motion.div
@@ -106,9 +105,9 @@ export default function WaterfallEnrichmentPage() {
                 className="grid grid-cols-3 gap-4"
               >
                 {[
-                  { value: "15+", label: "Data Sources" },
-                  { value: "95%", label: "Match Rate" },
-                  { value: "<2s", label: "Response Time" },
+                  { value: "Multi", label: "Data Sources" },
+                  { value: "98%", label: "Accuracy" },
+                  { value: "1-10", label: "Credits/Record" },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -141,29 +140,29 @@ export default function WaterfallEnrichmentPage() {
               {
                 icon: <Database className="w-5 h-5" />,
                 label: "Sources",
-                value: "15+",
+                value: "Multi",
                 subValue: "Premium providers",
                 color: "blue",
               },
               {
                 icon: <Target className="w-5 h-5" />,
-                label: "Match Rate",
-                value: "95%",
-                subValue: "Combined coverage",
+                label: "Accuracy",
+                value: "98%",
+                subValue: "Data guarantee",
                 color: "green",
               },
               {
-                icon: <Clock className="w-5 h-5" />,
-                label: "Response",
-                value: "<2s",
-                subValue: "Avg per record",
+                icon: <Mail className="w-5 h-5" />,
+                label: "Email Only",
+                value: "1 Credit",
+                subValue: "Partial enrichment",
                 color: "yellow",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
-                label: "Throughput",
-                value: "10K/min",
-                subValue: "Batch processing",
+                icon: <Phone className="w-5 h-5" />,
+                label: "Full Contact",
+                value: "10 Credits",
+                subValue: "Email + Phone",
                 color: "purple",
               },
               {
@@ -174,10 +173,10 @@ export default function WaterfallEnrichmentPage() {
                 color: "green",
               },
               {
-                icon: <DollarSign className="w-5 h-5" />,
-                label: "Per Record",
-                value: "1 Credit",
-                subValue: "All sources included",
+                icon: <Zap className="w-5 h-5" />,
+                label: "Processing",
+                value: "Fast",
+                subValue: "Batch & real-time",
                 highlight: true,
               },
             ]}
@@ -214,11 +213,11 @@ export default function WaterfallEnrichmentPage() {
                   number: "01",
                   title: "Parallel Query Dispatch",
                   description:
-                    "Your input record is sent to all 15+ data providers simultaneously.",
+                    "Your input record is sent to multiple premium data providers simultaneously.",
                   icon: <Zap className="w-5 h-5" />,
                   details: [
                     "All sources queried in parallel, not sequential",
-                    "Typical response time: 0.3-0.8 seconds per source",
+                    "Fast response times across all providers",
                     "Automatic timeout handling and retry logic",
                     "Source health monitoring and failover",
                   ],
@@ -296,24 +295,24 @@ export default function WaterfallEnrichmentPage() {
                   <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#3e8aff] to-[#3e8aff]/20" />
                   <div className="grid grid-cols-3 gap-2">
                     {[
-                      "Apollo",
-                      "ZoomInfo",
-                      "Clearbit",
-                      "Hunter",
-                      "Lusha",
-                      "RocketReach",
+                      { name: "Provider A", status: "Found" },
+                      { name: "Provider B", status: "Found" },
+                      { name: "Provider C", status: "Partial" },
+                      { name: "Provider D", status: "Found" },
+                      { name: "Provider E", status: "Found" },
+                      { name: "Provider F", status: "Found" },
                     ].map((source, i) => (
                       <motion.div
-                        key={source}
+                        key={source.name}
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
                         className="p-2 rounded bg-[#111] border border-white/[0.05] text-center"
                       >
-                        <div className="text-xs text-gray-400">{source}</div>
+                        <div className="text-xs text-gray-400">{source.name}</div>
                         <div className="text-[10px] text-green-500 mt-1">
-                          {i < 4 ? "Found" : i === 4 ? "Partial" : "Found"}
+                          {source.status}
                         </div>
                       </motion.div>
                     ))}
@@ -364,7 +363,7 @@ export default function WaterfallEnrichmentPage() {
         </div>
       </section>
 
-      {/* Data Sources Grid */}
+      {/* Enrichment Types */}
       <section className="py-24 bg-[#080808]">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
@@ -375,18 +374,69 @@ export default function WaterfallEnrichmentPage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
               <Database className="w-4 h-4" />
-              Data Sources
+              Enrichment Options
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              The Industry&apos;s Top Providers
+              Choose Your Enrichment Level
             </h2>
             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              We&apos;ve integrated with 15+ premium data sources. Each has unique strengths—
-              our cascade combines them all.
+              Pick partial enrichment for email-focused campaigns or full enrichment
+              for complete contact data including phone numbers.
             </p>
           </motion.div>
 
-          <DataSourcesGrid />
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Partial Enrichment */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-8 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-6">
+                <Mail className="w-7 h-7" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Partial Enrichment</h3>
+              <div className="text-4xl font-bold text-[#3e8aff] mb-4">1 Credit</div>
+              <p className="text-gray-400 mb-6">
+                Get verified work emails for your contacts. Perfect for email outreach campaigns.
+              </p>
+              <ul className="space-y-3">
+                {["Verified work email", "Email deliverability check", "Company data enrichment", "LinkedIn profile URL"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Full Enrichment */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-8 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/30"
+            >
+              <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/20 flex items-center justify-center text-[#3e8aff] mb-6">
+                <Phone className="w-7 h-7" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">Full Enrichment</h3>
+              <div className="text-4xl font-bold text-[#3e8aff] mb-4">10 Credits</div>
+              <p className="text-gray-400 mb-6">
+                Complete contact data including direct dial phone numbers for multi-channel outreach.
+              </p>
+              <ul className="space-y-3">
+                {["Everything in Partial", "Direct dial phone number", "Mobile phone number", "Complete firmographics", "Social profiles"].map((item) => (
+                  <li key={item} className="flex items-center gap-2 text-sm text-gray-300">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -621,28 +671,28 @@ export default function WaterfallEnrichmentPage() {
                 title: "Lead List Enrichment",
                 description:
                   "Upload a list of companies and get complete contact details for decision-makers.",
-                result: "95% match rate, 25+ fields per record",
+                result: "98% accuracy, comprehensive data",
               },
               {
                 icon: <RefreshCw className="w-6 h-6" />,
                 title: "CRM Data Hygiene",
                 description:
                   "Enrich existing CRM records to fill gaps and update stale information.",
-                result: "30% data improvement on average",
+                result: "Keep your CRM data fresh",
               },
               {
                 icon: <Target className="w-6 h-6" />,
                 title: "ABM Campaign Prep",
                 description:
                   "Get verified emails and direct dials for your target account list.",
-                result: "2x more conversations started",
+                result: "Multi-channel outreach ready",
               },
               {
                 icon: <Calendar className="w-6 h-6" />,
                 title: "Event Lead Capture",
                 description:
                   "Enrich badge scans with full contact and company data in real-time.",
-                result: "10x faster lead qualification",
+                result: "Fast lead qualification",
               },
               {
                 icon: <BarChart3 className="w-6 h-6" />,
