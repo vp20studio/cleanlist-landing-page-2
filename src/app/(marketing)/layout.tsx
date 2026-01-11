@@ -7,7 +7,7 @@ export default function MarketingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#030303]">
+    <div className="min-h-screen bg-background transition-colors">
       <MegaMenuNavbar />
       <main>{children}</main>
       <SiteFooter />

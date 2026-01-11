@@ -80,84 +80,297 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
-      {/* Hub & Spoke Visualization */}
+      {/* Hub & Spoke Visualization - Fixed Grid Layout */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
-            className="relative max-w-4xl mx-auto h-[500px]"
+            className="relative max-w-4xl mx-auto"
           >
-            {/* Center Hub - Cleanlist */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex flex-col items-center justify-center shadow-lg shadow-[#3e8aff]/30">
-                <Check className="w-8 h-8 text-white mb-1" />
-                <span className="text-sm font-semibold text-white">Cleanlist</span>
-              </div>
+            <div className="grid grid-cols-5 md:grid-cols-9 gap-4 md:gap-6 items-center justify-items-center py-8">
+              {/* Top Row */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Sa
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Salesforce</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.45 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Hu
+                </div>
+                <span className="text-xs text-gray-400 mt-2">HubSpot</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                  Ou
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Outreach</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.55 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                  Ap
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Apollo</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Ma
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Marketo</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.65 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Mc
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Mailchimp</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.7 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                  Sn
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Snowflake</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.75 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                  Za
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Zapier</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                  Sl
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Slack</span>
+              </motion.div>
             </div>
 
-            {/* Connection lines (SVG) */}
-            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-              {allIntegrations.map((integration, i) => {
-                const angle = (i * 360) / allIntegrations.length - 90;
-                const radius = 180;
-                const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
-                const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
-                return (
-                  <line
-                    key={integration.name}
-                    x1="50%"
-                    y1="50%"
-                    x2={`${x}%`}
-                    y2={`${y}%`}
-                    stroke="rgba(255,255,255,0.1)"
-                    strokeWidth="1"
-                  />
-                );
-              })}
-            </svg>
+            {/* Middle Row with Center Hub */}
+            <div className="flex items-center justify-center gap-4 md:gap-8 py-4">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Pi
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Pipedrive</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.65 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Kl
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Klaviyo</span>
+              </motion.div>
 
-            {/* Integration nodes */}
-            {allIntegrations.map((integration, i) => {
-              const angle = (i * 360) / allIntegrations.length - 90;
-              const radius = 180;
-              const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
-              const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
-              return (
-                <motion.div
-                  key={integration.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.4 + i * 0.05 }}
-                  className="absolute flex flex-col items-center"
-                  style={{
-                    left: `${x}%`,
-                    top: `${y}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1]"
-                    style={{
-                      backgroundColor: `${integration.color}15`,
-                      color: integration.color,
-                    }}
-                  >
-                    {integration.abbr}
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1">{integration.name}</span>
-                </motion.div>
-              );
-            })}
+              {/* Connection lines to center */}
+              <div className="hidden md:block w-12 h-px bg-gradient-to-r from-white/20 to-white/5" />
+
+              {/* Center Hub - Cleanlist */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5, type: "spring" }}
+                className="relative z-10 mx-4"
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex flex-col items-center justify-center shadow-lg shadow-[#3e8aff]/30">
+                  <Check className="w-6 h-6 md:w-8 md:h-8 text-white mb-1" />
+                  <span className="text-xs md:text-sm font-semibold text-white">Cleanlist</span>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/20 blur-xl -z-10" />
+              </motion.div>
+
+              <div className="hidden md:block w-12 h-px bg-gradient-to-l from-white/20 to-white/5" />
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.65 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                  Bi
+                </div>
+                <span className="text-xs text-gray-400 mt-2">BigQuery</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                  Se
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Segment</span>
+              </motion.div>
+            </div>
+
+            {/* Bottom Row */}
+            <div className="grid grid-cols-5 md:grid-cols-9 gap-4 md:gap-6 items-center justify-items-center py-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Br
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Braze</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.85 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Pa
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Pardot</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.9 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                  In
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Intercom</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.95 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Zo
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Zoho</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.0 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                  Rc
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Recruitcrm</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.05 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                  Lu
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Lusha</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.1 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                  Rr
+                </div>
+                <span className="text-xs text-gray-400 mt-2">RocketReach</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.15 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Sf
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Seamless</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.2 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                  +5
+                </div>
+                <span className="text-xs text-gray-400 mt-2">More</span>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Category Legend */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="flex items-center justify-center gap-6 flex-wrap mt-8"
+            transition={{ delay: 1.0 }}
+            className="flex items-center justify-center gap-4 md:gap-6 flex-wrap mt-8"
           >
             {integrationCategories.map((cat) => (
               <div key={cat.id} className="flex items-center gap-2">
@@ -168,7 +381,6 @@ export default function IntegrationsPage() {
                 <span className="text-sm text-gray-400">{cat.label}</span>
               </div>
             ))}
-            <span className="text-sm text-gray-500">+ more</span>
           </motion.div>
         </div>
       </section>

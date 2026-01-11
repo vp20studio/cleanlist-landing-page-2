@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import { DashboardMockup } from "@/components/ui";
 import StickySubNav from "@/components/StickySubNav";
+import { useTheme } from "@/context/ThemeContext";
 
 // Data providers for waterfall enrichment
 const dataProviders = [
@@ -65,30 +66,31 @@ const integrationCategories = [
   { id: "cdp", label: "CDP", color: "#8b5cf6" },
 ];
 
-// Pricing data
+// Pricing data with monthly and yearly prices (yearly saves ~17%)
 const pricingTiers = {
   free: {
     name: "Free",
-    price: "$0",
+    monthlyPrice: "$0",
+    yearlyPrice: "$0",
     period: "/month",
     credits: "30 credits",
     description: "30 emails or 3 phones",
     features: ["API Access", "CSV Export", "Email Support"],
   },
   starter: [
-    { tier: "I", price: "$29", credits: "500", email: "500", phone: "50" },
-    { tier: "II", price: "$54", credits: "1,000", email: "1,000", phone: "100" },
-    { tier: "III", price: "$79", credits: "1,500", email: "1,500", phone: "150" },
+    { tier: "I", monthlyPrice: "$29", yearlyPrice: "$24", credits: "500", email: "500", phone: "50" },
+    { tier: "II", monthlyPrice: "$54", yearlyPrice: "$45", credits: "1,000", email: "1,000", phone: "100" },
+    { tier: "III", monthlyPrice: "$79", yearlyPrice: "$66", credits: "1,500", email: "1,500", phone: "150" },
   ],
   pro: [
-    { tier: "I", price: "$99", credits: "2,000", email: "2,000", phone: "200" },
-    { tier: "II", price: "$169", credits: "3,500", email: "3,500", phone: "350" },
-    { tier: "III", price: "$229", credits: "5,000", email: "5,000", phone: "500" },
+    { tier: "I", monthlyPrice: "$99", yearlyPrice: "$83", credits: "2,000", email: "2,000", phone: "200" },
+    { tier: "II", monthlyPrice: "$169", yearlyPrice: "$141", credits: "3,500", email: "3,500", phone: "350" },
+    { tier: "III", monthlyPrice: "$229", yearlyPrice: "$191", credits: "5,000", email: "5,000", phone: "500" },
   ],
   enterprise: [
-    { tier: "I", price: "$449", credits: "10,000", email: "10,000", phone: "1,000" },
-    { tier: "II", price: "$799", credits: "20,000", email: "20,000", phone: "2,000" },
-    { tier: "III", price: "$1,899", credits: "50,000", email: "50,000", phone: "5,000" },
+    { tier: "I", monthlyPrice: "$449", yearlyPrice: "$374", credits: "10,000", email: "10,000", phone: "1,000" },
+    { tier: "II", monthlyPrice: "$799", yearlyPrice: "$666", credits: "20,000", email: "20,000", phone: "2,000" },
+    { tier: "III", monthlyPrice: "$1,899", yearlyPrice: "$1,583", credits: "50,000", email: "50,000", phone: "5,000" },
   ],
 };
 
@@ -136,6 +138,9 @@ export default function HomePage() {
   const [starterTier, setStarterTier] = useState(0);
   const [proTier, setProTier] = useState(0);
   const [enterpriseTier, setEnterpriseTier] = useState(0);
+  const [isYearly, setIsYearly] = useState(false);
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const renderSupportIcon = (value: boolean | string) => {
     if (value === true) return <Check className="w-5 h-5 text-green-500" />;
@@ -148,17 +153,17 @@ export default function HomePage() {
       <StickySubNav />
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 overflow-hidden">
+      <section className="relative pt-16 md:pt-20 pb-16 md:pb-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
 
-        <div className="relative max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4 md:mb-6"
               >
                 <Sparkles className="w-4 h-4" />
                 95%+ Accuracy for Prospecting
@@ -168,7 +173,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6"
+                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-4 md:mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
               >
                 Turn messy data into your{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
@@ -180,7 +185,7 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-gray-400 mb-8 max-w-lg"
+                className={`text-lg md:text-xl mb-6 md:mb-8 max-w-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}
               >
                 Clean, verify & enrich your leads with 95%+ accuracy. Now starting at just
                 $29/month.
@@ -190,18 +195,22 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap items-center gap-4 mb-10"
+                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 md:gap-4 mb-8 md:mb-10"
               >
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
                 >
                   Get started for free
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="#pricing"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors"
+                  className={`inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3 border font-medium rounded-lg transition-colors ${
+                    isDark
+                      ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
+                      : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                  }`}
                 >
                   View Pricing
                 </Link>
@@ -212,7 +221,7 @@ export default function HomePage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="grid grid-cols-4 gap-4"
+                className="grid grid-cols-4 gap-2 md:gap-4"
               >
                 {[
                   { value: "10+", label: "Data Sources" },
@@ -221,8 +230,8 @@ export default function HomePage() {
                   { value: "10K+", label: "Records" },
                 ].map((stat) => (
                   <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
-                    <div className="text-xs text-gray-500">{stat.label}</div>
+                    <div className="text-lg md:text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
+                    <div className={`text-[10px] md:text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
                   </div>
                 ))}
               </motion.div>
@@ -232,6 +241,7 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
+              className="hidden lg:block"
             >
               <DashboardMockup variant="enrichment" />
             </motion.div>
@@ -240,12 +250,12 @@ export default function HomePage() {
       </section>
 
       {/* Logo Bar */}
-      <section className="py-8 border-y border-white/[0.08] bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-sm text-gray-500 mb-6">Used by data-driven companies</p>
-          <div className="flex items-center justify-center gap-12 flex-wrap opacity-50">
+      <section className={`py-6 md:py-8 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-gray-200 bg-gray-50"}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <p className={`text-center text-xs md:text-sm mb-4 md:mb-6 ${isDark ? "text-gray-500" : "text-gray-600"}`}>Used by data-driven companies</p>
+          <div className="flex items-center justify-center gap-6 md:gap-12 flex-wrap opacity-50">
             {["SMTP", "NIEP", "LINEA", "API", "FIBIFY", "IAFI"].map((name) => (
-              <div key={name} className="text-xl font-bold text-gray-400 tracking-wider">
+              <div key={name} className={`text-base md:text-xl font-bold tracking-wider ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                 {name}
               </div>
             ))}
@@ -254,27 +264,27 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Section */}
-      <section id="solutions" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="solutions" className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               One platform, tailored to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 how you work
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Whether you&apos;re a solo sales rep or a scaling GTM team, Cleanlist adapts to
               your workflow.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               {
                 icon: <TrendingUp className="w-6 h-6" />,
@@ -331,10 +341,14 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] hover:border-[#3e8aff]/30 transition-all"
+                className={`p-5 md:p-6 rounded-xl border transition-all ${
+                  isDark
+                    ? "bg-[#0a0a0a] border-white/[0.08] hover:border-[#3e8aff]/30"
+                    : "bg-white border-gray-200 hover:border-[#3e8aff]/50 shadow-sm"
+                }`}
               >
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                  className={`w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center mb-3 md:mb-4 ${
                     item.color === "blue"
                       ? "bg-[#3e8aff]/10 text-[#3e8aff]"
                       : item.color === "purple"
@@ -346,14 +360,14 @@ export default function HomePage() {
                 >
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <h3 className={`text-base md:text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{item.title}</h3>
                 <p className="text-sm text-[#3e8aff] mb-2">{item.subtitle}</p>
-                <p className="text-sm text-gray-400 mb-4">{item.description}</p>
-                <div className="grid grid-cols-3 gap-2">
+                <p className={`text-sm mb-3 md:mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{item.description}</p>
+                <div className="grid grid-cols-3 gap-1 md:gap-2">
                   {item.stats.map((stat) => (
-                    <div key={stat.label} className="text-center p-2 rounded bg-white/[0.03]">
-                      <div className="text-sm font-semibold text-white">{stat.value}</div>
-                      <div className="text-xs text-gray-500">{stat.label}</div>
+                    <div key={stat.label} className={`text-center p-1.5 md:p-2 rounded ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
+                      <div className={`text-xs md:text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{stat.value}</div>
+                      <div className={`text-[10px] md:text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
                     </div>
                   ))}
                 </div>
@@ -719,79 +733,314 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Hub & Spoke Visualization */}
+          {/* Hub & Spoke Visualization - Fixed Grid Layout */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative max-w-4xl mx-auto h-[500px] mb-12"
+            className="relative max-w-4xl mx-auto mb-12"
           >
-            {/* Center Hub - Cleanlist */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex flex-col items-center justify-center shadow-lg shadow-[#3e8aff]/30">
-                <Check className="w-8 h-8 text-white mb-1" />
-                <span className="text-sm font-semibold text-white">Cleanlist</span>
-              </div>
+            <div className="grid grid-cols-5 md:grid-cols-9 gap-4 md:gap-6 items-center justify-items-center py-8">
+              {/* Top Row - 5 items on desktop, hidden outer on mobile */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Sa
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Salesforce</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Hu
+                </div>
+                <span className="text-xs text-gray-400 mt-2">HubSpot</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                  Ou
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Outreach</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.25 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                  Ap
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Apollo</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Ma
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Marketo</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.35 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Mc
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Mailchimp</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                  Sn
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Snowflake</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.45 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                  Za
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Zapier</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                  Sl
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Slack</span>
+              </motion.div>
             </div>
 
-            {/* Connection lines (SVG) */}
-            <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-              {allIntegrations.map((integration, i) => {
-                const angle = (i * 360) / allIntegrations.length - 90;
-                const radius = 180;
-                const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
-                const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
-                return (
-                  <line
-                    key={integration.name}
-                    x1="50%"
-                    y1="50%"
-                    x2={`${x}%`}
-                    y2={`${y}%`}
-                    stroke="rgba(255,255,255,0.1)"
-                    strokeWidth="1"
-                  />
-                );
-              })}
-            </svg>
+            {/* Middle Row with Center Hub */}
+            <div className="flex items-center justify-center gap-4 md:gap-8 py-4">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Pi
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Pipedrive</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.35 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Kl
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Klaviyo</span>
+              </motion.div>
 
-            {/* Integration nodes */}
-            {allIntegrations.map((integration, i) => {
-              const angle = (i * 360) / allIntegrations.length - 90;
-              const radius = 180;
-              const x = 50 + (radius / 4) * Math.cos((angle * Math.PI) / 180);
-              const y = 50 + (radius / 2.5) * Math.sin((angle * Math.PI) / 180);
-              return (
-                <motion.div
-                  key={integration.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="absolute flex flex-col items-center"
-                  style={{
-                    left: `${x}%`,
-                    top: `${y}%`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1]"
-                    style={{
-                      backgroundColor: `${integration.color}15`,
-                      color: integration.color,
-                    }}
-                  >
-                    {integration.abbr}
-                  </div>
-                  <span className="text-xs text-gray-400 mt-1">{integration.name}</span>
-                </motion.div>
-              );
-            })}
+              {/* Connection lines to center */}
+              <div className="hidden md:block w-12 h-px bg-gradient-to-r from-white/20 to-white/5" />
+
+              {/* Center Hub - Cleanlist */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="relative z-10 mx-4"
+              >
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex flex-col items-center justify-center shadow-lg shadow-[#3e8aff]/30">
+                  <Database className="w-6 h-6 md:w-8 md:h-8 text-white mb-1" />
+                  <span className="text-xs md:text-sm font-semibold text-white">Cleanlist</span>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/20 blur-xl -z-10" />
+              </motion.div>
+
+              <div className="hidden md:block w-12 h-px bg-gradient-to-l from-white/20 to-white/5" />
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.35 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                  Bi
+                </div>
+                <span className="text-xs text-gray-400 mt-2">BigQuery</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                  Se
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Segment</span>
+              </motion.div>
+            </div>
+
+            {/* Bottom Row */}
+            <div className="grid grid-cols-5 md:grid-cols-9 gap-4 md:gap-6 items-center justify-items-center py-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.5 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Br
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Braze</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.55 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                  Pa
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Pardot</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                  In
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Intercom</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.65 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Zo
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Zoho</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.7 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                  Rc
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Recruitcrm</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.75 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                  Lu
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Lusha</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.8 }}
+                className="flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                  Rr
+                </div>
+                <span className="text-xs text-gray-400 mt-2">RocketReach</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.85 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                  Sf
+                </div>
+                <span className="text-xs text-gray-400 mt-2">Seamless</span>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.9 }}
+                className="hidden md:flex flex-col items-center"
+              >
+                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                  +5
+                </div>
+                <span className="text-xs text-gray-400 mt-2">More</span>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Category Legend */}
-          <div className="flex items-center justify-center gap-6 flex-wrap mb-16">
+          <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap mb-16">
             {integrationCategories.map((cat) => (
               <div key={cat.id} className="flex items-center gap-2">
                 <div
@@ -801,53 +1050,50 @@ export default function HomePage() {
                 <span className="text-sm text-gray-400">{cat.label}</span>
               </div>
             ))}
-            <span className="text-sm text-gray-500">+ more</span>
           </div>
 
-          {/* Native Integrations Grid */}
+          {/* Integration Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-16"
+          >
+            {[
+              { value: "15+", label: "Native Integrations" },
+              { value: "<5 min", label: "Setup Time" },
+              { value: "Real-time", label: "Bi-directional Sync" },
+              { value: "OAuth 2.0", label: "Secure Auth" },
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="text-center p-4 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              >
+                <div className="text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
+                <div className="text-xs text-gray-500">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* API & Webhooks Footer */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
+            className="max-w-3xl mx-auto"
           >
-            <div className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/[0.08]">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-white">Native Integrations</h3>
-                  <p className="text-sm text-gray-500">One-click setup. No engineering required.</p>
-                </div>
-                <Link href="/resources/integrations" className="text-sm text-[#3e8aff] hover:underline">
-                  Can&apos;t find yours? Request integration
-                </Link>
+            <div className="p-6 rounded-2xl bg-[#0a0a0a] border border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3 text-sm text-gray-400">
+                <Zap className="w-5 h-5 text-[#3e8aff]" />
+                <span><span className="text-[#3e8aff] font-medium">REST API</span> and <span className="font-medium text-white">Webhooks</span> for custom integrations</span>
               </div>
-
-              <div className="grid grid-cols-4 md:grid-cols-8 gap-4 mb-8">
-                {allIntegrations.slice(0, 16).map((integration) => (
-                  <div key={integration.name} className="flex flex-col items-center">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.08] mb-2"
-                      style={{
-                        backgroundColor: `${integration.color}10`,
-                        color: integration.color,
-                      }}
-                    >
-                      {integration.abbr}
-                    </div>
-                    <span className="text-xs text-gray-400 text-center">{integration.name}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex items-center justify-between pt-6 border-t border-white/[0.08]">
-                <div className="flex items-center gap-2 text-sm text-gray-400">
-                  <Zap className="w-4 h-4 text-[#3e8aff]" />
-                  <span className="text-[#3e8aff] font-medium">REST API</span> and <span className="font-medium text-white">Webhooks</span> for custom integrations
-                </div>
-                <Link href="#" className="inline-flex items-center gap-1 text-sm text-[#3e8aff] hover:underline">
-                  View API Docs <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
+              <Link href="#" className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:underline">
+                View API Docs <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -872,6 +1118,38 @@ export default function HomePage() {
             <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-2">
               1 email = 1 credit. 1 phone = 10 credits. No hidden fees.
             </p>
+          </motion.div>
+
+          {/* Monthly/Yearly Toggle */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex items-center justify-center gap-4 mb-12"
+          >
+            <span className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-gray-500"}`}>
+              Monthly
+            </span>
+            <button
+              onClick={() => setIsYearly(!isYearly)}
+              className={`relative w-14 h-7 rounded-full transition-colors ${
+                isYearly ? "bg-[#3e8aff]" : "bg-white/[0.1]"
+              }`}
+            >
+              <div
+                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-transform ${
+                  isYearly ? "translate-x-8" : "translate-x-1"
+                }`}
+              />
+            </button>
+            <span className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-gray-500"}`}>
+              Yearly
+            </span>
+            {isYearly && (
+              <span className="px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full">
+                Save 17%
+              </span>
+            )}
           </motion.div>
 
           {/* Pricing Cards */}
@@ -935,8 +1213,15 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">{pricingTiers.starter[starterTier].price}</span>
+                <span className="text-4xl font-bold text-white">
+                  {isYearly ? pricingTiers.starter[starterTier].yearlyPrice : pricingTiers.starter[starterTier].monthlyPrice}
+                </span>
                 <span className="text-gray-500">/month</span>
+                {isYearly && (
+                  <span className="ml-2 text-xs text-gray-500 line-through">
+                    {pricingTiers.starter[starterTier].monthlyPrice}
+                  </span>
+                )}
               </div>
               <p className="text-sm text-gray-400 mb-2">{pricingTiers.starter[starterTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
@@ -988,8 +1273,15 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">{pricingTiers.pro[proTier].price}</span>
+                <span className="text-4xl font-bold text-white">
+                  {isYearly ? pricingTiers.pro[proTier].yearlyPrice : pricingTiers.pro[proTier].monthlyPrice}
+                </span>
                 <span className="text-gray-500">/month</span>
+                {isYearly && (
+                  <span className="ml-2 text-xs text-gray-500 line-through">
+                    {pricingTiers.pro[proTier].monthlyPrice}
+                  </span>
+                )}
               </div>
               <p className="text-sm text-gray-400 mb-2">{pricingTiers.pro[proTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
@@ -1038,8 +1330,15 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">{pricingTiers.enterprise[enterpriseTier].price}</span>
+                <span className="text-4xl font-bold text-white">
+                  {isYearly ? pricingTiers.enterprise[enterpriseTier].yearlyPrice : pricingTiers.enterprise[enterpriseTier].monthlyPrice}
+                </span>
                 <span className="text-gray-500">/month</span>
+                {isYearly && (
+                  <span className="ml-2 text-xs text-gray-500 line-through">
+                    {pricingTiers.enterprise[enterpriseTier].monthlyPrice}
+                  </span>
+                )}
               </div>
               <p className="text-sm text-gray-400 mb-2">{pricingTiers.enterprise[enterpriseTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">

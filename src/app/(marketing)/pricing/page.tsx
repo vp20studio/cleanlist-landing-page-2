@@ -14,82 +14,32 @@ import {
   ChevronUp,
 } from "lucide-react";
 
-const plans = [
-  {
-    name: "Starter",
-    description: "For individuals and small teams getting started",
-    monthlyPrice: 29,
-    yearlyPrice: 24,
-    credits: "1,000",
-    features: [
-      "1,000 credits/month",
-      "Lead Enrichment (Email: 1 cr, Full: 10 cr)",
-      "Email Validation",
-      "Phone Finder",
-      "CSV Export",
-      "Email Support",
-    ],
-    cta: "Start Free Trial",
-    popular: false,
+// Pricing data with monthly and yearly prices (yearly saves ~17%)
+const pricingTiers = {
+  free: {
+    name: "Free",
+    monthlyPrice: "$0",
+    yearlyPrice: "$0",
+    credits: "30 credits",
+    description: "30 emails or 3 phones",
+    features: ["API Access", "CSV Export", "Email Support"],
   },
-  {
-    name: "Pro",
-    description: "For growing teams that need more power",
-    monthlyPrice: 99,
-    yearlyPrice: 83,
-    credits: "5,000",
-    features: [
-      "5,000 credits/month",
-      "Everything in Starter",
-      "Smart Columns (12 types)",
-      "Sales Nav Scraper",
-      "Playbook Builder (5 playbooks)",
-      "CRM Integrations (5 CRMs)",
-      "API Access",
-      "Priority Support",
-    ],
-    cta: "Start Free Trial",
-    popular: true,
-  },
-  {
-    name: "Business",
-    description: "For teams scaling their GTM operations",
-    monthlyPrice: 299,
-    yearlyPrice: 249,
-    credits: "20,000",
-    features: [
-      "20,000 credits/month",
-      "Everything in Pro",
-      "Unlimited Playbooks",
-      "ICP Scoring",
-      "Team Workspaces",
-      "Advanced Analytics",
-      "Dedicated CSM",
-      "SLA Guarantee",
-    ],
-    cta: "Start Free Trial",
-    popular: false,
-  },
-  {
-    name: "Enterprise",
-    description: "For large organizations with custom needs",
-    monthlyPrice: null,
-    yearlyPrice: null,
-    credits: "Custom",
-    features: [
-      "Custom credit volume",
-      "Everything in Business",
-      "White-label Options",
-      "Custom Integrations",
-      "Custom SLA",
-      "Dedicated Support Team",
-      "Security Review",
-      "Custom Contracts",
-    ],
-    cta: "Contact Sales",
-    popular: false,
-  },
-];
+  starter: [
+    { tier: "I", monthlyPrice: "$29", yearlyPrice: "$24", credits: "500", email: "500", phone: "50" },
+    { tier: "II", monthlyPrice: "$54", yearlyPrice: "$45", credits: "1,000", email: "1,000", phone: "100" },
+    { tier: "III", monthlyPrice: "$79", yearlyPrice: "$66", credits: "1,500", email: "1,500", phone: "150" },
+  ],
+  pro: [
+    { tier: "I", monthlyPrice: "$99", yearlyPrice: "$83", credits: "2,000", email: "2,000", phone: "200" },
+    { tier: "II", monthlyPrice: "$169", yearlyPrice: "$141", credits: "3,500", email: "3,500", phone: "350" },
+    { tier: "III", monthlyPrice: "$229", yearlyPrice: "$191", credits: "5,000", email: "5,000", phone: "500" },
+  ],
+  enterprise: [
+    { tier: "I", monthlyPrice: "$449", yearlyPrice: "$374", credits: "10,000", email: "10,000", phone: "1,000" },
+    { tier: "II", monthlyPrice: "$799", yearlyPrice: "$666", credits: "20,000", email: "20,000", phone: "2,000" },
+    { tier: "III", monthlyPrice: "$1,899", yearlyPrice: "$1,583", credits: "50,000", email: "50,000", phone: "5,000" },
+  ],
+};
 
 const featureCategories = [
   {
@@ -258,6 +208,9 @@ const faqs = [
 
 export default function PricingPage() {
   const [annual, setAnnual] = useState(true);
+  const [starterTier, setStarterTier] = useState(0);
+  const [proTier, setProTier] = useState(0);
+  const [enterpriseTier, setEnterpriseTier] = useState(0);
   const [expandedCategories, setExpandedCategories] = useState<string[]>(
     featureCategories.map((c) => c.name)
   );
@@ -308,27 +261,31 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-3 p-1 rounded-full bg-[#0a0a0a] border border-white/[0.08]"
+            className="flex items-center justify-center gap-4"
           >
-            <button
-              onClick={() => setAnnual(false)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                !annual ? "bg-[#3e8aff] text-white" : "text-gray-400"
-              }`}
-            >
+            <span className={`text-sm font-medium transition-colors ${!annual ? "text-white" : "text-gray-500"}`}>
               Monthly
-            </button>
+            </span>
             <button
-              onClick={() => setAnnual(true)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-2 ${
-                annual ? "bg-[#3e8aff] text-white" : "text-gray-400"
+              onClick={() => setAnnual(!annual)}
+              className={`relative w-14 h-7 rounded-full transition-colors ${
+                annual ? "bg-[#3e8aff]" : "bg-white/[0.1]"
               }`}
             >
-              Annual
-              <span className="px-1.5 py-0.5 rounded text-xs bg-green-500/20 text-green-500">
-                Save 20%
-              </span>
+              <div
+                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-transform ${
+                  annual ? "translate-x-8" : "translate-x-1"
+                }`}
+              />
             </button>
+            <span className={`text-sm font-medium transition-colors ${annual ? "text-white" : "text-gray-500"}`}>
+              Yearly
+            </span>
+            {annual && (
+              <span className="px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full">
+                Save 17%
+              </span>
+            )}
           </motion.div>
         </div>
       </section>
@@ -337,72 +294,226 @@ export default function PricingPage() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {plans.map((plan, index) => (
-              <motion.div
-                key={plan.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * index }}
-                className={`relative p-6 rounded-xl border ${
-                  plan.popular
-                    ? "bg-[#3e8aff]/5 border-[#3e8aff]/30"
-                    : "bg-[#0a0a0a] border-white/[0.08]"
-                }`}
+            {/* Free Tier */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Free</h3>
+                <p className="text-sm text-gray-500">30 credits</p>
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">$0</span>
+                <span className="text-gray-500">/month</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-6">30 emails or 3 phones</p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
               >
-                {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
-                    Most Popular
+                Get Started
+              </Link>
+              <div className="space-y-3">
+                {pricingTiers.free.features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
                   </div>
-                )}
+                ))}
+              </div>
+            </motion.div>
 
-                <div className="mb-4">
-                  <h3 className="text-xl font-semibold text-white">{plan.name}</h3>
-                  <p className="text-sm text-gray-500 mt-1">{plan.description}</p>
-                </div>
-
-                <div className="mb-6">
-                  {plan.monthlyPrice ? (
-                    <>
-                      <span className="text-4xl font-bold text-white">
-                        ${annual ? plan.yearlyPrice : plan.monthlyPrice}
-                      </span>
-                      <span className="text-gray-500">/month</span>
-                      <div className="text-sm text-gray-500 mt-1">
-                        {plan.credits} credits/month
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <span className="text-4xl font-bold text-white">Custom</span>
-                      <div className="text-sm text-gray-500 mt-1">
-                        Volume pricing available
-                      </div>
-                    </>
-                  )}
-                </div>
-
-                <Link
-                  href="#"
-                  className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${
-                    plan.popular
-                      ? "bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
-                      : "bg-white/[0.05] text-white hover:bg-white/[0.1]"
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
-
-                <div className="space-y-3">
-                  {plan.features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-2 text-sm">
-                      <Check className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-400">{feature}</span>
-                    </div>
+            {/* Starter Tier with Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Starter</h3>
+                <div className="flex gap-1 mt-2">
+                  {pricingTiers.starter.map((tier, i) => (
+                    <button
+                      key={tier.tier}
+                      onClick={() => setStarterTier(i)}
+                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                        starterTier === i
+                          ? "bg-[#3e8aff] text-white"
+                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                      }`}
+                    >
+                      {tier.tier}
+                    </button>
                   ))}
                 </div>
-              </motion.div>
-            ))}
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">
+                  {annual ? pricingTiers.starter[starterTier].yearlyPrice : pricingTiers.starter[starterTier].monthlyPrice}
+                </span>
+                <span className="text-gray-500">/month</span>
+                {annual && (
+                  <span className="ml-2 text-xs text-gray-500 line-through">
+                    {pricingTiers.starter[starterTier].monthlyPrice}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-gray-400 mb-2">{pricingTiers.starter[starterTier].credits} credits</p>
+              <p className="text-xs text-gray-500 mb-6">
+                {pricingTiers.starter[starterTier].email} emails or {pricingTiers.starter[starterTier].phone} phones/mo
+              </p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+              >
+                Start Free Trial
+              </Link>
+              <div className="space-y-3">
+                {["Everything in Free", "Email Validation", "CRM Export", "Priority Support"].map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Pro Tier with Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="relative p-6 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/30"
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
+                Most Popular
+              </div>
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Pro</h3>
+                <div className="flex gap-1 mt-2">
+                  {pricingTiers.pro.map((tier, i) => (
+                    <button
+                      key={tier.tier}
+                      onClick={() => setProTier(i)}
+                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                        proTier === i
+                          ? "bg-[#3e8aff] text-white"
+                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                      }`}
+                    >
+                      {tier.tier}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">
+                  {annual ? pricingTiers.pro[proTier].yearlyPrice : pricingTiers.pro[proTier].monthlyPrice}
+                </span>
+                <span className="text-gray-500">/month</span>
+                {annual && (
+                  <span className="ml-2 text-xs text-gray-500 line-through">
+                    {pricingTiers.pro[proTier].monthlyPrice}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-gray-400 mb-2">{pricingTiers.pro[proTier].credits} credits</p>
+              <p className="text-xs text-gray-500 mb-6">
+                {pricingTiers.pro[proTier].email} emails or {pricingTiers.pro[proTier].phone} phones/mo
+              </p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
+              >
+                Start Free Trial
+              </Link>
+              <div className="space-y-3">
+                {["Everything in Starter", "CRM Integrations", "Smart Columns", "ICP Scoring"].map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Enterprise Tier with Toggle */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+            >
+              <div className="mb-4">
+                <h3 className="text-lg font-semibold text-white">Enterprise</h3>
+                <div className="flex gap-1 mt-2">
+                  {pricingTiers.enterprise.map((tier, i) => (
+                    <button
+                      key={tier.tier}
+                      onClick={() => setEnterpriseTier(i)}
+                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                        enterpriseTier === i
+                          ? "bg-[#3e8aff] text-white"
+                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                      }`}
+                    >
+                      {tier.tier}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="mb-4">
+                <span className="text-4xl font-bold text-white">
+                  {annual ? pricingTiers.enterprise[enterpriseTier].yearlyPrice : pricingTiers.enterprise[enterpriseTier].monthlyPrice}
+                </span>
+                <span className="text-gray-500">/month</span>
+                {annual && (
+                  <span className="ml-2 text-xs text-gray-500 line-through">
+                    {pricingTiers.enterprise[enterpriseTier].monthlyPrice}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-gray-400 mb-2">{pricingTiers.enterprise[enterpriseTier].credits} credits</p>
+              <p className="text-xs text-gray-500 mb-6">
+                {pricingTiers.enterprise[enterpriseTier].email} emails or {pricingTiers.enterprise[enterpriseTier].phone} phones/mo
+              </p>
+              <Link
+                href="#"
+                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+              >
+                Start Free Trial
+              </Link>
+              <div className="space-y-3">
+                {["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"].map((feature) => (
+                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                    <Check className="w-4 h-4 text-green-500" />
+                    {feature}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
+
+          {/* All plans include */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-12 text-center"
+          >
+            <p className="text-sm text-gray-500 mb-4">All plans include</p>
+            <div className="flex items-center justify-center gap-8 flex-wrap">
+              {["Credit Rollover", "Unlimited Users", "GDPR Compliant", "SOC II Certified"].map((item) => (
+                <div key={item} className="flex items-center gap-2 text-sm text-gray-400">
+                  <Check className="w-4 h-4 text-[#3e8aff]" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 

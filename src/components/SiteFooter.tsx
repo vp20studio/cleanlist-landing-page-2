@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Database, Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 const footerLinks = {
   products: [
@@ -35,16 +36,19 @@ const stats = [
 ];
 
 export default function SiteFooter() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   return (
-    <footer className="border-t border-white/[0.08] bg-[#030303]">
+    <footer className={`border-t transition-colors ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.08] bg-gray-50"}`}>
       {/* Stats Bar */}
-      <div className="border-b border-white/[0.08]">
-        <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className={`border-b ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-[#3e8aff]">{stat.value}</div>
-                <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
+                <div className="text-2xl md:text-3xl font-bold text-[#3e8aff]">{stat.value}</div>
+                <div className={`text-xs md:text-sm mt-1 ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
               </div>
             ))}
           </div>
@@ -52,57 +56,46 @@ export default function SiteFooter() {
       </div>
 
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3e8aff] to-[#3e8aff]/60 flex items-center justify-center">
                 <Database className="w-4 h-4 text-white" />
               </div>
-              <span className="text-lg font-semibold text-white">Cleanlist</span>
+              <span className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</span>
             </Link>
-            <p className="text-sm text-gray-500 mb-6 max-w-xs">
+            <p className={`text-sm mb-6 max-w-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>
               The data operating system for modern GTM teams. Clean, verify, and enrich
               your leads with 98% accuracy.
             </p>
-            <div className="flex items-center gap-4">
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.1] transition-colors"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.1] transition-colors"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.1] transition-colors"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-lg bg-white/[0.05] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.1] transition-colors"
-              >
-                <Mail className="w-4 h-4" />
-              </a>
+            <div className="flex items-center gap-3 md:gap-4">
+              {[Twitter, Linkedin, Github, Mail].map((Icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${
+                    isDark
+                      ? "bg-white/[0.05] text-gray-400 hover:text-white hover:bg-white/[0.1]"
+                      : "bg-black/[0.05] text-gray-500 hover:text-gray-900 hover:bg-black/[0.1]"
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Products */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Products</h4>
-            <ul className="space-y-3">
+            <h4 className={`text-sm font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Products</h4>
+            <ul className="space-y-2 md:space-y-3">
               {footerLinks.products.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-white transition-colors"
+                    className={`text-sm transition-colors ${isDark ? "text-gray-500 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}
                   >
                     {link.label}
                   </Link>
@@ -113,13 +106,13 @@ export default function SiteFooter() {
 
           {/* Use Cases */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Use Cases</h4>
-            <ul className="space-y-3">
+            <h4 className={`text-sm font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Use Cases</h4>
+            <ul className="space-y-2 md:space-y-3">
               {footerLinks.useCases.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-white transition-colors"
+                    className={`text-sm transition-colors ${isDark ? "text-gray-500 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}
                   >
                     {link.label}
                   </Link>
@@ -130,13 +123,13 @@ export default function SiteFooter() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Resources</h4>
-            <ul className="space-y-3">
+            <h4 className={`text-sm font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Resources</h4>
+            <ul className="space-y-2 md:space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-white transition-colors"
+                    className={`text-sm transition-colors ${isDark ? "text-gray-500 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}
                   >
                     {link.label}
                   </Link>
@@ -147,13 +140,13 @@ export default function SiteFooter() {
 
           {/* Company */}
           <div>
-            <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
-            <ul className="space-y-3">
+            <h4 className={`text-sm font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Company</h4>
+            <ul className="space-y-2 md:space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-gray-500 hover:text-white transition-colors"
+                    className={`text-sm transition-colors ${isDark ? "text-gray-500 hover:text-white" : "text-gray-600 hover:text-gray-900"}`}
                   >
                     {link.label}
                   </Link>
@@ -165,17 +158,17 @@ export default function SiteFooter() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/[0.08]">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-6 text-sm text-gray-500">
+      <div className={`border-t ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+            <div className={`flex items-center gap-6 text-xs md:text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>
               <span>&copy; {new Date().getFullYear()} Cleanlist. All rights reserved.</span>
             </div>
-            <div className="flex items-center gap-6 text-sm text-gray-500">
+            <div className={`flex items-center gap-4 md:gap-6 text-xs md:text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>
               <span>Privacy Policy</span>
               <span>Terms of Service</span>
             </div>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
+            <div className={`flex items-center gap-2 text-xs md:text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
               <span>All systems operational</span>
             </div>

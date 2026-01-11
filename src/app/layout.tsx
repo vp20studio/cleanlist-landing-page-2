@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Cleanlist - Turn Messy Data Into Your Greatest Growth Lever",
   description:
-    "Clean, verify, and enrich your leads with 99% accuracy. Stop wasting spend on bad data. Trusted by 500+ growth teams.",
+    "Clean, verify, and enrich your leads with 95%+ accuracy. Stop wasting spend on bad data. Trusted by 500+ growth teams.",
   keywords: [
     "email verification",
     "data cleaning",
@@ -24,10 +25,14 @@ export const metadata: Metadata = {
     "data quality",
     "B2B leads",
   ],
+  icons: {
+    icon: "/images/logo-dark.png",
+    apple: "/images/logo-dark.png",
+  },
   openGraph: {
     title: "Cleanlist - Turn Messy Data Into Your Greatest Growth Lever",
     description:
-      "Clean, verify, and enrich your leads with 99% accuracy. Stop wasting spend on bad data.",
+      "Clean, verify, and enrich your leads with 95%+ accuracy. Stop wasting spend on bad data.",
     type: "website",
     locale: "en_US",
   },
@@ -35,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cleanlist - Turn Messy Data Into Your Greatest Growth Lever",
     description:
-      "Clean, verify, and enrich your leads with 99% accuracy. Stop wasting spend on bad data.",
+      "Clean, verify, and enrich your leads with 95%+ accuracy. Stop wasting spend on bad data.",
   },
   robots: {
     index: true,
@@ -49,11 +54,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030303] text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
