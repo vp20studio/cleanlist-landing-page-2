@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Database, Twitter, Linkedin, Github, Mail } from "lucide-react";
+import Image from "next/image";
+import { Twitter, Linkedin, Github, Mail } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
 const footerLinks = {
@@ -60,11 +61,14 @@ export default function SiteFooter() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#3e8aff] to-[#3e8aff]/60 flex items-center justify-center">
-                <Database className="w-4 h-4 text-white" />
-              </div>
-              <span className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</span>
+            <Link href="/" className="flex items-center mb-4">
+              <Image
+                src={isDark ? "/images/logo-dark.png" : "/images/logo-light.png"}
+                alt="Cleanlist"
+                width={140}
+                height={35}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className={`text-sm mb-6 max-w-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>
               The data operating system for modern GTM teams. Clean, verify, and enrich

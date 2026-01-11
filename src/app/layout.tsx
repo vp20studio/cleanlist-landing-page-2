@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     "B2B leads",
   ],
   icons: {
-    icon: "/images/logo-dark.png",
-    apple: "/images/logo-dark.png",
+    icon: "/images/favicon.png",
+    apple: "/images/favicon.png",
   },
   openGraph: {
     title: "Cleanlist - Turn Messy Data Into Your Greatest Growth Lever",

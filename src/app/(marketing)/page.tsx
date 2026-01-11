@@ -378,21 +378,21 @@ export default function HomePage() {
       </section>
 
       {/* Data Transform Section */}
-      <section className="py-24 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-gray-50"}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Watch your data{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 transform
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Follow a real data record through our enrichment pipeline.
             </p>
           </motion.div>
@@ -404,12 +404,12 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="max-w-5xl mx-auto"
           >
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {/* Before */}
-              <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
+              <div className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}>
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <span className="text-sm font-medium text-gray-400">Step 01: The Enrichment</span>
+                  <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Step 01: The Enrichment</span>
                 </div>
                 <div className="space-y-3">
                   {[
@@ -420,9 +420,9 @@ export default function HomePage() {
                     { label: "Title", value: "—", status: "missing" },
                     { label: "LinkedIn", value: "—", status: "missing" },
                   ].map((field) => (
-                    <div key={field.label} className="flex items-center justify-between p-3 rounded-lg bg-[#111]">
-                      <span className="text-sm text-gray-400">{field.label}</span>
-                      <span className={`text-sm ${field.status === "found" ? "text-white" : "text-gray-600"}`}>
+                    <div key={field.label} className={`flex items-center justify-between p-3 rounded-lg ${isDark ? "bg-[#111]" : "bg-gray-50"}`}>
+                      <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{field.label}</span>
+                      <span className={`text-sm ${field.status === "found" ? (isDark ? "text-white" : "text-gray-900") : (isDark ? "text-gray-600" : "text-gray-400")}`}>
                         {field.value}
                       </span>
                     </div>
@@ -431,7 +431,7 @@ export default function HomePage() {
               </div>
 
               {/* After */}
-              <div className="p-6 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/30">
+              <div className={`p-5 md:p-6 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/30`}>
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-3 h-3 rounded-full bg-green-500" />
                   <span className="text-sm font-medium text-[#3e8aff]">Step 02: Enriched Result</span>
@@ -445,10 +445,10 @@ export default function HomePage() {
                     { label: "Title", value: "VP of Sales", status: "enriched" },
                     { label: "LinkedIn", value: "linkedin.com/in/johnsmith", status: "enriched" },
                   ].map((field) => (
-                    <div key={field.label} className="flex items-center justify-between p-3 rounded-lg bg-[#111]/50">
-                      <span className="text-sm text-gray-400">{field.label}</span>
+                    <div key={field.label} className={`flex items-center justify-between p-3 rounded-lg ${isDark ? "bg-[#111]/50" : "bg-white/70"}`}>
+                      <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{field.label}</span>
                       <div className="flex items-center gap-2">
-                        <span className={`text-sm ${field.status === "enriched" ? "text-[#3e8aff]" : "text-white"}`}>
+                        <span className={`text-sm ${field.status === "enriched" ? "text-[#3e8aff]" : (isDark ? "text-white" : "text-gray-900")}`}>
                           {field.value}
                         </span>
                         {field.status === "enriched" && <Check className="w-4 h-4 text-green-500" />}
@@ -460,11 +460,11 @@ export default function HomePage() {
             </div>
 
             {/* Provider logos */}
-            <div className="mt-8 p-4 rounded-lg bg-[#0a0a0a] border border-white/[0.08]">
-              <p className="text-xs text-gray-500 mb-3 text-center">Powered by 10+ data providers</p>
-              <div className="flex items-center justify-center gap-4 flex-wrap">
+            <div className={`mt-6 md:mt-8 p-4 rounded-lg border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}>
+              <p className={`text-xs mb-3 text-center ${isDark ? "text-gray-500" : "text-gray-600"}`}>Powered by 10+ data providers</p>
+              <div className="flex items-center justify-center gap-3 md:gap-4 flex-wrap">
                 {dataProviders.map((provider) => (
-                  <span key={provider} className="text-xs text-gray-400 px-2 py-1 rounded bg-white/[0.03]">
+                  <span key={provider} className={`text-xs px-2 py-1 rounded ${isDark ? "text-gray-400 bg-white/[0.03]" : "text-gray-600 bg-gray-100"}`}>
                     {provider}
                   </span>
                 ))}
@@ -475,35 +475,37 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section id="how-it-works" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="how-it-works" className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Three steps to{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 perfect data
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Our AI manages everything while you focus on closing deals.
             </p>
           </motion.div>
 
           {/* Tabs */}
-          <div className="flex justify-center gap-2 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
             {["Multi-Functionality", "Deep Enrichment", "Plug & Play API"].map((tab, index) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(index)}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
+                className={`px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium transition-colors text-sm md:text-base ${
                   activeTab === index
                     ? "bg-[#3e8aff] text-white"
-                    : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                    : isDark
+                      ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                 }`}
               >
                 {tab}
@@ -520,17 +522,17 @@ export default function HomePage() {
             className="max-w-4xl mx-auto"
           >
             {activeTab === 0 && (
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
-                  <h3 className="text-xl font-semibold text-white mb-4">Waterfall Enrichment</h3>
-                  <p className="text-gray-400 mb-6">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}>
+                  <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Enrichment</h3>
+                  <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     Query 10+ data providers simultaneously and get the best match for each field.
                   </p>
                   <div className="space-y-3">
                     {dataProviders.slice(0, 5).map((provider, i) => (
                       <div key={provider} className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full ${i === 0 ? "bg-green-500" : "bg-gray-600"}`} />
-                        <span className="text-sm text-gray-300">{provider}</span>
+                        <div className={`w-2 h-2 rounded-full ${i === 0 ? "bg-green-500" : (isDark ? "bg-gray-600" : "bg-gray-300")}`} />
+                        <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{provider}</span>
                         {i === 0 && <span className="text-xs text-green-500">Best match</span>}
                       </div>
                     ))}
@@ -545,7 +547,7 @@ export default function HomePage() {
                   ].map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                      <span className="text-gray-300">{feature}</span>
+                      <span className={isDark ? "text-gray-300" : "text-gray-700"}>{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -553,16 +555,16 @@ export default function HomePage() {
             )}
 
             {activeTab === 1 && (
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]">
-                  <h3 className="text-xl font-semibold text-white mb-4">Enriched Fields</h3>
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}>
+                  <h3 className={`text-lg md:text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Enriched Fields</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {[
                       "Work Email", "Direct Phone", "Mobile Phone", "Job Title",
                       "Department", "Seniority", "Company Size", "Industry",
                       "Revenue Range", "Technologies", "LinkedIn URL", "Location"
                     ].map((field) => (
-                      <div key={field} className="flex items-center gap-2 text-sm text-gray-400">
+                      <div key={field} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                         <Check className="w-4 h-4 text-[#3e8aff]" />
                         {field}
                       </div>
@@ -578,7 +580,7 @@ export default function HomePage() {
                   ].map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                      <span className="text-gray-300">{feature}</span>
+                      <span className={isDark ? "text-gray-300" : "text-gray-700"}>{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -586,13 +588,13 @@ export default function HomePage() {
             )}
 
             {activeTab === 2 && (
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08] overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div className={`p-5 md:p-6 rounded-xl border overflow-hidden transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}>
                   <div className="flex items-center gap-2 mb-4">
                     <Code className="w-5 h-5 text-[#3e8aff]" />
-                    <span className="text-sm font-medium text-gray-400">API Example</span>
+                    <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>API Example</span>
                   </div>
-                  <pre className="text-xs text-gray-300 overflow-x-auto">
+                  <pre className={`text-xs overflow-x-auto ${isDark ? "text-gray-300" : "text-gray-700"}`}>
 {`curl -X POST https://api.cleanlist.ai/enrich \\
   -H "Authorization: Bearer YOUR_KEY" \\
   -d '{
@@ -610,7 +612,7 @@ export default function HomePage() {
                   ].map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-green-500 mt-0.5" />
-                      <span className="text-gray-300">{feature}</span>
+                      <span className={isDark ? "text-gray-300" : "text-gray-700"}>{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -621,24 +623,24 @@ export default function HomePage() {
       </section>
 
       {/* Where Cleanlist Sits - Comparison Section */}
-      <section id="compare" className="py-24 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="compare" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-gray-50"}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6">
               COMPARISON
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Where Cleanlist{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 sits
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Cleanlist gives you the playbooks Clay requires you to build and the orchestration
               Apollo doesn&apos;t have.
             </p>
@@ -649,28 +651,28 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
+            className="max-w-5xl mx-auto overflow-x-auto"
           >
-            <div className="rounded-2xl bg-gradient-to-b from-white/[0.02] to-white/[0.05] border border-white/[0.08] overflow-hidden">
+            <div className={`rounded-2xl border overflow-hidden min-w-[640px] ${isDark ? "bg-gradient-to-b from-white/[0.02] to-white/[0.05] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}>
               {/* Header */}
-              <div className="grid grid-cols-5 gap-4 p-6 border-b border-white/[0.08] bg-white/[0.02]">
-                <div className="text-sm text-gray-400">Features</div>
+              <div className={`grid grid-cols-5 gap-4 p-4 md:p-6 border-b ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-gray-200 bg-gray-50"}`}>
+                <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>Features</div>
                 <div className="text-center">
-                  <div className="text-sm font-medium text-gray-300">Workflow Builders</div>
-                  <div className="text-xs text-gray-500">Clay, etc.</div>
+                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Workflow Builders</div>
+                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Clay, etc.</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm font-medium text-gray-300">CRM Enrichment</div>
-                  <div className="text-xs text-gray-500">Apollo, ZoomInfo</div>
+                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>CRM Enrichment</div>
+                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Apollo, ZoomInfo</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm font-medium text-gray-300">Signal Platforms</div>
-                  <div className="text-xs text-gray-500">6sense, etc.</div>
+                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Signal Platforms</div>
+                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>6sense, etc.</div>
                 </div>
                 <div className="text-center">
-                  <div className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/30">
+                  <div className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/30`}>
                     <Crown className="w-3 h-3 text-yellow-500" />
-                    <span className="text-sm font-medium text-white">Cleanlist</span>
+                    <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</span>
                   </div>
                 </div>
               </div>
@@ -679,11 +681,11 @@ export default function HomePage() {
               {comparisonFeatures.map((row, index) => (
                 <div
                   key={row.feature}
-                  className={`grid grid-cols-5 gap-4 p-6 ${
-                    index !== comparisonFeatures.length - 1 ? "border-b border-white/[0.05]" : ""
+                  className={`grid grid-cols-5 gap-4 p-4 md:p-6 ${
+                    index !== comparisonFeatures.length - 1 ? (isDark ? "border-b border-white/[0.05]" : "border-b border-gray-100") : ""
                   }`}
                 >
-                  <div className="text-sm text-gray-300 font-medium">{row.feature}</div>
+                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>{row.feature}</div>
                   <div className="flex justify-center">{renderSupportIcon(row.workflow)}</div>
                   <div className="flex justify-center">{renderSupportIcon(row.crm)}</div>
                   <div className="flex justify-center">{renderSupportIcon(row.signal)}</div>
@@ -692,16 +694,16 @@ export default function HomePage() {
               ))}
 
               {/* Legend */}
-              <div className="flex items-center justify-center gap-8 p-4 bg-white/[0.02] border-t border-white/[0.08]">
-                <div className="flex items-center gap-2 text-xs text-gray-400">
+              <div className={`flex items-center justify-center gap-4 md:gap-8 p-4 border-t flex-wrap ${isDark ? "bg-white/[0.02] border-white/[0.08]" : "bg-gray-50 border-gray-200"}`}>
+                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   <Check className="w-4 h-4 text-green-500" />
                   Full support
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-400">
+                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   <Minus className="w-4 h-4 text-gray-400" />
                   Partial support
                 </div>
-                <div className="flex items-center gap-2 text-xs text-gray-400">
+                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   <X className="w-4 h-4 text-red-400" />
                   Not supported
                 </div>
@@ -712,8 +714,8 @@ export default function HomePage() {
       </section>
 
       {/* Integrations Section - Hub & Spoke Visual */}
-      <section id="integrations" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="integrations" className="py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -721,13 +723,13 @@ export default function HomePage() {
             className="text-center mb-8"
           >
             <div className="text-sm font-medium text-[#3e8aff] tracking-wider mb-4">ECOSYSTEM</div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Lives in your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 existing stack
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Cleanlist connects natively to 15+ tools you already use. No data silos, no manual exports—just
               seamless, real-time data flow.
             </p>
@@ -749,10 +751,10 @@ export default function HomePage() {
                 transition={{ delay: 0.1 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Sa
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Salesforce</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Salesforce</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -761,10 +763,10 @@ export default function HomePage() {
                 transition={{ delay: 0.15 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Hu
                 </div>
-                <span className="text-xs text-gray-400 mt-2">HubSpot</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>HubSpot</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -773,10 +775,10 @@ export default function HomePage() {
                 transition={{ delay: 0.2 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Ou
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Outreach</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Outreach</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -785,10 +787,10 @@ export default function HomePage() {
                 transition={{ delay: 0.25 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Ap
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Apollo</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Apollo</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -797,10 +799,10 @@ export default function HomePage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Ma
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Marketo</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Marketo</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -809,10 +811,10 @@ export default function HomePage() {
                 transition={{ delay: 0.35 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Mc
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Mailchimp</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Mailchimp</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -821,10 +823,10 @@ export default function HomePage() {
                 transition={{ delay: 0.4 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Sn
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Snowflake</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Snowflake</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -833,10 +835,10 @@ export default function HomePage() {
                 transition={{ delay: 0.45 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Za
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Zapier</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Zapier</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -845,10 +847,10 @@ export default function HomePage() {
                 transition={{ delay: 0.5 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Sl
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Slack</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Slack</span>
               </motion.div>
             </div>
 
@@ -861,10 +863,10 @@ export default function HomePage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Pi
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Pipedrive</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Pipedrive</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -873,14 +875,14 @@ export default function HomePage() {
                 transition={{ delay: 0.35 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Kl
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Klaviyo</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Klaviyo</span>
               </motion.div>
 
               {/* Connection lines to center */}
-              <div className="hidden md:block w-12 h-px bg-gradient-to-r from-white/20 to-white/5" />
+              <div className={`hidden md:block w-12 h-px ${isDark ? "bg-gradient-to-r from-white/20 to-white/5" : "bg-gradient-to-r from-gray-300 to-gray-100"}`} />
 
               {/* Center Hub - Cleanlist */}
               <motion.div
@@ -898,7 +900,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/20 blur-xl -z-10" />
               </motion.div>
 
-              <div className="hidden md:block w-12 h-px bg-gradient-to-l from-white/20 to-white/5" />
+              <div className={`hidden md:block w-12 h-px ${isDark ? "bg-gradient-to-l from-white/20 to-white/5" : "bg-gradient-to-l from-gray-300 to-gray-100"}`} />
 
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -907,10 +909,10 @@ export default function HomePage() {
                 transition={{ delay: 0.35 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Bi
                 </div>
-                <span className="text-xs text-gray-400 mt-2">BigQuery</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>BigQuery</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -919,10 +921,10 @@ export default function HomePage() {
                 transition={{ delay: 0.3 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#8b5cf6]/15 text-[#8b5cf6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Se
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Segment</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Segment</span>
               </motion.div>
             </div>
 
@@ -935,10 +937,10 @@ export default function HomePage() {
                 transition={{ delay: 0.5 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Br
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Braze</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Braze</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -947,10 +949,10 @@ export default function HomePage() {
                 transition={{ delay: 0.55 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#14b8a6]/15 text-[#14b8a6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Pa
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Pardot</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Pardot</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -959,10 +961,10 @@ export default function HomePage() {
                 transition={{ delay: 0.6 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#ec4899]/15 text-[#ec4899]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   In
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Intercom</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Intercom</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -971,10 +973,10 @@ export default function HomePage() {
                 transition={{ delay: 0.65 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Zo
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Zoho</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Zoho</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -983,10 +985,10 @@ export default function HomePage() {
                 transition={{ delay: 0.7 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Rc
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Recruitcrm</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Recruitcrm</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -995,10 +997,10 @@ export default function HomePage() {
                 transition={{ delay: 0.75 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Lu
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Lusha</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Lusha</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -1007,10 +1009,10 @@ export default function HomePage() {
                 transition={{ delay: 0.8 }}
                 className="flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#f59e0b]/15 text-[#f59e0b]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Rr
                 </div>
-                <span className="text-xs text-gray-400 mt-2">RocketReach</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>RocketReach</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -1019,10 +1021,10 @@ export default function HomePage() {
                 transition={{ delay: 0.85 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#3b82f6]/15 text-[#3b82f6]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   Sf
                 </div>
-                <span className="text-xs text-gray-400 mt-2">Seamless</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Seamless</span>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
@@ -1031,23 +1033,23 @@ export default function HomePage() {
                 transition={{ delay: 0.9 }}
                 className="hidden md:flex flex-col items-center"
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border border-white/[0.1] bg-[#22c55e]/15 text-[#22c55e]">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                   +5
                 </div>
-                <span className="text-xs text-gray-400 mt-2">More</span>
+                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>More</span>
               </motion.div>
             </div>
           </motion.div>
 
           {/* Category Legend */}
-          <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap mb-16">
+          <div className="flex items-center justify-center gap-4 md:gap-6 flex-wrap mb-12 md:mb-16">
             {integrationCategories.map((cat) => (
               <div key={cat.id} className="flex items-center gap-2">
                 <div
                   className="w-2.5 h-2.5 rounded-full"
                   style={{ backgroundColor: cat.color }}
                 />
-                <span className="text-sm text-gray-400">{cat.label}</span>
+                <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{cat.label}</span>
               </div>
             ))}
           </div>
@@ -1057,7 +1059,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-16"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto mb-12 md:mb-16"
           >
             {[
               { value: "15+", label: "Native Integrations" },
@@ -1071,10 +1073,10 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-4 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+                className={`text-center p-4 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
               >
-                <div className="text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
-                <div className="text-xs text-gray-500">{stat.label}</div>
+                <div className="text-xl md:text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
+                <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -1086,10 +1088,10 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <div className="p-6 rounded-2xl bg-[#0a0a0a] border border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3 text-sm text-gray-400">
+            <div className={`p-5 md:p-6 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}>
+              <div className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 <Zap className="w-5 h-5 text-[#3e8aff]" />
-                <span><span className="text-[#3e8aff] font-medium">REST API</span> and <span className="font-medium text-white">Webhooks</span> for custom integrations</span>
+                <span><span className="text-[#3e8aff] font-medium">REST API</span> and <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for custom integrations</span>
               </div>
               <Link href="#" className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:underline">
                 View API Docs <ArrowRight className="w-4 h-4" />
@@ -1100,8 +1102,8 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section with Tier Toggles */}
-      <section id="pricing" className="py-24 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="pricing" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-gray-50"}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1112,10 +1114,10 @@ export default function HomePage() {
               <Sparkles className="w-4 h-4" />
               Pricing
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Simple, credit-based pricing
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-2">
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               1 email = 1 credit. 1 phone = 10 credits. No hidden fees.
             </p>
           </motion.div>
@@ -1125,15 +1127,15 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center gap-4 mb-12"
+            className="flex items-center justify-center gap-4 mb-8 md:mb-12"
           >
-            <span className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-gray-500"}`}>
+            <span className={`text-sm font-medium transition-colors ${!isYearly ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Monthly
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
               className={`relative w-14 h-7 rounded-full transition-colors ${
-                isYearly ? "bg-[#3e8aff]" : "bg-white/[0.1]"
+                isYearly ? "bg-[#3e8aff]" : (isDark ? "bg-white/[0.1]" : "bg-gray-300")
               }`}
             >
               <div
@@ -1142,7 +1144,7 @@ export default function HomePage() {
                 }`}
               />
             </button>
-            <span className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-gray-500"}`}>
+            <span className={`text-sm font-medium transition-colors ${isYearly ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Yearly
             </span>
             {isYearly && (
@@ -1153,32 +1155,32 @@ export default function HomePage() {
           </motion.div>
 
           {/* Pricing Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
             {/* Free Tier */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
             >
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Free</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
                 <p className="text-sm text-gray-500">30 credits</p>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">$0</span>
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>$0</span>
                 <span className="text-gray-500">/month</span>
               </div>
-              <p className="text-sm text-gray-400 mb-6">30 emails or 3 phones</p>
+              <p className={`text-sm mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>30 emails or 3 phones</p>
               <Link
                 href="#"
-                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started
               </Link>
               <div className="space-y-3">
                 {pricingTiers.free.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -1192,10 +1194,10 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
             >
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Starter</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.starter.map((tier, i) => (
                     <button
@@ -1204,7 +1206,9 @@ export default function HomePage() {
                       className={`px-3 py-1 text-xs rounded-md transition-colors ${
                         starterTier === i
                           ? "bg-[#3e8aff] text-white"
-                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                          : isDark
+                            ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
                       {tier.tier}
@@ -1213,7 +1217,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
                   {isYearly ? pricingTiers.starter[starterTier].yearlyPrice : pricingTiers.starter[starterTier].monthlyPrice}
                 </span>
                 <span className="text-gray-500">/month</span>
@@ -1223,19 +1227,19 @@ export default function HomePage() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-2">{pricingTiers.starter[starterTier].credits} credits</p>
+              <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{pricingTiers.starter[starterTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
                 {pricingTiers.starter[starterTier].email} emails or {pricingTiers.starter[starterTier].phone} phones/mo
               </p>
               <Link
                 href="#"
-                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Start Free Trial
               </Link>
               <div className="space-y-3">
                 {["Everything in Free", "Email Validation", "CRM Export", "Priority Support"].map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -1249,13 +1253,13 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="relative p-6 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/30"
+              className="relative p-5 md:p-6 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/30"
             >
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
                 Most Popular
               </div>
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Pro</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Pro</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.pro.map((tier, i) => (
                     <button
@@ -1264,7 +1268,9 @@ export default function HomePage() {
                       className={`px-3 py-1 text-xs rounded-md transition-colors ${
                         proTier === i
                           ? "bg-[#3e8aff] text-white"
-                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                          : isDark
+                            ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
                       {tier.tier}
@@ -1273,7 +1279,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
                   {isYearly ? pricingTiers.pro[proTier].yearlyPrice : pricingTiers.pro[proTier].monthlyPrice}
                 </span>
                 <span className="text-gray-500">/month</span>
@@ -1283,7 +1289,7 @@ export default function HomePage() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-2">{pricingTiers.pro[proTier].credits} credits</p>
+              <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{pricingTiers.pro[proTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
                 {pricingTiers.pro[proTier].email} emails or {pricingTiers.pro[proTier].phone} phones/mo
               </p>
@@ -1295,7 +1301,7 @@ export default function HomePage() {
               </Link>
               <div className="space-y-3">
                 {["Everything in Starter", "CRM Integrations", "Smart Columns", "ICP Scoring"].map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -1309,10 +1315,10 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
             >
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Enterprise</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.enterprise.map((tier, i) => (
                     <button
@@ -1321,7 +1327,9 @@ export default function HomePage() {
                       className={`px-3 py-1 text-xs rounded-md transition-colors ${
                         enterpriseTier === i
                           ? "bg-[#3e8aff] text-white"
-                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                          : isDark
+                            ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
                       {tier.tier}
@@ -1330,7 +1338,7 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
                   {isYearly ? pricingTiers.enterprise[enterpriseTier].yearlyPrice : pricingTiers.enterprise[enterpriseTier].monthlyPrice}
                 </span>
                 <span className="text-gray-500">/month</span>
@@ -1340,19 +1348,19 @@ export default function HomePage() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-2">{pricingTiers.enterprise[enterpriseTier].credits} credits</p>
+              <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{pricingTiers.enterprise[enterpriseTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
                 {pricingTiers.enterprise[enterpriseTier].email} emails or {pricingTiers.enterprise[enterpriseTier].phone} phones/mo
               </p>
               <Link
                 href="#"
-                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Start Free Trial
               </Link>
               <div className="space-y-3">
                 {["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"].map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -1366,12 +1374,12 @@ export default function HomePage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mt-12 text-center"
+            className="mt-10 md:mt-12 text-center"
           >
             <p className="text-sm text-gray-500 mb-4">All plans include</p>
-            <div className="flex items-center justify-center gap-8 flex-wrap">
+            <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
               {["Credit Rollover", "Unlimited Users", "GDPR Compliant", "SOC II Certified"].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-gray-400">
+                <div key={item} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   <Check className="w-4 h-4 text-[#3e8aff]" />
                   {item}
                 </div>
@@ -1382,37 +1390,41 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
 
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
               Ready to reclaim your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 data quality
               </span>
               ?
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Join thousands of GTM teams using Cleanlist. Start free, no credit card required.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4">
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
+                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center"
               >
                 Start Free
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+                className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 border font-medium rounded-lg transition-colors text-base md:text-lg w-full sm:w-auto justify-center ${
+                  isDark
+                    ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
+                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                }`}
               >
                 <Building className="w-5 h-5" />
                 Talk to Sales

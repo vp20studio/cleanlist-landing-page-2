@@ -13,6 +13,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
+import { useTheme } from "@/context/ThemeContext";
 
 // Pricing data with monthly and yearly prices (yearly saves ~17%)
 const pricingTiers = {
@@ -214,6 +215,8 @@ export default function PricingPage() {
   const [expandedCategories, setExpandedCategories] = useState<string[]>(
     featureCategories.map((c) => c.name)
   );
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const toggleCategory = (name: string) => {
     setExpandedCategories((prev) =>
@@ -224,10 +227,10 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
+      <section className="relative pt-16 md:pt-20 pb-12 md:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
 
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -241,7 +244,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-bold text-white mb-6"
+            className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
           >
             Simple Credit Pricing
           </motion.h1>
@@ -250,7 +253,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-400 max-w-2xl mx-auto mb-8"
+            className={`text-lg md:text-xl max-w-2xl mx-auto mb-8 ${isDark ? "text-gray-400" : "text-gray-600"}`}
           >
             1 credit for email enrichment, 10 credits for full contact (email + phone).
             No hidden fees. 98% accuracy guarantee.
@@ -263,13 +266,13 @@ export default function PricingPage() {
             transition={{ delay: 0.3 }}
             className="flex items-center justify-center gap-4"
           >
-            <span className={`text-sm font-medium transition-colors ${!annual ? "text-white" : "text-gray-500"}`}>
+            <span className={`text-sm font-medium transition-colors ${!annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Monthly
             </span>
             <button
               onClick={() => setAnnual(!annual)}
               className={`relative w-14 h-7 rounded-full transition-colors ${
-                annual ? "bg-[#3e8aff]" : "bg-white/[0.1]"
+                annual ? "bg-[#3e8aff]" : (isDark ? "bg-white/[0.1]" : "bg-gray-300")
               }`}
             >
               <div
@@ -278,7 +281,7 @@ export default function PricingPage() {
                 }`}
               />
             </button>
-            <span className={`text-sm font-medium transition-colors ${annual ? "text-white" : "text-gray-500"}`}>
+            <span className={`text-sm font-medium transition-colors ${annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Yearly
             </span>
             {annual && (
@@ -291,33 +294,33 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="py-8 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {/* Free Tier */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
             >
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Free</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
                 <p className="text-sm text-gray-500">30 credits</p>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">$0</span>
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>$0</span>
                 <span className="text-gray-500">/month</span>
               </div>
-              <p className="text-sm text-gray-400 mb-6">30 emails or 3 phones</p>
+              <p className={`text-sm mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>30 emails or 3 phones</p>
               <Link
                 href="#"
-                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started
               </Link>
               <div className="space-y-3">
                 {pricingTiers.free.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -330,10 +333,10 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
             >
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Starter</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.starter.map((tier, i) => (
                     <button
@@ -342,7 +345,9 @@ export default function PricingPage() {
                       className={`px-3 py-1 text-xs rounded-md transition-colors ${
                         starterTier === i
                           ? "bg-[#3e8aff] text-white"
-                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                          : isDark
+                            ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
                       {tier.tier}
@@ -351,7 +356,7 @@ export default function PricingPage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
                   {annual ? pricingTiers.starter[starterTier].yearlyPrice : pricingTiers.starter[starterTier].monthlyPrice}
                 </span>
                 <span className="text-gray-500">/month</span>
@@ -361,19 +366,19 @@ export default function PricingPage() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-2">{pricingTiers.starter[starterTier].credits} credits</p>
+              <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{pricingTiers.starter[starterTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
                 {pricingTiers.starter[starterTier].email} emails or {pricingTiers.starter[starterTier].phone} phones/mo
               </p>
               <Link
                 href="#"
-                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Start Free Trial
               </Link>
               <div className="space-y-3">
                 {["Everything in Free", "Email Validation", "CRM Export", "Priority Support"].map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -386,13 +391,13 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="relative p-6 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/30"
+              className="relative p-5 md:p-6 rounded-xl bg-[#3e8aff]/5 border border-[#3e8aff]/30"
             >
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-[#3e8aff] text-white text-xs font-medium">
                 Most Popular
               </div>
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Pro</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Pro</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.pro.map((tier, i) => (
                     <button
@@ -401,7 +406,9 @@ export default function PricingPage() {
                       className={`px-3 py-1 text-xs rounded-md transition-colors ${
                         proTier === i
                           ? "bg-[#3e8aff] text-white"
-                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                          : isDark
+                            ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
                       {tier.tier}
@@ -410,7 +417,7 @@ export default function PricingPage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
                   {annual ? pricingTiers.pro[proTier].yearlyPrice : pricingTiers.pro[proTier].monthlyPrice}
                 </span>
                 <span className="text-gray-500">/month</span>
@@ -420,7 +427,7 @@ export default function PricingPage() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-2">{pricingTiers.pro[proTier].credits} credits</p>
+              <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{pricingTiers.pro[proTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
                 {pricingTiers.pro[proTier].email} emails or {pricingTiers.pro[proTier].phone} phones/mo
               </p>
@@ -432,7 +439,7 @@ export default function PricingPage() {
               </Link>
               <div className="space-y-3">
                 {["Everything in Starter", "CRM Integrations", "Smart Columns", "ICP Scoring"].map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -445,10 +452,10 @@ export default function PricingPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+              className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
             >
               <div className="mb-4">
-                <h3 className="text-lg font-semibold text-white">Enterprise</h3>
+                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.enterprise.map((tier, i) => (
                     <button
@@ -457,7 +464,9 @@ export default function PricingPage() {
                       className={`px-3 py-1 text-xs rounded-md transition-colors ${
                         enterpriseTier === i
                           ? "bg-[#3e8aff] text-white"
-                          : "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                          : isDark
+                            ? "bg-white/[0.05] text-gray-400 hover:bg-white/[0.1]"
+                            : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     >
                       {tier.tier}
@@ -466,7 +475,7 @@ export default function PricingPage() {
                 </div>
               </div>
               <div className="mb-4">
-                <span className="text-4xl font-bold text-white">
+                <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
                   {annual ? pricingTiers.enterprise[enterpriseTier].yearlyPrice : pricingTiers.enterprise[enterpriseTier].monthlyPrice}
                 </span>
                 <span className="text-gray-500">/month</span>
@@ -476,19 +485,19 @@ export default function PricingPage() {
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-2">{pricingTiers.enterprise[enterpriseTier].credits} credits</p>
+              <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{pricingTiers.enterprise[enterpriseTier].credits} credits</p>
               <p className="text-xs text-gray-500 mb-6">
                 {pricingTiers.enterprise[enterpriseTier].email} emails or {pricingTiers.enterprise[enterpriseTier].phone} phones/mo
               </p>
               <Link
                 href="#"
-                className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-white/[0.05] text-white hover:bg-white/[0.1]"
+                className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Start Free Trial
               </Link>
               <div className="space-y-3">
                 {["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"].map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm text-gray-400">
+                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     <Check className="w-4 h-4 text-green-500" />
                     {feature}
                   </div>
@@ -502,12 +511,12 @@ export default function PricingPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="mt-12 text-center"
+            className="mt-10 md:mt-12 text-center"
           >
             <p className="text-sm text-gray-500 mb-4">All plans include</p>
-            <div className="flex items-center justify-center gap-8 flex-wrap">
+            <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
               {["Credit Rollover", "Unlimited Users", "GDPR Compliant", "SOC II Certified"].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-gray-400">
+                <div key={item} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   <Check className="w-4 h-4 text-[#3e8aff]" />
                   {item}
                 </div>
@@ -518,41 +527,41 @@ export default function PricingPage() {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="py-24 bg-[#080808]">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-gray-50"}`}>
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Complete Feature Comparison
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Every capability across all plans. No hidden features.
             </p>
           </motion.div>
 
           {/* Table */}
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[640px]">
               {/* Header */}
               <thead>
-                <tr className="border-b border-white/[0.08]">
-                  <th className="text-left py-4 px-4 text-gray-400 font-medium w-1/3">
+                <tr className={`border-b ${isDark ? "border-white/[0.08]" : "border-gray-200"}`}>
+                  <th className={`text-left py-4 px-4 font-medium w-1/3 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     Feature
                   </th>
-                  <th className="text-center py-4 px-4 text-white font-medium w-1/6">
+                  <th className={`text-center py-4 px-4 font-medium w-1/6 ${isDark ? "text-white" : "text-gray-900"}`}>
                     Starter
                   </th>
-                  <th className="text-center py-4 px-4 text-white font-medium w-1/6 bg-[#3e8aff]/5">
+                  <th className={`text-center py-4 px-4 font-medium w-1/6 bg-[#3e8aff]/5 ${isDark ? "text-white" : "text-gray-900"}`}>
                     Pro
                   </th>
-                  <th className="text-center py-4 px-4 text-white font-medium w-1/6">
+                  <th className={`text-center py-4 px-4 font-medium w-1/6 ${isDark ? "text-white" : "text-gray-900"}`}>
                     Business
                   </th>
-                  <th className="text-center py-4 px-4 text-white font-medium w-1/6">
+                  <th className={`text-center py-4 px-4 font-medium w-1/6 ${isDark ? "text-white" : "text-gray-900"}`}>
                     Enterprise
                   </th>
                 </tr>
@@ -564,14 +573,14 @@ export default function PricingPage() {
                     {/* Category Header */}
                     <tr
                       key={category.name}
-                      className="border-b border-white/[0.08] bg-[#0a0a0a] cursor-pointer hover:bg-[#0d0d0d]"
+                      className={`border-b cursor-pointer transition-colors ${isDark ? "border-white/[0.08] bg-[#0a0a0a] hover:bg-[#0d0d0d]" : "border-gray-200 bg-gray-100 hover:bg-gray-200"}`}
                       onClick={() => toggleCategory(category.name)}
                     >
                       <td
                         colSpan={5}
                         className="py-4 px-4"
                       >
-                        <div className="flex items-center gap-2 font-semibold text-white">
+                        <div className={`flex items-center gap-2 font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
                           {expandedCategories.includes(category.name) ? (
                             <ChevronUp className="w-4 h-4" />
                           ) : (
@@ -587,9 +596,9 @@ export default function PricingPage() {
                       category.features.map((feature) => (
                         <tr
                           key={feature.name}
-                          className="border-b border-white/[0.05] hover:bg-white/[0.02]"
+                          className={`border-b transition-colors ${isDark ? "border-white/[0.05] hover:bg-white/[0.02]" : "border-gray-100 hover:bg-gray-50"}`}
                         >
-                          <td className="py-3 px-4 text-sm text-gray-400">
+                          <td className={`py-3 px-4 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                             {feature.name}
                           </td>
                           <td className="py-3 px-4 text-center">
@@ -597,10 +606,10 @@ export default function PricingPage() {
                               feature.starter ? (
                                 <Check className="w-5 h-5 text-green-500 mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
-                              <span className="text-sm text-gray-400">
+                              <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                                 {feature.starter}
                               </span>
                             )}
@@ -610,10 +619,10 @@ export default function PricingPage() {
                               feature.pro ? (
                                 <Check className="w-5 h-5 text-green-500 mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
-                              <span className="text-sm text-gray-400">
+                              <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                                 {feature.pro}
                               </span>
                             )}
@@ -623,10 +632,10 @@ export default function PricingPage() {
                               feature.business ? (
                                 <Check className="w-5 h-5 text-green-500 mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
-                              <span className="text-sm text-gray-400">
+                              <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                                 {feature.business}
                               </span>
                             )}
@@ -636,10 +645,10 @@ export default function PricingPage() {
                               feature.enterprise ? (
                                 <Check className="w-5 h-5 text-green-500 mx-auto" />
                               ) : (
-                                <X className="w-5 h-5 text-gray-600 mx-auto" />
+                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
-                              <span className="text-sm text-gray-400">
+                              <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                                 {feature.enterprise}
                               </span>
                             )}
@@ -655,15 +664,15 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24">
-        <div className="max-w-3xl mx-auto px-6">
+      <section className="py-16 md:py-24">
+        <div className="max-w-3xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -676,13 +685,13 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-xl bg-[#0a0a0a] border border-white/[0.08]"
+                className={`p-5 md:p-6 rounded-xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
               >
-                <h3 className="text-lg font-semibold text-white mb-2 flex items-start gap-2">
+                <h3 className={`text-base md:text-lg font-semibold mb-2 flex items-start gap-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                   <HelpCircle className="w-5 h-5 text-[#3e8aff] mt-0.5 flex-shrink-0" />
                   {faq.question}
                 </h3>
-                <p className="text-gray-400 pl-7">{faq.answer}</p>
+                <p className={`pl-7 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{faq.answer}</p>
               </motion.div>
             ))}
           </div>
@@ -690,33 +699,37 @@ export default function PricingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-20 md:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
 
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Start your free trial with 100 credits. No credit card required.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4">
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
+                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center"
               >
                 Start Free Trial
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 px-8 py-4 border border-white/[0.15] text-white font-medium rounded-lg hover:bg-white/[0.05] transition-colors text-lg"
+                className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 border font-medium rounded-lg transition-colors text-base md:text-lg w-full sm:w-auto justify-center ${
+                  isDark
+                    ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
+                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
+                }`}
               >
                 <Building className="w-5 h-5" />
                 Contact Sales
