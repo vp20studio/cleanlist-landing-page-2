@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import {
@@ -25,12 +26,88 @@ import {
   Copy,
   ChevronRight,
   Sparkles,
+  Send,
+  Plus,
 } from "lucide-react";
 import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+
+// Workflow node types for the interactive demo
+const nodeTypes = [
+  { id: "trigger", label: "Trigger", icon: <Zap className="h-4 w-4" />, color: "bg-[#3e8aff]/20 text-[#3e8aff] border-[#3e8aff]/30" },
+  { id: "filter", label: "Filter", icon: <Filter className="h-4 w-4" />, color: "bg-purple-500/20 text-purple-500 border-purple-500/30" },
+  { id: "enrich", label: "Enrich", icon: <Database className="h-4 w-4" />, color: "bg-green-500/20 text-green-500 border-green-500/30" },
+  { id: "action", label: "Action", icon: <Send className="h-4 w-4" />, color: "bg-[#3e8aff]/20 text-[#3e8aff] border-[#3e8aff]/30" },
+];
+
+type WorkflowNode = {
+  id: string;
+  type: string;
+  label: string;
+  config?: string;
+};
 
 export default function PlaybookBuilderPage() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
+
+  // Interactive Workflow Builder State
+  const [nodes, setNodes] = useState<WorkflowNode[]>([
+    { id: "1", type: "trigger", label: "New Lead Added", config: "From LinkedIn import" },
+  ]);
+  const [isRunning, setIsRunning] = useState(false);
+  const [activeNodeIndex, setActiveNodeIndex] = useState(-1);
+
+  const addNode = (type: string) => {
+    const nodeType = nodeTypes.find(n => n.id === type);
+    if (!nodeType) return;
+
+    const configs: Record<string, string[]> = {
+      trigger: ["New Lead Added", "Form Submission", "Website Visit", "API Webhook"],
+      filter: ["ICP Score > 80", "Has Email", "Company Size 50-500", "Industry = SaaS"],
+      enrich: ["Waterfall Enrichment", "Find Email", "Find Phone", "Get Company Data"],
+      action: ["Add to Sequence", "Update CRM", "Notify Slack", "Send to Outreach"],
+    };
+
+    const options = configs[type] || ["Configure..."];
+    const randomConfig = options[Math.floor(Math.random() * options.length)];
+
+    setNodes(prev => [...prev, {
+      id: String(Date.now()),
+      type,
+      label: randomConfig,
+      config: nodeType.label
+    }]);
+  };
+
+  const removeNode = (id: string) => {
+    setNodes(prev => prev.filter(n => n.id !== id));
+  };
+
+  const runPlaybook = () => {
+    if (nodes.length < 2) return;
+    setIsRunning(true);
+    setActiveNodeIndex(0);
+
+    nodes.forEach((_, index) => {
+      setTimeout(() => {
+        setActiveNodeIndex(index);
+        if (index === nodes.length - 1) {
+          setTimeout(() => {
+            setIsRunning(false);
+            setActiveNodeIndex(-1);
+          }, 800);
+        }
+      }, (index + 1) * 600);
+    });
+  };
+
+  const getNodeStyle = (type: string) => {
+    return nodeTypes.find(n => n.id === type)?.color || "";
+  };
+
+  const getNodeIcon = (type: string) => {
+    return nodeTypes.find(n => n.id === type)?.icon;
+  };
 
   return (
     <>
@@ -196,135 +273,168 @@ export default function PlaybookBuilderPage() {
             </p>
           </motion.div>
 
-          {/* Workflow Canvas Preview */}
+          {/* Interactive Workflow Builder Demo */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} overflow-hidden`}
+            className={`rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} overflow-hidden p-6 md:p-8`}
           >
-            {/* Toolbar */}
-            <div className={`flex items-center justify-between px-4 py-3 border-b ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
-              <div className="flex items-center gap-4">
-                <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Lead Enrichment Pipeline</span>
-                <span className="px-2 py-0.5 rounded text-xs bg-green-500/10 text-green-500">
-                  Active
-                </span>
-              </div>
+            <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <button className={`p-2 rounded ${isDark ? "hover:bg-white/[0.05] text-gray-400" : "hover:bg-gray-100 text-gray-600"}`}>
-                  <Play className="w-4 h-4" />
-                </button>
-                <button className={`p-2 rounded ${isDark ? "hover:bg-white/[0.05] text-gray-400" : "hover:bg-gray-100 text-gray-600"}`}>
-                  <Pause className="w-4 h-4" />
-                </button>
-                <button className={`p-2 rounded ${isDark ? "hover:bg-white/[0.05] text-gray-400" : "hover:bg-gray-100 text-gray-600"}`}>
-                  <Settings className="w-4 h-4" />
-                </button>
+                <Workflow className="h-5 w-5 text-[#3e8aff]" />
+                <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Interactive Workflow Builder</h3>
               </div>
+              <button
+                onClick={runPlaybook}
+                disabled={isRunning || nodes.length < 2}
+                className={`px-4 py-2 rounded-lg font-medium text-sm flex items-center gap-2 transition-colors ${
+                  isRunning || nodes.length < 2
+                    ? "bg-gray-500/20 text-gray-500 cursor-not-allowed"
+                    : "bg-green-500 hover:bg-green-500/90 text-white"
+                }`}
+              >
+                {isRunning ? (
+                  <>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Workflow className="h-4 w-4" />
+                    </motion.div>
+                    Running...
+                  </>
+                ) : (
+                  <>
+                    <Play className="h-4 w-4" />
+                    Run Playbook
+                  </>
+                )}
+              </button>
             </div>
 
-            {/* Canvas */}
-            <div className="p-8 min-h-[400px]">
-              <div className="flex items-start gap-6">
-                {/* Step 1 */}
-                <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                        <Upload className="w-4 h-4 text-[#3e8aff]" />
-                      </div>
-                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Import</span>
+            <div className="grid lg:grid-cols-[200px_1fr] gap-6">
+              {/* Node Palette */}
+              <div className="space-y-3">
+                <h4 className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Add Steps</h4>
+                <div className="space-y-2">
+                  {nodeTypes.map((type) => (
+                    <motion.button
+                      key={type.id}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => addNode(type.id)}
+                      className={`w-full flex items-center gap-2 p-3 rounded-lg border transition-colors ${type.color} hover:opacity-80`}
+                    >
+                      {type.icon}
+                      <span className="text-sm font-medium">{type.label}</span>
+                      <Plus className="h-4 w-4 ml-auto" />
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Workflow Canvas */}
+              <div className={`min-h-[300px] rounded-xl p-4 border ${
+                isDark
+                  ? "bg-white/[0.02] border-white/[0.05]"
+                  : "bg-gray-50 border-black/[0.05]"
+              }`}>
+                <div className="flex flex-col items-center gap-2">
+                  <AnimatePresence mode="popLayout">
+                    {nodes.map((node, index) => (
+                      <motion.div
+                        key={node.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                        animate={{
+                          opacity: 1,
+                          scale: 1,
+                          y: 0,
+                          boxShadow: activeNodeIndex === index
+                            ? "0 0 20px rgba(62, 138, 255, 0.5)"
+                            : "none"
+                        }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.3 }}
+                        className="w-full max-w-md"
+                      >
+                        {/* Connector Line */}
+                        {index > 0 && (
+                          <div className="flex justify-center mb-2">
+                            <motion.div
+                              className={`w-0.5 h-6 ${
+                                activeNodeIndex >= index
+                                  ? "bg-[#3e8aff]"
+                                  : isDark ? "bg-white/[0.1]" : "bg-black/[0.1]"
+                              }`}
+                            />
+                          </div>
+                        )}
+
+                        {/* Node Card */}
+                        <motion.div
+                          className={`relative flex items-center gap-3 p-4 rounded-xl border-2 transition-all ${getNodeStyle(node.type)} ${
+                            activeNodeIndex === index ? "ring-2 ring-[#3e8aff] ring-offset-2 ring-offset-transparent" : ""
+                          }`}
+                          animate={{
+                            scale: activeNodeIndex === index ? 1.02 : 1,
+                          }}
+                        >
+                          <div className={`p-2 rounded-lg ${isDark ? "bg-white/[0.05]" : "bg-white/50"}`}>
+                            {getNodeIcon(node.type)}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className={`font-medium text-sm ${isDark ? "text-white" : "text-gray-900"}`}>{node.label}</div>
+                            <div className={`text-xs truncate ${isDark ? "text-gray-400" : "text-gray-500"}`}>{node.config}</div>
+                          </div>
+                          {index > 0 && (
+                            <button
+                              onClick={() => removeNode(node.id)}
+                              className={`p-1.5 rounded-md transition-colors ${
+                                isDark
+                                  ? "hover:bg-red-500/20 text-gray-400 hover:text-red-400"
+                                  : "hover:bg-red-500/10 text-gray-500 hover:text-red-500"
+                              }`}
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </button>
+                          )}
+
+                          {/* Running indicator */}
+                          {activeNodeIndex === index && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="absolute -right-2 -top-2"
+                            >
+                              <span className="flex h-4 w-4">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-4 w-4 bg-green-500"></span>
+                              </span>
+                            </motion.div>
+                          )}
+                        </motion.div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+
+                  {nodes.length === 0 && (
+                    <div className={`flex flex-col items-center justify-center h-[200px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                      <Workflow className="h-12 w-12 mb-4 opacity-30" />
+                      <p>Add steps from the left panel to build your playbook</p>
                     </div>
-                    <p className="text-xs text-gray-500">CSV Upload</p>
-                    <div className="mt-2 text-xs text-green-500">5,000 records</div>
-                  </div>
-                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.1]" : "bg-black/[0.1]"}`} />
-                  <div className="w-3 h-3 rounded-full bg-[#3e8aff]" />
-                </div>
+                  )}
 
-                {/* Arrow */}
-                <div className="mt-8">
-                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.2]" : "text-black/[0.2]"}`} />
-                </div>
-
-                {/* Step 2 */}
-                <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-yellow-500/10 flex items-center justify-center">
-                        <Copy className="w-4 h-4 text-yellow-500" />
-                      </div>
-                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Dedupe</span>
-                    </div>
-                    <p className="text-xs text-gray-500">By email + company</p>
-                    <div className="mt-2 text-xs text-yellow-500">-800 duplicates</div>
-                  </div>
-                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.1]" : "bg-black/[0.1]"}`} />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                </div>
-
-                {/* Arrow */}
-                <div className="mt-8">
-                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.2]" : "text-black/[0.2]"}`} />
-                </div>
-
-                {/* Step 3 */}
-                <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border border-[#3e8aff]/30 w-48`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                        <Database className="w-4 h-4 text-[#3e8aff]" />
-                      </div>
-                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Enrich</span>
-                    </div>
-                    <p className="text-xs text-gray-500">Email + Phone</p>
-                    <div className="mt-2 text-xs text-[#3e8aff]">Processing...</div>
-                  </div>
-                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.1]" : "bg-black/[0.1]"}`} />
-                  <div className="w-3 h-3 rounded-full bg-[#3e8aff] animate-pulse" />
-                </div>
-
-                {/* Arrow */}
-                <div className="mt-8">
-                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.2]" : "text-black/[0.2]"}`} />
-                </div>
-
-                {/* Step 4 */}
-                <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48 opacity-50`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
-                        <Mail className="w-4 h-4 text-green-500" />
-                      </div>
-                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Validate</span>
-                    </div>
-                    <p className="text-xs text-gray-500">Email validation</p>
-                    <div className="mt-2 text-xs text-gray-600">Pending</div>
-                  </div>
-                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.05]" : "bg-black/[0.05]"}`} />
-                  <div className="w-3 h-3 rounded-full border-2 border-gray-600" />
-                </div>
-
-                {/* Arrow */}
-                <div className="mt-8">
-                  <ChevronRight className={`w-6 h-6 ${isDark ? "text-white/[0.1]" : "text-black/[0.1]"}`} />
-                </div>
-
-                {/* Step 5 */}
-                <div className="flex flex-col items-center">
-                  <div className={`p-4 rounded-xl ${isDark ? "bg-[#111]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} w-48 opacity-50`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                        <Download className="w-4 h-4 text-purple-500" />
-                      </div>
-                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Sync CRM</span>
-                    </div>
-                    <p className="text-xs text-gray-500">Push to Salesforce</p>
-                    <div className="mt-2 text-xs text-gray-600">Pending</div>
-                  </div>
-                  <div className={`w-px h-8 ${isDark ? "bg-white/[0.05]" : "bg-black/[0.05]"}`} />
-                  <div className="w-3 h-3 rounded-full border-2 border-gray-600" />
+                  {nodes.length > 0 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className={`mt-4 text-center text-sm ${isDark ? "text-gray-500" : "text-gray-400"}`}
+                    >
+                      {nodes.length} step{nodes.length !== 1 ? "s" : ""} • Click &quot;Run Playbook&quot; to simulate
+                    </motion.div>
+                  )}
                 </div>
               </div>
             </div>

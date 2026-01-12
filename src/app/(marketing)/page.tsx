@@ -26,11 +26,18 @@ import {
   DollarSign,
   Building,
   Crown,
+  ChevronDown,
+  Calendar,
 } from "lucide-react";
 import { DashboardMockup } from "@/components/ui";
 import StickySubNav from "@/components/StickySubNav";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import PlaybooksSection from "@/components/PlaybooksSection";
+import SolutionSection from "@/components/SolutionSection";
+import AnimatedStats from "@/components/AnimatedStats";
+import WaterfallVisualization from "@/components/WaterfallVisualization";
+import FeatureCallouts from "@/components/FeatureCallouts";
+import LogoMarquee from "@/components/LogoMarquee";
 import { useTheme } from "@/context/ThemeContext";
 
 // Data providers for waterfall enrichment (15+)
@@ -155,128 +162,245 @@ export default function HomePage() {
     <>
       <StickySubNav />
 
-      {/* Hero Section */}
-      <section className="relative pt-16 md:pt-24 pb-16 md:pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
+      {/* Hero Section - Lovable Style */}
+      <section className="relative pt-16 md:pt-24 pb-8 md:pb-16 overflow-hidden">
+        {/* Background Effects */}
+        <div className={`absolute inset-0 ${isDark ? "bg-[#030303]" : "bg-white"}`} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[600px] bg-[#3e8aff]/20 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
+
+        {/* Secondary glow orbs */}
+        <motion.div
+          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[30%] right-[10%] w-32 h-32 bg-purple-500/20 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-[40%] left-[5%] w-24 h-24 bg-green-500/20 rounded-full blur-3xl"
+        />
+
+        {/* Floating gradient pills */}
+        <motion.div
+          animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-[20%] left-[15%] w-20 h-8 bg-gradient-to-r from-[#3e8aff]/30 to-purple-500/30 rounded-full blur-sm hidden md:block"
+        />
+        <motion.div
+          animate={{ y: [0, 12, 0], rotate: [0, -3, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          className="absolute top-[35%] right-[20%] w-16 h-6 bg-gradient-to-r from-green-500/30 to-[#3e8aff]/30 rounded-full blur-sm hidden md:block"
+        />
+        <motion.div
+          animate={{ y: [0, -10, 0], rotate: [0, 4, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          className="absolute bottom-[30%] left-[25%] w-14 h-5 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-sm hidden md:block"
+        />
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4 md:mb-6"
-              >
-                <Sparkles className="w-4 h-4" />
-                85% Phone Discovery • 98% Verified Emails
-              </motion.div>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-4 md:mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
-              >
-                The GTM{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                  Playbook Engine
-                </span>
-              </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className={`text-lg md:text-xl mb-6 md:mb-8 max-w-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}
-              >
-                Find 85% of phone numbers and 98% of verified emails in seconds.
-                15+ data sources. One waterfall. Zero manual work.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 md:gap-4 mb-8 md:mb-10"
-              >
-                <Link
-                  href="#"
-                  className="inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30"
-                >
-                  Start Free — 30 Credits
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="#demo"
-                  className={`inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3.5 border font-medium rounded-lg transition-colors ${
-                    isDark
-                      ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
-                      : "border-gray-300 text-gray-900 hover:bg-gray-100"
-                  }`}
-                >
-                  See It In Action
-                </Link>
-              </motion.div>
-
-              {/* Hero Stats - Updated with accurate metrics */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="grid grid-cols-4 gap-2 md:gap-4"
-              >
-                {[
-                  { value: "15+", label: "Data Sources" },
-                  { value: "85%", label: "Phone Rate" },
-                  { value: "98%", label: "Email Accuracy" },
-                  { value: "50%", label: "Higher Replies" },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-lg md:text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
-                    <div className={`text-[10px] md:text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
-                  </div>
-                ))}
-              </motion.div>
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex justify-center mb-6"
+          >
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${
+              isDark
+                ? "bg-white/[0.03] border-white/[0.08]"
+                : "bg-black/[0.02] border-black/[0.08]"
+            }`}>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+              </span>
+              <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                15+ data providers • 400M+ contacts
+              </span>
             </div>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="hidden lg:block"
+          {/* Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-center mb-6"
+          >
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] ${isDark ? "text-white" : "text-gray-900"}`}>
+              The GTM{" "}
+              <span className="relative inline-block">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                  Playbook
+                </span>
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.7, duration: 0.5 }}
+                  className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] rounded-full origin-left"
+                />
+              </span>
+              <br />
+              Engine
+            </h1>
+          </motion.div>
+
+          {/* Subheadline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-center mb-8"
+          >
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Turn any go-to-market motion into a repeatable system.
+              <br />
+              <span className="relative inline-block mt-1">
+                <motion.span
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.9, duration: 0.4 }}
+                  className="absolute inset-0 bg-[#3e8aff]/10 rounded origin-left -z-10"
+                />
+                <span className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Minutes, not months.</span>
+              </span>
+            </p>
+          </motion.div>
+
+          {/* Animated Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <AnimatedStats />
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
+          >
+            <Link
+              href="#"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30 animate-glow-pulse"
+              style={{
+                animation: "glow-pulse 2s ease-in-out infinite",
+              }}
             >
-              <DashboardMockup variant="enrichment" />
-            </motion.div>
-          </div>
-        </div>
-      </section>
+              Start free
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="#"
+              className={`inline-flex items-center justify-center gap-2 px-6 py-3.5 border font-medium rounded-lg transition-colors ${
+                isDark
+                  ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
+                  : "border-gray-300 text-gray-900 hover:bg-gray-100"
+              }`}
+            >
+              <Calendar className="w-4 h-4" />
+              Book a demo
+            </Link>
+          </motion.div>
 
-      {/* Social Proof Bar */}
-      <section className={`py-6 md:py-8 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <p className={`text-center text-xs md:text-sm mb-4 md:mb-6 ${isDark ? "text-gray-500" : "text-gray-600"}`}>
-            Trusted by 1,000+ GTM teams for verified contact data
-          </p>
-          <div className="flex items-center justify-center gap-8 md:gap-16 flex-wrap">
-            {[
-              { name: "Uber", rating: "4.8" },
-              { name: "Klaviyo", rating: "4.9" },
-              { name: "Dropbox", rating: "4.7" },
-              { name: "Salesforce", rating: "4.8" },
-            ].map((company) => (
-              <div key={company.name} className="flex items-center gap-2">
-                <span className={`text-base md:text-lg font-semibold ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                  {company.name}
+          {/* Micro-text */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+            className={`text-center text-sm mb-12 ${isDark ? "text-gray-500" : "text-gray-400"}`}
+          >
+            No credit card required • Setup in 5 minutes
+          </motion.p>
+
+          {/* Product Demo Mockup with Waterfall */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.7 }}
+            className="relative max-w-4xl mx-auto"
+          >
+            {/* Live Demo Label */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8 }}
+              className="absolute -top-3 left-1/2 -translate-x-1/2 z-30"
+            >
+              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border ${
+                isDark
+                  ? "bg-[#0a0a0a] border-white/[0.08]"
+                  : "bg-white border-black/[0.08]"
+              }`}>
+                <Sparkles className="w-3 h-3 text-[#3e8aff]" />
+                <span className={`text-xs font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Live Demo</span>
+              </div>
+            </motion.div>
+
+            {/* Demo Container */}
+            <div className={`relative rounded-2xl border overflow-hidden ${
+              isDark
+                ? "bg-[#0a0a0a] border-white/[0.08]"
+                : "bg-white border-black/[0.08]"
+            }`} style={{
+              boxShadow: isDark ? "0 0 60px rgba(62, 138, 255, 0.15)" : "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
+            }}>
+              {/* Window Controls */}
+              <div className={`flex items-center gap-2 px-4 py-3 border-b ${
+                isDark ? "border-white/[0.05]" : "border-black/[0.05]"
+              }`}>
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                </div>
+                <span className={`text-xs ml-4 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                  Live Waterfall Enrichment Demo
                 </span>
               </div>
-            ))}
-          </div>
+
+              {/* Waterfall Visualization */}
+              <WaterfallVisualization compact={false} autoPlay={true} />
+
+              {/* Feature Callouts */}
+              <FeatureCallouts />
+            </div>
+
+            {/* Decorative blurs around demo */}
+            <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#3e8aff]/20 rounded-full blur-3xl -z-10" />
+            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl -z-10" />
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="flex flex-col items-center mt-12"
+          >
+            <span className={`text-xs mb-2 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+              Scroll to explore
+            </span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className={`w-5 h-5 ${isDark ? "text-gray-500" : "text-gray-400"}`} />
+            </motion.div>
+          </motion.div>
         </div>
       </section>
+
+      {/* Logo Marquee */}
+      <LogoMarquee />
 
       {/* Interactive Product Demo */}
       <InteractiveDemo />
+
+      {/* Solution Section */}
+      <SolutionSection />
 
       {/* Data Transform Section */}
       <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
