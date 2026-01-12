@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   Linkedin,
   Sparkles,
@@ -39,6 +39,19 @@ export default function InteractiveDemo() {
   const [animationStep, setAnimationStep] = useState(0);
   const { theme } = useTheme();
   const isDark = theme === "dark";
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
+  const hasAutoPlayed = useRef(false);
+
+  // Auto-start animation when section comes into view
+  useEffect(() => {
+    if (isInView && !hasAutoPlayed.current && activeTab === "linkedin") {
+      hasAutoPlayed.current = true;
+      setTimeout(() => setAnimationStep(1), 500);
+      setTimeout(() => setAnimationStep(2), 1500);
+      setTimeout(() => setAnimationStep(3), 2500);
+    }
+  }, [isInView, activeTab]);
 
   // Reset animation when tab changes
   const handleTabChange = (tabId: string) => {
@@ -51,7 +64,7 @@ export default function InteractiveDemo() {
   };
 
   return (
-    <section id="demo" className="py-16 md:py-24">
+    <section id="demo" ref={containerRef} className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
