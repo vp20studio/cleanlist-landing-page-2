@@ -273,14 +273,14 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
           <AnimatePresence>
             {dataPoints.map((point, index) => {
               const Icon = point.icon;
-              // Calculate x position based on status and current provider
-              const xPosition = point.status === "pending"
+              // Calculate left position based on status and current provider (as percentage of container)
+              const leftPosition = point.status === "pending"
                 ? 5
                 : point.status === "searching"
-                  ? 15 + ((point.currentProvider + 0.5) / providers.length) * 70
+                  ? 12 + ((point.currentProvider + 0.5) / providers.length) * 76
                   : point.status === "found"
-                    ? 90
-                    : 90;
+                    ? 92
+                    : 92;
 
               // Calculate y offset for stacking multiple data points
               const activePoints = dataPoints.filter(p =>
@@ -293,16 +293,15 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
               return (
                 <motion.div
                   key={point.id}
-                  className="absolute"
-                  style={{ top: "50%" }}
-                  initial={{ x: "5%", opacity: 0, y: "-50%" }}
+                  className="absolute top-1/2 -translate-y-1/2"
+                  initial={{ left: "5%", opacity: 0 }}
                   animate={{
-                    x: `${xPosition}%`,
-                    y: `calc(-50% + ${yOffset}px)`,
+                    left: `${leftPosition}%`,
+                    y: yOffset,
                     opacity: point.status === "not-found" ? 0.4 : 1,
                   }}
-                  exit={{ opacity: 0, scale: 0, x: "100%" }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  exit={{ opacity: 0, scale: 0.5, left: "100%" }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                 >
                   <motion.div
                     className={`p-2 rounded-lg border shadow-lg ${
