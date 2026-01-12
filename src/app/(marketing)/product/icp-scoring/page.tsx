@@ -21,6 +21,7 @@ import {
   Zap,
 } from "lucide-react";
 import { DashboardMockup, VerticalStepper, TechnicalGrid } from "@/components/ui";
+import ICPScoringDemo from "@/components/ICPScoringDemo";
 
 const companyTargeting = [
   { label: "Industries", description: "Target specific sectors and sub-categories" },
@@ -166,8 +167,36 @@ export default function ICPScoringPage() {
         </div>
       </section>
 
-      {/* How Scoring Works */}
+      {/* Interactive Demo */}
       <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+              Try It Yourself
+            </h2>
+            <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
+              Adjust the criteria weights and see how leads are scored in real-time.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <ICPScoringDemo />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How Scoring Works */}
+      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -294,7 +323,7 @@ export default function ICPScoringPage() {
       </section>
 
       {/* Targeting Criteria */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

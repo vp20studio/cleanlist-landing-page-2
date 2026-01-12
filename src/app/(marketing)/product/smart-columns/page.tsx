@@ -19,7 +19,8 @@ import {
   Settings,
   Shield,
 } from "lucide-react";
-import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import { TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import SmartColumnDemo from "@/components/SmartColumnDemo";
 
 export default function SmartColumnsPage() {
   const { theme } = useTheme();
@@ -115,7 +116,7 @@ export default function SmartColumnsPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <DashboardMockup variant="columns" />
+              <SmartColumnDemo />
             </motion.div>
           </div>
         </div>

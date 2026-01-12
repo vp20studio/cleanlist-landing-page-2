@@ -4,10 +4,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Linkedin,
-  Upload,
   Sparkles,
   Check,
-  ArrowRight,
   RefreshCw,
   Target,
   Mail,
@@ -16,6 +14,7 @@ import {
   User,
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import WaterfallEnrichmentDemo from "./WaterfallEnrichmentDemo";
 
 const demoTabs = [
   {
@@ -201,87 +200,8 @@ export default function InteractiveDemo() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="grid md:grid-cols-2 gap-6 md:gap-8 items-center"
               >
-                {/* CSV Upload Visual */}
-                <div className={`p-5 md:p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-black/[0.08]"}`}>
-                  <div className="flex items-center gap-2 mb-4">
-                    <Upload className="w-5 h-5 text-[#3e8aff]" />
-                    <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>leads.csv</span>
-                    <span className="text-xs text-gray-500">1,000 records</span>
-                  </div>
-
-                  {/* Progress visualization */}
-                  <div className="space-y-3">
-                    {[
-                      { name: "John Smith", company: "Acme Corp", email: animationStep >= 2 ? "john@acmecorp.com" : "—", phone: animationStep >= 3 ? "+1 555-0101" : "—" },
-                      { name: "Emily Davis", company: "StartupXYZ", email: animationStep >= 2 ? "emily@startupxyz.io" : "—", phone: animationStep >= 3 ? "+1 555-0102" : "—" },
-                      { name: "Michael Lee", company: "Enterprise Co", email: animationStep >= 2 ? "mlee@enterprise.com" : "—", phone: animationStep >= 3 ? "+1 555-0103" : "—" },
-                    ].map((row, i) => (
-                      <motion.div
-                        key={row.name}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: i * 0.1 }}
-                        className={`grid grid-cols-4 gap-2 p-2 rounded-lg text-xs ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}
-                      >
-                        <span className={isDark ? "text-white" : "text-gray-900"}>{row.name}</span>
-                        <span className="text-gray-500">{row.company}</span>
-                        <span className={row.email !== "—" ? "text-green-500" : "text-gray-500"}>{row.email}</span>
-                        <span className={row.phone !== "—" ? "text-green-500" : "text-gray-500"}>{row.phone}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Progress bar */}
-                  <div className="mt-4">
-                    <div className="flex justify-between text-xs mb-1">
-                      <span className="text-gray-500">Enriching...</span>
-                      <span className="text-[#3e8aff]">{animationStep >= 3 ? "100" : animationStep >= 2 ? "67" : animationStep >= 1 ? "33" : "0"}%</span>
-                    </div>
-                    <div className={`h-2 rounded-full ${isDark ? "bg-white/[0.05]" : "bg-gray-100"}`}>
-                      <motion.div
-                        className="h-full rounded-full bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]"
-                        initial={{ width: "0%" }}
-                        animate={{ width: animationStep >= 3 ? "100%" : animationStep >= 2 ? "67%" : animationStep >= 1 ? "33%" : "0%" }}
-                        transition={{ duration: 0.5 }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Waterfall explanation */}
-                <div className="space-y-4">
-                  <h3 className={`text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    15+ Data Sources, One Waterfall
-                  </h3>
-                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    We query multiple providers simultaneously and pick the best match for each field.
-                  </p>
-                  <div className="grid grid-cols-3 gap-2">
-                    {["Clearbit", "ZoomInfo", "Apollo", "Hunter", "Lusha", "Dropcontact"].map((provider, i) => (
-                      <motion.div
-                        key={provider}
-                        initial={{ opacity: 0.3 }}
-                        animate={{ opacity: animationStep >= 1 ? 1 : 0.3 }}
-                        transition={{ delay: i * 0.1 }}
-                        className={`px-2 py-1.5 rounded text-xs text-center ${isDark ? "bg-white/[0.05] text-gray-300" : "bg-gray-100 text-gray-700"}`}
-                      >
-                        {provider}
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className={`p-3 rounded-lg border ${isDark ? "bg-green-500/5 border-green-500/20" : "bg-green-50 border-green-200"}`}>
-                    <div className="flex items-center gap-2 text-green-500 text-sm font-medium">
-                      <Check className="w-4 h-4" />
-                      85% phone discovery rate
-                    </div>
-                    <div className="flex items-center gap-2 text-green-500 text-sm font-medium mt-1">
-                      <Check className="w-4 h-4" />
-                      98% verified email accuracy
-                    </div>
-                  </div>
-                </div>
+                <WaterfallEnrichmentDemo />
               </motion.div>
             )}
 

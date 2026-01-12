@@ -29,11 +29,11 @@ import {
   Link2,
 } from "lucide-react";
 import {
-  DashboardMockup,
   TechnicalGrid,
   VerticalStepper,
   GlowCard,
 } from "@/components/ui";
+import WaterfallPageDemo from "@/components/WaterfallPageDemo";
 
 export default function WaterfallEnrichmentPage() {
   const { theme } = useTheme();
@@ -129,7 +129,7 @@ export default function WaterfallEnrichmentPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <DashboardMockup variant="enrichment" />
+              <WaterfallPageDemo />
             </motion.div>
           </div>
         </div>

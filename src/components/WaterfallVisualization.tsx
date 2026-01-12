@@ -47,14 +47,26 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  // Initialize and run the animation
+  // Initialize with some data points immediately
+  useEffect(() => {
+    if (autoPlay) {
+      // Start with 2 data points immediately
+      const initialPoints: DataPoint[] = [
+        { id: Date.now(), type: "email", icon: Mail, status: "searching", currentProvider: 0 },
+        { id: Date.now() + 1, type: "phone", icon: Phone, status: "pending", currentProvider: -1 },
+      ];
+      setDataPoints(initialPoints);
+    }
+  }, [autoPlay]);
+
+  // Run the animation
   useEffect(() => {
     if (!isRunning) return;
 
     const interval = setInterval(() => {
       setDataPoints(prev => {
         // Add new data point occasionally
-        if (prev.length < 6 && Math.random() > 0.6) {
+        if (prev.length < 6 && Math.random() > 0.5) {
           const randomType = dataTypes[Math.floor(Math.random() * dataTypes.length)];
           const newPoint: DataPoint = {
             id: Date.now(),
@@ -246,48 +258,69 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
         </div>
 
         {/* Data Flow Animation */}
-        <div className={`mt-6 ${compact ? 'h-16' : 'h-24'} relative overflow-hidden rounded-xl border ${
+        <div className={`mt-6 ${compact ? 'h-20' : 'h-32'} relative overflow-hidden rounded-xl border ${
           isDark
             ? "bg-white/[0.02] border-white/[0.05]"
             : "bg-black/[0.02] border-black/[0.05]"
         }`}>
-          <div className={`absolute inset-0 flex items-center justify-center ${isDark ? "text-gray-600" : "text-gray-400"}`}>
-            <span className="text-xs">Data Flow</span>
-          </div>
+          {/* Only show placeholder when no data points */}
+          {dataPoints.length === 0 && (
+            <div className={`absolute inset-0 flex items-center justify-center ${isDark ? "text-gray-600" : "text-gray-400"}`}>
+              <span className="text-xs">Waiting for data...</span>
+            </div>
+          )}
 
           <AnimatePresence>
-            {dataPoints.map((point) => {
+            {dataPoints.map((point, index) => {
               const Icon = point.icon;
+              // Calculate x position based on status and current provider
               const xPosition = point.status === "pending"
-                ? 0
+                ? 5
                 : point.status === "searching"
-                  ? ((point.currentProvider + 1) / providers.length) * 80 + 10
+                  ? 15 + ((point.currentProvider + 0.5) / providers.length) * 70
                   : point.status === "found"
-                    ? 100
-                    : 100;
+                    ? 90
+                    : 90;
+
+              // Calculate y offset for stacking multiple data points
+              const activePoints = dataPoints.filter(p =>
+                (p.status === "searching" && point.status === "searching" && p.currentProvider === point.currentProvider) ||
+                (p.status === point.status && p.status !== "searching")
+              );
+              const pointIndex = activePoints.findIndex(p => p.id === point.id);
+              const yOffset = pointIndex * 28 - ((activePoints.length - 1) * 14);
 
               return (
                 <motion.div
                   key={point.id}
-                  className="absolute top-1/2 -translate-y-1/2"
-                  initial={{ x: "0%", opacity: 0 }}
+                  className="absolute"
+                  style={{ top: "50%" }}
+                  initial={{ x: "5%", opacity: 0, y: "-50%" }}
                   animate={{
                     x: `${xPosition}%`,
-                    opacity: point.status === "not-found" ? 0.3 : 1,
+                    y: `calc(-50% + ${yOffset}px)`,
+                    opacity: point.status === "not-found" ? 0.4 : 1,
                   }}
-                  exit={{ opacity: 0, scale: 0 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  exit={{ opacity: 0, scale: 0, x: "100%" }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   <motion.div
-                    className={`p-2 rounded-lg border ${
+                    className={`p-2 rounded-lg border shadow-lg ${
                       point.status === "found"
                         ? "bg-green-500/20 border-green-500/50"
                         : point.status === "not-found"
                           ? "bg-red-500/20 border-red-500/50"
                           : "bg-[#3e8aff]/20 border-[#3e8aff]/50"
                     }`}
-                    animate={point.status === "searching" ? { scale: [1, 1.1, 1] } : {}}
-                    transition={{ duration: 0.5, repeat: point.status === "searching" ? Infinity : 0 }}
+                    animate={point.status === "searching" ? {
+                      scale: [1, 1.15, 1],
+                      boxShadow: [
+                        "0 0 0px rgba(62, 138, 255, 0)",
+                        "0 0 15px rgba(62, 138, 255, 0.5)",
+                        "0 0 0px rgba(62, 138, 255, 0)"
+                      ]
+                    } : {}}
+                    transition={{ duration: 0.8, repeat: point.status === "searching" ? Infinity : 0 }}
                   >
                     <Icon className={`h-4 w-4 ${
                       point.status === "found"
@@ -304,26 +337,59 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
 
           {/* Flow Lines */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
-            <motion.line
-              x1="10%"
+            {/* Background track */}
+            <line
+              x1="8%"
               y1="50%"
-              x2="90%"
+              x2="92%"
+              y2="50%"
+              stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"}
+              strokeWidth="3"
+              strokeLinecap="round"
+            />
+            {/* Animated flow */}
+            <motion.line
+              x1="8%"
+              y1="50%"
+              x2="92%"
               y2="50%"
               stroke="url(#flowGradient)"
-              strokeWidth="2"
-              strokeDasharray="8 4"
-              initial={{ pathLength: 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 2, repeat: Infinity }}
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeDasharray="20 10"
+              initial={{ strokeDashoffset: 0 }}
+              animate={{ strokeDashoffset: -30 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             />
             <defs>
               <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#3e8aff" stopOpacity="0" />
-                <stop offset="50%" stopColor="#3e8aff" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
+                <stop offset="0%" stopColor="#3e8aff" stopOpacity="0.2" />
+                <stop offset="30%" stopColor="#3e8aff" stopOpacity="0.8" />
+                <stop offset="70%" stopColor="#10b981" stopOpacity="0.8" />
+                <stop offset="100%" stopColor="#10b981" stopOpacity="0.2" />
               </linearGradient>
             </defs>
           </svg>
+
+          {/* Provider position markers */}
+          <div className="absolute inset-x-0 top-2 flex justify-between px-[12%]">
+            {providers.map((provider, i) => (
+              <motion.div
+                key={provider.id}
+                className={`text-[9px] font-medium ${
+                  dataPoints.some(p => p.status === "searching" && p.currentProvider === i)
+                    ? "text-[#3e8aff]"
+                    : isDark ? "text-gray-600" : "text-gray-400"
+                }`}
+                animate={dataPoints.some(p => p.status === "searching" && p.currentProvider === i) ? {
+                  scale: [1, 1.1, 1]
+                } : {}}
+                transition={{ duration: 0.5 }}
+              >
+                {provider.name.split('.')[0]}
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Legend */}

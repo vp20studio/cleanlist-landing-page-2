@@ -29,7 +29,8 @@ import {
   Send,
   Plus,
 } from "lucide-react";
-import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import { TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import PlaybookBuilderDemo from "@/components/PlaybookBuilderDemo";
 
 // Workflow node types for the interactive demo
 const nodeTypes = [
@@ -199,7 +200,7 @@ export default function PlaybookBuilderPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <DashboardMockup variant="playbook" />
+              <PlaybookBuilderDemo />
             </motion.div>
           </div>
         </div>
