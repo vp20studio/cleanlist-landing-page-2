@@ -21,7 +21,8 @@ import {
   Lock,
   Globe,
 } from "lucide-react";
-import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import { TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import SalesNavDemo from "@/components/SalesNavDemo";
 
 export default function SalesNavScraperPage() {
   const { theme } = useTheme();
@@ -117,7 +118,7 @@ export default function SalesNavScraperPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
-              <DashboardMockup variant="scraper" />
+              <SalesNavDemo />
             </motion.div>
           </div>
         </div>

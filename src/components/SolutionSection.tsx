@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import Link from "next/link";
 import {
   BookOpen,
   Database,
@@ -10,7 +11,8 @@ import {
   CheckCircle2,
   Zap,
   ArrowRight,
-  Play
+  Play,
+  ExternalLink
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -23,6 +25,8 @@ interface Feature {
   benefits: string[];
   color: "primary" | "accent" | "success";
   visual: React.ReactNode;
+  link: string;
+  ctaText: string;
 }
 
 const features: Feature[] = [
@@ -34,6 +38,8 @@ const features: Feature[] = [
     description: "Outbound, inbound, intent, ABM — proven GTM motions ready to deploy. No GTM engineer required.",
     benefits: ["50+ templates", "Industry-specific", "Constantly updated"],
     color: "primary",
+    link: "/product/playbook-builder",
+    ctaText: "See it in action",
     visual: (
       <div className="grid grid-cols-2 gap-3">
         {["Outbound ICP", "Intent Signals", "ABM Accounts", "Inbound Qualify"].map((name, i) => (
@@ -58,6 +64,8 @@ const features: Feature[] = [
     description: "Cascade through multiple data sources automatically. Pay only for matches, maximize coverage.",
     benefits: ["85%+ match rates", "Cost optimized", "Real-time sync"],
     color: "accent",
+    link: "/product/waterfall-enrichment",
+    ctaText: "See it in action",
     visual: (
       <div className="space-y-2">
         {[
@@ -88,6 +96,8 @@ const features: Feature[] = [
     description: "Custom rules, AI-powered scoring, and automatic routing. Every lead scored and sorted instantly.",
     benefits: ["Custom ICP rules", "AI scoring", "Auto-routing"],
     color: "success",
+    link: "/product/icp-scoring",
+    ctaText: "See it in action",
     visual: (
       <div className="space-y-3">
         <motion.div
@@ -129,6 +139,8 @@ const features: Feature[] = [
     description: "Push enriched, validated contacts directly to CRM, sequencer, and ad platforms. Real-time sync.",
     benefits: ["Any CRM", "Any sequencer", "Bi-directional"],
     color: "primary",
+    link: "/resources/integrations",
+    ctaText: "Learn more",
     visual: (
       <div className="flex items-center justify-center gap-2">
         {["HubSpot", "Outreach", "LinkedIn"].map((tool, i) => (
@@ -325,14 +337,20 @@ export default function SolutionSection() {
               </div>
 
               {/* CTA */}
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`mt-8 w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors ${getColorClasses(activeData.color, "bg")} ${getColorClasses(activeData.color, "text")} hover:opacity-80`}
-              >
-                <Play className="h-4 w-4" />
-                See it in action
-              </motion.button>
+              <Link href={activeData.link}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className={`mt-8 w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors ${getColorClasses(activeData.color, "bg")} ${getColorClasses(activeData.color, "text")} hover:opacity-80`}
+                >
+                  {activeData.ctaText === "Learn more" ? (
+                    <ExternalLink className="h-4 w-4" />
+                  ) : (
+                    <Play className="h-4 w-4" />
+                  )}
+                  {activeData.ctaText}
+                </motion.div>
+              </Link>
             </motion.div>
           </motion.div>
         </div>

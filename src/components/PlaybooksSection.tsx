@@ -168,7 +168,7 @@ export default function PlaybooksSection() {
                   </span>
                 </div>
                 <Link
-                  href="#"
+                  href="/product/playbook-builder"
                   className="text-sm text-[#3e8aff] hover:underline opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1"
                 >
                   Learn more <ArrowRight className="w-3 h-3" />
@@ -189,10 +189,10 @@ export default function PlaybooksSection() {
             Need a custom playbook? We can build it for you.
           </p>
           <Link
-            href="#"
+            href="/product/playbook-builder"
             className="inline-flex items-center gap-2 text-[#3e8aff] hover:underline text-sm font-medium"
           >
-            Talk to our team <ArrowRight className="w-4 h-4" />
+            Browse all playbooks <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
       </div>

@@ -7,15 +7,12 @@ import {
   BookOpen,
   TrendingUp,
   Clock,
-  Building,
-  Quote,
   Users,
   Phone,
   MessageSquare,
   DollarSign,
   Calendar,
   Zap,
-  Target,
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -103,96 +100,6 @@ const caseStudies = [
       },
     ],
     color: "#3b82f6",
-  },
-  {
-    company: "TechScale Inc.",
-    logo: "T",
-    tag: "Email Deliverability",
-    tagColor: "#3e8aff",
-    description: "High bounce rates from purchased lead lists transformed into high-converting outbound",
-    results: [
-      {
-        icon: <Target className="w-4 h-4" />,
-        before: "15%",
-        after: "0.8%",
-        label: "Bounce Rate",
-        change: "-95%",
-        changeColor: "text-[#3e8aff]"
-      },
-      {
-        icon: <MessageSquare className="w-4 h-4" />,
-        before: "2%",
-        after: "8%",
-        label: "Response Rate",
-        change: "+300%",
-        changeColor: "text-[#3e8aff]"
-      },
-      {
-        icon: <TrendingUp className="w-4 h-4" />,
-        before: "$120K",
-        after: "$480K",
-        label: "Pipeline Generated",
-        change: "+300%",
-        changeColor: "text-[#3e8aff]"
-      },
-      {
-        icon: <Clock className="w-4 h-4" />,
-        before: "4hrs",
-        after: "30min",
-        label: "List prep time",
-        change: "-87%",
-        changeColor: "text-[#3e8aff]"
-      },
-    ],
-    quote: "Cleanlist completely transformed our outbound program. We went from dreading email campaigns to looking forward to them.",
-    author: "Sarah Chen",
-    role: "VP of Sales",
-    color: "#3e8aff",
-  },
-  {
-    company: "GrowthOps Agency",
-    logo: "G",
-    tag: "Agency Scale",
-    tagColor: "#22c55e",
-    description: "Manual data cleaning for each client project automated with Playbook Builder",
-    results: [
-      {
-        icon: <Clock className="w-4 h-4" />,
-        before: "40hrs/week",
-        after: "5hrs/week",
-        label: "Time Saved",
-        change: "-87%",
-        changeColor: "text-green-500"
-      },
-      {
-        icon: <Users className="w-4 h-4" />,
-        before: "8 clients",
-        after: "22 clients",
-        label: "Client Capacity",
-        change: "+175%",
-        changeColor: "text-green-500"
-      },
-      {
-        icon: <TrendingUp className="w-4 h-4" />,
-        before: "18%",
-        after: "42%",
-        label: "Profit Margin",
-        change: "+133%",
-        changeColor: "text-green-500"
-      },
-      {
-        icon: <Zap className="w-4 h-4" />,
-        before: "Manual",
-        after: "Automated",
-        label: "Data cleaning",
-        change: "✓",
-        changeColor: "text-green-500"
-      },
-    ],
-    quote: "We turned data cleaning from a cost center into a profit center. Our clients love the quality, and we love the margins.",
-    author: "Mike Johnson",
-    role: "Founder & CEO",
-    color: "#22c55e",
   },
 ];
 
@@ -330,24 +237,6 @@ export default function CaseStudiesPage() {
                     </div>
                   ))}
                 </div>
-
-                {/* Quote (if exists) */}
-                {study.quote && (
-                  <div
-                    className="mt-6 p-6 rounded-xl border-l-4"
-                    style={{
-                      backgroundColor: `${study.color}08`,
-                      borderColor: study.color,
-                    }}
-                  >
-                    <Quote className="w-6 h-6 mb-3" style={{ color: study.color }} />
-                    <p className={`italic mb-3 ${isDark ? "text-gray-300" : "text-gray-700"}`}>&ldquo;{study.quote}&rdquo;</p>
-                    <div>
-                      <div className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{study.author}</div>
-                      <div className="text-sm text-gray-500">{study.role}</div>
-                    </div>
-                  </div>
-                )}
 
                 {/* Mobile CTA */}
                 <Link

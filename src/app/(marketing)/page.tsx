@@ -38,6 +38,8 @@ import AnimatedStats from "@/components/AnimatedStats";
 import WaterfallVisualization from "@/components/WaterfallVisualization";
 import FeatureCallouts from "@/components/FeatureCallouts";
 import LogoMarquee from "@/components/LogoMarquee";
+import DataTransformDemo from "@/components/DataTransformDemo";
+import FinalCTA from "@/components/FinalCTA";
 import { useTheme } from "@/context/ThemeContext";
 
 // Data providers for waterfall enrichment (15+)
@@ -320,7 +322,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
-            className="relative max-w-4xl mx-auto"
+            className="relative max-w-4xl mx-auto px-4 md:px-20"
           >
             {/* Live Demo Label */}
             <motion.div
@@ -340,32 +342,34 @@ export default function HomePage() {
             </motion.div>
 
             {/* Demo Container */}
-            <div className={`relative rounded-2xl border overflow-hidden ${
-              isDark
-                ? "bg-[#0a0a0a] border-white/[0.08]"
-                : "bg-white border-black/[0.08]"
-            }`} style={{
-              boxShadow: isDark ? "0 0 60px rgba(62, 138, 255, 0.15)" : "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
-            }}>
-              {/* Window Controls */}
-              <div className={`flex items-center gap-2 px-4 py-3 border-b ${
-                isDark ? "border-white/[0.05]" : "border-black/[0.05]"
-              }`}>
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                </div>
-                <span className={`text-xs ml-4 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                  Live Waterfall Enrichment Demo
-                </span>
-              </div>
-
-              {/* Waterfall Visualization */}
-              <WaterfallVisualization compact={false} autoPlay={true} />
-
-              {/* Feature Callouts */}
+            <div className="relative">
+              {/* Feature Callouts - Outside overflow container */}
               <FeatureCallouts />
+
+              <div className={`relative rounded-2xl border overflow-hidden ${
+                isDark
+                  ? "bg-[#0a0a0a] border-white/[0.08]"
+                  : "bg-white border-black/[0.08]"
+              }`} style={{
+                boxShadow: isDark ? "0 0 60px rgba(62, 138, 255, 0.15)" : "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
+              }}>
+                {/* Window Controls */}
+                <div className={`flex items-center gap-2 px-4 py-3 border-b ${
+                  isDark ? "border-white/[0.05]" : "border-black/[0.05]"
+                }`}>
+                  <div className="flex gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  </div>
+                  <span className={`text-xs ml-4 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                    Live Waterfall Enrichment Demo
+                  </span>
+                </div>
+
+                {/* Waterfall Visualization */}
+                <WaterfallVisualization compact={false} autoPlay={true} />
+              </div>
             </div>
 
             {/* Decorative blurs around demo */}
@@ -403,101 +407,7 @@ export default function HomePage() {
       <SolutionSection />
 
       {/* Data Transform Section */}
-      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10 md:mb-16"
-          >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Watch your data{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                transform
-              </span>
-            </h2>
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Follow a real data record through our enrichment pipeline.
-            </p>
-          </motion.div>
-
-          {/* Data Transformation Visualization */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-              {/* Before */}
-              <div className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Step 01: The Enrichment</span>
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { label: "Name", value: "John Smith", status: "found" },
-                    { label: "Company", value: "Acme Corp", status: "found" },
-                    { label: "Email", value: "—", status: "missing" },
-                    { label: "Phone", value: "—", status: "missing" },
-                    { label: "Title", value: "—", status: "missing" },
-                    { label: "LinkedIn", value: "—", status: "missing" },
-                  ].map((field) => (
-                    <div key={field.label} className={`flex items-center justify-between p-3 rounded-lg ${isDark ? "bg-white/[0.03]" : "bg-[#F8F9FA]"}`}>
-                      <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{field.label}</span>
-                      <span className={`text-sm ${field.status === "found" ? (isDark ? "text-white" : "text-gray-900") : (isDark ? "text-gray-600" : "text-gray-400")}`}>
-                        {field.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* After */}
-              <div className={`p-5 md:p-6 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/30`}>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="text-sm font-medium text-[#3e8aff]">Step 02: Enriched Result</span>
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { label: "Name", value: "John Smith", status: "found" },
-                    { label: "Company", value: "Acme Corp", status: "found" },
-                    { label: "Email", value: "john@acmecorp.com", status: "enriched" },
-                    { label: "Phone", value: "+1 (555) 123-4567", status: "enriched" },
-                    { label: "Title", value: "VP of Sales", status: "enriched" },
-                    { label: "LinkedIn", value: "linkedin.com/in/johnsmith", status: "enriched" },
-                  ].map((field) => (
-                    <div key={field.label} className={`flex items-center justify-between p-3 rounded-lg ${isDark ? "bg-white/[0.03]/50" : "bg-white/70"}`}>
-                      <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{field.label}</span>
-                      <div className="flex items-center gap-2">
-                        <span className={`text-sm ${field.status === "enriched" ? "text-[#3e8aff]" : (isDark ? "text-white" : "text-gray-900")}`}>
-                          {field.value}
-                        </span>
-                        {field.status === "enriched" && <Check className="w-4 h-4 text-green-500" />}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Provider logos */}
-            <div className={`mt-6 md:mt-8 p-4 rounded-lg border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
-              <p className={`text-xs mb-3 text-center ${isDark ? "text-gray-500" : "text-gray-600"}`}>Powered by 15+ data providers</p>
-              <div className="flex items-center justify-center gap-3 md:gap-4 flex-wrap">
-                {dataProviders.map((provider) => (
-                  <span key={provider} className={`text-xs px-2 py-1 rounded ${isDark ? "text-gray-400 bg-white/[0.03]" : "text-gray-600 bg-gray-100"}`}>
-                    {provider}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <DataTransformDemo />
 
       {/* Playbooks Section */}
       <PlaybooksSection />
@@ -1270,53 +1180,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
-
-        <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6">
-              <Sparkles className="w-4 h-4" />
-              No credit card required
-            </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Your first{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                30 credits
-              </span>{" "}
-              are free
-            </h2>
-            <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              No credit card. No commitment. See why 1,000+ GTM teams trust Cleanlist for verified contact data.
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4">
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center shadow-lg shadow-[#3e8aff]/25"
-              >
-                Start Free
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 border font-medium rounded-lg transition-colors text-base md:text-lg w-full sm:w-auto justify-center ${
-                  isDark
-                    ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
-                }`}
-              >
-                <Building className="w-5 h-5" />
-                Book a Demo
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      <FinalCTA />
     </>
   );
 }

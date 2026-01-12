@@ -1,189 +1,265 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
+import {
+  ArrowRight,
+  Sparkles,
+  Zap,
+  Shield,
+  Clock,
+  Building,
+} from "lucide-react";
+
+const benefits = [
+  { icon: <Zap className="h-4 w-4" />, text: "30 credits free" },
+  { icon: <Shield className="h-4 w-4" />, text: "No card required" },
+  { icon: <Clock className="h-4 w-4" />, text: "Setup in 5 minutes" },
+];
 
 export default function FinalCTA() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   return (
-    <section className="relative py-24 md:py-32 bg-[#030303] overflow-hidden">
-      {/* Deep radial gradient from bottom */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(62, 138, 255, 0.15), transparent 70%)",
+    <section ref={ref} className="py-20 md:py-32 relative overflow-hidden">
+      {/* Background - Theme aware */}
+      <div className={`absolute inset-0 ${isDark ? "bg-[#030303]" : "bg-white"}`} />
+
+      {/* Animated Glow Orbs */}
+      <motion.div
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
         }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] rounded-full blur-[150px] ${
+          isDark ? "bg-[#3e8aff]/15" : "bg-[#3e8aff]/10"
+        }`}
+      />
+      <motion.div
+        animate={{
+          scale: [1.2, 1, 1.2],
+          x: [0, 60, 0],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className={`absolute top-1/4 right-1/4 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full blur-[100px] ${
+          isDark ? "bg-purple-500/15" : "bg-purple-500/10"
+        }`}
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.2, 1],
+          y: [0, -40, 0],
+        }}
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className={`absolute bottom-1/4 left-1/4 w-[250px] md:w-[350px] h-[250px] md:h-[350px] rounded-full blur-[100px] ${
+          isDark ? "bg-green-500/10" : "bg-green-500/8"
+        }`}
       />
 
-      {/* Center glow orb */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle at center, rgba(62, 138, 255, 0.1), transparent 50%)",
-        }}
-      />
+      {/* Floating Particles */}
+      {[...Array(15)].map((_, i) => (
+        <motion.div
+          key={i}
+          className={`absolute w-1.5 h-1.5 rounded-full ${
+            isDark ? "bg-[#3e8aff]/40" : "bg-[#3e8aff]/30"
+          }`}
+          style={{
+            left: `${5 + i * 6}%`,
+            top: `${10 + (i % 5) * 18}%`,
+          }}
+          animate={{
+            y: [0, -40, 0],
+            x: [0, i % 2 === 0 ? 15 : -15, 0],
+            opacity: [0.2, 0.6, 0.2],
+            scale: [1, 1.5, 1],
+          }}
+          transition={{
+            duration: 5 + i * 0.3,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: i * 0.15,
+          }}
+        />
+      ))}
 
-      {/* Animated floating particles */}
+      {/* Radial Lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#3e8aff] rounded-full opacity-30"
+            className={`absolute top-1/2 left-1/2 h-[1px] ${
+              isDark
+                ? "bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"
+                : "bg-gradient-to-r from-transparent via-[#3e8aff]/10 to-transparent"
+            }`}
             style={{
-              left: `${20 + i * 12}%`,
-              top: `${30 + (i % 3) * 20}%`,
+              width: "150%",
+              transform: `translate(-50%, -50%) rotate(${i * 30}deg)`,
             }}
             animate={{
-              y: [-20, 20, -20],
-              opacity: [0.2, 0.5, 0.2],
+              opacity: [0.1, 0.4, 0.1],
             }}
             transition={{
-              duration: 3 + i * 0.5,
+              duration: 3,
               repeat: Infinity,
               ease: "easeInOut",
-              delay: i * 0.3,
+              delay: i * 0.5,
             }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge */}
+      {/* Content */}
+      <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center z-10">
+        {/* Animated Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 mb-8"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(62,138,255,0.3)] bg-[rgba(62,138,255,0.05)] text-sm text-[#3e8aff]">
-            <Sparkles className="w-4 h-4" />
-            Join 2,000+ companies
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          >
+            <Sparkles className="h-4 w-4 text-[#3e8aff]" />
+          </motion.div>
+          <span className="text-sm font-medium text-[#3e8aff]">
+            No credit card required
           </span>
         </motion.div>
 
         {/* Headline */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-[1.1]"
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}
         >
-          Ready to reclaim your{" "}
-          <span className="gradient-text-blue">data quality</span>?
+          Your first{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+            30 credits
+          </span>{" "}
+          are free
         </motion.h2>
 
-        {/* Sub-headline */}
+        {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-lg md:text-xl text-[#888888] mb-10 max-w-2xl mx-auto"
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className={`text-lg md:text-xl mb-10 max-w-2xl mx-auto ${
+            isDark ? "text-gray-400" : "text-gray-600"
+          }`}
         >
-          Join 2,000+ companies cleaning their pipeline with Cleanlist. Start
-          free, see results in minutes.
+          No commitment. See why 1,000+ GTM teams trust Cleanlist for verified contact data.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4 mb-10"
         >
-          <motion.a
-            href="/get-started"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="group relative inline-flex items-center gap-3 px-8 py-4 text-base md:text-lg font-medium text-white rounded-xl overflow-hidden"
-          >
-            {/* Button background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#3e8aff] to-[#2563eb]" />
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="#"
+              className="relative inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-xl hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center overflow-hidden group shadow-lg shadow-[#3e8aff]/25"
+            >
+              {/* Shimmer Effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                animate={{ x: ["-100%", "200%"] }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+              />
+              <span className="relative flex items-center gap-2">
+                Start Free
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+          </motion.div>
 
-            {/* Hover gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#60a5fa] to-[#3e8aff] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-            {/* Glow effect */}
-            <div className="absolute -inset-1 bg-[#3e8aff] opacity-0 group-hover:opacity-30 blur-xl transition-opacity duration-300" />
-
-            {/* Animated border glow */}
-            <motion.div
-              className="absolute inset-0 rounded-xl"
-              style={{
-                boxShadow: "0 0 40px rgba(62, 138, 255, 0.4)",
-              }}
-              animate={{
-                boxShadow: [
-                  "0 0 40px rgba(62, 138, 255, 0.4)",
-                  "0 0 60px rgba(62, 138, 255, 0.6)",
-                  "0 0 40px rgba(62, 138, 255, 0.4)",
-                ],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-
-            <span className="relative z-10">Get Started Now</span>
-            <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="#"
+              className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 border font-medium rounded-xl transition-colors text-base md:text-lg w-full sm:w-auto justify-center ${
+                isDark
+                  ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
+                  : "border-gray-300 text-gray-900 hover:bg-gray-100"
+              }`}
+            >
+              <Building className="w-5 h-5" />
+              Book a Demo
+            </Link>
+          </motion.div>
         </motion.div>
 
-        {/* Trust indicators */}
+        {/* Benefits */}
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-6 mt-10 text-sm text-[#888888]"
+          className="flex flex-wrap items-center justify-center gap-6"
         >
-          <span className="flex items-center gap-2">
-            <svg
-              className="w-4 h-4 text-[#22c55e]"
-              fill="currentColor"
-              viewBox="0 0 20 20"
+          {benefits.map((benefit, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+              className={`flex items-center gap-2 text-sm ${
+                isDark ? "text-gray-400" : "text-gray-600"
+              }`}
             >
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            No credit card required
-          </span>
-          <span className="flex items-center gap-2">
-            <svg
-              className="w-4 h-4 text-[#22c55e]"
-              fill="currentColor"
-              viewBox="0 0 20 20"
+              <motion.div
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                className="text-[#3e8aff]"
+              >
+                {benefit.icon}
+              </motion.div>
+              <span>{benefit.text}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Floating Stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-12 flex flex-wrap items-center justify-center gap-4 md:gap-8"
+        >
+          {[
+            { value: "85%", label: "Phone retrieval" },
+            { value: "400M+", label: "Contacts" },
+            { value: "15+", label: "Data providers" },
+          ].map((stat) => (
+            <motion.div
+              key={stat.label}
+              whileHover={{ y: -3, scale: 1.05 }}
+              className={`px-4 py-3 rounded-xl border backdrop-blur-sm transition-all cursor-default ${
+                isDark
+                  ? "bg-white/[0.03] border-white/[0.08] hover:border-[#3e8aff]/30"
+                  : "bg-white/50 border-gray-200 hover:border-[#3e8aff]/30"
+              }`}
             >
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            14-day free trial
-          </span>
-          <span className="flex items-center gap-2">
-            <svg
-              className="w-4 h-4 text-[#22c55e]"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fillRule="evenodd"
-                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                clipRule="evenodd"
-              />
-            </svg>
-            Cancel anytime
-          </span>
+              <div className="text-xl md:text-2xl font-bold text-[#3e8aff]">
+                {stat.value}
+              </div>
+              <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
