@@ -5,11 +5,11 @@ import Link from "next/link";
 import {
   ArrowRight,
   Check,
-  RefreshCw,
-  Zap,
+  ArrowsClockwise,
+  Lightning,
   Shield,
   Clock,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 
 // All integrations for the hub visual
@@ -263,11 +263,11 @@ export default function IntegrationsPage() {
 
             <div className={`flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
               <div className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                <Zap className="w-4 h-4 text-[#3e8aff]" />
+                <Lightning className="text-[#3e8aff]" />
                 <span className="text-[#3e8aff] font-medium">REST API</span> and <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for custom integrations
               </div>
               <Link href="#" className="inline-flex items-center gap-1 text-sm text-[#3e8aff] hover:underline">
-                View API Docs <ArrowRight className="w-4 h-4" />
+                View API Docs <ArrowRight />
               </Link>
             </div>
           </motion.div>
@@ -279,10 +279,10 @@ export default function IntegrationsPage() {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {[
-              { icon: <RefreshCw className="w-5 h-5" />, value: "15+", label: "Native Integrations" },
-              { icon: <Clock className="w-5 h-5" />, value: "Real-time", label: "Bi-directional Sync" },
-              { icon: <Zap className="w-5 h-5" />, value: "<5 min", label: "Setup Time" },
-              { icon: <Shield className="w-5 h-5" />, value: "OAuth 2.0", label: "Secure Auth" },
+              { icon: <ArrowsClockwise />, value: "15+", label: "Native Integrations" },
+              { icon: <Clock />, value: "Real-time", label: "Bi-directional Sync" },
+              { icon: <Lightning />, value: "<5 min", label: "Setup Time" },
+              { icon: <Shield />, value: "OAuth 2.0", label: "Secure Auth" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mx-auto mb-3">
@@ -302,7 +302,7 @@ export default function IntegrationsPage() {
           <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                <Zap className="w-4 h-4" />
+                <Lightning />
                 REST API
               </div>
               <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -333,7 +333,7 @@ export default function IntegrationsPage() {
                 className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
                 View API Docs
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight />
               </Link>
             </motion.div>
 

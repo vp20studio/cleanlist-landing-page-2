@@ -5,17 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useTheme } from "@/context/ThemeContext";
 import {
-  Linkedin,
+  LinkedinLogo,
   Check,
-  Mail,
+  Envelope,
   Phone,
   Download,
-  RefreshCw,
-  ExternalLink,
-  Loader2,
-  CheckCircle2,
+  ArrowsClockwise,
+  ArrowSquareOut,
+  SpinnerGap,
+  CheckCircle,
   Play,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 
 interface Lead {
   id: number;
@@ -174,7 +174,7 @@ export default function SalesNavDemo() {
                 : "bg-gray-100 hover:bg-gray-200 text-gray-600"
             }`}
           >
-            <RefreshCw className="w-3 h-3" />
+            <ArrowsClockwise size={12} />
             Replay
           </button>
         </div>
@@ -186,7 +186,7 @@ export default function SalesNavDemo() {
             {/* LinkedIn Header */}
             <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#0077b5]/20">
               <div className="w-8 h-8 rounded bg-[#0077b5] flex items-center justify-center">
-                <Linkedin className="w-5 h-5 text-white" />
+                <LinkedinLogo size={20} className="text-white" />
               </div>
               <div>
                 <div className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -241,7 +241,7 @@ export default function SalesNavDemo() {
                           exit={{ scale: 0 }}
                           className="w-6 h-6 rounded-full bg-[#0077b5] flex items-center justify-center"
                         >
-                          <Check className="w-3.5 h-3.5 text-white" />
+                          <Check size={14} className="text-white" />
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -256,7 +256,7 @@ export default function SalesNavDemo() {
             {/* Panel Header */}
             <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#3e8aff]/20">
               <div className="w-8 h-8 rounded bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center">
-                <Download className="w-4 h-4 text-white" />
+                <Download size={16} className="text-white" />
               </div>
               <div>
                 <div className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -287,7 +287,7 @@ export default function SalesNavDemo() {
                       onClick={startDemo}
                       className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
                     >
-                      <Play className="w-4 h-4" />
+                      <Play size={16} />
                       Export Selected Leads
                     </button>
                     <p className={`mt-3 text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
@@ -305,7 +305,7 @@ export default function SalesNavDemo() {
                     className="py-4"
                   >
                     <div className="flex items-center justify-center gap-3 mb-4">
-                      <Loader2 className="w-5 h-5 text-[#3e8aff] animate-spin" />
+                      <SpinnerGap size={20} className="text-[#3e8aff] animate-spin" />
                       <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                         Selecting leads from Sales Navigator...
                       </span>
@@ -333,7 +333,7 @@ export default function SalesNavDemo() {
                     className="py-4"
                   >
                     <div className="flex items-center justify-center gap-3 mb-4">
-                      <Download className="w-5 h-5 text-[#3e8aff] animate-bounce" />
+                      <Download size={20} className="text-[#3e8aff] animate-bounce" />
                       <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                         Extracting lead data...
                       </span>
@@ -382,9 +382,9 @@ export default function SalesNavDemo() {
                             </div>
                           </div>
                           {lead.enriched ? (
-                            <CheckCircle2 className="w-4 h-4 text-green-500" />
+                            <CheckCircle size={16} className="text-green-500" />
                           ) : (
-                            <Loader2 className="w-4 h-4 text-[#3e8aff] animate-spin" />
+                            <SpinnerGap size={16} className="text-[#3e8aff] animate-spin" />
                           )}
                         </div>
 
@@ -396,11 +396,11 @@ export default function SalesNavDemo() {
                               className="flex flex-wrap gap-2 mt-2"
                             >
                               <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-[#3e8aff]/10 text-xs text-[#3e8aff]">
-                                <Mail className="w-3 h-3" />
+                                <Envelope size={12} />
                                 <span className="truncate max-w-[140px]">{lead.email}</span>
                               </div>
                               <div className="flex items-center gap-1.5 px-2 py-1 rounded bg-green-500/10 text-xs text-green-500">
-                                <Phone className="w-3 h-3" />
+                                <Phone size={12} />
                                 <span>{lead.phone}</span>
                               </div>
                             </motion.div>
@@ -423,7 +423,7 @@ export default function SalesNavDemo() {
                     <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
                       <div className="flex items-center gap-3 mb-3">
                         <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center">
-                          <Check className="w-5 h-5 text-white" />
+                          <Check size={20} className="text-white" />
                         </div>
                         <div>
                           <div className="text-sm font-semibold text-green-500">
@@ -435,7 +435,7 @@ export default function SalesNavDemo() {
                         </div>
                       </div>
                       <button className="w-full py-2 rounded-lg bg-green-500 text-white text-sm font-medium flex items-center justify-center gap-2 hover:bg-green-600 transition-colors">
-                        <ExternalLink className="w-4 h-4" />
+                        <ArrowSquareOut size={16} />
                         View in CRM
                       </button>
                     </div>

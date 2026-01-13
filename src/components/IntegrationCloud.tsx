@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkle } from "@phosphor-icons/react";
 
 const integrations = [
   { name: "Salesforce", category: "CRM", position: { x: 15, y: 25 } },
@@ -268,7 +268,7 @@ export default function IntegrationCloud() {
 
           <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.08)] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <Sparkles className="w-5 h-5 text-[#3e8aff]" />
+              <Sparkle size={20} className="text-[#3e8aff]" />
               <span className="text-sm text-[#888888]">
                 <span className="text-white font-medium">REST API</span> and{" "}
                 <span className="text-white font-medium">Webhooks</span> for
@@ -280,7 +280,7 @@ export default function IntegrationCloud() {
               className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:text-[#60a5fa] transition-colors"
             >
               View API Docs
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight size={16} />
             </a>
           </div>
         </motion.div>

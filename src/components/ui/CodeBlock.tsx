@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Copy, Check, Code2 } from "lucide-react";
+import { Copy, Check, Code } from "@phosphor-icons/react";
 
 interface CodeBlockProps {
   code: string;
@@ -32,7 +32,7 @@ export default function CodeBlock({
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
         <div className="flex items-center gap-2">
-          <Code2 className="w-4 h-4 text-[#888888]" />
+          <Code className="w-4 h-4 text-[#888888]" />
           <span className="text-xs text-[#888888] font-mono">
             {filename || `response.${language}`}
           </span>

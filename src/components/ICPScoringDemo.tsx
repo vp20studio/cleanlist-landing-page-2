@@ -5,11 +5,11 @@ import { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
 import {
   Brain,
-  Sparkles,
-  Zap,
+  Sparkle,
+  Lightning,
   CheckCircle,
-  RotateCcw,
-} from "lucide-react";
+  ArrowsClockwise,
+} from "@phosphor-icons/react";
 
 const sampleLeads = [
   { name: "Sarah Chen", company: "TechCorp", role: "VP Sales", employees: 500, industry: "SaaS", funding: "$50M" },
@@ -130,7 +130,7 @@ export default function ICPScoringDemo() {
     }`}>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <Sparkles className="h-5 w-5 text-purple-400" />
+          <Sparkle size={20} className="text-purple-400" />
           <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
             Interactive ICP Scoring Demo
           </h3>
@@ -144,7 +144,7 @@ export default function ICPScoringDemo() {
                 : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
             }`}
           >
-            <RotateCcw className="w-3.5 h-3.5" />
+            <ArrowsClockwise size={14} />
             Reset
           </button>
         )}
@@ -195,13 +195,13 @@ export default function ICPScoringDemo() {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 >
-                  <Zap className="h-4 w-4" />
+                  <Lightning size={16} />
                 </motion.div>
                 Analyzing Leads...
               </>
             ) : (
               <>
-                <Brain className="h-4 w-4" />
+                <Brain size={16} />
                 Run ICP Analysis
               </>
             )}
@@ -292,7 +292,7 @@ export default function ICPScoringDemo() {
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 text-sm text-green-400 bg-green-500/10 p-3 rounded-lg border border-green-500/20"
             >
-              <CheckCircle className="h-4 w-4" />
+              <CheckCircle size={16} />
               <span>Analysis complete! {scores.filter(s => s >= 60).length} high-priority leads identified.</span>
             </motion.div>
           )}

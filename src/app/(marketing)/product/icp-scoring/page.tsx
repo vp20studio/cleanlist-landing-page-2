@@ -5,21 +5,17 @@ import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
-  Target,
-  Building,
+  Crosshair,
+  Buildings,
   Users,
   Globe,
-  BarChart3,
+  ChartBar,
   Check,
-  Sparkles,
-  Settings,
-  TrendingUp,
-  Award,
-  Briefcase,
-  MapPin,
-  Layers,
-  Zap,
-} from "lucide-react";
+  Sparkle,
+  Gear,
+  Stack,
+  Lightning,
+} from "@phosphor-icons/react";
 import { DashboardMockup, VerticalStepper, TechnicalGrid, GlowIcon } from "@/components/ui";
 import ICPScoringDemo from "@/components/ICPScoringDemo";
 
@@ -69,7 +65,7 @@ export default function ICPScoringPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-6"
               >
-                <GlowIcon icon={<Target />} size="xs" color="purple" variant="ghost" />
+                <GlowIcon icon={<Crosshair />} size="xs" color="purple" variant="ghost" />
                 ICP Scoring
               </motion.div>
 
@@ -106,7 +102,7 @@ export default function ICPScoringPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors"
                 >
                   Start Free Trial
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight />
                 </Link>
                 <Link
                   href="/pricing"
@@ -135,28 +131,28 @@ export default function ICPScoringPage() {
             columns={4}
             blocks={[
               {
-                icon: <Target className="w-5 h-5" />,
+                icon: <Crosshair />,
                 label: "Fit Levels",
                 value: "4",
                 subValue: "Perfect, Good, Fair, Poor",
                 color: "purple",
               },
               {
-                icon: <Layers className="w-5 h-5" />,
+                icon: <Stack />,
                 label: "Score Components",
                 value: "4",
                 subValue: "Company, Prospect, Behavior, Geo",
                 color: "blue",
               },
               {
-                icon: <Settings className="w-5 h-5" />,
+                icon: <Gear />,
                 label: "Targeting Criteria",
                 value: "20+",
                 subValue: "Customizable weights",
                 color: "green",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
+                icon: <Lightning />,
                 label: "Integration",
                 value: "Native",
                 subValue: "Smart Columns & Playbooks",
@@ -207,7 +203,7 @@ export default function ICPScoringPage() {
                 className="sticky top-24"
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-4">
-                  <GlowIcon icon={<BarChart3 />} size="xs" color="purple" variant="ghost" />
+                  <GlowIcon icon={<ChartBar />} size="xs" color="purple" variant="ghost" />
                   How It Works
                 </div>
                 <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -347,12 +343,12 @@ export default function ICPScoringPage() {
               viewport={{ once: true }}
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
-              <GlowIcon icon={<Building />} size="lg" color="purple" variant="glow" className="mb-4" />
+              <GlowIcon icon={<Buildings />} size="lg" color="purple" variant="glow" className="mb-4" />
               <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Company Targeting</h3>
               <div className="space-y-3">
                 {companyTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-purple-400 mt-1 shrink-0" />
+                    <Check className="text-purple-400 mt-1 shrink-0" />
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
@@ -375,7 +371,7 @@ export default function ICPScoringPage() {
               <div className="space-y-3">
                 {prospectTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-blue-400 mt-1 shrink-0" />
+                    <Check className="text-blue-400 mt-1 shrink-0" />
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
@@ -398,7 +394,7 @@ export default function ICPScoringPage() {
               <div className="space-y-3">
                 {geoTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
-                    <Check className="w-4 h-4 text-green-400 mt-1 shrink-0" />
+                    <Check className="text-green-400 mt-1 shrink-0" />
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
@@ -520,7 +516,7 @@ export default function ICPScoringPage() {
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
-                <GlowIcon icon={<Sparkles />} size="lg" color="blue" variant="glow" />
+                <GlowIcon icon={<Sparkle />} size="lg" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Smart Columns</h3>
                   <p className="text-sm text-gray-500">ICP Fit Analysis column</p>
@@ -535,7 +531,7 @@ export default function ICPScoringPage() {
                 href="/product/smart-columns"
                 className="inline-flex items-center gap-1 text-sm text-[#3e8aff] hover:underline"
               >
-                Learn about Smart Columns <ArrowRight className="w-4 h-4" />
+                Learn about Smart Columns <ArrowRight />
               </Link>
             </motion.div>
 
@@ -546,7 +542,7 @@ export default function ICPScoringPage() {
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
-                <GlowIcon icon={<Layers />} size="lg" color="blue" variant="glow" />
+                <GlowIcon icon={<Stack />} size="lg" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Playbook Builder</h3>
                   <p className="text-sm text-gray-500">ICP Scoring step</p>
@@ -561,7 +557,7 @@ export default function ICPScoringPage() {
                 href="/product/playbook-builder"
                 className="inline-flex items-center gap-1 text-sm text-[#3e8aff] hover:underline"
               >
-                Learn about Playbooks <ArrowRight className="w-4 h-4" />
+                Learn about Playbooks <ArrowRight />
               </Link>
             </motion.div>
           </div>
@@ -591,7 +587,7 @@ export default function ICPScoringPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors text-lg"
             >
               Start Scoring Leads
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight />
             </Link>
           </motion.div>
         </div>

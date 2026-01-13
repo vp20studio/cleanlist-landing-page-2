@@ -5,23 +5,23 @@ import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
-  Mail,
+  Envelope,
   Phone,
   Shield,
   Check,
   X,
-  AlertCircle,
-  Zap,
-  Target,
+  WarningCircle,
+  Lightning,
+  Crosshair,
   Clock,
-  RefreshCw,
-  Search,
+  ArrowsClockwise,
+  MagnifyingGlass,
   Globe,
-  ChevronRight,
+  CaretRight,
   Lock,
-  Server,
-  FileCheck,
-} from "lucide-react";
+  HardDrives,
+  CheckCircle,
+} from "@phosphor-icons/react";
 import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 
 export default function EmailPhoneFinderPage() {
@@ -43,7 +43,7 @@ export default function EmailPhoneFinderPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-500 mb-6"
               >
-                <GlowIcon icon={<Mail />} size="xs" color="green" variant="ghost" />
+                <GlowIcon icon={<Envelope />} size="xs" color="green" variant="ghost" />
                 Contact Discovery
               </motion.div>
 
@@ -80,7 +80,7 @@ export default function EmailPhoneFinderPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-medium rounded-lg hover:bg-green-500/90 transition-colors"
                 >
                   Find Contacts Free
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight />
                 </Link>
                 <Link
                   href="#verification"
@@ -131,35 +131,35 @@ export default function EmailPhoneFinderPage() {
             columns={5}
             blocks={[
               {
-                icon: <Shield className="w-5 h-5" />,
+                icon: <Shield />,
                 label: "Accuracy",
                 value: "98%",
                 subValue: "Data guarantee",
                 color: "green",
               },
               {
-                icon: <Mail className="w-5 h-5" />,
+                icon: <Envelope />,
                 label: "Email Only",
                 value: "1 Credit",
                 subValue: "Partial enrichment",
                 color: "blue",
               },
               {
-                icon: <Phone className="w-5 h-5" />,
+                icon: <Phone />,
                 label: "Full Contact",
                 value: "10 Credits",
                 subValue: "Email + Phone",
                 color: "purple",
               },
               {
-                icon: <Target className="w-5 h-5" />,
+                icon: <Crosshair />,
                 label: "Validation",
                 value: "Email",
                 subValue: "Deliverability check",
                 color: "yellow",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
+                icon: <Lightning />,
                 label: "Processing",
                 value: "Fast",
                 subValue: "Real-time & batch",
@@ -200,7 +200,7 @@ export default function EmailPhoneFinderPage() {
                   title: "Syntax Validation",
                   description:
                     "We check the email format against RFC standards to catch typos and invalid patterns.",
-                  icon: <FileCheck className="w-5 h-5" />,
+                  icon: <CheckCircle />,
                   details: [
                     "RFC 5322 compliance check",
                     "Common typo detection (gmial, outlok, etc.)",
@@ -213,7 +213,7 @@ export default function EmailPhoneFinderPage() {
                   title: "MX & DNS Lookup",
                   description:
                     "We verify the domain has valid mail servers configured and accepting connections.",
-                  icon: <Server className="w-5 h-5" />,
+                  icon: <HardDrives />,
                   details: [
                     "MX record existence check",
                     "DNS resolution validation",
@@ -226,7 +226,7 @@ export default function EmailPhoneFinderPage() {
                   title: "SMTP Handshake",
                   description:
                     "We connect to the mail server and verify the specific mailbox exists.",
-                  icon: <Lock className="w-5 h-5" />,
+                  icon: <Lock />,
                   details: [
                     "RCPT TO verification",
                     "Catch-all domain detection",
@@ -255,7 +255,7 @@ export default function EmailPhoneFinderPage() {
                 <div className="p-4 rounded-lg bg-[#111] border border-white/[0.05] mb-4">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-green-500" />
+                      <Envelope className="text-green-500" />
                     </div>
                     <div>
                       <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>john.smith@acme.com</div>
@@ -281,11 +281,11 @@ export default function EmailPhoneFinderPage() {
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-gray-500">{item.detail}</span>
                         {item.status === "pass" ? (
-                          <Check className="w-4 h-4 text-green-500" />
+                          <Check className="text-green-500" />
                         ) : item.status === "info" ? (
-                          <AlertCircle className="w-4 h-4 text-blue-500" />
+                          <WarningCircle className="text-blue-500" />
                         ) : (
-                          <X className="w-4 h-4 text-red-500" />
+                          <X className="text-red-500" />
                         )}
                       </div>
                     </div>
@@ -294,7 +294,7 @@ export default function EmailPhoneFinderPage() {
 
                 <div className="mt-6 p-4 rounded-lg bg-green-500/5 border border-green-500/20">
                   <div className="flex items-center gap-2 text-sm text-green-500 mb-1">
-                    <Shield className="w-4 h-4" />
+                    <Shield />
                     Email Validated
                   </div>
                   <p className="text-xs text-gray-500">
@@ -327,28 +327,28 @@ export default function EmailPhoneFinderPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: <AlertCircle className="w-6 h-6" />,
+                icon: <WarningCircle />,
                 title: "Catch-all Detection",
                 description:
                   "Identifies domains that accept any email, making true verification impossible.",
                 color: "yellow",
               },
               {
-                icon: <Clock className="w-6 h-6" />,
+                icon: <Clock />,
                 title: "Disposable Emails",
                 description:
                   "Flags temporary email addresses from 10MinuteMail, Guerrilla Mail, etc.",
                 color: "red",
               },
               {
-                icon: <Globe className="w-6 h-6" />,
+                icon: <Globe />,
                 title: "Role-based Emails",
                 description:
                   "Detects generic addresses like info@, support@, sales@ that hurt deliverability.",
                 color: "blue",
               },
               {
-                icon: <Shield className="w-6 h-6" />,
+                icon: <Shield />,
                 title: "Spam Traps",
                 description:
                   "Identifies known spam trap addresses that can blacklist your domain.",
@@ -465,7 +465,7 @@ export default function EmailPhoneFinderPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-green-500">
-                    <Check className="w-4 h-4" />
+                    <Check />
                     Active line, carrier: Verizon Wireless
                   </div>
                 </div>
@@ -479,7 +479,7 @@ export default function EmailPhoneFinderPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-green-500">
-                    <Check className="w-4 h-4" />
+                    <Check />
                     Active line, carrier: AT&T Business
                   </div>
                 </div>
@@ -520,19 +520,19 @@ export default function EmailPhoneFinderPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: <Mail className="w-6 h-6" />,
+                icon: <Envelope />,
                 title: "Email Lookup",
                 description: "Input an email to verify and enrich with phone numbers.",
                 input: "john@acme.com",
               },
               {
-                icon: <Globe className="w-6 h-6" />,
+                icon: <Globe />,
                 title: "Domain + Name",
                 description: "Provide company domain and full name to find email.",
                 input: "acme.com + John Smith",
               },
               {
-                icon: <Search className="w-6 h-6" />,
+                icon: <MagnifyingGlass />,
                 title: "LinkedIn URL",
                 description: "Input a LinkedIn profile URL to get contact details.",
                 input: "linkedin.com/in/johnsmith",
@@ -583,7 +583,7 @@ export default function EmailPhoneFinderPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 text-white font-medium rounded-lg hover:bg-green-500/90 transition-colors text-lg"
               >
                 Start Free Trial
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight />
               </Link>
               <Link
                 href="/pricing"

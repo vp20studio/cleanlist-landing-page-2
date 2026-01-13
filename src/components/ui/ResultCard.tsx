@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendingUp, TrendingDown, ArrowRight } from "lucide-react";
+import { TrendUp, TrendDown, ArrowRight } from "@phosphor-icons/react";
 
 interface ResultCardProps {
   company: string;
@@ -58,9 +58,9 @@ export default function ResultCard({
             }`}
           >
             {positive ? (
-              <TrendingUp className="w-3.5 h-3.5" />
+              <TrendUp className="w-3.5 h-3.5" />
             ) : (
-              <TrendingDown className="w-3.5 h-3.5" />
+              <TrendDown className="w-3.5 h-3.5" />
             )}
             {change}
           </div>

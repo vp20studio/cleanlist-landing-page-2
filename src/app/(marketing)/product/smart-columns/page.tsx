@@ -5,20 +5,20 @@ import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
-  Sparkles,
-  RefreshCw,
+  Sparkle,
+  ArrowsClockwise,
   Check,
-  Zap,
+  Lightning,
   Brain,
-  Wand2,
+  MagicWand,
   Table,
-  FileSpreadsheet,
-  ArrowLeftRight,
-  ChevronRight,
+  FileXls,
+  ArrowsLeftRight,
+  CaretRight,
   Cpu,
-  Settings,
+  Gear,
   Shield,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import SmartColumnDemo from "@/components/SmartColumnDemo";
 
@@ -41,7 +41,7 @@ export default function SmartColumnsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-6"
               >
-                <GlowIcon icon={<Sparkles />} size="xs" color="purple" variant="ghost" />
+                <GlowIcon icon={<Sparkle />} size="xs" color="purple" variant="ghost" />
                 AI-Powered
               </motion.div>
 
@@ -78,7 +78,7 @@ export default function SmartColumnsPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors"
                 >
                   Try Smart Columns
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight />
                 </Link>
                 <Link
                   href="#examples"
@@ -129,35 +129,35 @@ export default function SmartColumnsPage() {
             columns={5}
             blocks={[
               {
-                icon: <Brain className="w-5 h-5" />,
+                icon: <Brain />,
                 label: "AI Model",
                 value: "AI",
                 subValue: "Powered transforms",
                 color: "purple",
               },
               {
-                icon: <Settings className="w-5 h-5" />,
+                icon: <Gear />,
                 label: "Column Types",
                 value: "12",
                 subValue: "Ready to use",
                 color: "blue",
               },
               {
-                icon: <Sparkles className="w-5 h-5" />,
+                icon: <Sparkle />,
                 label: "Custom AI",
                 value: "Yes",
                 subValue: "Any prompt",
                 color: "yellow",
               },
               {
-                icon: <Shield className="w-5 h-5" />,
+                icon: <Shield />,
                 label: "Accuracy",
                 value: "98%",
                 subValue: "Data guarantee",
                 color: "green",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
+                icon: <Lightning />,
                 label: "Processing",
                 value: "Fast",
                 subValue: "Batch & real-time",
@@ -178,7 +178,7 @@ export default function SmartColumnsPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
-              <GlowIcon icon={<Wand2 />} size="xs" color="purple" variant="ghost" />
+              <GlowIcon icon={<MagicWand />} size="xs" color="purple" variant="ghost" />
               Natural Language
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -197,7 +197,7 @@ export default function SmartColumnsPage() {
                   title: "Select Your Column",
                   description:
                     "Choose any column in your dataset that needs transformation or normalization.",
-                  icon: <Table className="w-5 h-5" />,
+                  icon: <Table />,
                   details: [
                     "Works with any data type",
                     "Supports CSV, Excel, and API input",
@@ -209,7 +209,7 @@ export default function SmartColumnsPage() {
                   title: "Choose Column Type",
                   description:
                     "Select from 12 built-in column types or use Custom AI for any transformation.",
-                  icon: <Brain className="w-5 h-5" />,
+                  icon: <Brain />,
                   details: [
                     'Built-in: Clean names, format phones, validate emails',
                     'Research: LinkedIn, competitors, website analysis',
@@ -221,7 +221,7 @@ export default function SmartColumnsPage() {
                   title: "Preview & Apply",
                   description:
                     "See the transformation on sample data before applying to your entire dataset.",
-                  icon: <RefreshCw className="w-5 h-5" />,
+                  icon: <ArrowsClockwise />,
                   details: [
                     "Preview first 10 rows",
                     "Adjust prompt if needed",
@@ -240,7 +240,7 @@ export default function SmartColumnsPage() {
             >
               <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-4">
-                  <Sparkles className="w-5 h-5 text-purple-500" />
+                  <Sparkle className="text-purple-500" />
                   <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Live Example</span>
                 </div>
 
@@ -307,7 +307,7 @@ export default function SmartColumnsPage() {
                 </div>
 
                 <div className="flex items-center gap-2 mt-4 text-xs text-green-500">
-                  <Check className="w-4 h-4" />
+                  <Check />
                   7 rows normalized in 0.3s
                 </div>
               </div>
@@ -459,7 +459,7 @@ export default function SmartColumnsPage() {
                   >
                     <div className="text-sm text-purple-400 font-mono mb-2">{example.prompt}</div>
                     <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <ArrowLeftRight className="w-3 h-3" />
+                      <ArrowsLeftRight />
                       {example.result}
                     </div>
                   </div>
@@ -470,7 +470,7 @@ export default function SmartColumnsPage() {
                 href="#"
                 className="inline-flex items-center gap-2 mt-8 text-purple-500 hover:underline"
               >
-                See prompt library <ChevronRight className="w-4 h-4" />
+                See prompt library <CaretRight />
               </Link>
             </motion.div>
 
@@ -499,7 +499,7 @@ export default function SmartColumnsPage() {
                 </p>
                 <div className={`pt-4 border-t ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   <div className="flex items-center gap-2 text-green-500 text-xs">
-                    <Shield className="w-4 h-4" />
+                    <Shield />
                     Your data is never used for model training
                   </div>
                 </div>
@@ -529,17 +529,17 @@ export default function SmartColumnsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                icon: <FileSpreadsheet className="w-6 h-6" />,
+                icon: <FileXls />,
                 title: "Import Sources",
                 items: ["CSV Upload", "Excel Files", "Google Sheets", "API Integration"],
               },
               {
-                icon: <Sparkles className="w-6 h-6" />,
+                icon: <Sparkle />,
                 title: "Transform With AI",
                 items: ["Built-in Rules", "Custom Prompts", "Batch Processing", "Real-time Preview"],
               },
               {
-                icon: <RefreshCw className="w-6 h-6" />,
+                icon: <ArrowsClockwise />,
                 title: "Export Anywhere",
                 items: ["Download CSV", "Push to CRM", "Webhook Delivery", "API Response"],
               },
@@ -592,7 +592,7 @@ export default function SmartColumnsPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors text-lg"
               >
                 Try Smart Columns Free
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight />
               </Link>
               <Link
                 href="/pricing"

@@ -6,28 +6,28 @@ import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
   Database,
-  Layers,
-  Zap,
+  Stack,
+  Lightning,
   Shield,
   Clock,
   Check,
-  ChevronRight,
-  RefreshCw,
+  CaretRight,
+  ArrowsClockwise,
   GitMerge,
-  Target,
-  BarChart3,
-  Mail,
+  Crosshair,
+  ChartBar,
+  Envelope,
   Phone,
-  Building,
+  Buildings,
   User,
   Globe,
   Briefcase,
   MapPin,
-  DollarSign,
+  CurrencyDollar,
   Users,
   Calendar,
-  Link2,
-} from "lucide-react";
+  Link as LinkIcon,
+} from "@phosphor-icons/react";
 import {
   TechnicalGrid,
   VerticalStepper,
@@ -55,7 +55,7 @@ export default function WaterfallEnrichmentPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
               >
-                <GlowIcon icon={<Layers />} size="xs" color="blue" variant="ghost" />
+                <GlowIcon icon={<Stack />} size="xs" color="blue" variant="ghost" />
                 Flagship Product
               </motion.div>
 
@@ -92,7 +92,7 @@ export default function WaterfallEnrichmentPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
                 >
                   Try Waterfall Free
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight />
                 </Link>
                 <Link
                   href="#how-it-works"
@@ -143,42 +143,42 @@ export default function WaterfallEnrichmentPage() {
             columns={6}
             blocks={[
               {
-                icon: <Database className="w-5 h-5" />,
+                icon: <Database />,
                 label: "Sources",
                 value: "Multi",
                 subValue: "Premium providers",
                 color: "blue",
               },
               {
-                icon: <Target className="w-5 h-5" />,
+                icon: <Crosshair />,
                 label: "Accuracy",
                 value: "98%",
                 subValue: "Data guarantee",
                 color: "green",
               },
               {
-                icon: <Mail className="w-5 h-5" />,
+                icon: <Envelope />,
                 label: "Email Only",
                 value: "1 Credit",
                 subValue: "Partial enrichment",
                 color: "yellow",
               },
               {
-                icon: <Phone className="w-5 h-5" />,
+                icon: <Phone />,
                 label: "Full Contact",
                 value: "10 Credits",
                 subValue: "Email + Phone",
                 color: "purple",
               },
               {
-                icon: <Shield className="w-5 h-5" />,
+                icon: <Shield />,
                 label: "Uptime",
                 value: "99.9%",
                 subValue: "SLA guaranteed",
                 color: "green",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
+                icon: <Lightning />,
                 label: "Processing",
                 value: "Fast",
                 subValue: "Batch & real-time",
@@ -219,7 +219,7 @@ export default function WaterfallEnrichmentPage() {
                   title: "Parallel Query Dispatch",
                   description:
                     "Your input record is sent to multiple premium data providers simultaneously.",
-                  icon: <Zap className="w-5 h-5" />,
+                  icon: <Lightning />,
                   details: [
                     "All sources queried in parallel, not sequential",
                     "Fast response times across all providers",
@@ -232,7 +232,7 @@ export default function WaterfallEnrichmentPage() {
                   title: "Response Validation",
                   description:
                     "Each response is validated for accuracy, freshness, and completeness.",
-                  icon: <Shield className="w-5 h-5" />,
+                  icon: <Shield />,
                   details: [
                     "Email syntax and deliverability check",
                     "Phone number format validation",
@@ -245,7 +245,7 @@ export default function WaterfallEnrichmentPage() {
                   title: "Best-Match Merge",
                   description:
                     "Our algorithm selects the highest-quality data point for each field.",
-                  icon: <GitMerge className="w-5 h-5" />,
+                  icon: <GitMerge />,
                   details: [
                     "Field-by-field quality comparison",
                     "Confidence scoring per data point",
@@ -258,7 +258,7 @@ export default function WaterfallEnrichmentPage() {
                   title: "Golden Record Output",
                   description:
                     "One complete, verified record with 25+ data points returned.",
-                  icon: <Target className="w-5 h-5" />,
+                  icon: <Crosshair />,
                   details: [
                     "Full contact information (email, phone, social)",
                     "Company firmographics (size, revenue, industry)",
@@ -286,7 +286,7 @@ export default function WaterfallEnrichmentPage() {
                   <div className="text-xs text-gray-500 mb-2">INPUT RECORD</div>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-[#3e8aff]/10 flex items-center justify-center">
-                      <User className="w-5 h-5 text-[#3e8aff]" />
+                      <User className="text-[#3e8aff]" />
                     </div>
                     <div>
                       <div className={`text-sm ${isDark ? "text-white" : "text-gray-900"}`}>John Smith</div>
@@ -327,7 +327,7 @@ export default function WaterfallEnrichmentPage() {
                 {/* Merge */}
                 <div className="flex justify-center mb-4">
                   <div className="px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-xs text-[#3e8aff] flex items-center gap-2">
-                    <GitMerge className="w-4 h-4" />
+                    <GitMerge />
                     Best-Match Merge
                   </div>
                 </div>
@@ -337,27 +337,27 @@ export default function WaterfallEnrichmentPage() {
                   <div className="text-xs text-[#3e8aff] mb-3">GOLDEN RECORD</div>
                   <div className="grid grid-cols-2 gap-3 text-xs">
                     <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                      <Mail className="w-3.5 h-3.5 text-[#3e8aff]" />
+                      <Envelope className="text-[#3e8aff]" />
                       john@acme.com
                     </div>
                     <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                      <Phone className="w-3.5 h-3.5 text-[#3e8aff]" />
+                      <Phone className="text-[#3e8aff]" />
                       +1 (555) 123-4567
                     </div>
                     <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                      <Building className="w-3.5 h-3.5 text-[#3e8aff]" />
+                      <Buildings className="text-[#3e8aff]" />
                       Acme Corporation
                     </div>
                     <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                      <Briefcase className="w-3.5 h-3.5 text-[#3e8aff]" />
+                      <Briefcase className="text-[#3e8aff]" />
                       VP of Sales
                     </div>
                     <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                      <MapPin className="w-3.5 h-3.5 text-[#3e8aff]" />
+                      <MapPin className="text-[#3e8aff]" />
                       San Francisco, CA
                     </div>
                     <div className={`flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                      <Link2 className="w-3.5 h-3.5 text-[#3e8aff]" />
+                      <LinkIcon className="text-[#3e8aff]" />
                       linkedin.com/in/jsmith
                     </div>
                   </div>
@@ -398,7 +398,7 @@ export default function WaterfallEnrichmentPage() {
               viewport={{ once: true }}
               className={`p-8 rounded-xl ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border`}
             >
-              <GlowIcon icon={<Mail />} size="xl" color="blue" variant="glow" className="mb-6" />
+              <GlowIcon icon={<Envelope />} size="xl" color="blue" variant="glow" className="mb-6" />
               <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Partial Enrichment</h3>
               <div className="text-4xl font-bold text-[#3e8aff] mb-4">1 Credit</div>
               <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -407,7 +407,7 @@ export default function WaterfallEnrichmentPage() {
               <ul className="space-y-3">
                 {["Verified work email", "Email deliverability check", "Company data enrichment", "LinkedIn profile URL"].map((item) => (
                   <li key={item} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
+                    <Check className="text-green-500" />
                     {item}
                   </li>
                 ))}
@@ -431,7 +431,7 @@ export default function WaterfallEnrichmentPage() {
               <ul className="space-y-3">
                 {["Everything in Partial", "Direct dial phone number", "Mobile phone number", "Complete firmographics", "Social profiles"].map((item) => (
                   <li key={item} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
+                    <Check className="text-green-500" />
                     {item}
                   </li>
                 ))}
@@ -451,7 +451,7 @@ export default function WaterfallEnrichmentPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <GlowIcon icon={<Target />} size="xs" color="blue" variant="ghost" />
+              <GlowIcon icon={<Crosshair />} size="xs" color="blue" variant="ghost" />
               Output Schema
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -489,7 +489,7 @@ export default function WaterfallEnrichmentPage() {
                     key={field}
                     className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                   >
-                    <Check className="w-4 h-4 text-green-500" />
+                    <Check className="text-green-500" />
                     {field}
                   </div>
                 ))}
@@ -499,7 +499,7 @@ export default function WaterfallEnrichmentPage() {
             {/* Company Fields */}
             <GlowCard className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <GlowIcon icon={<Building />} size="md" color="blue" variant="glow" />
+                <GlowIcon icon={<Buildings />} size="md" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Company Data</h3>
                   <p className="text-xs text-gray-500">Firmographic details</p>
@@ -522,7 +522,7 @@ export default function WaterfallEnrichmentPage() {
                     key={field}
                     className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                   >
-                    <Check className="w-4 h-4 text-green-500" />
+                    <Check className="text-green-500" />
                     {field}
                   </div>
                 ))}
@@ -532,7 +532,7 @@ export default function WaterfallEnrichmentPage() {
             {/* Metadata Fields */}
             <GlowCard className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <GlowIcon icon={<BarChart3 />} size="md" color="blue" variant="glow" />
+                <GlowIcon icon={<ChartBar />} size="md" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Metadata</h3>
                   <p className="text-xs text-gray-500">Quality & source info</p>
@@ -553,7 +553,7 @@ export default function WaterfallEnrichmentPage() {
                     key={field}
                     className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                   >
-                    <Check className="w-4 h-4 text-green-500" />
+                    <Check className="text-green-500" />
                     {field}
                   </div>
                 ))}
@@ -573,7 +573,7 @@ export default function WaterfallEnrichmentPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                <GlowIcon icon={<RefreshCw />} size="xs" color="blue" variant="ghost" />
+                <GlowIcon icon={<ArrowsClockwise />} size="xs" color="blue" variant="ghost" />
                 API Integration
               </div>
               <h2 className={`text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -593,7 +593,7 @@ export default function WaterfallEnrichmentPage() {
                   "SDKs: Python, Node.js, Go, Ruby",
                 ].map((feature) => (
                   <div key={feature} className={`flex items-center gap-3 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <Check className="w-5 h-5 text-green-500" />
+                    <Check className="text-green-500" />
                     {feature}
                   </div>
                 ))}
@@ -603,7 +603,7 @@ export default function WaterfallEnrichmentPage() {
                 href="#"
                 className="inline-flex items-center gap-2 mt-8 text-[#3e8aff] hover:underline"
               >
-                View API Documentation <ChevronRight className="w-4 h-4" />
+                View API Documentation <CaretRight />
               </Link>
             </motion.div>
 
@@ -662,42 +662,42 @@ export default function WaterfallEnrichmentPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: <Users className="w-6 h-6" />,
+                icon: <Users />,
                 title: "Lead List Enrichment",
                 description:
                   "Upload a list of companies and get complete contact details for decision-makers.",
                 result: "98% accuracy, comprehensive data",
               },
               {
-                icon: <RefreshCw className="w-6 h-6" />,
+                icon: <ArrowsClockwise />,
                 title: "CRM Data Hygiene",
                 description:
                   "Enrich existing CRM records to fill gaps and update stale information.",
                 result: "Keep your CRM data fresh",
               },
               {
-                icon: <Target className="w-6 h-6" />,
+                icon: <Crosshair />,
                 title: "ABM Campaign Prep",
                 description:
                   "Get verified emails and direct dials for your target account list.",
                 result: "Multi-channel outreach ready",
               },
               {
-                icon: <Calendar className="w-6 h-6" />,
+                icon: <Calendar />,
                 title: "Event Lead Capture",
                 description:
                   "Enrich badge scans with full contact and company data in real-time.",
                 result: "Fast lead qualification",
               },
               {
-                icon: <BarChart3 className="w-6 h-6" />,
+                icon: <ChartBar />,
                 title: "Market Research",
                 description:
                   "Build comprehensive prospect databases for TAM analysis and segmentation.",
                 result: "Complete firmographic coverage",
               },
               {
-                icon: <Globe className="w-6 h-6" />,
+                icon: <Globe />,
                 title: "International Expansion",
                 description:
                   "Get localized contact data for EMEA, APAC, and LATAM markets.",
@@ -716,7 +716,7 @@ export default function WaterfallEnrichmentPage() {
                 <h3 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{useCase.title}</h3>
                 <p className={`text-sm mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{useCase.description}</p>
                 <div className="flex items-center gap-2 text-xs text-green-500">
-                  <Check className="w-4 h-4" />
+                  <Check />
                   {useCase.result}
                 </div>
               </motion.div>
@@ -748,7 +748,7 @@ export default function WaterfallEnrichmentPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
               >
                 Try Waterfall Free
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight />
               </Link>
               <Link
                 href="/pricing"

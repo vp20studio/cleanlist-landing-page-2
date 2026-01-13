@@ -4,16 +4,16 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
-  Zap,
-  Target,
+  Lightning,
+  Crosshair,
   Calendar,
-  RefreshCw,
+  ArrowsClockwise,
   Users,
-  Mail,
+  Envelope,
   Phone,
-  TrendingUp,
+  TrendUp,
   CheckCircle,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -24,14 +24,14 @@ const playbooks = [
     description: "Extract, enrich, score, and sync to your CRM automatically.",
     result: "2x qualified meetings per BDR",
     resultColor: "text-green-500",
-    icon: <TrendingUp className="w-6 h-6" />,
+    icon: <TrendUp size={24} />,
     iconBg: "bg-green-500/10",
     iconColor: "text-green-500",
     steps: [
-      { icon: <Users className="w-4 h-4" />, label: "Extract from LinkedIn" },
-      { icon: <Zap className="w-4 h-4" />, label: "Waterfall Enrich" },
-      { icon: <Target className="w-4 h-4" />, label: "ICP Score" },
-      { icon: <ArrowRight className="w-4 h-4" />, label: "Sync to CRM" },
+      { icon: <Users size={16} />, label: "Extract from LinkedIn" },
+      { icon: <Lightning size={16} />, label: "Waterfall Enrich" },
+      { icon: <Crosshair size={16} />, label: "ICP Score" },
+      { icon: <ArrowRight size={16} />, label: "Sync to CRM" },
     ],
   },
   {
@@ -40,14 +40,14 @@ const playbooks = [
     description: "Build hyper-targeted account lists with verified decision makers.",
     result: "50% higher reply rates",
     resultColor: "text-blue-500",
-    icon: <Target className="w-6 h-6" />,
+    icon: <Crosshair size={24} />,
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-500",
     steps: [
-      { icon: <Target className="w-4 h-4" />, label: "Target Accounts" },
-      { icon: <Users className="w-4 h-4" />, label: "Find Contacts" },
-      { icon: <CheckCircle className="w-4 h-4" />, label: "Verify & Score" },
-      { icon: <Mail className="w-4 h-4" />, label: "Launch Campaign" },
+      { icon: <Crosshair size={16} />, label: "Target Accounts" },
+      { icon: <Users size={16} />, label: "Find Contacts" },
+      { icon: <CheckCircle size={16} />, label: "Verify & Score" },
+      { icon: <Envelope size={16} />, label: "Launch Campaign" },
     ],
   },
   {
@@ -56,14 +56,14 @@ const playbooks = [
     description: "Convert event leads while they're still warm.",
     result: "Convert leads in 24 hours",
     resultColor: "text-purple-500",
-    icon: <Calendar className="w-6 h-6" />,
+    icon: <Calendar size={24} />,
     iconBg: "bg-purple-500/10",
     iconColor: "text-purple-500",
     steps: [
-      { icon: <Users className="w-4 h-4" />, label: "Upload Attendees" },
-      { icon: <Mail className="w-4 h-4" />, label: "Verify Emails" },
-      { icon: <Phone className="w-4 h-4" />, label: "Find Phones" },
-      { icon: <Zap className="w-4 h-4" />, label: "Auto-Sequence" },
+      { icon: <Users size={16} />, label: "Upload Attendees" },
+      { icon: <Envelope size={16} />, label: "Verify Emails" },
+      { icon: <Phone size={16} />, label: "Find Phones" },
+      { icon: <Lightning size={16} />, label: "Auto-Sequence" },
     ],
   },
   {
@@ -72,14 +72,14 @@ const playbooks = [
     description: "Eliminate data decay and keep your CRM fresh.",
     result: "Eliminate data decay weekly",
     resultColor: "text-orange-500",
-    icon: <RefreshCw className="w-6 h-6" />,
+    icon: <ArrowsClockwise size={24} />,
     iconBg: "bg-orange-500/10",
     iconColor: "text-orange-500",
     steps: [
-      { icon: <RefreshCw className="w-4 h-4" />, label: "Audit CRM" },
-      { icon: <CheckCircle className="w-4 h-4" />, label: "Remove Dupes" },
-      { icon: <Mail className="w-4 h-4" />, label: "Re-verify" },
-      { icon: <ArrowRight className="w-4 h-4" />, label: "Update Records" },
+      { icon: <ArrowsClockwise size={16} />, label: "Audit CRM" },
+      { icon: <CheckCircle size={16} />, label: "Remove Dupes" },
+      { icon: <Envelope size={16} />, label: "Re-verify" },
+      { icon: <ArrowRight size={16} />, label: "Update Records" },
     ],
   },
 ];
@@ -192,7 +192,7 @@ function PlaybookCard({
                   }}
                 >
                   {isCompleted ? (
-                    <CheckCircle className="w-4 h-4" />
+                    <CheckCircle size={16} />
                   ) : (
                     step.icon
                   )}
@@ -245,7 +245,7 @@ function PlaybookCard({
             animate={hoveredCard ? { scale: [1, 1.2, 1] } : {}}
             transition={{ duration: 0.4 }}
           >
-            <CheckCircle className={`w-5 h-5 ${playbook.resultColor}`} />
+            <CheckCircle size={20} className={playbook.resultColor} />
           </motion.div>
           <span className={`text-sm font-medium ${playbook.resultColor}`}>
             {playbook.result}
@@ -255,7 +255,7 @@ function PlaybookCard({
           href="/product/playbook-builder"
           className="text-sm text-[#3e8aff] hover:underline opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1"
         >
-          Learn more <ArrowRight className="w-3 h-3" />
+          Learn more <ArrowRight size={12} />
         </Link>
       </div>
     </motion.div>
@@ -276,7 +276,7 @@ export default function PlaybooksSection() {
           className="text-center mb-10 md:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-            <Zap className="w-4 h-4" />
+            <Lightning size={16} />
             Pre-Built Playbooks
           </div>
           <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -315,7 +315,7 @@ export default function PlaybooksSection() {
             href="/product/playbook-builder"
             className="inline-flex items-center gap-2 text-[#3e8aff] hover:underline text-sm font-medium"
           >
-            Browse all playbooks <ArrowRight className="w-4 h-4" />
+            Browse all playbooks <ArrowRight size={16} />
           </Link>
         </motion.div>
       </div>

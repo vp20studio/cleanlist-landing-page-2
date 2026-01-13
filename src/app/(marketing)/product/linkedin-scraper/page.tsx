@@ -2,31 +2,31 @@
 
 import { motion } from "framer-motion";
 import {
-  Linkedin,
+  LinkedinLogo,
   ArrowRight,
-  Chrome,
-  Search,
+  GoogleChromeLogo,
+  MagnifyingGlass,
   Users,
   Download,
-  Zap,
+  Lightning,
   Shield,
-  CheckCircle2,
-  Filter,
+  CheckCircle,
+  Funnel,
   Database,
-  TrendingUp,
+  TrendUp,
   Clock,
-  RefreshCw,
-} from "lucide-react";
+  ArrowsClockwise,
+} from "@phosphor-icons/react";
 import { GlowCard, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
 const features = [
   {
-    icon: Search,
+    icon: MagnifyingGlass,
     title: "Sales Navigator Integration",
     description: "Extract leads directly from Sales Navigator search results, saved leads, and account lists.",
   },
   {
-    icon: Filter,
+    icon: Funnel,
     title: "Advanced Filtering",
     description: "Filter by seniority, company size, industry, location, and 20+ other criteria before export.",
   },
@@ -36,7 +36,7 @@ const features = [
     description: "Export up to 2,500 profiles per search. No daily limits on extraction.",
   },
   {
-    icon: RefreshCw,
+    icon: ArrowsClockwise,
     title: "Auto-Enrichment",
     description: "Automatically enrich exported leads with verified emails through our Waterfall engine.",
   },
@@ -120,7 +120,7 @@ export default function LinkedInScraperPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(10,102,194,0.3)] bg-[rgba(10,102,194,0.05)] text-sm text-[#0a66c2] mb-6">
-              <Chrome className="w-4 h-4" />
+              <GoogleChromeLogo className="w-4 h-4" />
               Chrome Extension
             </span>
 
@@ -137,7 +137,7 @@ export default function LinkedInScraperPage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticButton href="/get-started" size="lg">
-                <Chrome className="w-5 h-5" />
+                <GoogleChromeLogo className="w-5 h-5" />
                 Install Extension
               </MagneticButton>
               <MagneticButton href="/docs/linkedin" variant="secondary" size="lg">
@@ -162,7 +162,7 @@ export default function LinkedInScraperPage() {
                   </div>
                   <div className="flex-1 flex items-center justify-center">
                     <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-[rgba(255,255,255,0.05)] text-xs text-[#888888]">
-                      <Linkedin className="w-4 h-4 text-[#0a66c2]" />
+                      <LinkedinLogo className="w-4 h-4 text-[#0a66c2]" />
                       linkedin.com/sales/search/people
                     </div>
                   </div>
@@ -198,7 +198,7 @@ export default function LinkedInScraperPage() {
                               {["VP Marketing at TechCorp", "Head of Growth at ScaleUp", "Director of Sales at Enterprise"][i - 1]}
                             </p>
                           </div>
-                          <CheckCircle2 className="w-5 h-5 text-[#22c55e]" />
+                          <CheckCircle className="w-5 h-5 text-[#22c55e]" />
                         </div>
                       ))}
                     </div>
@@ -255,7 +255,7 @@ export default function LinkedInScraperPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Features"
-            badgeIcon={<Zap className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<Lightning className="w-4 h-4 text-[#3e8aff]" />}
             title="Built for Sales Teams"
             highlight="Sales Teams"
             description="Everything you need to build targeted lead lists from LinkedIn Sales Navigator."
@@ -322,7 +322,7 @@ export default function LinkedInScraperPage() {
                       key={field}
                       className="flex items-center gap-2 py-2 px-3 rounded-lg bg-[rgba(255,255,255,0.02)]"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
+                      <CheckCircle className="w-4 h-4 text-[#22c55e]" />
                       <span className="text-sm text-[#888888]">{field}</span>
                     </div>
                   ))}
@@ -363,7 +363,7 @@ export default function LinkedInScraperPage() {
                 step: "01",
                 title: "Search in Sales Navigator",
                 description: "Use LinkedIn's powerful filters to find your ideal prospects. Filter by title, company size, industry, and more.",
-                icon: Search,
+                icon: MagnifyingGlass,
               },
               {
                 step: "02",
@@ -416,7 +416,7 @@ export default function LinkedInScraperPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Results"
-            badgeIcon={<TrendingUp className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<TrendUp className="w-4 h-4 text-[#3e8aff]" />}
             title="Sales Teams Love It"
             highlight="Love It"
             description="See how teams are accelerating their prospecting with Cleanlist."
@@ -484,7 +484,7 @@ export default function LinkedInScraperPage() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticButton href="/get-started" size="lg">
-                <Chrome className="w-5 h-5" />
+                <GoogleChromeLogo className="w-5 h-5" />
                 Install Free Extension
               </MagneticButton>
               <MagneticButton href="/pricing" variant="secondary" size="lg">

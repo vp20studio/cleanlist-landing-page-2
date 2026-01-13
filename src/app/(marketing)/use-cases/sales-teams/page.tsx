@@ -5,17 +5,17 @@ import Link from "next/link";
 import {
   ArrowRight,
   Users,
-  Target,
+  Crosshair,
   Clock,
   Check,
-  TrendingUp,
-  Mail,
+  TrendUp,
+  Envelope,
   Phone,
-  Calendar,
-  BarChart3,
-  Zap,
-  MessageSquare,
-} from "lucide-react";
+  CalendarBlank,
+  ChartBar,
+  Lightning,
+  ChatCircle,
+} from "@phosphor-icons/react";
 import { TechnicalGrid, GlowCard, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -74,7 +74,7 @@ export default function SalesTeamsPage() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
                 Start Free Trial
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight />
               </Link>
               <Link
                 href="/pricing"
@@ -94,28 +94,28 @@ export default function SalesTeamsPage() {
             columns={4}
             blocks={[
               {
-                icon: <Clock className="w-5 h-5" />,
+                icon: <Clock />,
                 label: "Research Time",
                 value: "-50%",
                 subValue: "Less prospecting",
                 color: "green",
               },
               {
-                icon: <MessageSquare className="w-5 h-5" />,
+                icon: <ChatCircle />,
                 label: "Conversations",
                 value: "3x",
                 subValue: "More connections",
                 color: "blue",
               },
               {
-                icon: <Mail className="w-5 h-5" />,
+                icon: <Envelope />,
                 label: "Deliverability",
                 value: "98%",
                 subValue: "Email success rate",
                 color: "purple",
               },
               {
-                icon: <TrendingUp className="w-5 h-5" />,
+                icon: <TrendUp />,
                 label: "Pipeline",
                 value: "+40%",
                 subValue: "More opportunities",
@@ -180,7 +180,7 @@ export default function SalesTeamsPage() {
               >
                 <div className="text-red-500/60 text-sm mb-3 line-through">{item.problem}</div>
                 <div className="flex items-center gap-2 text-green-500">
-                  <Check className="w-5 h-5" />
+                  <Check />
                   {item.solution}
                 </div>
               </motion.div>
@@ -209,25 +209,25 @@ export default function SalesTeamsPage() {
                 step: "1",
                 title: "Build Your List",
                 description: "Export from Sales Navigator or upload a CSV of target accounts.",
-                icon: <Target className="w-6 h-6" />,
+                icon: <Crosshair />,
               },
               {
                 step: "2",
                 title: "Enrich & Verify",
                 description: "We find verified emails, phones, and company data automatically.",
-                icon: <Zap className="w-6 h-6" />,
+                icon: <Lightning />,
               },
               {
                 step: "3",
                 title: "Sync to CRM",
                 description: "Push enriched contacts directly to Salesforce, HubSpot, or Outreach.",
-                icon: <BarChart3 className="w-6 h-6" />,
+                icon: <ChartBar />,
               },
               {
                 step: "4",
                 title: "Start Selling",
                 description: "Focus on conversations, not research. Close more deals.",
-                icon: <TrendingUp className="w-6 h-6" />,
+                icon: <TrendUp />,
               },
             ].map((item, index) => (
               <motion.div
@@ -270,32 +270,32 @@ export default function SalesTeamsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: <Mail className="w-6 h-6" />,
+                icon: <Envelope />,
                 title: "Verified Work Emails",
                 description: "Validated emails with 98% accuracy guarantee.",
               },
               {
-                icon: <Phone className="w-6 h-6" />,
+                icon: <Phone />,
                 title: "Direct Phone Numbers",
                 description: "Mobile and direct dial numbers to bypass gatekeepers.",
               },
               {
-                icon: <Target className="w-6 h-6" />,
+                icon: <Crosshair />,
                 title: "Sales Nav Integration",
                 description: "Export and enrich leads directly from LinkedIn Sales Navigator.",
               },
               {
-                icon: <Calendar className="w-6 h-6" />,
+                icon: <CalendarBlank />,
                 title: "Outreach Sync",
                 description: "Push contacts to Outreach, Salesloft, or Apollo sequences.",
               },
               {
-                icon: <BarChart3 className="w-6 h-6" />,
+                icon: <ChartBar />,
                 title: "CRM Enrichment",
                 description: "Keep Salesforce or HubSpot records complete and up-to-date.",
               },
               {
-                icon: <Users className="w-6 h-6" />,
+                icon: <Users />,
                 title: "Team Workspaces",
                 description: "Shared credits and centralized admin for your team.",
               },
@@ -340,7 +340,7 @@ export default function SalesTeamsPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
             >
               Start Free Trial
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight />
             </Link>
           </motion.div>
         </div>

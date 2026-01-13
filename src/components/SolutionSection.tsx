@@ -8,12 +8,12 @@ import {
   Database,
   GitBranch,
   Rocket,
-  CheckCircle2,
-  Zap,
+  CheckCircle,
+  Lightning,
   ArrowRight,
   Play,
-  ExternalLink
-} from "lucide-react";
+  ArrowSquareOut
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -33,7 +33,7 @@ interface Feature {
 const features: Feature[] = [
   {
     id: "playbooks",
-    icon: <BookOpen className="h-6 w-6" />,
+    icon: <BookOpen />,
     title: "Pre-built Playbooks",
     subtitle: "Launch in minutes, not months",
     description: "Outbound, inbound, intent, ABM — proven GTM motions ready to deploy. No GTM engineer required.",
@@ -59,7 +59,7 @@ const features: Feature[] = [
   },
   {
     id: "enrichment",
-    icon: <Database className="h-6 w-6" />,
+    icon: <Database />,
     title: "Waterfall Enrichment",
     subtitle: "15+ data providers, one click",
     description: "Cascade through multiple data sources automatically. Pay only for matches, maximize coverage.",
@@ -91,7 +91,7 @@ const features: Feature[] = [
   },
   {
     id: "validation",
-    icon: <GitBranch className="h-6 w-6" />,
+    icon: <GitBranch />,
     title: "Smart Validation",
     subtitle: "ICP scoring that actually works",
     description: "Custom rules, AI-powered scoring, and automatic routing. Every lead scored and sorted instantly.",
@@ -134,7 +134,7 @@ const features: Feature[] = [
   },
   {
     id: "execution",
-    icon: <Rocket className="h-6 w-6" />,
+    icon: <Rocket />,
     title: "Stack Execution",
     subtitle: "Your tools, orchestrated",
     description: "Push enriched, validated contacts directly to CRM, sequencer, and ad platforms. Real-time sync.",
@@ -223,7 +223,7 @@ export default function SolutionSection() {
           className="text-center mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-500 text-sm font-medium mb-6">
-            <GlowIcon icon={<Zap />} size="xs" color="green" variant="ghost" />
+            <GlowIcon icon={<Lightning />} size="xs" color="green" variant="ghost" />
             The Solution
           </span>
           <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -269,11 +269,11 @@ export default function SolutionSection() {
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{feature.title}</h3>
-                      <ArrowRight className={`h-4 w-4 transition-all ${
+                      <ArrowRight className={`transition-all ${
                         activeFeature === feature.id
                           ? "opacity-100 translate-x-0"
                           : "opacity-0 -translate-x-2"
-                      } ${isDark ? "text-white" : "text-gray-900"}`} />
+                      } ${isDark ? "text-white" : "text-gray-900"}`} size={16} />
                     </div>
                     <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.subtitle}</p>
                   </div>
@@ -342,7 +342,7 @@ export default function SolutionSection() {
                         : "bg-gray-50 border-black/[0.08]"
                     }`}
                   >
-                    <GlowIcon icon={<CheckCircle2 />} size="xs" color={getGlowIconColor(activeData.color)} variant="ghost" />
+                    <GlowIcon icon={<CheckCircle />} size="xs" color={getGlowIconColor(activeData.color)} variant="ghost" />
                     <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{benefit}</span>
                   </motion.div>
                 ))}
@@ -356,9 +356,9 @@ export default function SolutionSection() {
                   className={`mt-8 w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors ${getColorClasses(activeData.color, "bg")} ${getColorClasses(activeData.color, "text")} hover:opacity-80`}
                 >
                   {activeData.ctaText === "Learn more" ? (
-                    <ExternalLink className="h-4 w-4" />
+                    <ArrowSquareOut size={16} />
                   ) : (
-                    <Play className="h-4 w-4" />
+                    <Play size={16} />
                   )}
                   {activeData.ctaText}
                 </motion.div>

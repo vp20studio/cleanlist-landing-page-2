@@ -5,14 +5,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Check,
   X,
-  Loader2,
-  Mail,
+  CircleNotch,
+  Envelope,
   Phone,
-  Building,
+  Buildings,
   User,
-  RotateCcw,
-  Sparkles,
-} from "lucide-react";
+  ArrowsClockwise,
+  Sparkle,
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -131,7 +131,7 @@ export default function WaterfallEnrichmentDemo() {
               : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
           }`}
         >
-          <RotateCcw className="w-3.5 h-3.5" />
+          <ArrowsClockwise size={14} />
           {stage === "idle" ? "Run" : "Reset"}
         </button>
       </div>
@@ -197,7 +197,7 @@ export default function WaterfallEnrichmentDemo() {
                         animate={{ rotate: 360 }}
                         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                       >
-                        <Loader2 className="w-4 h-4 text-[#3e8aff]" />
+                        <CircleNotch size={16} className="text-[#3e8aff]" />
                       </motion.div>
                     )}
                     {isQueried && !isActive && (
@@ -208,11 +208,11 @@ export default function WaterfallEnrichmentDemo() {
                       >
                         {provider.found ? (
                           <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-                            <Check className="w-3.5 h-3.5 text-green-500" />
+                            <Check size={14} className="text-green-500" />
                           </div>
                         ) : (
                           <div className="w-6 h-6 rounded-full bg-red-500/20 flex items-center justify-center">
-                            <X className="w-3.5 h-3.5 text-red-500" />
+                            <X size={14} className="text-red-500" />
                           </div>
                         )}
                       </motion.div>
@@ -279,7 +279,7 @@ export default function WaterfallEnrichmentDemo() {
                       animate={{ scale: 1 }}
                       className="ml-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-green-500/20 text-green-500 text-xs font-medium"
                     >
-                      <Sparkles className="w-3 h-3" />
+                      <Sparkle size={12} />
                       Complete
                     </motion.div>
                   )}
@@ -288,10 +288,10 @@ export default function WaterfallEnrichmentDemo() {
                 {/* Fields */}
                 <div className="space-y-2.5">
                   {[
-                    { key: "title", icon: <User className="w-4 h-4" />, label: "Title", value: goldenRecord.title },
-                    { key: "company", icon: <Building className="w-4 h-4" />, label: "Company", value: goldenRecord.company },
-                    { key: "email", icon: <Mail className="w-4 h-4" />, label: "Email", value: goldenRecord.email },
-                    { key: "phone", icon: <Phone className="w-4 h-4" />, label: "Phone", value: goldenRecord.phone },
+                    { key: "title", icon: <User size={16} />, label: "Title", value: goldenRecord.title },
+                    { key: "company", icon: <Buildings size={16} />, label: "Company", value: goldenRecord.company },
+                    { key: "email", icon: <Envelope size={16} />, label: "Email", value: goldenRecord.email },
+                    { key: "phone", icon: <Phone size={16} />, label: "Phone", value: goldenRecord.phone },
                   ].map((field) => (
                     <div
                       key={field.key}
@@ -324,7 +324,7 @@ export default function WaterfallEnrichmentDemo() {
                             </motion.span>
                           ) : (
                             <span className="flex items-center gap-1">
-                              <Loader2 className="w-3 h-3 animate-spin" />
+                              <CircleNotch size={12} className="animate-spin" />
                               Searching...
                             </span>
                           )}
@@ -335,7 +335,7 @@ export default function WaterfallEnrichmentDemo() {
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
                         >
-                          <Check className="w-4 h-4 text-green-500" />
+                          <Check size={16} className="text-green-500" />
                         </motion.div>
                       )}
                     </div>

@@ -3,16 +3,16 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  Linkedin,
-  Sparkles,
+  LinkedinLogo,
+  Sparkle,
   Check,
-  RefreshCw,
-  Target,
-  Mail,
+  ArrowsClockwise,
+  Crosshair,
+  Envelope,
   Phone,
-  Building,
+  Buildings,
   User,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 import WaterfallEnrichmentDemo from "./WaterfallEnrichmentDemo";
@@ -21,17 +21,17 @@ const demoTabs = [
   {
     id: "linkedin",
     label: "LinkedIn Extraction",
-    icon: <Linkedin className="w-4 h-4" />,
+    icon: <LinkedinLogo />,
   },
   {
     id: "enrichment",
     label: "Waterfall Enrichment",
-    icon: <RefreshCw className="w-4 h-4" />,
+    icon: <ArrowsClockwise />,
   },
   {
     id: "scoring",
     label: "Smart Columns + ICP",
-    icon: <Target className="w-4 h-4" />,
+    icon: <Crosshair />,
   },
 ];
 
@@ -74,7 +74,7 @@ export default function InteractiveDemo() {
           className="text-center mb-10 md:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-            <GlowIcon icon={<Sparkles />} size="xs" color="blue" variant="ghost" />
+            <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="ghost" />
             See It In Action
           </div>
           <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -128,7 +128,7 @@ export default function InteractiveDemo() {
                 <div className={`p-5 md:p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-black/[0.08]"}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0077b5] to-[#00a0dc] flex items-center justify-center">
-                      <User className="w-6 h-6 text-white" />
+                      <User className="text-white" size={24} />
                     </div>
                     <div>
                       <div className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Sarah Chen</div>
@@ -140,7 +140,7 @@ export default function InteractiveDemo() {
                       className="ml-auto"
                     >
                       <div className="px-3 py-1.5 rounded-lg bg-[#3e8aff] text-white text-xs font-medium flex items-center gap-1">
-                        <Check className="w-3 h-3" />
+                        <Check size={12} />
                         Extracted
                       </div>
                     </motion.div>
@@ -148,9 +148,9 @@ export default function InteractiveDemo() {
 
                   <div className="space-y-2">
                     {[
-                      { icon: <Building className="w-4 h-4" />, label: "TechCorp Inc.", delay: 0 },
-                      { icon: <Mail className="w-4 h-4" />, label: "sarah.chen@techcorp.com", delay: 0.2, enriched: true },
-                      { icon: <Phone className="w-4 h-4" />, label: "+1 (415) 555-0123", delay: 0.4, enriched: true },
+                      { icon: <Buildings size={16} />, label: "TechCorp Inc.", delay: 0 },
+                      { icon: <Envelope size={16} />, label: "sarah.chen@techcorp.com", delay: 0.2, enriched: true },
+                      { icon: <Phone size={16} />, label: "+1 (415) 555-0123", delay: 0.4, enriched: true },
                     ].map((item, i) => (
                       <motion.div
                         key={item.label}
@@ -168,7 +168,7 @@ export default function InteractiveDemo() {
                         </span>
                         <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{item.label}</span>
                         {item.enriched && animationStep >= 2 && (
-                          <Check className="w-4 h-4 text-green-500 ml-auto" />
+                          <Check size={16} className="text-green-500 ml-auto" />
                         )}
                       </motion.div>
                     ))}
@@ -196,7 +196,7 @@ export default function InteractiveDemo() {
                           ? "bg-[#3e8aff] text-white"
                           : isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-500"
                       }`}>
-                        {animationStep >= item.step ? <Check className="w-4 h-4" /> : item.step}
+                        {animationStep >= item.step ? <Check size={16} /> : item.step}
                       </div>
                       <div>
                         <div className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.title}</div>
@@ -295,7 +295,7 @@ export default function InteractiveDemo() {
                       "Engagement signals",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-[#3e8aff]" />
+                        <Check size={16} className="text-[#3e8aff]" />
                         <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{item}</span>
                       </div>
                     ))}

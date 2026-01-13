@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Database, Layers, Target, Zap } from "lucide-react";
+import { Database, Stack, Crosshair, Lightning } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -97,28 +97,28 @@ export default function AnimatedStats() {
 
   const stats: StatItem[] = [
     {
-      icon: <Database className="h-5 w-5" />,
+      icon: <Database />,
       value: 400,
       suffix: "M+",
       label: "Contacts",
       duration: 2,
     },
     {
-      icon: <Layers className="h-5 w-5" />,
+      icon: <Stack />,
       value: 15,
       suffix: "+",
       label: "Data Providers",
       duration: 1.5,
     },
     {
-      icon: <Target className="h-5 w-5" />,
+      icon: <Crosshair />,
       value: 95,
       suffix: "%",
       label: "Accuracy",
       duration: 1.8,
     },
     {
-      icon: <Zap className="h-5 w-5" />,
+      icon: <Lightning />,
       value: 5,
       suffix: "min",
       label: "Setup Time",

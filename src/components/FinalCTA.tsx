@@ -7,15 +7,15 @@ import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 import {
   ArrowRight,
-  Sparkles,
-  Zap,
+  Sparkle,
+  Lightning,
   Shield,
   Clock,
-  Building,
-} from "lucide-react";
+  Buildings,
+} from "@phosphor-icons/react";
 
 const benefits = [
-  { icon: <Zap />, text: "30 credits free", color: "blue" as const },
+  { icon: <Lightning />, text: "30 credits free", color: "blue" as const },
   { icon: <Shield />, text: "No card required", color: "green" as const },
   { icon: <Clock />, text: "Setup in 5 minutes", color: "purple" as const },
 ];
@@ -125,7 +125,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 mb-8"
         >
-          <GlowIcon icon={<Sparkles />} size="xs" color="blue" variant="glow" animated />
+          <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="glow" animated />
           <span className="text-sm font-medium text-[#3e8aff]">
             No credit card required
           </span>
@@ -179,7 +179,7 @@ export default function FinalCTA() {
               />
               <span className="relative flex items-center gap-2">
                 Start Free
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
               </span>
             </Link>
           </motion.div>
@@ -193,7 +193,7 @@ export default function FinalCTA() {
                   : "border-gray-300 text-gray-900 hover:bg-gray-100"
               }`}
             >
-              <Building className="w-5 h-5" />
+              <Buildings size={20} />
               Book a Demo
             </Link>
           </motion.div>

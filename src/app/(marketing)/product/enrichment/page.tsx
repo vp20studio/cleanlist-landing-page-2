@@ -2,23 +2,23 @@
 
 import { motion } from "framer-motion";
 import {
-  Sparkles,
+  Sparkle,
   ArrowRight,
   Database,
-  Zap,
-  CheckCircle2,
-  DollarSign,
-  TrendingUp,
+  Lightning,
+  CheckCircle,
+  CurrencyDollar,
+  TrendUp,
   Shield,
   Globe,
   Users,
-  Building2,
-  Linkedin,
-  Mail,
+  Buildings,
+  LinkedinLogo,
+  Envelope,
   Phone,
   MapPin,
   Briefcase,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { GlowCard, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
 // Data providers in the waterfall
@@ -43,13 +43,13 @@ const dataProviders = [
 const enrichmentFields = [
   { icon: Users, label: "Full Name", example: "John Smith" },
   { icon: Briefcase, label: "Job Title", example: "VP of Marketing" },
-  { icon: Building2, label: "Company", example: "Acme Corporation" },
+  { icon: Buildings, label: "Company", example: "Acme Corporation" },
   { icon: Globe, label: "Company Size", example: "500-1000 employees" },
-  { icon: DollarSign, label: "Revenue", example: "$50M - $100M" },
+  { icon: CurrencyDollar, label: "Revenue", example: "$50M - $100M" },
   { icon: MapPin, label: "Location", example: "San Francisco, CA" },
-  { icon: Linkedin, label: "LinkedIn", example: "linkedin.com/in/johnsmith" },
+  { icon: LinkedinLogo, label: "LinkedIn", example: "linkedin.com/in/johnsmith" },
   { icon: Phone, label: "Phone", example: "+1 (555) 123-4567" },
-  { icon: Mail, label: "Work Email", example: "j.smith@acme.com" },
+  { icon: Envelope, label: "Work Email", example: "j.smith@acme.com" },
 ];
 
 const sampleResponse = `{
@@ -110,7 +110,7 @@ export default function EnrichmentPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(62,138,255,0.3)] bg-[rgba(62,138,255,0.05)] text-sm text-[#3e8aff] mb-6">
-              <Sparkles className="w-4 h-4" />
+              <Sparkle className="w-4 h-4" />
               Waterfall Enrichment Engine
             </span>
 
@@ -193,7 +193,7 @@ export default function EnrichmentPage() {
                           {provider.accuracy} accuracy
                         </span>
                         {index === 0 && (
-                          <CheckCircle2 className="w-5 h-5 text-[#22c55e]" />
+                          <CheckCircle className="w-5 h-5 text-[#22c55e]" />
                         )}
                       </div>
                     </motion.div>
@@ -216,7 +216,7 @@ export default function EnrichmentPage() {
               className="space-y-6"
             >
               <BenefitCard
-                icon={<DollarSign className="w-6 h-6" />}
+                icon={<CurrencyDollar className="w-6 h-6" />}
                 title="Credit Efficiency"
                 description="Only pay for one successful match. If Apollo has the data, we stop there—no wasted queries to downstream providers."
                 stat="60%"
@@ -224,7 +224,7 @@ export default function EnrichmentPage() {
                 color="#22c55e"
               />
               <BenefitCard
-                icon={<Zap className="w-6 h-6" />}
+                icon={<Lightning className="w-6 h-6" />}
                 title="Speed Priority"
                 description="Providers are ordered by response time. Get enriched data in under 200ms on average."
                 stat="<200ms"
@@ -232,7 +232,7 @@ export default function EnrichmentPage() {
                 color="#3e8aff"
               />
               <BenefitCard
-                icon={<TrendingUp className="w-6 h-6" />}
+                icon={<TrendUp className="w-6 h-6" />}
                 title="Accuracy First"
                 description="We prioritize providers with the highest accuracy rates, ensuring your Golden Record is always reliable."
                 stat="94%"
@@ -257,7 +257,7 @@ export default function EnrichmentPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="25+ Data Points"
-            badgeIcon={<Sparkles className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<Sparkle className="w-4 h-4 text-[#3e8aff]" />}
             title="The Golden Record"
             highlight="Golden Record"
             description="Transform a simple email into a complete profile with firmographic, demographic, and social data."
@@ -345,7 +345,7 @@ export default function EnrichmentPage() {
               <GlowCard>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.1)] flex items-center justify-center text-[#22c55e]">
-                    <CheckCircle2 className="w-5 h-5" />
+                    <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">
@@ -418,7 +418,7 @@ export default function EnrichmentPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Results"
-            badgeIcon={<TrendingUp className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<TrendUp className="w-4 h-4 text-[#3e8aff]" />}
             title="Real Customer Results"
             highlight="Results"
             description="See how teams are using Waterfall Enrichment to accelerate their pipeline."

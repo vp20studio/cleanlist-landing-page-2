@@ -4,19 +4,19 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import {
   Upload,
-  Sparkles,
+  Sparkle,
   Database,
-  CheckCircle2,
+  CheckCircle,
   ArrowRight,
-  AlertTriangle,
+  Warning,
   XCircle,
-  Linkedin,
-  Building2,
+  LinkedinLogo,
+  Buildings,
   Users,
   Globe,
-  Mail,
+  Envelope,
   Crown,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 
 const steps = [
   {
@@ -30,7 +30,7 @@ const steps = [
     id: 2,
     title: "The Scrub",
     subtitle: "Verification engine",
-    icon: Sparkles,
+    icon: Sparkle,
     color: "#ef4444",
   },
   {
@@ -132,7 +132,7 @@ export default function DataLifecycle() {
                         activeStep === step.id ? step.color : "#888888",
                     }}
                   >
-                    <step.icon className="w-4 h-4" />
+                    <step.icon size={16} />
                   </div>
                   <div className="hidden md:block text-left">
                     <p
@@ -181,7 +181,7 @@ export default function DataLifecycle() {
             className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:text-[#60a5fa] transition-colors"
           >
             Learn more about our data pipeline
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight size={16} />
           </a>
         </motion.div>
       </div>
@@ -201,7 +201,7 @@ function IngestionStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(245,158,11,0.1)] flex items-center justify-center">
-            <Upload className="w-6 h-6 text-[#f59e0b]" />
+            <Upload size={24} className="text-[#f59e0b]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">Step 01: Ingestion</h3>
@@ -215,17 +215,17 @@ function IngestionStep() {
         </p>
         <div className="space-y-3">
           <IssueTag
-            icon={<AlertTriangle className="w-3.5 h-3.5" />}
+            icon={<Warning />}
             text="Mixed case formatting"
             color="#f59e0b"
           />
           <IssueTag
-            icon={<XCircle className="w-3.5 h-3.5" />}
+            icon={<XCircle />}
             text="Missing company data"
             color="#ef4444"
           />
           <IssueTag
-            icon={<AlertTriangle className="w-3.5 h-3.5" />}
+            icon={<Warning />}
             text="Potential burner domains"
             color="#f59e0b"
           />
@@ -295,7 +295,7 @@ function ScrubStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(239,68,68,0.1)] flex items-center justify-center">
-            <Sparkles className="w-6 h-6 text-[#ef4444]" />
+            <Sparkle size={24} className="text-[#ef4444]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">Step 02: The Scrub</h3>
@@ -371,7 +371,7 @@ function EnrichmentStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(62,138,255,0.1)] flex items-center justify-center">
-            <Database className="w-6 h-6 text-[#3e8aff]" />
+            <Database size={24} className="text-[#3e8aff]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">
@@ -386,11 +386,11 @@ function EnrichmentStep() {
           revenue, tech stack, and more—all appended automatically.
         </p>
         <div className="grid grid-cols-4 gap-2">
-          <EnrichmentIcon icon={<Linkedin />} label="LinkedIn" />
-          <EnrichmentIcon icon={<Building2 />} label="Company" />
+          <EnrichmentIcon icon={<LinkedinLogo />} label="LinkedIn" />
+          <EnrichmentIcon icon={<Buildings />} label="Company" />
           <EnrichmentIcon icon={<Users />} label="Size" />
           <EnrichmentIcon icon={<Globe />} label="Location" />
-          <EnrichmentIcon icon={<Mail />} label="Alt Email" />
+          <EnrichmentIcon icon={<Envelope />} label="Alt Email" />
           <EnrichmentIcon icon={<Database />} label="Tech Stack" />
           <span className="flex items-center justify-center text-xs text-[#888888]">
             +19 more
@@ -453,7 +453,7 @@ function OutputStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(34,197,94,0.1)] flex items-center justify-center">
-            <Crown className="w-6 h-6 text-[#22c55e]" />
+            <Crown size={24} className="text-[#22c55e]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">
@@ -489,7 +489,7 @@ function OutputStep() {
         <div className="flex items-center justify-between mb-4">
           <p className="text-xs text-[#888888] font-mono">golden_records.json</p>
           <span className="flex items-center gap-1.5 text-xs text-[#22c55e]">
-            <CheckCircle2 className="w-3.5 h-3.5" />
+            <CheckCircle size={14} />
             CRM Ready
           </span>
         </div>
@@ -564,7 +564,7 @@ function RawDataRow({
       <div className="flex items-center justify-between mb-1">
         <span className="text-[#888888] text-xs">{data.email}</span>
         {hasIssues && (
-          <AlertTriangle className="w-3.5 h-3.5 text-[#f59e0b]" />
+          <Warning size={14} className="text-[#f59e0b]" />
         )}
       </div>
       <div className="flex gap-4 text-[10px]">
@@ -631,9 +631,9 @@ function VerificationRow({
           {email}
         </span>
         {status === "valid" ? (
-          <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
+          <CheckCircle size={16} className="text-[#22c55e]" />
         ) : (
-          <XCircle className="w-4 h-4 text-[#ef4444]" />
+          <XCircle size={16} className="text-[#ef4444]" />
         )}
       </div>
       <div className="flex flex-wrap gap-1">
@@ -756,7 +756,7 @@ function GoldenRecord({
           {data.title} at <span className="text-white">{data.company}</span>
         </span>
         <span className="flex items-center gap-1 text-[#22c55e]">
-          <CheckCircle2 className="w-3 h-3" />
+          <CheckCircle size={12} />
           Verified
         </span>
       </div>

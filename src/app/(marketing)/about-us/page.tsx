@@ -6,11 +6,11 @@ import { useRef } from "react";
 import {
   ArrowRight,
   Users,
-  Layers,
+  Stack,
   Plug,
-  TrendingUp,
+  TrendUp,
   Rocket,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 
 const values = [
@@ -21,7 +21,7 @@ const values = [
       "We built this for ourselves before we built it for you. Every feature comes from real GTM pain.",
   },
   {
-    icon: <Layers className="w-6 h-6" />,
+    icon: <Stack className="w-6 h-6" />,
     title: "Playbooks > Workflows",
     description:
       "We give you proven motions, not blank canvases. Deploy in minutes, not months.",
@@ -33,7 +33,7 @@ const values = [
       "Unlike all-in-ones that force migration, we integrate with what you already use.",
   },
   {
-    icon: <TrendingUp className="w-6 h-6" />,
+    icon: <TrendUp className="w-6 h-6" />,
     title: "Results That Matter",
     description:
       "85% phone retrieval, 2x pipeline, 40hrs/week saved. We measure what actually moves revenue.",
@@ -163,7 +163,7 @@ export default function AboutUsPage() {
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff]">
-                    <TrendingUp className="w-6 h-6" />
+                    <TrendUp className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-[#3e8aff]">85%</div>
@@ -172,7 +172,7 @@ export default function AboutUsPage() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500">
-                    <Layers className="w-6 h-6" />
+                    <Stack className="w-6 h-6" />
                   </div>
                   <div>
                     <div className="text-3xl font-bold text-green-500">2x</div>

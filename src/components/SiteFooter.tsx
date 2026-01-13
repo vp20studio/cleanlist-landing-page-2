@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Twitter, Linkedin, Github, Mail } from "lucide-react";
+import { TwitterLogo, LinkedinLogo, GithubLogo, Envelope } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -77,10 +77,10 @@ export default function SiteFooter() {
             </p>
             <div className="flex items-center gap-3 md:gap-4">
               {[
-                { Icon: Twitter, color: "blue" as const },
-                { Icon: Linkedin, color: "linkedin" as const },
-                { Icon: Github, color: "gray" as const },
-                { Icon: Mail, color: "blue" as const },
+                { Icon: TwitterLogo, color: "blue" as const },
+                { Icon: LinkedinLogo, color: "linkedin" as const },
+                { Icon: GithubLogo, color: "gray" as const },
+                { Icon: Envelope, color: "blue" as const },
               ].map(({ Icon, color }, i) => (
                 <a key={i} href="#" className="transition-transform hover:scale-110">
                   <GlowIcon icon={<Icon />} size="sm" color={color} variant="glow" />

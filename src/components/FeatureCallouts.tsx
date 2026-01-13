@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Zap, BarChart3, Link2 } from "lucide-react";
+import { Sparkle, Lightning, ChartBar, Link } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -15,28 +15,28 @@ interface CalloutItem {
 
 const callouts: CalloutItem[] = [
   {
-    icon: <Sparkles />,
+    icon: <Sparkle />,
     text: "15+ Providers",
     position: "top-left",
     delay: 0.8,
     color: "blue",
   },
   {
-    icon: <Zap />,
+    icon: <Lightning />,
     text: "Real-time",
     position: "top-right",
     delay: 1,
     color: "green",
   },
   {
-    icon: <BarChart3 />,
+    icon: <ChartBar />,
     text: "Waterfall Logic",
     position: "bottom-left",
     delay: 1.2,
     color: "purple",
   },
   {
-    icon: <Link2 />,
+    icon: <Link />,
     text: "CRM Sync",
     position: "bottom-right",
     delay: 1.4,

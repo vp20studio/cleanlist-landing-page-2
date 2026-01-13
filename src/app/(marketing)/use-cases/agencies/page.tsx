@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
-  Building2,
+  Buildings,
   Users,
-  DollarSign,
+  CurrencyDollar,
   Check,
-  BarChart3,
+  ChartBar,
   Shield,
-  Zap,
-  Settings,
+  Lightning,
+  Gear,
   CreditCard,
-  FileText,
+  File,
   Globe,
   Lock,
-  Layers,
-} from "lucide-react";
+  StackSimple,
+} from "@phosphor-icons/react";
 import { TechnicalGrid, GlowCard, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -39,7 +39,7 @@ export default function AgenciesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-500 mb-6"
             >
-              <GlowIcon icon={<Building2 />} size="xs" color="green" variant="ghost" />
+              <GlowIcon icon={<Buildings />} size="xs" color="green" variant="ghost" />
               For Agencies
             </motion.div>
 
@@ -76,7 +76,7 @@ export default function AgenciesPage() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-medium rounded-lg hover:bg-green-500/90 transition-colors"
               >
                 Apply for Agency Program
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight />
               </Link>
               <Link
                 href="/pricing"
@@ -96,28 +96,28 @@ export default function AgenciesPage() {
             columns={4}
             blocks={[
               {
-                icon: <DollarSign className="w-5 h-5" />,
+                icon: <CurrencyDollar />,
                 label: "Margin",
                 value: "50%+",
                 subValue: "Typical markup",
                 color: "green",
               },
               {
-                icon: <Users className="w-5 h-5" />,
+                icon: <Users />,
                 label: "Client Limit",
                 value: "Unlimited",
                 subValue: "Workspaces",
                 color: "blue",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
+                icon: <Lightning />,
                 label: "Processing",
                 value: "10M+",
                 subValue: "Records/month",
                 color: "purple",
               },
               {
-                icon: <Shield className="w-5 h-5" />,
+                icon: <Shield />,
                 label: "White-Label",
                 value: "100%",
                 subValue: "Your branding",
@@ -148,37 +148,37 @@ export default function AgenciesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: <Users className="w-6 h-6" />,
+                icon: <Users />,
                 title: "Client Workspaces",
                 description:
                   "Separate workspaces for each client with their own users, credits, and data.",
               },
               {
-                icon: <Lock className="w-6 h-6" />,
+                icon: <Lock />,
                 title: "White-Label Ready",
                 description:
                   "Remove Cleanlist branding. Present data services as your own offering.",
               },
               {
-                icon: <DollarSign className="w-6 h-6" />,
+                icon: <CurrencyDollar />,
                 title: "Margin Controls",
                 description:
                   "Set your own pricing for clients. Buy credits wholesale, sell retail.",
               },
               {
-                icon: <CreditCard className="w-6 h-6" />,
+                icon: <CreditCard />,
                 title: "Flexible Billing",
                 description:
                   "Bill clients directly or manage all credits centrally. Your choice.",
               },
               {
-                icon: <BarChart3 className="w-6 h-6" />,
+                icon: <ChartBar />,
                 title: "Usage Analytics",
                 description:
                   "Track usage by client, project, and user. Detailed reporting for invoicing.",
               },
               {
-                icon: <Layers className="w-6 h-6" />,
+                icon: <StackSimple />,
                 title: "Bulk Processing",
                 description:
                   "Process millions of records per month. Volume discounts available.",
@@ -276,7 +276,7 @@ export default function AgenciesPage() {
                 <div className="grid grid-cols-2 gap-2">
                   {useCase.services.map((service) => (
                     <div key={service} className="flex items-center gap-2 text-sm text-gray-500">
-                      <Check className="w-4 h-4 text-green-500" />
+                      <Check className="text-green-500" />
                       {service}
                     </div>
                   ))}
@@ -369,7 +369,7 @@ export default function AgenciesPage() {
                 <div className="space-y-2 mb-6">
                   {tier.features.map((feature) => (
                     <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                      <Check className="w-4 h-4 text-green-500" />
+                      <Check className="text-green-500" />
                       {feature}
                     </div>
                   ))}
@@ -442,7 +442,7 @@ export default function AgenciesPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 text-white font-medium rounded-lg hover:bg-green-500/90 transition-colors text-lg"
             >
               Apply for Agency Program
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight />
             </Link>
           </motion.div>
         </div>

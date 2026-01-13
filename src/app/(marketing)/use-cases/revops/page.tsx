@@ -4,20 +4,20 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   ArrowRight,
-  Settings,
+  Gear,
   Database,
-  RefreshCw,
+  ArrowsClockwise,
   Check,
-  AlertTriangle,
-  Workflow,
-  BarChart3,
+  Warning,
+  FlowArrow,
+  ChartBar,
   Shield,
   Clock,
   GitMerge,
-  Zap,
-  FileCheck,
-  Layers,
-} from "lucide-react";
+  Lightning,
+  CheckCircle,
+  StackSimple,
+} from "@phosphor-icons/react";
 import { TechnicalGrid, GlowCard, VerticalStepper, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -39,7 +39,7 @@ export default function RevOpsPage() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-6"
             >
-              <GlowIcon icon={<Settings />} size="xs" color="purple" variant="ghost" />
+              <GlowIcon icon={<Gear />} size="xs" color="purple" variant="ghost" />
               For RevOps
             </motion.div>
 
@@ -76,7 +76,7 @@ export default function RevOpsPage() {
                 className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors"
               >
                 See Playbook Builder
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight />
               </Link>
               <Link
                 href="/product/playbook-builder"
@@ -96,28 +96,28 @@ export default function RevOpsPage() {
             columns={4}
             blocks={[
               {
-                icon: <RefreshCw className="w-5 h-5" />,
+                icon: <ArrowsClockwise />,
                 label: "Automation",
                 value: "100%",
                 subValue: "Hands-off operation",
                 color: "purple",
               },
               {
-                icon: <Database className="w-5 h-5" />,
+                icon: <Database />,
                 label: "Data Quality",
                 value: "+40%",
                 subValue: "Improvement",
                 color: "green",
               },
               {
-                icon: <Clock className="w-5 h-5" />,
+                icon: <Clock />,
                 label: "Time Saved",
                 value: "20hrs",
                 subValue: "Per week",
                 color: "blue",
               },
               {
-                icon: <GitMerge className="w-5 h-5" />,
+                icon: <GitMerge />,
                 label: "Duplicates",
                 value: "-30%",
                 subValue: "Removed",
@@ -149,7 +149,7 @@ export default function RevOpsPage() {
             {/* Before */}
             <div className="p-6 rounded-xl bg-red-500/5 border border-red-500/20">
               <div className="flex items-center gap-2 text-red-500 mb-4">
-                <AlertTriangle className="w-5 h-5" />
+                <Warning />
                 <span className="font-medium">Without Cleanlist</span>
               </div>
               <ul className="space-y-3">
@@ -172,7 +172,7 @@ export default function RevOpsPage() {
             {/* After */}
             <div className="p-6 rounded-xl bg-green-500/5 border border-green-500/20">
               <div className="flex items-center gap-2 text-green-500 mb-4">
-                <Check className="w-5 h-5" />
+                <Check />
                 <span className="font-medium">With Cleanlist</span>
               </div>
               <ul className="space-y-3">
@@ -185,7 +185,7 @@ export default function RevOpsPage() {
                   "Full audit trail and quality dashboards",
                 ].map((item) => (
                   <li key={item} className={`flex items-start gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <Check className="w-4 h-4 text-green-500 mt-0.5" />
+                    <Check className="text-green-500 mt-0.5" />
                     {item}
                   </li>
                 ))}
@@ -205,7 +205,7 @@ export default function RevOpsPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
-                <GlowIcon icon={<Workflow />} size="xs" color="purple" variant="ghost" />
+                <GlowIcon icon={<FlowArrow />} size="xs" color="purple" variant="ghost" />
                 Playbook Builder
               </div>
               <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -245,7 +245,7 @@ export default function RevOpsPage() {
                 href="/product/playbook-builder"
                 className="inline-flex items-center gap-2 mt-8 text-purple-500 hover:underline"
               >
-                Explore Playbook Builder <ArrowRight className="w-4 h-4" />
+                Explore Playbook Builder <ArrowRight />
               </Link>
             </motion.div>
 
@@ -255,7 +255,7 @@ export default function RevOpsPage() {
                   number: "01",
                   title: "Connect Your CRM",
                   description: "Native integrations with Salesforce, HubSpot, and more.",
-                  icon: <Database className="w-5 h-5" />,
+                  icon: <Database />,
                   details: [
                     "One-click OAuth connection",
                     "Real-time or scheduled sync",
@@ -266,7 +266,7 @@ export default function RevOpsPage() {
                   number: "02",
                   title: "Build Your Playbook",
                   description: "Drag and drop actions to create your data workflow.",
-                  icon: <Layers className="w-5 h-5" />,
+                  icon: <StackSimple />,
                   details: [
                     "25+ built-in step types",
                     "Conditional logic",
@@ -277,7 +277,7 @@ export default function RevOpsPage() {
                   number: "03",
                   title: "Set Schedule",
                   description: "Run on a schedule, via webhook, or manually.",
-                  icon: <Clock className="w-5 h-5" />,
+                  icon: <Clock />,
                   details: [
                     "Cron scheduling",
                     "Webhook triggers",
@@ -288,7 +288,7 @@ export default function RevOpsPage() {
                   number: "04",
                   title: "Monitor & Iterate",
                   description: "Track runs, review logs, and optimize over time.",
-                  icon: <BarChart3 className="w-5 h-5" />,
+                  icon: <ChartBar />,
                   details: [
                     "Run history",
                     "Error alerts",
@@ -321,32 +321,32 @@ export default function RevOpsPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: <GitMerge className="w-6 h-6" />,
+                icon: <GitMerge />,
                 title: "Deduplication Rules",
                 description: "Define matching rules for automatic duplicate detection and merge.",
               },
               {
-                icon: <FileCheck className="w-6 h-6" />,
+                icon: <CheckCircle />,
                 title: "Validation Rules",
                 description: "Ensure data meets your standards before entering the CRM.",
               },
               {
-                icon: <Shield className="w-6 h-6" />,
+                icon: <Shield />,
                 title: "Audit Trail",
                 description: "Complete history of every data change for compliance.",
               },
               {
-                icon: <RefreshCw className="w-6 h-6" />,
+                icon: <ArrowsClockwise />,
                 title: "Automated Refresh",
                 description: "Keep records fresh with scheduled re-enrichment.",
               },
               {
-                icon: <BarChart3 className="w-6 h-6" />,
+                icon: <ChartBar />,
                 title: "Quality Dashboards",
                 description: "Monitor data health with real-time quality scores.",
               },
               {
-                icon: <Zap className="w-6 h-6" />,
+                icon: <Lightning />,
                 title: "Instant Fixes",
                 description: "One-click resolution of common data issues.",
               },
@@ -391,7 +391,7 @@ export default function RevOpsPage() {
               className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors text-lg"
             >
               Start Free Trial
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight />
             </Link>
           </motion.div>
         </div>

@@ -5,22 +5,22 @@ import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
-  Linkedin,
+  LinkedinLogo,
   Download,
   Users,
-  Zap,
+  Lightning,
   Shield,
   Check,
-  Chrome,
-  Search,
-  Filter,
-  RefreshCw,
+  GoogleChromeLogo,
+  MagnifyingGlass,
+  Funnel,
+  ArrowsClockwise,
   Clock,
   Database,
-  FileSpreadsheet,
+  FileXls,
   Lock,
   Globe,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import SalesNavDemo from "@/components/SalesNavDemo";
 
@@ -43,7 +43,7 @@ export default function SalesNavScraperPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0077b5]/10 border border-[#0077b5]/20 text-sm text-[#0077b5] mb-6"
               >
-                <GlowIcon icon={<Linkedin />} size="xs" color="linkedin" variant="ghost" />
+                <GlowIcon icon={<LinkedinLogo />} size="xs" color="linkedin" variant="ghost" />
                 Chrome Extension
               </motion.div>
 
@@ -79,7 +79,7 @@ export default function SalesNavScraperPage() {
                   href="#"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#0077b5] text-white font-medium rounded-lg hover:bg-[#0077b5]/90 transition-colors"
                 >
-                  <Chrome className="w-4 h-4" />
+                  <GoogleChromeLogo />
                   Install Extension
                 </Link>
                 <Link
@@ -131,35 +131,35 @@ export default function SalesNavScraperPage() {
             columns={5}
             blocks={[
               {
-                icon: <Users className="w-5 h-5" />,
+                icon: <Users />,
                 label: "Export",
                 value: "Bulk",
                 subValue: "List export",
                 color: "blue",
               },
               {
-                icon: <Database className="w-5 h-5" />,
+                icon: <Database />,
                 label: "Enrichment",
                 value: "Auto",
                 subValue: "Email & phone",
                 color: "purple",
               },
               {
-                icon: <Shield className="w-5 h-5" />,
+                icon: <Shield />,
                 label: "Safe Limits",
                 value: "Yes",
                 subValue: "Smart rate limiting",
                 color: "yellow",
               },
               {
-                icon: <RefreshCw className="w-5 h-5" />,
+                icon: <ArrowsClockwise />,
                 label: "CRM Sync",
                 value: "Yes",
                 subValue: "Direct push",
                 color: "green",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
+                icon: <Lightning />,
                 label: "Pricing",
                 value: "1-10 Cr",
                 subValue: "Per lead enriched",
@@ -180,7 +180,7 @@ export default function SalesNavScraperPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0077b5]/10 border border-[#0077b5]/20 text-sm text-[#0077b5] mb-4">
-              <GlowIcon icon={<Chrome />} size="xs" color="linkedin" variant="ghost" />
+              <GlowIcon icon={<GoogleChromeLogo />} size="xs" color="linkedin" variant="ghost" />
               Simple Workflow
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -200,7 +200,7 @@ export default function SalesNavScraperPage() {
                   title: "Build Your Search",
                   description:
                     "Use Sales Navigator's powerful filters to find your ideal prospects.",
-                  icon: <Search className="w-5 h-5" />,
+                  icon: <MagnifyingGlass />,
                   details: [
                     "Industry, company size, and geography filters",
                     "Job title and seniority targeting",
@@ -213,7 +213,7 @@ export default function SalesNavScraperPage() {
                   title: "Click Export",
                   description:
                     "Our extension adds an export button directly in Sales Navigator.",
-                  icon: <Download className="w-5 h-5" />,
+                  icon: <Download />,
                   details: [
                     "Select all or choose specific results",
                     "Bulk export from search results",
@@ -226,7 +226,7 @@ export default function SalesNavScraperPage() {
                   title: "Auto-Enrichment",
                   description:
                     "Every lead is automatically enriched with emails, phones, and company data.",
-                  icon: <RefreshCw className="w-5 h-5" />,
+                  icon: <ArrowsClockwise />,
                   details: [
                     "Work email discovery via Waterfall",
                     "Direct phone numbers",
@@ -239,7 +239,7 @@ export default function SalesNavScraperPage() {
                   title: "Download or Sync",
                   description:
                     "Export to CSV or push directly to your CRM with one click.",
-                  icon: <FileSpreadsheet className="w-5 h-5" />,
+                  icon: <FileXls />,
                   details: [
                     "CSV/Excel download",
                     "Direct CRM sync (Salesforce, HubSpot)",
@@ -259,7 +259,7 @@ export default function SalesNavScraperPage() {
             >
               <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-6">
-                  <Chrome className="w-5 h-5 text-[#0077b5]" />
+                  <GoogleChromeLogo className="text-[#0077b5]" />
                   <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Extension Preview</span>
                 </div>
 
@@ -284,7 +284,7 @@ export default function SalesNavScraperPage() {
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
                           <div className="w-6 h-6 rounded bg-[#0077b5] flex items-center justify-center">
-                            <Download className="w-3 h-3 text-white" />
+                            <Download className="text-white" size={12} />
                           </div>
                           <span className="text-sm font-medium text-white">Cleanlist Export</span>
                         </div>
@@ -318,7 +318,7 @@ export default function SalesNavScraperPage() {
                               {lead.title} at {lead.company}
                             </div>
                           </div>
-                          <Check className="w-4 h-4 text-[#0077b5]" />
+                          <Check className="text-[#0077b5]" />
                         </div>
                       ))}
                     </div>
@@ -326,7 +326,7 @@ export default function SalesNavScraperPage() {
                 </div>
 
                 <div className="mt-4 flex items-center gap-2 text-xs text-gray-500">
-                  <Shield className="w-4 h-4 text-green-500" />
+                  <Shield className="text-green-500" />
                   Safe rate limits protect your LinkedIn account
                 </div>
               </div>
@@ -355,42 +355,42 @@ export default function SalesNavScraperPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: <Users className="w-6 h-6" />,
+                icon: <Users />,
                 title: "Bulk Export",
                 description:
                   "Export leads in bulk from Sales Navigator search results and saved lists.",
                 stats: ["Bulk export", "Saved lists", "Batch processing"],
               },
               {
-                icon: <RefreshCw className="w-6 h-6" />,
+                icon: <ArrowsClockwise />,
                 title: "Auto-Enrichment",
                 description:
                   "Every exported lead is automatically enriched with verified emails and phones.",
                 stats: ["Email + Phone", "Company data", "98% accuracy"],
               },
               {
-                icon: <Filter className="w-6 h-6" />,
+                icon: <Funnel />,
                 title: "Smart Filters",
                 description:
                   "Preserve all Sales Nav filters. Export exactly the prospects you searched for.",
                 stats: ["Job title", "Company size", "Geography"],
               },
               {
-                icon: <Shield className="w-6 h-6" />,
+                icon: <Shield />,
                 title: "Account Safety",
                 description:
                   "Intelligent rate limiting mimics human behavior to protect your LinkedIn account.",
                 stats: ["Smart delays", "Session limits", "Safe defaults"],
               },
               {
-                icon: <FileSpreadsheet className="w-6 h-6" />,
+                icon: <FileXls />,
                 title: "Multiple Exports",
                 description:
                   "Download as CSV, push to CRM, or send via webhook. Your data, your way.",
                 stats: ["CSV/Excel", "CRM sync", "Webhooks"],
               },
               {
-                icon: <Globe className="w-6 h-6" />,
+                icon: <Globe />,
                 title: "Global Coverage",
                 description:
                   "Works with all LinkedIn locales and Sales Navigator regions.",
@@ -462,7 +462,7 @@ export default function SalesNavScraperPage() {
                   "Seniority Level",
                 ].map((field) => (
                   <div key={field} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-[#0077b5]" />
+                    <Check className="text-[#0077b5]" />
                     {field}
                   </div>
                 ))}
@@ -575,7 +575,7 @@ export default function SalesNavScraperPage() {
                 href="#"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#0077b5] text-white font-medium rounded-lg hover:bg-[#0077b5]/90 transition-colors text-lg"
               >
-                <Chrome className="w-5 h-5" />
+                <GoogleChromeLogo />
                 Install Chrome Extension
               </Link>
               <Link

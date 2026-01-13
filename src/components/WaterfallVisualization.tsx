@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Database, Mail, Phone, Building2, CheckCircle, XCircle, Loader2 } from "lucide-react";
+import { Database, Envelope, Phone, Buildings, CheckCircle, XCircle, CircleNotch } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -24,16 +24,16 @@ const providers: Provider[] = [
 interface DataPoint {
   id: number;
   type: "email" | "phone" | "company";
-  icon: typeof Mail;
+  icon: typeof Envelope;
   status: "pending" | "searching" | "found" | "not-found";
   currentProvider: number;
   foundAt?: number;
 }
 
 const dataTypes = [
-  { type: "email" as const, icon: Mail, label: "Email" },
+  { type: "email" as const, icon: Envelope, label: "Email" },
   { type: "phone" as const, icon: Phone, label: "Phone" },
-  { type: "company" as const, icon: Building2, label: "Company" },
+  { type: "company" as const, icon: Buildings, label: "Company" },
 ];
 
 interface WaterfallVisualizationProps {
@@ -53,7 +53,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
     if (autoPlay) {
       // Start with 2 data points immediately
       const initialPoints: DataPoint[] = [
-        { id: Date.now(), type: "email", icon: Mail, status: "searching", currentProvider: 0 },
+        { id: Date.now(), type: "email", icon: Envelope, status: "searching", currentProvider: 0 },
         { id: Date.now() + 1, type: "phone", icon: Phone, status: "pending", currentProvider: -1 },
       ];
       setDataPoints(initialPoints);
@@ -208,7 +208,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                     className={`${compact ? 'w-8 h-8' : 'w-10 h-10 md:w-12 md:h-12'} rounded-lg flex items-center justify-center mb-2`}
                     style={{ backgroundColor: `${provider.color}20` }}
                   >
-                    <Database className={`${compact ? 'h-4 w-4' : 'h-5 w-5 md:h-6 md:w-6'}`} style={{ color: provider.color }} />
+                    <Database size={compact ? 16 : 20} style={{ color: provider.color }} />
                   </div>
 
                   {/* Provider Name */}
@@ -232,7 +232,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                       >
-                        <Loader2 className="h-4 w-4 text-[#3e8aff] animate-spin" />
+                        <CircleNotch size={16} className="text-[#3e8aff] animate-spin" />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -246,7 +246,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                       >
-                        <CheckCircle className="h-4 w-4 text-green-500" />
+                        <CheckCircle size={16} className="text-green-500" />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -320,13 +320,13 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                     } : {}}
                     transition={{ duration: 0.8, repeat: point.status === "searching" ? Infinity : 0 }}
                   >
-                    <Icon className={`h-4 w-4 ${
+                    <Icon size={16} className={
                       point.status === "found"
                         ? "text-green-500"
                         : point.status === "not-found"
                           ? "text-red-500"
                           : "text-[#3e8aff]"
-                    }`} />
+                    } />
                   </motion.div>
                 </motion.div>
               );
@@ -394,23 +394,23 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
         {!compact && (
           <div className={`flex items-center justify-center gap-6 mt-4 text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
             <div className="flex items-center gap-2">
-              <Mail className="h-3 w-3" />
+              <Envelope size={12} />
               <span>Email</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone className="h-3 w-3" />
+              <Phone size={12} />
               <span>Phone</span>
             </div>
             <div className="flex items-center gap-2">
-              <Building2 className="h-3 w-3" />
+              <Buildings size={12} />
               <span>Company</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle className="h-3 w-3 text-green-500" />
+              <CheckCircle size={12} className="text-green-500" />
               <span>Found</span>
             </div>
             <div className="flex items-center gap-2">
-              <XCircle className="h-3 w-3 text-red-500" />
+              <XCircle size={12} className="text-red-500" />
               <span>Not Found</span>
             </div>
           </div>

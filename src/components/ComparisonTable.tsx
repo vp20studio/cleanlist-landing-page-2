@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X, ArrowRight, Sparkles, Clock, Zap, Shield } from "lucide-react";
+import { Check, X, ArrowRight, Sparkle, Clock, Lightning, Shield } from "@phosphor-icons/react";
 
 const comparisonData = [
   {
     category: "Verification Speed",
-    icon: Zap,
+    icon: Lightning,
     oldWay: {
       value: "2-5 seconds",
       description: "Batch processing, overnight jobs",
@@ -20,7 +20,7 @@ const comparisonData = [
   },
   {
     category: "Enrichment Depth",
-    icon: Sparkles,
+    icon: Sparkle,
     oldWay: {
       value: "5-8 fields",
       description: "Basic company and title only",
@@ -138,7 +138,7 @@ export default function ComparisonTable() {
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-[rgba(62,138,255,0.1)] flex items-center justify-center">
-                  <item.icon className="w-5 h-5 text-[#3e8aff]" />
+                  <item.icon size={20} className="text-[#3e8aff]" />
                 </div>
                 <h3 className="text-lg font-semibold text-white">
                   {item.category}
@@ -193,7 +193,7 @@ export default function ComparisonTable() {
               Legacy Tools
             </div>
             <div className="text-sm font-medium text-[#3e8aff] text-center flex items-center justify-center gap-2">
-              <Sparkles className="w-4 h-4" />
+              <Sparkle size={16} />
               Cleanlist
             </div>
           </div>
@@ -213,11 +213,11 @@ export default function ComparisonTable() {
                 <div className="flex justify-center">
                   {item.oldWay ? (
                     <div className="w-6 h-6 rounded-full bg-[rgba(255,255,255,0.05)] flex items-center justify-center">
-                      <Check className="w-3.5 h-3.5 text-[#888888]" />
+                      <Check size={14} className="text-[#888888]" />
                     </div>
                   ) : (
                     <div className="w-6 h-6 rounded-full bg-[rgba(239,68,68,0.1)] flex items-center justify-center">
-                      <X className="w-3.5 h-3.5 text-[#ef4444]" />
+                      <X size={14} className="text-[#ef4444]" />
                     </div>
                   )}
                 </div>
@@ -226,7 +226,7 @@ export default function ComparisonTable() {
                     whileHover={{ scale: 1.1 }}
                     className="w-6 h-6 rounded-full bg-[rgba(62,138,255,0.1)] flex items-center justify-center shadow-[0_0_10px_rgba(62,138,255,0.3)]"
                   >
-                    <Check className="w-3.5 h-3.5 text-[#3e8aff]" />
+                    <Check size={14} className="text-[#3e8aff]" />
                   </motion.div>
                 </div>
               </motion.div>
@@ -256,7 +256,7 @@ export default function ComparisonTable() {
                   className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#3e8aff] to-[#2563eb] rounded-lg hover:shadow-[0_0_20px_rgba(62,138,255,0.3)] transition-shadow"
                 >
                   Try Cleanlist Free
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight size={16} />
                 </a>
               </div>
             </div>
@@ -276,7 +276,7 @@ export default function ComparisonTable() {
             className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:text-[#60a5fa] transition-colors"
           >
             View detailed technical comparison
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight size={16} />
           </a>
         </motion.div>
       </div>

@@ -2,19 +2,19 @@
 
 import { motion } from "framer-motion";
 import {
-  Mail,
+  Envelope,
   ArrowRight,
   Shield,
-  Zap,
-  CheckCircle2,
+  Lightning,
+  CheckCircle,
   XCircle,
-  AlertTriangle,
-  Server,
+  Warning,
+  HardDrives,
   Globe,
   Lock,
-  TrendingUp,
+  TrendUp,
   Clock,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { GlowCard, GlowIcon, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
 const verificationSteps = [
@@ -22,7 +22,7 @@ const verificationSteps = [
     step: "01",
     title: "Syntax Check",
     description: "Validates email format, checks for typos, and normalizes the address according to RFC 5322 standards.",
-    icon: Mail,
+    icon: Envelope,
     color: "#3e8aff",
     glowColor: "blue" as const,
     checks: [
@@ -50,7 +50,7 @@ const verificationSteps = [
     step: "03",
     title: "SMTP Handshake",
     description: "Performs a real-time ping to the mail server without sending an email to verify the mailbox exists.",
-    icon: Server,
+    icon: HardDrives,
     color: "#22c55e",
     glowColor: "green" as const,
     checks: [
@@ -64,7 +64,7 @@ const verificationSteps = [
 
 const detectionFeatures = [
   {
-    icon: AlertTriangle,
+    icon: Warning,
     title: "Disposable Email Detection",
     description: "Identifies temporary/burner emails from 50,000+ known disposable domains (Mailinator, Guerrilla Mail, etc.).",
     color: "#f59e0b",
@@ -85,7 +85,7 @@ const detectionFeatures = [
     glowColor: "purple" as const,
   },
   {
-    icon: Zap,
+    icon: Lightning,
     title: "Accept-All Detection",
     description: "Detects servers that claim to accept everything, helping you filter low-confidence addresses.",
     color: "#3e8aff",
@@ -152,7 +152,7 @@ export default function EmailVerificationPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticButton href="/get-started" size="lg">
                 Start Verifying Free
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight />
               </MagneticButton>
               <MagneticButton href="/docs/verification" variant="secondary" size="lg">
                 View API Docs
@@ -204,8 +204,8 @@ export default function EmailVerificationPage() {
                   <ul className="space-y-2">
                     {step.checks.map((check, i) => (
                       <li key={i} className="flex items-center gap-2">
-                        <CheckCircle2
-                          className="w-4 h-4 flex-shrink-0"
+                        <CheckCircle
+                          className="flex-shrink-0"
                           style={{ color: step.color }}
                         />
                         <span className="text-xs text-[#888888]">{check}</span>
@@ -243,7 +243,7 @@ export default function EmailVerificationPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Smart Detection"
-            badgeIcon={<GlowIcon icon={<AlertTriangle />} size="xs" color="blue" variant="ghost" />}
+            badgeIcon={<GlowIcon icon={<Warning />} size="xs" color="blue" variant="ghost" />}
             title="Beyond Simple Verification"
             highlight="Beyond Simple"
             description="We don't just check if an email is valid—we identify risky addresses that could hurt your sender reputation."
@@ -282,7 +282,7 @@ export default function EmailVerificationPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Live Example"
-            badgeIcon={<GlowIcon icon={<Zap />} size="xs" color="blue" variant="ghost" />}
+            badgeIcon={<GlowIcon icon={<Lightning />} size="xs" color="blue" variant="ghost" />}
             title="See It In Action"
             highlight="In Action"
             description="Real verification results in under 200ms."
@@ -375,10 +375,10 @@ export default function EmailVerificationPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { value: "99.9%", label: "Accuracy", icon: CheckCircle2, color: "#22c55e", glowColor: "green" as const },
+              { value: "99.9%", label: "Accuracy", icon: CheckCircle, color: "#22c55e", glowColor: "green" as const },
               { value: "<200ms", label: "Avg. Response", icon: Clock, color: "#3e8aff", glowColor: "blue" as const },
               { value: "50K+", label: "Disposable Domains", icon: Shield, color: "#f59e0b", glowColor: "yellow" as const },
-              { value: "10M+", label: "Emails Verified Daily", icon: TrendingUp, color: "#8b5cf6", glowColor: "purple" as const },
+              { value: "10M+", label: "Emails Verified Daily", icon: TrendUp, color: "#8b5cf6", glowColor: "purple" as const },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -403,7 +403,7 @@ export default function EmailVerificationPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Results"
-            badgeIcon={<GlowIcon icon={<TrendingUp />} size="xs" color="blue" variant="ghost" />}
+            badgeIcon={<GlowIcon icon={<TrendUp />} size="xs" color="blue" variant="ghost" />}
             title="Protect Your Sender Reputation"
             highlight="Sender Reputation"
             description="See how teams are reducing bounce rates with Cleanlist verification."
@@ -472,7 +472,7 @@ export default function EmailVerificationPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <MagneticButton href="/get-started" size="lg">
                 Start Verifying Free
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight />
               </MagneticButton>
               <MagneticButton href="/pricing" variant="secondary" size="lg">
                 View Pricing
@@ -502,7 +502,7 @@ function VerificationResultRow({
     valid: {
       color: "#22c55e",
       bg: "rgba(34,197,94,0.1)",
-      icon: CheckCircle2,
+      icon: CheckCircle,
       label: "Valid",
     },
     invalid: {
@@ -514,7 +514,7 @@ function VerificationResultRow({
     risky: {
       color: "#f59e0b",
       bg: "rgba(245,158,11,0.1)",
-      icon: AlertTriangle,
+      icon: Warning,
       label: "Risky",
     },
   };
@@ -531,7 +531,7 @@ function VerificationResultRow({
       }}
     >
       <div className="flex items-center gap-3">
-        <Icon className="w-5 h-5" style={{ color: config.color }} />
+        <Icon style={{ color: config.color }} />
         <div>
           <p className="text-sm text-white font-mono">{email}</p>
           {reason && <p className="text-xs text-[#888888]">{reason}</p>}

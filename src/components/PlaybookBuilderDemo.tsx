@@ -3,18 +3,18 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  Zap,
+  Lightning,
   Check,
-  Filter,
+  Funnel,
   Database,
-  Send,
-  RotateCcw,
-  Workflow,
-  Loader2,
+  PaperPlaneTilt,
+  ArrowCounterClockwise,
+  FlowArrow,
+  SpinnerGap,
   Users,
-  Mail,
+  Envelope,
   ArrowDown,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 
 interface PlaybookNode {
@@ -33,7 +33,7 @@ const playbookNodes: PlaybookNode[] = [
     type: "trigger",
     label: "New Lead Added",
     description: "From LinkedIn import",
-    icon: <Users className="w-4 h-4" />,
+    icon: <Users size={16} />,
     color: "#3e8aff",
     stats: "250 leads",
   },
@@ -42,7 +42,7 @@ const playbookNodes: PlaybookNode[] = [
     type: "filter",
     label: "ICP Score > 80",
     description: "Filter high-fit leads",
-    icon: <Filter className="w-4 h-4" />,
+    icon: <Funnel size={16} />,
     color: "#8b5cf6",
     stats: "156 matched",
   },
@@ -51,7 +51,7 @@ const playbookNodes: PlaybookNode[] = [
     type: "enrich",
     label: "Waterfall Enrich",
     description: "Find email + phone",
-    icon: <Database className="w-4 h-4" />,
+    icon: <Database size={16} />,
     color: "#22c55e",
     stats: "142 enriched",
   },
@@ -60,7 +60,7 @@ const playbookNodes: PlaybookNode[] = [
     type: "action",
     label: "Add to Sequence",
     description: "Sync to Outreach",
-    icon: <Send className="w-4 h-4" />,
+    icon: <PaperPlaneTilt size={16} />,
     color: "#3e8aff",
     stats: "142 synced",
   },
@@ -156,7 +156,7 @@ export default function PlaybookBuilderDemo() {
               : "opacity-50 cursor-not-allowed text-gray-500"
           }`}
         >
-          <RotateCcw className="w-4 h-4" />
+          <ArrowCounterClockwise size={16} />
         </button>
       </div>
 
@@ -166,7 +166,7 @@ export default function PlaybookBuilderDemo() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center">
-              <Workflow className="w-5 h-5 text-[#3e8aff]" />
+              <FlowArrow size={20} className="text-[#3e8aff]" />
             </div>
             <div>
               <h3
@@ -191,7 +191,7 @@ export default function PlaybookBuilderDemo() {
               animate={{ scale: 1 }}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/20 text-green-500 text-xs font-medium"
             >
-              <Check className="w-3.5 h-3.5" />
+              <Check size={14} />
               Complete
             </motion.div>
           )}
@@ -267,10 +267,10 @@ export default function PlaybookBuilderDemo() {
                           ease: "linear",
                         }}
                       >
-                        <Loader2 className="w-5 h-5" />
+                        <SpinnerGap size={20} />
                       </motion.div>
                     ) : isCompleted ? (
-                      <Check className="w-5 h-5 text-green-500" />
+                      <Check size={20} className="text-green-500" />
                     ) : (
                       node.icon
                     )}
@@ -333,7 +333,7 @@ export default function PlaybookBuilderDemo() {
             }`}
           >
             <div className="flex items-center gap-2 text-green-500">
-              <Zap className="w-4 h-4" />
+              <Lightning size={16} />
               <span>142 leads enriched and synced to CRM</span>
             </div>
             <span className="text-gray-500">~2.5s total</span>

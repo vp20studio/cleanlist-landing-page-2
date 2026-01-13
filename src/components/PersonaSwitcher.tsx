@@ -3,21 +3,21 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  TrendingUp,
-  Mail,
-  Target,
-  Zap,
-  Webhook,
-  Code2,
+  TrendUp,
+  Envelope,
+  Crosshair,
+  Lightning,
+  Plugs,
+  Code,
   ArrowRight,
-  CheckCircle2,
-  BarChart3,
+  CheckCircle,
+  ChartBar,
   Users,
   Clock,
   Shield,
   Database,
   GitBranch,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 
 type Persona = "marketing" | "engineering";
 
@@ -86,7 +86,7 @@ export default function PersonaSwitcher() {
                 />
               )}
               <span className="relative z-10 flex items-center gap-2">
-                <TrendingUp className="w-4 h-4" />
+                <TrendUp size={16} />
                 Marketing & RevOps
               </span>
             </button>
@@ -106,7 +106,7 @@ export default function PersonaSwitcher() {
                 />
               )}
               <span className="relative z-10 flex items-center gap-2">
-                <Code2 className="w-4 h-4" />
+                <Code size={16} />
                 Engineering & Data Ops
               </span>
             </button>
@@ -140,21 +140,21 @@ function MarketingContent() {
         {/* Key Metrics */}
         <div className="grid grid-cols-3 gap-4">
           <MetricCard
-            icon={<TrendingUp className="w-5 h-5" />}
+            icon={<TrendUp size={20} />}
             value="47%"
             label="Pipeline Velocity"
             sublabel="avg. increase"
             color="#22c55e"
           />
           <MetricCard
-            icon={<Mail className="w-5 h-5" />}
+            icon={<Envelope size={20} />}
             value="99.2%"
             label="Deliverability"
             sublabel="guaranteed"
             color="#3e8aff"
           />
           <MetricCard
-            icon={<Target className="w-5 h-5" />}
+            icon={<Crosshair size={20} />}
             value="3.2x"
             label="Lead Scoring"
             sublabel="accuracy"
@@ -169,22 +169,22 @@ function MarketingContent() {
           </h3>
           <div className="space-y-4">
             <FeatureRow
-              icon={<BarChart3 className="w-4 h-4" />}
+              icon={<ChartBar size={16} />}
               title="Real-time Lead Scoring"
               description="Automatically prioritize leads based on 25+ enriched data points and behavioral signals."
             />
             <FeatureRow
-              icon={<Users className="w-4 h-4" />}
+              icon={<Users size={16} />}
               title="ICP Match Analysis"
               description="Compare incoming leads against your ideal customer profile with AI-powered scoring."
             />
             <FeatureRow
-              icon={<Mail className="w-4 h-4" />}
+              icon={<Envelope size={16} />}
               title="Deliverability Protection"
               description="Catch bounces before they happen. Protect your sender reputation automatically."
             />
             <FeatureRow
-              icon={<Target className="w-4 h-4" />}
+              icon={<Crosshair size={16} />}
               title="Campaign Segmentation"
               description="Build hyper-targeted segments using firmographic, technographic, and intent data."
             />
@@ -194,7 +194,7 @@ function MarketingContent() {
             className="inline-flex items-center gap-2 mt-6 text-sm text-[#3e8aff] hover:text-[#60a5fa] transition-colors"
           >
             View Marketing Docs
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight size={16} />
           </a>
         </div>
       </div>
@@ -289,7 +289,7 @@ function MarketingContent() {
         >
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[rgba(34,197,94,0.1)] flex items-center justify-center">
-              <CheckCircle2 className="w-4 h-4 text-[#22c55e]" />
+              <CheckCircle size={16} className="text-[#22c55e]" />
             </div>
             <div>
               <p className="text-xs font-medium text-white">Auto-synced</p>
@@ -427,13 +427,13 @@ function EngineeringContent() {
           <div className="flex items-center justify-between px-4 py-3 border-t border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.3)]">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5">
-                <Clock className="w-3.5 h-3.5 text-[#22c55e]" />
+                <Clock size={14} className="text-[#22c55e]" />
                 <span className="text-xs text-[#888888]">
                   Latency: <span className="text-[#22c55e]">147ms</span>
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-[#3e8aff]" />
+                <Shield size={14} className="text-[#3e8aff]" />
                 <span className="text-xs text-[#888888]">
                   TLS <span className="text-white">1.3</span>
                 </span>
@@ -454,7 +454,7 @@ function EngineeringContent() {
         >
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[rgba(62,138,255,0.1)] flex items-center justify-center">
-              <Zap className="w-4 h-4 text-[#3e8aff]" />
+              <Lightning size={16} className="text-[#3e8aff]" />
             </div>
             <div>
               <p className="text-xs font-medium text-white">P99 Latency</p>
@@ -469,21 +469,21 @@ function EngineeringContent() {
         {/* Key Metrics */}
         <div className="grid grid-cols-3 gap-4">
           <MetricCard
-            icon={<Zap className="w-5 h-5" />}
+            icon={<Lightning size={20} />}
             value="<200ms"
             label="API Latency"
             sublabel="p99 global"
             color="#3e8aff"
           />
           <MetricCard
-            icon={<Webhook className="w-5 h-5" />}
+            icon={<Plugs size={20} />}
             value="99.99%"
             label="Webhook SLA"
             sublabel="guaranteed"
             color="#22c55e"
           />
           <MetricCard
-            icon={<Database className="w-5 h-5" />}
+            icon={<Database size={20} />}
             value="25+"
             label="Data Points"
             sublabel="per record"
@@ -498,22 +498,22 @@ function EngineeringContent() {
           </h3>
           <div className="space-y-4">
             <FeatureRow
-              icon={<Code2 className="w-4 h-4" />}
+              icon={<Code size={16} />}
               title="Flexible JSON Schema"
               description="Customize response payloads. Request only the fields you need. Reduce bandwidth by 60%."
             />
             <FeatureRow
-              icon={<Webhook className="w-4 h-4" />}
-              title="Reliable Webhooks"
+              icon={<Plugs size={16} />}
+              title="Reliable Webhook"
               description="Automatic retries with exponential backoff. Dead-letter queue for failed deliveries."
             />
             <FeatureRow
-              icon={<GitBranch className="w-4 h-4" />}
+              icon={<GitBranch size={16} />}
               title="Bulk Processing API"
               description="Process up to 10,000 records per batch. Async jobs with progress webhooks."
             />
             <FeatureRow
-              icon={<Shield className="w-4 h-4" />}
+              icon={<Shield size={16} />}
               title="Enterprise Security"
               description="SOC 2 Type II certified. IP allowlisting, SSO, and audit logs included."
             />
@@ -523,7 +523,7 @@ function EngineeringContent() {
             className="inline-flex items-center gap-2 mt-6 text-sm text-[#3e8aff] hover:text-[#60a5fa] transition-colors"
           >
             View API Reference
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight size={16} />
           </a>
         </div>
       </div>

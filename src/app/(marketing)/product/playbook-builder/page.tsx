@@ -6,38 +6,38 @@ import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
-  Workflow,
-  Zap,
+  FlowArrow,
+  Lightning,
   Check,
   Play,
   Pause,
-  Settings,
-  RefreshCw,
+  Gear,
+  ArrowsClockwise,
   Database,
-  Mail,
+  Envelope,
   Shield,
   Clock,
   GitBranch,
-  Layers,
-  Filter,
+  Stack,
+  Funnel,
   Upload,
   Download,
-  Trash2,
+  Trash,
   Copy,
-  ChevronRight,
-  Sparkles,
-  Send,
+  CaretRight,
+  Sparkle,
+  PaperPlaneTilt,
   Plus,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import PlaybookBuilderDemo from "@/components/PlaybookBuilderDemo";
 
 // Workflow node types for the interactive demo
 const nodeTypes = [
-  { id: "trigger", label: "Trigger", icon: <Zap className="h-4 w-4" />, color: "bg-[#3e8aff]/20 text-[#3e8aff] border-[#3e8aff]/30" },
-  { id: "filter", label: "Filter", icon: <Filter className="h-4 w-4" />, color: "bg-purple-500/20 text-purple-500 border-purple-500/30" },
-  { id: "enrich", label: "Enrich", icon: <Database className="h-4 w-4" />, color: "bg-green-500/20 text-green-500 border-green-500/30" },
-  { id: "action", label: "Action", icon: <Send className="h-4 w-4" />, color: "bg-[#3e8aff]/20 text-[#3e8aff] border-[#3e8aff]/30" },
+  { id: "trigger", label: "Trigger", icon: <Lightning />, color: "bg-[#3e8aff]/20 text-[#3e8aff] border-[#3e8aff]/30" },
+  { id: "filter", label: "Filter", icon: <Funnel />, color: "bg-purple-500/20 text-purple-500 border-purple-500/30" },
+  { id: "enrich", label: "Enrich", icon: <Database />, color: "bg-green-500/20 text-green-500 border-green-500/30" },
+  { id: "action", label: "Action", icon: <PaperPlaneTilt />, color: "bg-[#3e8aff]/20 text-[#3e8aff] border-[#3e8aff]/30" },
 ];
 
 type WorkflowNode = {
@@ -125,7 +125,7 @@ export default function PlaybookBuilderPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
               >
-                <GlowIcon icon={<Workflow />} size="xs" color="blue" variant="ghost" />
+                <GlowIcon icon={<FlowArrow />} size="xs" color="blue" variant="ghost" />
                 New
               </motion.div>
 
@@ -162,7 +162,7 @@ export default function PlaybookBuilderPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
                 >
                   Build Your First Playbook
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight />
                 </Link>
                 <Link
                   href="#templates"
@@ -213,35 +213,35 @@ export default function PlaybookBuilderPage() {
             columns={5}
             blocks={[
               {
-                icon: <GitBranch className="w-5 h-5" />,
+                icon: <GitBranch />,
                 label: "Step Types",
                 value: "25+",
                 subValue: "Built-in steps",
                 color: "blue",
               },
               {
-                icon: <Layers className="w-5 h-5" />,
+                icon: <Stack />,
                 label: "Categories",
                 value: "10",
                 subValue: "Organized steps",
                 color: "purple",
               },
               {
-                icon: <Clock className="w-5 h-5" />,
+                icon: <Clock />,
                 label: "Scheduling",
                 value: "Flexible",
                 subValue: "Cron or triggers",
                 color: "green",
               },
               {
-                icon: <RefreshCw className="w-5 h-5" />,
+                icon: <ArrowsClockwise />,
                 label: "CRM Sync",
                 value: "Real-time",
                 subValue: "Bi-directional",
                 color: "yellow",
               },
               {
-                icon: <Zap className="w-5 h-5" />,
+                icon: <Lightning />,
                 label: "No Code",
                 value: "100%",
                 subValue: "Visual builder",
@@ -283,7 +283,7 @@ export default function PlaybookBuilderPage() {
           >
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
-                <Workflow className="h-5 w-5 text-[#3e8aff]" />
+                <FlowArrow className="text-[#3e8aff]" />
                 <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Interactive Workflow Builder</h3>
               </div>
               <button
@@ -301,13 +301,13 @@ export default function PlaybookBuilderPage() {
                       animate={{ rotate: 360 }}
                       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                     >
-                      <Workflow className="h-4 w-4" />
+                      <FlowArrow />
                     </motion.div>
                     Running...
                   </>
                 ) : (
                   <>
-                    <Play className="h-4 w-4" />
+                    <Play />
                     Run Playbook
                   </>
                 )}
@@ -329,7 +329,7 @@ export default function PlaybookBuilderPage() {
                     >
                       {type.icon}
                       <span className="text-sm font-medium">{type.label}</span>
-                      <Plus className="h-4 w-4 ml-auto" />
+                      <Plus className="ml-auto" />
                     </motion.button>
                   ))}
                 </div>
@@ -398,7 +398,7 @@ export default function PlaybookBuilderPage() {
                                   : "hover:bg-red-500/10 text-gray-500 hover:text-red-500"
                               }`}
                             >
-                              <Trash2 className="h-4 w-4" />
+                              <Trash />
                             </button>
                           )}
 
@@ -422,7 +422,7 @@ export default function PlaybookBuilderPage() {
 
                   {nodes.length === 0 && (
                     <div className={`flex flex-col items-center justify-center h-[200px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                      <Workflow className="h-12 w-12 mb-4 opacity-30" />
+                      <FlowArrow className="mb-4 opacity-30" size={48} />
                       <p>Add steps from the left panel to build your playbook</p>
                     </div>
                   )}
@@ -544,7 +544,7 @@ export default function PlaybookBuilderPage() {
                       key={action}
                       className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}
                     >
-                      <Check className="w-3 h-3 text-gray-600" />
+                      <Check className="text-gray-600" />
                       {action}
                     </div>
                   ))}
@@ -565,7 +565,7 @@ export default function PlaybookBuilderPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <GlowIcon icon={<Sparkles />} size="xs" color="blue" variant="ghost" />
+              <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="ghost" />
               Templates
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -681,7 +681,7 @@ export default function PlaybookBuilderPage() {
                     key={trigger.title}
                     className={`flex items-start gap-3 p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
                   >
-                    <Check className="w-5 h-5 text-[#3e8aff] mt-0.5" />
+                    <Check className="text-[#3e8aff] mt-0.5" />
                     <div>
                       <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{trigger.title}</h4>
                       <p className="text-sm text-gray-500">{trigger.description}</p>
@@ -758,7 +758,7 @@ export default function PlaybookBuilderPage() {
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
               >
                 Start Building
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight />
               </Link>
               <Link
                 href="/pricing"

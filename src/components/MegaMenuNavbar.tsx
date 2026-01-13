@@ -5,26 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  ChevronDown,
-  Layers,
-  Mail,
-  Sparkles,
-  Linkedin,
-  Workflow,
+  CaretDown,
+  Stack,
+  Envelope,
+  Sparkle,
+  LinkedinLogo,
+  FlowArrow,
   Users,
-  Settings,
-  Building2,
+  Gear,
+  Buildings,
   BookOpen,
   Plug,
-  Menu,
+  List,
   X,
   ArrowRight,
   Shield,
-  Zap,
-  Target,
+  Lightning,
+  Crosshair,
   Sun,
   Moon,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -48,27 +48,27 @@ const productSections: NavSection[] = [
       {
         label: "Waterfall Enrichment",
         href: "/product/waterfall-enrichment",
-        icon: <Layers className="w-5 h-5" />,
+        icon: <Stack />,
         description: "Multi-provider lead enrichment",
         badge: "Flagship",
       },
       {
         label: "Email & Phone Finder",
         href: "/product/email-phone-finder",
-        icon: <Mail className="w-5 h-5" />,
+        icon: <Envelope />,
         description: "Verified contact discovery",
       },
       {
         label: "Smart Columns",
         href: "/product/smart-columns",
-        icon: <Sparkles className="w-5 h-5" />,
+        icon: <Sparkle />,
         description: "AI-powered data enrichment",
         badge: "AI",
       },
       {
         label: "ICP Scoring",
         href: "/product/icp-scoring",
-        icon: <Target className="w-5 h-5" />,
+        icon: <Crosshair />,
         description: "Score leads against your ICP",
       },
     ],
@@ -79,13 +79,13 @@ const productSections: NavSection[] = [
       {
         label: "Chrome Extension",
         href: "/product/sales-nav-scraper",
-        icon: <Linkedin className="w-5 h-5" />,
+        icon: <LinkedinLogo />,
         description: "LinkedIn profile enrichment",
       },
       {
         label: "Playbook Builder",
         href: "/product/playbook-builder",
-        icon: <Workflow className="w-5 h-5" />,
+        icon: <FlowArrow />,
         description: "Visual workflow automation",
         badge: "New",
       },
@@ -97,19 +97,19 @@ const useCaseItems: NavItem[] = [
   {
     label: "Sales Teams",
     href: "/use-cases/sales-teams",
-    icon: <Users className="w-5 h-5" />,
+    icon: <Users />,
     description: "Close more deals with verified data",
   },
   {
     label: "RevOps",
     href: "/use-cases/revops",
-    icon: <Settings className="w-5 h-5" />,
+    icon: <Gear />,
     description: "Automate data hygiene at scale",
   },
   {
     label: "Agencies",
     href: "/use-cases/agencies",
-    icon: <Building2 className="w-5 h-5" />,
+    icon: <Buildings />,
     description: "White-label data solutions",
   },
 ];
@@ -118,13 +118,13 @@ const resourceItems: NavItem[] = [
   {
     label: "Case Studies",
     href: "/resources/case-studies",
-    icon: <BookOpen className="w-5 h-5" />,
+    icon: <BookOpen />,
     description: "See how teams use Cleanlist",
   },
   {
     label: "Integrations",
     href: "/resources/integrations",
-    icon: <Plug className="w-5 h-5" />,
+    icon: <Plug />,
     description: "Connect with your stack",
   },
 ];
@@ -190,8 +190,8 @@ export default function MegaMenuNavbar() {
                     : "text-gray-600 hover:text-gray-900"
                 }`}>
                   Products
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
+                  <CaretDown
+                    className={`transition-transform ${
                       activeMenu === "products" ? "rotate-180" : ""
                     }`}
                   />
@@ -275,7 +275,7 @@ export default function MegaMenuNavbar() {
                                 <span>95%+ Accuracy</span>
                               </div>
                               <div className="flex items-center gap-1.5">
-                                <GlowIcon icon={<Zap />} size="xs" color="yellow" variant="ghost" />
+                                <GlowIcon icon={<Lightning />} size="xs" color="yellow" variant="ghost" />
                                 <span>From 1 Credit</span>
                               </div>
                             </div>
@@ -283,7 +283,7 @@ export default function MegaMenuNavbar() {
                               href="/pricing"
                               className="text-xs text-[#3e8aff] hover:underline flex items-center gap-1"
                             >
-                              View pricing <ArrowRight className="w-3 h-3" />
+                              View pricing <ArrowRight />
                             </Link>
                           </div>
                         </div>
@@ -305,8 +305,8 @@ export default function MegaMenuNavbar() {
                     : "text-gray-600 hover:text-gray-900"
                 }`}>
                   Use Cases
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
+                  <CaretDown
+                    className={`transition-transform ${
                       activeMenu === "usecases" ? "rotate-180" : ""
                     }`}
                   />
@@ -369,8 +369,8 @@ export default function MegaMenuNavbar() {
                     : "text-gray-600 hover:text-gray-900"
                 }`}>
                   Resources
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
+                  <CaretDown
+                    className={`transition-transform ${
                       activeMenu === "resources" ? "rotate-180" : ""
                     }`}
                   />
@@ -457,9 +457,9 @@ export default function MegaMenuNavbar() {
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
-                  <Sun className="w-5 h-5" />
+                  <Sun />
                 ) : (
-                  <Moon className="w-5 h-5" />
+                  <Moon />
                 )}
               </button>
 
@@ -493,9 +493,9 @@ export default function MegaMenuNavbar() {
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
-                  <Sun className="w-5 h-5" />
+                  <Sun />
                 ) : (
-                  <Moon className="w-5 h-5" />
+                  <Moon />
                 )}
               </button>
               <button
@@ -506,7 +506,7 @@ export default function MegaMenuNavbar() {
                     : "text-gray-500 hover:text-gray-900"
                 }`}
               >
-                {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileOpen ? <X /> : <List />}
               </button>
             </div>
           </div>

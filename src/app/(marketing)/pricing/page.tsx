@@ -7,12 +7,12 @@ import {
   Check,
   X,
   ArrowRight,
-  Zap,
-  Building,
-  HelpCircle,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
+  Lightning,
+  Buildings,
+  Question,
+  CaretDown,
+  CaretUp,
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 
 // Pricing data with monthly and yearly prices (yearly saves ~17%)
@@ -236,7 +236,7 @@ export default function PricingPage() {
             animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
           >
-            <Zap className="w-4 h-4" />
+            <Lightning className="w-4 h-4" />
             Simple, Transparent Pricing
           </motion.div>
 
@@ -582,9 +582,9 @@ export default function PricingPage() {
                       >
                         <div className={`flex items-center gap-2 font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
                           {expandedCategories.includes(category.name) ? (
-                            <ChevronUp className="w-4 h-4" />
+                            <CaretUp className="w-4 h-4" />
                           ) : (
-                            <ChevronDown className="w-4 h-4" />
+                            <CaretDown className="w-4 h-4" />
                           )}
                           {category.name}
                         </div>
@@ -688,7 +688,7 @@ export default function PricingPage() {
                 className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
               >
                 <h3 className={`text-base md:text-lg font-semibold mb-2 flex items-start gap-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                  <HelpCircle className="w-5 h-5 text-[#3e8aff] mt-0.5 flex-shrink-0" />
+                  <Question className="w-5 h-5 text-[#3e8aff] mt-0.5 flex-shrink-0" />
                   {faq.question}
                 </h3>
                 <p className={`pl-7 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{faq.answer}</p>
@@ -731,7 +731,7 @@ export default function PricingPage() {
                     : "border-gray-300 text-gray-900 hover:bg-gray-100"
                 }`}
               >
-                <Building className="w-5 h-5" />
+                <Buildings className="w-5 h-5" />
                 Contact Sales
               </Link>
             </div>

@@ -6,29 +6,29 @@ import Link from "next/link";
 import {
   ArrowRight,
   Database,
-  Mail,
+  Envelope,
   Phone,
   Users,
-  Zap,
+  Lightning,
   Shield,
-  Sparkles,
+  Sparkle,
   Check,
   X,
   Minus,
-  TrendingUp,
-  Target,
+  TrendUp,
+  Crosshair,
   Megaphone,
-  Scale,
+  Scales,
   Code,
-  Layers,
-  RefreshCw,
+  Stack,
+  ArrowsClockwise,
   Clock,
-  DollarSign,
-  Building,
+  CurrencyDollar,
+  Buildings,
   Crown,
-  ChevronDown,
+  CaretDown,
   Calendar,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { DashboardMockup } from "@/components/ui";
 import StickySubNav from "@/components/StickySubNav";
 import InteractiveDemo from "@/components/InteractiveDemo";
@@ -336,7 +336,7 @@ export default function HomePage() {
                   ? "bg-[#0a0a0a] border-white/[0.08]"
                   : "bg-white border-black/[0.08]"
               }`}>
-                <Sparkles className="w-3 h-3 text-[#3e8aff]" />
+                <Sparkle className="w-3 h-3 text-[#3e8aff]" />
                 <span className={`text-xs font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Live Demo</span>
               </div>
             </motion.div>
@@ -391,7 +391,7 @@ export default function HomePage() {
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
-              <ChevronDown className={`w-5 h-5 ${isDark ? "text-gray-500" : "text-gray-400"}`} />
+              <CaretDown className={`w-5 h-5 ${isDark ? "text-gray-500" : "text-gray-400"}`} />
             </motion.div>
           </motion.div>
         </div>
@@ -880,7 +880,7 @@ export default function HomePage() {
           >
             <div className={`p-5 md:p-6 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
               <div className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                <Zap className="w-5 h-5 text-[#3e8aff]" />
+                <Lightning className="w-5 h-5 text-[#3e8aff]" />
                 <span><span className="text-[#3e8aff] font-medium">REST API</span> and <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for custom integrations</span>
               </div>
               <Link href="#" className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:underline">
@@ -901,7 +901,7 @@ export default function HomePage() {
             className="text-center mb-4"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Sparkles className="w-4 h-4" />
+              <Sparkle className="w-4 h-4" />
               Pricing
             </div>
             <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>

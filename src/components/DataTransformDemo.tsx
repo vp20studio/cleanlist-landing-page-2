@@ -5,17 +5,17 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import { useTheme } from "@/context/ThemeContext";
 import {
   Check,
-  Loader2,
+  SpinnerGap,
   ArrowRight,
-  Sparkles,
-  Mail,
+  Sparkle,
+  Envelope,
   Phone,
   User,
-  Building,
-  Linkedin,
+  Buildings,
+  LinkedinLogo,
   Briefcase,
-  Zap,
-} from "lucide-react";
+  Lightning,
+} from "@phosphor-icons/react";
 
 interface FieldData {
   label: string;
@@ -26,12 +26,12 @@ interface FieldData {
 }
 
 const fields: FieldData[] = [
-  { label: "Name", icon: <User className="w-3.5 h-3.5" />, beforeValue: "John Smith", afterValue: "John Smith", status: "found" },
-  { label: "Company", icon: <Building className="w-3.5 h-3.5" />, beforeValue: "Acme Corp", afterValue: "Acme Corp", status: "found" },
-  { label: "Email", icon: <Mail className="w-3.5 h-3.5" />, beforeValue: "—", afterValue: "john@acmecorp.com", status: "enriched" },
-  { label: "Phone", icon: <Phone className="w-3.5 h-3.5" />, beforeValue: "—", afterValue: "+1 (555) 123-4567", status: "enriched" },
-  { label: "Title", icon: <Briefcase className="w-3.5 h-3.5" />, beforeValue: "—", afterValue: "VP of Sales", status: "enriched" },
-  { label: "LinkedIn", icon: <Linkedin className="w-3.5 h-3.5" />, beforeValue: "—", afterValue: "linkedin.com/in/johnsmith", status: "enriched" },
+  { label: "Name", icon: <User size={14} />, beforeValue: "John Smith", afterValue: "John Smith", status: "found" },
+  { label: "Company", icon: <Buildings size={14} />, beforeValue: "Acme Corp", afterValue: "Acme Corp", status: "found" },
+  { label: "Email", icon: <Envelope size={14} />, beforeValue: "—", afterValue: "john@acmecorp.com", status: "enriched" },
+  { label: "Phone", icon: <Phone size={14} />, beforeValue: "—", afterValue: "+1 (555) 123-4567", status: "enriched" },
+  { label: "Title", icon: <Briefcase size={14} />, beforeValue: "—", afterValue: "VP of Sales", status: "enriched" },
+  { label: "LinkedIn", icon: <LinkedinLogo size={14} />, beforeValue: "—", afterValue: "linkedin.com/in/johnsmith", status: "enriched" },
 ];
 
 const dataProviders = [
@@ -115,7 +115,7 @@ export default function DataTransformDemo() {
           className="text-center mb-10 md:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-            <Sparkles className="w-4 h-4" />
+            <Sparkle size={16} />
             Live Demo
           </div>
           <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -150,11 +150,11 @@ export default function DataTransformDemo() {
                     : "bg-[#3e8aff]"
                 }`}>
                   {stage === "enriching" ? (
-                    <Loader2 className="w-6 h-6 text-white animate-spin" />
+                    <SpinnerGap size={24} className="text-white animate-spin" />
                   ) : stage === "complete" ? (
-                    <Check className="w-6 h-6 text-white" />
+                    <Check size={24} className="text-white" />
                   ) : (
-                    <ArrowRight className="w-6 h-6 text-white" />
+                    <ArrowRight size={24} className="text-white" />
                   )}
                 </div>
                 {/* Pulsing ring */}
@@ -304,7 +304,7 @@ export default function DataTransformDemo() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                               >
-                                <Loader2 className="w-4 h-4 text-[#3e8aff] animate-spin" />
+                                <SpinnerGap size={16} className="text-[#3e8aff] animate-spin" />
                               </motion.div>
                             ) : (
                               <motion.span
@@ -329,7 +329,7 @@ export default function DataTransformDemo() {
                               animate={{ scale: 1 }}
                               transition={{ type: "spring", stiffness: 500 }}
                             >
-                              <Check className="w-4 h-4 text-green-500" />
+                              <Check size={16} className="text-green-500" />
                             </motion.div>
                           )}
                         </div>
@@ -355,7 +355,7 @@ export default function DataTransformDemo() {
           >
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4 text-[#3e8aff]" />
+                <Lightning size={16} className="text-[#3e8aff]" />
                 <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   Waterfall Enrichment
                 </span>

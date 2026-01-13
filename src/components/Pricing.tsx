@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Check, Sparkles, Zap, Building2, ArrowRight } from "lucide-react";
+import { Check, Sparkle, Lightning, Buildings, ArrowRight } from "@phosphor-icons/react";
 
 const plans = [
   {
@@ -20,7 +20,7 @@ const plans = [
       "7-day data retention",
     ],
     cta: "Start Free",
-    icon: Zap,
+    icon: Lightning,
   },
   {
     name: "Pro",
@@ -40,7 +40,7 @@ const plans = [
       "Team collaboration",
     ],
     cta: "Get Started",
-    icon: Sparkles,
+    icon: Sparkle,
   },
   {
     name: "Enterprise",
@@ -60,7 +60,7 @@ const plans = [
       "Custom data retention",
     ],
     cta: "Contact Sales",
-    icon: Building2,
+    icon: Buildings,
   },
 ];
 
@@ -91,7 +91,7 @@ export default function Pricing() {
           className="text-center mb-12"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888] mb-6">
-            <Sparkles className="w-4 h-4 text-[#3e8aff]" />
+            <Sparkle size={16} className="text-[#3e8aff]" />
             Pricing
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
@@ -215,7 +215,8 @@ function PricingCard({
             }`}
           >
             <Icon
-              className={`w-5 h-5 ${plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}`}
+              size={20}
+              className={plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}
             />
           </div>
           <div>
@@ -258,7 +259,7 @@ function PricingCard({
           }`}
         >
           {plan.cta}
-          <ArrowRight className="w-4 h-4" />
+          <ArrowRight size={16} />
         </motion.a>
 
         {/* Features */}
@@ -273,7 +274,8 @@ function PricingCard({
                 }`}
               >
                 <Check
-                  className={`w-3 h-3 ${plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}`}
+                  size={12}
+                  className={plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}
                 />
               </div>
               <span className="text-sm text-[#888888]">{feature}</span>

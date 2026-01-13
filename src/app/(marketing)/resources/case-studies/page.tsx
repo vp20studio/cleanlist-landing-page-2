@@ -5,15 +5,15 @@ import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
-  TrendingUp,
+  TrendUp,
   Clock,
   Users,
   Phone,
-  MessageSquare,
-  DollarSign,
+  ChatCircle,
+  CurrencyDollar,
   Calendar,
-  Zap,
-} from "lucide-react";
+  Lightning,
+} from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 
 const caseStudies = [
@@ -33,7 +33,7 @@ const caseStudies = [
         changeColor: "text-green-500"
       },
       {
-        icon: <TrendingUp className="w-4 h-4" />,
+        icon: <TrendUp className="w-4 h-4" />,
         before: "1x",
         after: "2x",
         label: "Pipeline per rep",
@@ -49,7 +49,7 @@ const caseStudies = [
         changeColor: "text-green-500"
       },
       {
-        icon: <Zap className="w-4 h-4" />,
+        icon: <Lightning className="w-4 h-4" />,
         before: "Manual",
         after: "Automated",
         label: "GTM workflows",
@@ -75,7 +75,7 @@ const caseStudies = [
         changeColor: "text-blue-500"
       },
       {
-        icon: <MessageSquare className="w-4 h-4" />,
+        icon: <ChatCircle className="w-4 h-4" />,
         before: "6%",
         after: "20%",
         label: "Connect rate",
@@ -91,7 +91,7 @@ const caseStudies = [
         changeColor: "text-blue-500"
       },
       {
-        icon: <DollarSign className="w-4 h-4" />,
+        icon: <CurrencyDollar className="w-4 h-4" />,
         before: "$0",
         after: "1 closed",
         label: "Closed won",
