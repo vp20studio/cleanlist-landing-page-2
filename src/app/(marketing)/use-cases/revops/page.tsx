@@ -18,7 +18,7 @@ import {
   FileCheck,
   Layers,
 } from "lucide-react";
-import { TechnicalGrid, GlowCard, VerticalStepper } from "@/components/ui";
+import { TechnicalGrid, GlowCard, VerticalStepper, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function RevOpsPage() {
@@ -39,7 +39,7 @@ export default function RevOpsPage() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-6"
             >
-              <Settings className="w-4 h-4" />
+              <GlowIcon icon={<Settings />} size="xs" color="purple" variant="ghost" />
               For RevOps
             </motion.div>
 
@@ -205,7 +205,7 @@ export default function RevOpsPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
-                <Workflow className="w-4 h-4" />
+                <GlowIcon icon={<Workflow />} size="xs" color="purple" variant="ghost" />
                 Playbook Builder
               </div>
               <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -359,9 +359,7 @@ export default function RevOpsPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <GlowCard className="h-full p-6" glowColor="#a855f7">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 mb-4">
-                    {feature.icon}
-                  </div>
+                  <GlowIcon icon={feature.icon} size="lg" color="purple" variant="glow" className="mb-4" />
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>

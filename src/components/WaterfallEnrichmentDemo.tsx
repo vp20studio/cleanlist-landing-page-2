@@ -14,6 +14,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 interface Provider {
   name: string;
@@ -265,9 +266,7 @@ export default function WaterfallEnrichmentDemo() {
               >
                 {/* Lead Header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-[#3e8aff]/20 flex items-center justify-center">
-                    <User className="w-5 h-5 text-[#3e8aff]" />
-                  </div>
+                  <GlowIcon icon={<User />} size="md" color="blue" variant="glow" />
                   <div>
                     <div className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
                       {sampleLead.name}

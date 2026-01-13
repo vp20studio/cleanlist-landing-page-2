@@ -13,6 +13,7 @@ import {
   Wand2,
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 interface Row {
   input: string;
@@ -116,9 +117,7 @@ export default function SmartColumnDemo() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
-            <Brain className="w-5 h-5 text-purple-500" />
-          </div>
+          <GlowIcon icon={<Brain />} size="md" color="purple" variant="glow" />
           <div>
             <h3 className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
               Smart Column Demo

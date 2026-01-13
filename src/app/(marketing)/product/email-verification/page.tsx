@@ -15,7 +15,7 @@ import {
   TrendingUp,
   Clock,
 } from "lucide-react";
-import { GlowCard, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
+import { GlowCard, GlowIcon, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
 const verificationSteps = [
   {
@@ -24,6 +24,7 @@ const verificationSteps = [
     description: "Validates email format, checks for typos, and normalizes the address according to RFC 5322 standards.",
     icon: Mail,
     color: "#3e8aff",
+    glowColor: "blue" as const,
     checks: [
       "RFC 5322 compliance",
       "Domain format validation",
@@ -37,6 +38,7 @@ const verificationSteps = [
     description: "Queries DNS records to verify the domain exists and has valid mail exchange (MX) servers configured.",
     icon: Globe,
     color: "#8b5cf6",
+    glowColor: "purple" as const,
     checks: [
       "MX record lookup",
       "DNS resolution check",
@@ -50,6 +52,7 @@ const verificationSteps = [
     description: "Performs a real-time ping to the mail server without sending an email to verify the mailbox exists.",
     icon: Server,
     color: "#22c55e",
+    glowColor: "green" as const,
     checks: [
       "Real-time server ping",
       "Mailbox existence check",
@@ -65,24 +68,28 @@ const detectionFeatures = [
     title: "Disposable Email Detection",
     description: "Identifies temporary/burner emails from 50,000+ known disposable domains (Mailinator, Guerrilla Mail, etc.).",
     color: "#f59e0b",
+    glowColor: "yellow" as const,
   },
   {
     icon: Shield,
     title: "Role-Based Detection",
     description: "Flags generic addresses like info@, support@, sales@ that often bounce or go unread.",
     color: "#ef4444",
+    glowColor: "red" as const,
   },
   {
     icon: Lock,
     title: "Catch-All Detection",
     description: "Identifies domains configured to accept all emails, reducing false positives in your lists.",
     color: "#8b5cf6",
+    glowColor: "purple" as const,
   },
   {
     icon: Zap,
     title: "Accept-All Detection",
     description: "Detects servers that claim to accept everything, helping you filter low-confidence addresses.",
     color: "#3e8aff",
+    glowColor: "blue" as const,
   },
 ];
 
@@ -127,7 +134,7 @@ export default function EmailVerificationPage() {
             className="text-center max-w-4xl mx-auto"
           >
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(34,197,94,0.3)] bg-[rgba(34,197,94,0.05)] text-sm text-[#22c55e] mb-6">
-              <Shield className="w-4 h-4" />
+              <GlowIcon icon={<Shield />} size="xs" color="green" variant="ghost" />
               Triple Verification
             </span>
 
@@ -160,7 +167,7 @@ export default function EmailVerificationPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="The Process"
-            badgeIcon={<Shield className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<GlowIcon icon={<Shield />} size="xs" color="blue" variant="ghost" />}
             title="Triple-Layer Verification"
             highlight="Triple-Layer"
             description="Every email passes through three rigorous validation steps before we mark it deliverable."
@@ -183,11 +190,8 @@ export default function EmailVerificationPage() {
                     {step.step}
                   </span>
 
-                  <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                    style={{ backgroundColor: `${step.color}15`, color: step.color }}
-                  >
-                    <step.icon className="w-7 h-7" />
+                  <div className="mb-4">
+                    <GlowIcon icon={<step.icon />} size="xl" color={step.glowColor} variant="glow" />
                   </div>
 
                   <h3 className="text-xl font-semibold text-white mb-2">
@@ -239,7 +243,7 @@ export default function EmailVerificationPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Smart Detection"
-            badgeIcon={<AlertTriangle className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<GlowIcon icon={<AlertTriangle />} size="xs" color="blue" variant="ghost" />}
             title="Beyond Simple Verification"
             highlight="Beyond Simple"
             description="We don't just check if an email is valid—we identify risky addresses that could hurt your sender reputation."
@@ -256,12 +260,7 @@ export default function EmailVerificationPage() {
               >
                 <GlowCard glowColor={feature.color}>
                   <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: `${feature.color}15`, color: feature.color }}
-                    >
-                      <feature.icon className="w-6 h-6" />
-                    </div>
+                    <GlowIcon icon={<feature.icon />} size="lg" color={feature.glowColor} variant="glow" className="flex-shrink-0" />
                     <div>
                       <h3 className="text-lg font-semibold text-white mb-2">
                         {feature.title}
@@ -283,7 +282,7 @@ export default function EmailVerificationPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Live Example"
-            badgeIcon={<Zap className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<GlowIcon icon={<Zap />} size="xs" color="blue" variant="ghost" />}
             title="See It In Action"
             highlight="In Action"
             description="Real verification results in under 200ms."
@@ -376,10 +375,10 @@ export default function EmailVerificationPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-6">
             {[
-              { value: "99.9%", label: "Accuracy", icon: CheckCircle2, color: "#22c55e" },
-              { value: "<200ms", label: "Avg. Response", icon: Clock, color: "#3e8aff" },
-              { value: "50K+", label: "Disposable Domains", icon: Shield, color: "#f59e0b" },
-              { value: "10M+", label: "Emails Verified Daily", icon: TrendingUp, color: "#8b5cf6" },
+              { value: "99.9%", label: "Accuracy", icon: CheckCircle2, color: "#22c55e", glowColor: "green" as const },
+              { value: "<200ms", label: "Avg. Response", icon: Clock, color: "#3e8aff", glowColor: "blue" as const },
+              { value: "50K+", label: "Disposable Domains", icon: Shield, color: "#f59e0b", glowColor: "yellow" as const },
+              { value: "10M+", label: "Emails Verified Daily", icon: TrendingUp, color: "#8b5cf6", glowColor: "purple" as const },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -389,12 +388,7 @@ export default function EmailVerificationPage() {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
               >
                 <GlowCard glowColor={stat.color} className="text-center">
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
-                    style={{ backgroundColor: `${stat.color}15`, color: stat.color }}
-                  >
-                    <stat.icon className="w-6 h-6" />
-                  </div>
+                  <GlowIcon icon={<stat.icon />} size="lg" color={stat.glowColor} variant="glow" className="mx-auto mb-4" />
                   <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
                   <p className="text-sm text-[#888888]">{stat.label}</p>
                 </GlowCard>
@@ -409,7 +403,7 @@ export default function EmailVerificationPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             badge="Results"
-            badgeIcon={<TrendingUp className="w-4 h-4 text-[#3e8aff]" />}
+            badgeIcon={<GlowIcon icon={<TrendingUp />} size="xs" color="blue" variant="ghost" />}
             title="Protect Your Sender Reputation"
             highlight="Sender Reputation"
             description="See how teams are reducing bounce rates with Cleanlist verification."

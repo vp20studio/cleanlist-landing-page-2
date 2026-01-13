@@ -18,7 +18,7 @@ import {
   Lock,
   Layers,
 } from "lucide-react";
-import { TechnicalGrid, GlowCard } from "@/components/ui";
+import { TechnicalGrid, GlowCard, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function AgenciesPage() {
@@ -39,7 +39,7 @@ export default function AgenciesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-500 mb-6"
             >
-              <Building2 className="w-4 h-4" />
+              <GlowIcon icon={<Building2 />} size="xs" color="green" variant="ghost" />
               For Agencies
             </motion.div>
 
@@ -192,9 +192,7 @@ export default function AgenciesPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <GlowCard className="h-full p-6" glowColor="#22c55e">
-                  <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500 mb-4">
-                    {feature.icon}
-                  </div>
+                  <GlowIcon icon={feature.icon} size="lg" color="green" variant="glow" className="mb-4" />
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>
@@ -396,9 +394,7 @@ export default function AgenciesPage() {
       <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-6">
-              <Shield className="w-8 h-8 text-green-500" />
-            </div>
+            <GlowIcon icon={<Shield />} size="xl" color="green" variant="glow" className="mx-auto mb-6" />
             <h2 className={`text-3xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Enterprise-Grade Security
             </h2>

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Database, Mail, Phone, Building2, CheckCircle, XCircle, Loader2 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 interface Provider {
   id: string;
@@ -136,9 +137,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
         {!compact && (
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-[#3e8aff]/10">
-                <Database className="h-5 w-5 text-[#3e8aff]" />
-              </div>
+              <GlowIcon icon={<Database />} size="md" color="blue" variant="glow" />
               <div>
                 <h3 className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Enrichment</h3>
                 <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>Live data cascade</p>

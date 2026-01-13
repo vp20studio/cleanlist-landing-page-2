@@ -29,7 +29,7 @@ import {
   Send,
   Plus,
 } from "lucide-react";
-import { TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import PlaybookBuilderDemo from "@/components/PlaybookBuilderDemo";
 
 // Workflow node types for the interactive demo
@@ -125,7 +125,7 @@ export default function PlaybookBuilderPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
               >
-                <Workflow className="w-4 h-4" />
+                <GlowIcon icon={<Workflow />} size="xs" color="blue" variant="ghost" />
                 New
               </motion.div>
 
@@ -262,7 +262,7 @@ export default function PlaybookBuilderPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <GitBranch className="w-4 h-4" />
+              <GlowIcon icon={<GitBranch />} size="xs" color="blue" variant="ghost" />
               Visual Canvas
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -565,7 +565,7 @@ export default function PlaybookBuilderPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Sparkles className="w-4 h-4" />
+              <GlowIcon icon={<Sparkles />} size="xs" color="blue" variant="ghost" />
               Templates
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -647,7 +647,7 @@ export default function PlaybookBuilderPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                <Clock className="w-4 h-4" />
+                <GlowIcon icon={<Clock />} size="xs" color="blue" variant="ghost" />
                 Scheduling
               </div>
               <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>

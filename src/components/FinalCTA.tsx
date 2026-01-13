@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 import {
   ArrowRight,
   Sparkles,
@@ -14,9 +15,9 @@ import {
 } from "lucide-react";
 
 const benefits = [
-  { icon: <Zap className="h-4 w-4" />, text: "30 credits free" },
-  { icon: <Shield className="h-4 w-4" />, text: "No card required" },
-  { icon: <Clock className="h-4 w-4" />, text: "Setup in 5 minutes" },
+  { icon: <Zap />, text: "30 credits free", color: "blue" as const },
+  { icon: <Shield />, text: "No card required", color: "green" as const },
+  { icon: <Clock />, text: "Setup in 5 minutes", color: "purple" as const },
 ];
 
 export default function FinalCTA() {
@@ -124,12 +125,7 @@ export default function FinalCTA() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 mb-8"
         >
-          <motion.div
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          >
-            <Sparkles className="h-4 w-4 text-[#3e8aff]" />
-          </motion.div>
+          <GlowIcon icon={<Sparkles />} size="xs" color="blue" variant="glow" animated />
           <span className="text-sm font-medium text-[#3e8aff]">
             No credit card required
           </span>
@@ -220,12 +216,7 @@ export default function FinalCTA() {
                 isDark ? "text-gray-400" : "text-gray-600"
               }`}
             >
-              <motion.div
-                whileHover={{ scale: 1.2, rotate: 10 }}
-                className="text-[#3e8aff]"
-              >
-                {benefit.icon}
-              </motion.div>
+              <GlowIcon icon={benefit.icon} size="xs" color={benefit.color} variant="glow" />
               <span>{benefit.text}</span>
             </motion.div>
           ))}

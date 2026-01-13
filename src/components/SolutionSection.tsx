@@ -15,6 +15,7 @@ import {
   ExternalLink
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 interface Feature {
   id: string;
@@ -180,6 +181,15 @@ const getColorClasses = (color: Feature["color"], variant: "bg" | "text" | "bord
   return colors[color][variant];
 };
 
+const getGlowIconColor = (color: Feature["color"]): "blue" | "purple" | "green" => {
+  const colorMap = {
+    primary: "blue" as const,
+    accent: "purple" as const,
+    success: "green" as const,
+  };
+  return colorMap[color];
+};
+
 export default function SolutionSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -213,7 +223,7 @@ export default function SolutionSection() {
           className="text-center mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-500/30 bg-green-500/10 text-green-500 text-sm font-medium mb-6">
-            <Zap className="h-4 w-4" />
+            <GlowIcon icon={<Zap />} size="xs" color="green" variant="ghost" />
             The Solution
           </span>
           <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -250,13 +260,12 @@ export default function SolutionSection() {
                 } ${isDark ? "border border-white/[0.05]" : "border border-black/[0.05]"}`}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-xl transition-colors ${
-                    activeFeature === feature.id
-                      ? `${getColorClasses(feature.color, "bg")} ${getColorClasses(feature.color, "text")}`
-                      : isDark ? "bg-white/[0.05] text-gray-400 group-hover:text-white" : "bg-gray-100 text-gray-500 group-hover:text-gray-900"
-                  }`}>
-                    {feature.icon}
-                  </div>
+                  <GlowIcon
+                    icon={feature.icon}
+                    size="md"
+                    color={getGlowIconColor(feature.color)}
+                    variant={activeFeature === feature.id ? "glow" : "outline"}
+                  />
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
                       <h3 className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{feature.title}</h3>
@@ -295,9 +304,12 @@ export default function SolutionSection() {
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
-                <div className={`p-3 rounded-xl ${getColorClasses(activeData.color, "bg")} ${getColorClasses(activeData.color, "text")}`}>
-                  {activeData.icon}
-                </div>
+                <GlowIcon
+                  icon={activeData.icon}
+                  size="lg"
+                  color={getGlowIconColor(activeData.color)}
+                  variant="glow"
+                />
                 <div>
                   <h3 className={`text-2xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{activeData.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{activeData.subtitle}</p>
@@ -330,7 +342,7 @@ export default function SolutionSection() {
                         : "bg-gray-50 border-black/[0.08]"
                     }`}
                   >
-                    <CheckCircle2 className={`h-4 w-4 ${getColorClasses(activeData.color, "text")}`} />
+                    <GlowIcon icon={<CheckCircle2 />} size="xs" color={getGlowIconColor(activeData.color)} variant="ghost" />
                     <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{benefit}</span>
                   </motion.div>
                 ))}

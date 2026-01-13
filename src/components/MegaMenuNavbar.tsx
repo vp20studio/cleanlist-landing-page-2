@@ -26,6 +26,7 @@ import {
   Moon,
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 interface NavItem {
   label: string;
@@ -232,9 +233,7 @@ export default function MegaMenuNavbar() {
                                         : "hover:bg-gray-100"
                                     }`}
                                   >
-                                    <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] group-hover:bg-[#3e8aff]/20 transition-colors">
-                                      {item.icon}
-                                    </div>
+                                    <GlowIcon icon={item.icon} size="sm" color="blue" variant="glow" />
                                     <div className="flex-1">
                                       <div className="flex items-center gap-2">
                                         <span className={`text-sm font-medium transition-colors group-hover:text-[#3e8aff] ${
@@ -272,11 +271,11 @@ export default function MegaMenuNavbar() {
                               theme === "dark" ? "text-gray-500" : "text-gray-500"
                             }`}>
                               <div className="flex items-center gap-1.5">
-                                <Shield className="w-3.5 h-3.5 text-green-500" />
+                                <GlowIcon icon={<Shield />} size="xs" color="green" variant="ghost" />
                                 <span>95%+ Accuracy</span>
                               </div>
                               <div className="flex items-center gap-1.5">
-                                <Zap className="w-3.5 h-3.5 text-yellow-500" />
+                                <GlowIcon icon={<Zap />} size="xs" color="yellow" variant="ghost" />
                                 <span>From 1 Credit</span>
                               </div>
                             </div>
@@ -337,9 +336,7 @@ export default function MegaMenuNavbar() {
                                 : "hover:bg-gray-100"
                             }`}
                           >
-                            <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] group-hover:bg-[#3e8aff]/20 transition-colors">
-                              {item.icon}
-                            </div>
+                            <GlowIcon icon={item.icon} size="sm" color="blue" variant="glow" />
                             <div>
                               <span className={`text-sm font-medium transition-colors group-hover:text-[#3e8aff] ${
                                 theme === "dark" ? "text-white" : "text-gray-900"
@@ -403,9 +400,7 @@ export default function MegaMenuNavbar() {
                                 : "hover:bg-gray-100"
                             }`}
                           >
-                            <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] group-hover:bg-[#3e8aff]/20 transition-colors">
-                              {item.icon}
-                            </div>
+                            <GlowIcon icon={item.icon} size="sm" color="blue" variant="glow" />
                             <div>
                               <span className={`text-sm font-medium transition-colors group-hover:text-[#3e8aff] ${
                                 theme === "dark" ? "text-white" : "text-gray-900"
@@ -551,9 +546,7 @@ export default function MegaMenuNavbar() {
                           }`}
                           onClick={() => setMobileOpen(false)}
                         >
-                          <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff]">
-                            {item.icon}
-                          </div>
+                          <GlowIcon icon={item.icon} size="sm" color="blue" variant="glow" />
                           <span className={`text-sm ${
                             theme === "dark" ? "text-white" : "text-gray-900"
                           }`}>{item.label}</span>
@@ -582,9 +575,7 @@ export default function MegaMenuNavbar() {
                         }`}
                         onClick={() => setMobileOpen(false)}
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff]">
-                          {item.icon}
-                        </div>
+                        <GlowIcon icon={item.icon} size="sm" color="blue" variant="glow" />
                         <span className={`text-sm ${
                           theme === "dark" ? "text-white" : "text-gray-900"
                         }`}>{item.label}</span>
@@ -612,9 +603,7 @@ export default function MegaMenuNavbar() {
                         }`}
                         onClick={() => setMobileOpen(false)}
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff]">
-                          {item.icon}
-                        </div>
+                        <GlowIcon icon={item.icon} size="sm" color="blue" variant="glow" />
                         <span className={`text-sm ${
                           theme === "dark" ? "text-white" : "text-gray-900"
                         }`}>{item.label}</span>

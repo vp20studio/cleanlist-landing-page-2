@@ -19,7 +19,7 @@ import {
   Settings,
   Shield,
 } from "lucide-react";
-import { TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import SmartColumnDemo from "@/components/SmartColumnDemo";
 
 export default function SmartColumnsPage() {
@@ -41,7 +41,7 @@ export default function SmartColumnsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-6"
               >
-                <Sparkles className="w-4 h-4" />
+                <GlowIcon icon={<Sparkles />} size="xs" color="purple" variant="ghost" />
                 AI-Powered
               </motion.div>
 
@@ -178,7 +178,7 @@ export default function SmartColumnsPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
-              <Wand2 className="w-4 h-4" />
+              <GlowIcon icon={<Wand2 />} size="xs" color="purple" variant="ghost" />
               Natural Language
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -427,7 +427,7 @@ export default function SmartColumnsPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
-                <Brain className="w-4 h-4" />
+                <GlowIcon icon={<Brain />} size="xs" color="purple" variant="ghost" />
                 Custom AI Prompts
               </div>
               <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -481,9 +481,7 @@ export default function SmartColumnsPage() {
               className="p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center">
-                  <Brain className="w-5 h-5 text-purple-500" />
-                </div>
+                <GlowIcon icon={<Brain />} size="md" color="purple" variant="glow" />
                 <div>
                   <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>GPT-4 Powered</div>
                   <div className="text-xs text-gray-500">Latest AI model</div>
@@ -554,8 +552,8 @@ export default function SmartColumnsPage() {
                 transition={{ delay: index * 0.1 }}
                 className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} text-center`}
               >
-                <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-500 mx-auto mb-4">
-                  {step.icon}
+                <div className="mx-auto mb-4 w-fit">
+                  <GlowIcon icon={step.icon} size="lg" color="purple" variant="glow" />
                 </div>
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>{step.title}</h3>
                 <div className="space-y-2">

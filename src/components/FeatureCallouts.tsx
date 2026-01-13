@@ -3,38 +3,44 @@
 import { motion } from "framer-motion";
 import { Sparkles, Zap, BarChart3, Link2 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 interface CalloutItem {
   icon: React.ReactNode;
   text: string;
   position: "top-left" | "top-right" | "bottom-left" | "bottom-right";
   delay: number;
+  color: "blue" | "green" | "purple";
 }
 
 const callouts: CalloutItem[] = [
   {
-    icon: <Sparkles className="h-4 w-4 text-[#3e8aff]" />,
+    icon: <Sparkles />,
     text: "15+ Providers",
     position: "top-left",
     delay: 0.8,
+    color: "blue",
   },
   {
-    icon: <Zap className="h-4 w-4 text-green-500" />,
+    icon: <Zap />,
     text: "Real-time",
     position: "top-right",
     delay: 1,
+    color: "green",
   },
   {
-    icon: <BarChart3 className="h-4 w-4 text-purple-500" />,
+    icon: <BarChart3 />,
     text: "Waterfall Logic",
     position: "bottom-left",
     delay: 1.2,
+    color: "purple",
   },
   {
-    icon: <Link2 className="h-4 w-4 text-[#3e8aff]" />,
+    icon: <Link2 />,
     text: "CRM Sync",
     position: "bottom-right",
     delay: 1.4,
+    color: "blue",
   },
 ];
 
@@ -89,9 +95,7 @@ const FeatureCallout = ({ callout }: { callout: CalloutItem }) => {
           ? "bg-[#0a0a0a]/90 border-white/[0.08]"
           : "bg-white/90 border-black/[0.08]"
       }`}>
-        <div className={`p-1.5 rounded-lg ${isDark ? "bg-white/[0.05]" : "bg-black/[0.05]"}`}>
-          {callout.icon}
-        </div>
+        <GlowIcon icon={callout.icon} size="xs" color={callout.color} variant="glow" />
         <span className={`text-xs font-medium whitespace-nowrap ${isDark ? "text-white" : "text-gray-900"}`}>
           {callout.text}
         </span>

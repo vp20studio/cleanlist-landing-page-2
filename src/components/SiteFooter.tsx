@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Twitter, Linkedin, Github, Mail } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 const footerLinks = {
   products: [
@@ -75,17 +76,14 @@ export default function SiteFooter() {
               your leads with 98% accuracy.
             </p>
             <div className="flex items-center gap-3 md:gap-4">
-              {[Twitter, Linkedin, Github, Mail].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors ${
-                    isDark
-                      ? "bg-white/[0.05] text-gray-400 hover:text-white hover:bg-white/[0.1]"
-                      : "bg-black/[0.05] text-gray-500 hover:text-gray-900 hover:bg-black/[0.1]"
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
+              {[
+                { Icon: Twitter, color: "blue" as const },
+                { Icon: Linkedin, color: "linkedin" as const },
+                { Icon: Github, color: "gray" as const },
+                { Icon: Mail, color: "blue" as const },
+              ].map(({ Icon, color }, i) => (
+                <a key={i} href="#" className="transition-transform hover:scale-110">
+                  <GlowIcon icon={<Icon />} size="sm" color={color} variant="glow" />
                 </a>
               ))}
             </div>

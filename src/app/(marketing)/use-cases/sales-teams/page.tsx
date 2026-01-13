@@ -16,7 +16,7 @@ import {
   Zap,
   MessageSquare,
 } from "lucide-react";
-import { TechnicalGrid, GlowCard } from "@/components/ui";
+import { TechnicalGrid, GlowCard, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function SalesTeamsPage() {
@@ -37,7 +37,7 @@ export default function SalesTeamsPage() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
             >
-              <Users className="w-4 h-4" />
+              <GlowIcon icon={<Users />} size="xs" color="blue" variant="ghost" />
               For Sales Teams
             </motion.div>
 
@@ -239,9 +239,7 @@ export default function SalesTeamsPage() {
                 className="relative"
               >
                 <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} h-full`}>
-                  <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
-                    {item.icon}
-                  </div>
+                  <GlowIcon icon={item.icon} size="lg" color="blue" variant="glow" className="mb-4" />
                   <div className="text-sm text-[#3e8aff] mb-2">Step {item.step}</div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{item.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{item.description}</p>
@@ -310,9 +308,7 @@ export default function SalesTeamsPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <GlowCard className="h-full p-6">
-                  <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
-                    {feature.icon}
-                  </div>
+                  <GlowIcon icon={feature.icon} size="lg" color="blue" variant="glow" className="mb-4" />
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>

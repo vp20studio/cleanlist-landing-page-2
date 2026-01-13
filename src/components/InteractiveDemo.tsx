@@ -14,6 +14,7 @@ import {
   User,
 } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 import WaterfallEnrichmentDemo from "./WaterfallEnrichmentDemo";
 
 const demoTabs = [
@@ -73,7 +74,7 @@ export default function InteractiveDemo() {
           className="text-center mb-10 md:mb-12"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-            <Sparkles className="w-4 h-4" />
+            <GlowIcon icon={<Sparkles />} size="xs" color="blue" variant="ghost" />
             See It In Action
           </div>
           <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>

@@ -21,7 +21,7 @@ import {
   Lock,
   Globe,
 } from "lucide-react";
-import { TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import SalesNavDemo from "@/components/SalesNavDemo";
 
 export default function SalesNavScraperPage() {
@@ -43,7 +43,7 @@ export default function SalesNavScraperPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0077b5]/10 border border-[#0077b5]/20 text-sm text-[#0077b5] mb-6"
               >
-                <Linkedin className="w-4 h-4" />
+                <GlowIcon icon={<Linkedin />} size="xs" color="linkedin" variant="ghost" />
                 Chrome Extension
               </motion.div>
 
@@ -180,7 +180,7 @@ export default function SalesNavScraperPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0077b5]/10 border border-[#0077b5]/20 text-sm text-[#0077b5] mb-4">
-              <Chrome className="w-4 h-4" />
+              <GlowIcon icon={<Chrome />} size="xs" color="linkedin" variant="ghost" />
               Simple Workflow
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -405,9 +405,7 @@ export default function SalesNavScraperPage() {
                 transition={{ delay: index * 0.1 }}
               >
                 <GlowCard className="h-full p-6" glowColor="#0077b5">
-                  <div className="w-12 h-12 rounded-xl bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5] mb-4">
-                    {feature.icon}
-                  </div>
+                  <GlowIcon icon={feature.icon} size="lg" color="linkedin" variant="glow" className="mb-4" />
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{feature.description}</p>
                   <div className="flex flex-wrap gap-2">
@@ -437,7 +435,7 @@ export default function SalesNavScraperPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0077b5]/10 border border-[#0077b5]/20 text-sm text-[#0077b5] mb-4">
-                <Database className="w-4 h-4" />
+                <GlowIcon icon={<Database />} size="xs" color="linkedin" variant="ghost" />
                 Rich Output
               </div>
               <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -521,9 +519,7 @@ export default function SalesNavScraperPage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto text-center"
           >
-            <div className="w-16 h-16 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-6">
-              <Lock className="w-8 h-8 text-green-500" />
-            </div>
+            <GlowIcon icon={<Lock />} size="xl" color="green" variant="glow" className="mx-auto mb-6" />
             <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Your Account is Safe
             </h2>

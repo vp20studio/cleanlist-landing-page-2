@@ -20,7 +20,7 @@ import {
   Layers,
   Zap,
 } from "lucide-react";
-import { DashboardMockup, VerticalStepper, TechnicalGrid } from "@/components/ui";
+import { DashboardMockup, VerticalStepper, TechnicalGrid, GlowIcon } from "@/components/ui";
 import ICPScoringDemo from "@/components/ICPScoringDemo";
 
 const companyTargeting = [
@@ -69,7 +69,7 @@ export default function ICPScoringPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-6"
               >
-                <Target className="w-4 h-4" />
+                <GlowIcon icon={<Target />} size="xs" color="purple" variant="ghost" />
                 ICP Scoring
               </motion.div>
 
@@ -207,7 +207,7 @@ export default function ICPScoringPage() {
                 className="sticky top-24"
               >
                 <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-4">
-                  <BarChart3 className="w-4 h-4" />
+                  <GlowIcon icon={<BarChart3 />} size="xs" color="purple" variant="ghost" />
                   How It Works
                 </div>
                 <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -347,9 +347,7 @@ export default function ICPScoringPage() {
               viewport={{ once: true }}
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
-              <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-4">
-                <Building className="w-6 h-6" />
-              </div>
+              <GlowIcon icon={<Building />} size="lg" color="purple" variant="glow" className="mb-4" />
               <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Company Targeting</h3>
               <div className="space-y-3">
                 {companyTargeting.map((item) => (
@@ -372,9 +370,7 @@ export default function ICPScoringPage() {
               transition={{ delay: 0.1 }}
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 mb-4">
-                <Users className="w-6 h-6" />
-              </div>
+              <GlowIcon icon={<Users />} size="lg" color="blue" variant="glow" className="mb-4" />
               <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Prospect Targeting</h3>
               <div className="space-y-3">
                 {prospectTargeting.map((item) => (
@@ -397,9 +393,7 @@ export default function ICPScoringPage() {
               transition={{ delay: 0.2 }}
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
-              <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center text-green-400 mb-4">
-                <Globe className="w-6 h-6" />
-              </div>
+              <GlowIcon icon={<Globe />} size="lg" color="green" variant="glow" className="mb-4" />
               <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Geographic Targeting</h3>
               <div className="space-y-3">
                 {geoTargeting.map((item) => (
@@ -526,9 +520,7 @@ export default function ICPScoringPage() {
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-[#3e8aff]" />
-                </div>
+                <GlowIcon icon={<Sparkles />} size="lg" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Smart Columns</h3>
                   <p className="text-sm text-gray-500">ICP Fit Analysis column</p>
@@ -554,9 +546,7 @@ export default function ICPScoringPage() {
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center">
-                  <Layers className="w-6 h-6 text-[#3e8aff]" />
-                </div>
+                <GlowIcon icon={<Layers />} size="lg" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Playbook Builder</h3>
                   <p className="text-sm text-gray-500">ICP Scoring step</p>

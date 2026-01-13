@@ -1,4 +1,5 @@
 export { default as GlowCard } from "./GlowCard";
+export { default as GlowIcon } from "./GlowIcon";
 export { default as MagneticButton } from "./MagneticButton";
 export { default as SectionHeader } from "./SectionHeader";
 export { default as CodeBlock } from "./CodeBlock";

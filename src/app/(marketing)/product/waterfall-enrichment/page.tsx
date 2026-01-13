@@ -32,6 +32,7 @@ import {
   TechnicalGrid,
   VerticalStepper,
   GlowCard,
+  GlowIcon,
 } from "@/components/ui";
 import WaterfallPageDemo from "@/components/WaterfallPageDemo";
 
@@ -54,7 +55,7 @@ export default function WaterfallEnrichmentPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
               >
-                <Layers className="w-4 h-4" />
+                <GlowIcon icon={<Layers />} size="xs" color="blue" variant="ghost" />
                 Flagship Product
               </motion.div>
 
@@ -198,7 +199,7 @@ export default function WaterfallEnrichmentPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <GitMerge className="w-4 h-4" />
+              <GlowIcon icon={<GitMerge />} size="xs" color="blue" variant="ghost" />
               The Cascade Logic
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -377,7 +378,7 @@ export default function WaterfallEnrichmentPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Database className="w-4 h-4" />
+              <GlowIcon icon={<Database />} size="xs" color="blue" variant="ghost" />
               Enrichment Options
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -397,9 +398,7 @@ export default function WaterfallEnrichmentPage() {
               viewport={{ once: true }}
               className={`p-8 rounded-xl ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border`}
             >
-              <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-6">
-                <Mail className="w-7 h-7" />
-              </div>
+              <GlowIcon icon={<Mail />} size="xl" color="blue" variant="glow" className="mb-6" />
               <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Partial Enrichment</h3>
               <div className="text-4xl font-bold text-[#3e8aff] mb-4">1 Credit</div>
               <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -423,9 +422,7 @@ export default function WaterfallEnrichmentPage() {
               transition={{ delay: 0.1 }}
               className="p-8 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/30"
             >
-              <div className="w-14 h-14 rounded-xl bg-[#3e8aff]/20 flex items-center justify-center text-[#3e8aff] mb-6">
-                <Phone className="w-7 h-7" />
-              </div>
+              <GlowIcon icon={<Phone />} size="xl" color="blue" variant="glow" className="mb-6" />
               <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Full Enrichment</h3>
               <div className="text-4xl font-bold text-[#3e8aff] mb-4">10 Credits</div>
               <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -454,7 +451,7 @@ export default function WaterfallEnrichmentPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Target className="w-4 h-4" />
+              <GlowIcon icon={<Target />} size="xs" color="blue" variant="ghost" />
               Output Schema
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -469,9 +466,7 @@ export default function WaterfallEnrichmentPage() {
             {/* Contact Fields */}
             <GlowCard className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                  <User className="w-5 h-5 text-[#3e8aff]" />
-                </div>
+                <GlowIcon icon={<User />} size="md" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Contact Data</h3>
                   <p className="text-xs text-gray-500">Personal & professional info</p>
@@ -504,9 +499,7 @@ export default function WaterfallEnrichmentPage() {
             {/* Company Fields */}
             <GlowCard className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                  <Building className="w-5 h-5 text-[#3e8aff]" />
-                </div>
+                <GlowIcon icon={<Building />} size="md" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Company Data</h3>
                   <p className="text-xs text-gray-500">Firmographic details</p>
@@ -539,9 +532,7 @@ export default function WaterfallEnrichmentPage() {
             {/* Metadata Fields */}
             <GlowCard className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                  <BarChart3 className="w-5 h-5 text-[#3e8aff]" />
-                </div>
+                <GlowIcon icon={<BarChart3 />} size="md" color="blue" variant="glow" />
                 <div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Metadata</h3>
                   <p className="text-xs text-gray-500">Quality & source info</p>
@@ -582,7 +573,7 @@ export default function WaterfallEnrichmentPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                <RefreshCw className="w-4 h-4" />
+                <GlowIcon icon={<RefreshCw />} size="xs" color="blue" variant="ghost" />
                 API Integration
               </div>
               <h2 className={`text-4xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -721,9 +712,7 @@ export default function WaterfallEnrichmentPage() {
                 transition={{ delay: index * 0.1 }}
                 className={`p-6 rounded-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border hover:border-[#3e8aff]/30`}
               >
-                <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
-                  {useCase.icon}
-                </div>
+                <GlowIcon icon={useCase.icon} size="lg" color="blue" variant="glow" className="mb-4" />
                 <h3 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{useCase.title}</h3>
                 <p className={`text-sm mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{useCase.description}</p>
                 <div className="flex items-center gap-2 text-xs text-green-500">

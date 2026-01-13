@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Database, Layers, Target, Zap } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import { GlowIcon } from "@/components/ui";
 
 interface StatItem {
   icon: React.ReactNode;
@@ -64,13 +65,12 @@ const StatCard = ({ stat, index, isInView }: { stat: StatItem; index: number; is
         <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
 
         {/* Icon */}
-        <motion.div
-          className="p-2 rounded-xl bg-[#3e8aff]/10 text-[#3e8aff]"
-          whileHover={{ rotate: [0, -10, 10, 0] }}
-          transition={{ duration: 0.5 }}
-        >
-          {stat.icon}
-        </motion.div>
+        <GlowIcon
+          icon={stat.icon}
+          size="sm"
+          color="blue"
+          variant="glow"
+        />
 
         {/* Value */}
         <div className="flex items-baseline gap-0.5">

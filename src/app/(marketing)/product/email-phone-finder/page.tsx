@@ -22,7 +22,7 @@ import {
   Server,
   FileCheck,
 } from "lucide-react";
-import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard } from "@/components/ui";
+import { DashboardMockup, TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 
 export default function EmailPhoneFinderPage() {
   const { theme } = useTheme();
@@ -43,7 +43,7 @@ export default function EmailPhoneFinderPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-500 mb-6"
               >
-                <Mail className="w-4 h-4" />
+                <GlowIcon icon={<Mail />} size="xs" color="green" variant="ghost" />
                 Contact Discovery
               </motion.div>
 
@@ -180,7 +180,7 @@ export default function EmailPhoneFinderPage() {
             className="text-center mb-16"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-500 mb-4">
-              <Shield className="w-4 h-4" />
+              <GlowIcon icon={<Shield />} size="xs" color="green" variant="ghost" />
               Email Validation
             </div>
             <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -374,18 +374,13 @@ export default function EmailPhoneFinderPage() {
                       : "#a855f7"
                   }
                 >
-                  <div
-                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                      feature.color === "yellow"
-                        ? "bg-yellow-500/10 text-yellow-500"
-                        : feature.color === "red"
-                        ? "bg-red-500/10 text-red-500"
-                        : feature.color === "blue"
-                        ? "bg-[#3e8aff]/10 text-[#3e8aff]"
-                        : "bg-purple-500/10 text-purple-500"
-                    }`}
-                  >
-                    {feature.icon}
+                  <div className="mb-4">
+                    <GlowIcon
+                      icon={feature.icon}
+                      size="lg"
+                      color={feature.color as "yellow" | "red" | "blue" | "purple"}
+                      variant="glow"
+                    />
                   </div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
@@ -406,7 +401,7 @@ export default function EmailPhoneFinderPage() {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                <Phone className="w-4 h-4" />
+                <GlowIcon icon={<Phone />} size="xs" color="blue" variant="ghost" />
                 Direct Dial Discovery
               </div>
               <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -439,9 +434,7 @@ export default function EmailPhoneFinderPage() {
                     key={item.title}
                     className={`flex items-start gap-4 p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-[#3e8aff]" />
-                    </div>
+                    <GlowIcon icon={<Phone />} size="md" color="blue" variant="glow" />
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
                         <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.title}</h4>
@@ -465,9 +458,7 @@ export default function EmailPhoneFinderPage() {
               <div className="space-y-4">
                 <div className="p-4 rounded-lg bg-[#111] border border-white/[0.05]">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-[#3e8aff]/10 flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-[#3e8aff]" />
-                    </div>
+                    <GlowIcon icon={<Phone />} size="md" color="blue" variant="glow" />
                     <div>
                       <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>+1 (555) 123-4567</div>
                       <div className="text-xs text-gray-500">Mobile • Verified</div>
@@ -481,9 +472,7 @@ export default function EmailPhoneFinderPage() {
 
                 <div className="p-4 rounded-lg bg-[#111] border border-white/[0.05]">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-full bg-[#3e8aff]/10 flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-[#3e8aff]" />
-                    </div>
+                    <GlowIcon icon={<Phone />} size="md" color="blue" variant="glow" />
                     <div>
                       <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>+1 (555) 987-6543</div>
                       <div className="text-xs text-gray-500">Direct Dial • Office</div>
@@ -557,8 +546,8 @@ export default function EmailPhoneFinderPage() {
                 transition={{ delay: index * 0.1 }}
                 className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors`}
               >
-                <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
-                  {method.icon}
+                <div className="mb-4">
+                  <GlowIcon icon={method.icon} size="lg" color="blue" variant="glow" />
                 </div>
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{method.title}</h3>
                 <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{method.description}</p>
