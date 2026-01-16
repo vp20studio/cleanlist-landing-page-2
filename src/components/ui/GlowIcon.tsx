@@ -2,9 +2,13 @@
 
 import { motion } from "framer-motion";
 import { cloneElement, isValidElement } from "react";
+import Icon3D from "./Icon3D";
 
 export interface GlowIconProps {
-  icon: React.ReactNode;
+  /** Phosphor icon component (legacy) */
+  icon?: React.ReactNode;
+  /** 3D icon name for Icon3D lookup (preferred) */
+  iconName?: string;
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   color?: "blue" | "green" | "purple" | "red" | "yellow" | "gray" | "linkedin";
   variant?: "glow" | "solid" | "outline" | "ghost";
@@ -88,6 +92,7 @@ const colorMap = {
 
 export default function GlowIcon({
   icon,
+  iconName,
   size = "md",
   color = "blue",
   variant = "glow",
@@ -97,19 +102,30 @@ export default function GlowIcon({
   const sizeClasses = sizeMap[size];
   const colorClasses = colorMap[color];
 
-  // Clone icon with proper sizing and color for Phosphor icons
-  const iconColor = variant === "solid" ? colorClasses.hexSolid : colorClasses.hex;
-  const styledIcon = isValidElement<{ size?: number; color?: string; weight?: string; className?: string }>(icon)
-    ? cloneElement(icon, {
-        size: sizeClasses.iconSize,
-        color: iconColor,
-        weight: "duotone",
-      })
-    : icon;
+  // Determine which icon to render: 3D icon (preferred) or Phosphor icon (legacy)
+  let iconElement: React.ReactNode;
+
+  if (iconName) {
+    // Use 3D icon
+    iconElement = <Icon3D name={iconName} size={sizeClasses.iconSize} />;
+  } else if (icon) {
+    // Clone Phosphor icon with proper sizing and color
+    const iconColor = variant === "solid" ? colorClasses.hexSolid : colorClasses.hex;
+    iconElement = isValidElement<{ size?: number; color?: string; weight?: string; className?: string }>(icon)
+      ? cloneElement(icon, {
+          size: sizeClasses.iconSize,
+          color: iconColor,
+          weight: "duotone",
+        })
+      : icon;
+  } else {
+    // Fallback - empty
+    iconElement = null;
+  }
 
   // Ghost variant - just return the styled icon without container
   if (variant === "ghost") {
-    return <>{styledIcon}</>;
+    return <>{iconElement}</>;
   }
 
   // Build container classes based on variant
@@ -137,10 +153,10 @@ export default function GlowIcon({
         animate={{ scale: [1, 1.05, 1] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
-        {styledIcon}
+        {iconElement}
       </motion.div>
     );
   }
 
-  return <div className={containerClasses}>{styledIcon}</div>;
+  return <div className={containerClasses}>{iconElement}</div>;
 }
