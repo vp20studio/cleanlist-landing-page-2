@@ -8,3 +8,4 @@ export { default as VerticalStepper } from "./VerticalStepper";
 export { default as TechnicalGrid } from "./TechnicalGrid";
 export { default as DashboardMockup } from "./DashboardMockup";
 export { default as DataSourcesGrid } from "./DataSourcesGrid";
+export { default as VideoDemo } from "./VideoDemo";
