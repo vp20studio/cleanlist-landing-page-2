@@ -1,6 +1,5 @@
 export { default as GlowCard } from "./GlowCard";
 export { default as GlowIcon } from "./GlowIcon";
-export { default as Icon3D } from "./Icon3D";
 export { default as MagneticButton } from "./MagneticButton";
 export { default as SectionHeader } from "./SectionHeader";
 export { default as CodeBlock } from "./CodeBlock";
@@ -9,4 +8,3 @@ export { default as VerticalStepper } from "./VerticalStepper";
 export { default as TechnicalGrid } from "./TechnicalGrid";
 export { default as DashboardMockup } from "./DashboardMockup";
 export { default as DataSourcesGrid } from "./DataSourcesGrid";
-export { default as VideoDemo } from "./VideoDemo";

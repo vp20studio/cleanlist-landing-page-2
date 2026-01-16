@@ -29,7 +29,7 @@ import {
   CaretDown,
   Calendar,
 } from "@phosphor-icons/react";
-import { DashboardMockup, VideoDemo } from "@/components/ui";
+import { DashboardMockup } from "@/components/ui";
 import StickySubNav from "@/components/StickySubNav";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import PlaybooksSection from "@/components/PlaybooksSection";
@@ -394,26 +394,6 @@ export default function HomePage() {
               <CaretDown className={`w-5 h-5 ${isDark ? "text-gray-500" : "text-gray-400"}`} />
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Featured Video Demo */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h3 className={`text-lg font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              See phone enrichment in action
-            </h3>
-          </motion.div>
-          <VideoDemo
-            src="/videos/phone-enrichment.mov"
-            title="Find Phone Numbers — Live Demo"
-          />
         </div>
       </section>
 
