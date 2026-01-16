@@ -146,6 +146,7 @@ export default function VideoDemo({
             >
               {webmSrc && <source src={webmSrc} type="video/webm" />}
               <source src={src} type="video/mp4" />
+              <source src={src} type="video/quicktime" />
             </video>
 
             {/* Subtle vignette overlay */}

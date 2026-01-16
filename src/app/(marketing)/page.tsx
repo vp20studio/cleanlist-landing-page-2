@@ -411,7 +411,7 @@ export default function HomePage() {
             </h3>
           </motion.div>
           <VideoDemo
-            src="/videos/phone-enrichment.mov"
+            src="/videos/phone-enrichment.mp4"
             title="Find Phone Numbers — Live Demo"
           />
         </div>
