@@ -443,8 +443,8 @@ export default function HomePage() {
                   : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
               }`}
             >
-              <Lightning className="w-4 h-4 text-[#3e8aff]" />
-              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Real Time</span>
+              <CurrencyDollar className="w-4 h-4 text-[#3e8aff]" />
+              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>From $0.30/phone</span>
             </motion.div>
 
             <motion.div
