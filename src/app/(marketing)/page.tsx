@@ -400,10 +400,73 @@ export default function HomePage() {
               See phone enrichment in action
             </h3>
           </motion.div>
-          <VideoDemo
-            src="/videos/phone-enrichment.mp4"
-            title="Find Phone Numbers — Live Demo"
-          />
+          <div className="relative">
+            {/* Floating Tags */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className={`absolute -left-4 md:-left-16 top-16 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
+                isDark
+                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
+                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
+              }`}
+            >
+              <Stack className="w-4 h-4 text-[#3e8aff]" />
+              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className={`absolute -right-4 md:-right-20 top-24 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
+                isDark
+                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
+                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
+              }`}
+            >
+              <Crosshair className="w-4 h-4 text-[#3e8aff]" />
+              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className={`absolute -left-4 md:-left-12 bottom-32 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
+                isDark
+                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
+                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
+              }`}
+            >
+              <Lightning className="w-4 h-4 text-[#3e8aff]" />
+              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Real Time</span>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className={`absolute -right-4 md:-right-16 bottom-40 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
+                isDark
+                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
+                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
+              }`}
+            >
+              <ArrowsClockwise className="w-4 h-4 text-[#3e8aff]" />
+              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</span>
+            </motion.div>
+
+            <VideoDemo
+              src="/videos/phone-enrichment.mp4"
+              title="Find Phone Numbers — Live Demo"
+            />
+          </div>
         </div>
       </section>
 
