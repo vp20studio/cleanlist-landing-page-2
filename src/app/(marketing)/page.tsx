@@ -319,12 +319,29 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-center mb-8"
           >
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm ${
+            <div className={`inline-flex items-center divide-x rounded-full border text-sm ${
               isDark
-                ? "bg-white/[0.03] text-gray-300"
-                : "bg-black/[0.03] text-gray-600"
+                ? "bg-white/[0.02] border-white/[0.08] divide-white/[0.08]"
+                : "bg-white border-gray-200 divide-gray-200 shadow-sm"
             }`}>
-              400M+ Contacts&nbsp;&nbsp;•&nbsp;&nbsp;98% Email Coverage&nbsp;&nbsp;•&nbsp;&nbsp;85% Phone Find Rate
+              <div className="flex items-center gap-2 px-4 py-2">
+                <Database className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                <span className={isDark ? "text-gray-300" : "text-gray-700"}>
+                  <span className="font-semibold">400M+</span> Contacts
+                </span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2">
+                <Envelope className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                <span className={isDark ? "text-gray-300" : "text-gray-700"}>
+                  <span className="font-semibold">98%</span> Email Coverage
+                </span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2">
+                <Phone className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                <span className={isDark ? "text-gray-300" : "text-gray-700"}>
+                  <span className="font-semibold">85%</span> Phone Find Rate
+                </span>
+              </div>
             </div>
           </motion.div>
 
