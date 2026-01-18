@@ -163,96 +163,152 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative pt-20 md:pt-28 pb-8 md:pb-16 overflow-hidden">
         {/* Background base */}
-        <div className={`absolute inset-0 ${isDark ? "bg-[#030303]" : "bg-white"}`} />
+        <div className={`absolute inset-0 ${isDark ? "bg-[#030303]" : "bg-[#fafafa]"}`} />
 
-        {/* Gradient mesh background */}
+        {/* Large gradient orbs */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Primary glow */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/[0.08] rounded-full blur-[120px]" />
+          <motion.div
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.15, 0.2, 0.15]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-[#3e8aff]/20 rounded-full blur-[150px]"
+          />
+          <motion.div
+            animate={{
+              x: [0, 50, 0],
+              opacity: [0.1, 0.15, 0.1]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]"
+          />
+          <motion.div
+            animate={{
+              x: [0, -50, 0],
+              opacity: [0.08, 0.12, 0.08]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute top-[30%] -right-[10%] w-[500px] h-[500px] bg-[#3e8aff]/10 rounded-full blur-[100px]"
+          />
+        </div>
 
-          {/* Grid pattern overlay */}
+        {/* Radial lines emanating from center */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className={`absolute inset-0 ${isDark ? "opacity-[0.03]" : "opacity-[0.02]"}`}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%]"
             style={{
-              backgroundImage: `linear-gradient(${isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"} 1px, transparent 1px)`,
-              backgroundSize: "60px 60px"
+              background: isDark
+                ? `conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(62, 138, 255, 0.03) 10deg, transparent 20deg, transparent 40deg, rgba(62, 138, 255, 0.02) 50deg, transparent 60deg, transparent 80deg, rgba(62, 138, 255, 0.03) 90deg, transparent 100deg, transparent 120deg, rgba(62, 138, 255, 0.02) 130deg, transparent 140deg, transparent 160deg, rgba(62, 138, 255, 0.03) 170deg, transparent 180deg, transparent 200deg, rgba(62, 138, 255, 0.02) 210deg, transparent 220deg, transparent 240deg, rgba(62, 138, 255, 0.03) 250deg, transparent 260deg, transparent 280deg, rgba(62, 138, 255, 0.02) 290deg, transparent 300deg, transparent 320deg, rgba(62, 138, 255, 0.03) 330deg, transparent 340deg, transparent 360deg)`
+                : `conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(62, 138, 255, 0.05) 10deg, transparent 20deg, transparent 40deg, rgba(62, 138, 255, 0.03) 50deg, transparent 60deg, transparent 80deg, rgba(62, 138, 255, 0.05) 90deg, transparent 100deg, transparent 120deg, rgba(62, 138, 255, 0.03) 130deg, transparent 140deg, transparent 160deg, rgba(62, 138, 255, 0.05) 170deg, transparent 180deg, transparent 200deg, rgba(62, 138, 255, 0.03) 210deg, transparent 220deg, transparent 240deg, rgba(62, 138, 255, 0.05) 250deg, transparent 260deg, transparent 280deg, rgba(62, 138, 255, 0.03) 290deg, transparent 300deg, transparent 320deg, rgba(62, 138, 255, 0.05) 330deg, transparent 340deg, transparent 360deg)`
             }}
           />
         </div>
 
-        {/* Floating elements with parallax effect */}
+        {/* Floating geometric shapes */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Floating rings */}
+          {/* Large floating square - left */}
           <motion.div
-            animate={{ y: [0, -20, 0], rotate: [0, 180, 360] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[15%] left-[10%] w-16 h-16 rounded-full border border-[#3e8aff]/20 hidden lg:block"
-          />
-          <motion.div
-            animate={{ y: [0, 15, 0], rotate: [360, 180, 0] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[25%] right-[12%] w-24 h-24 rounded-full border border-[#3e8aff]/10 hidden lg:block"
-          />
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-[35%] left-[8%] w-12 h-12 rounded-full border-2 border-[#3e8aff]/15 hidden lg:block"
+            animate={{
+              y: [0, -40, 0],
+              rotate: [0, 90, 0],
+              opacity: [0.1, 0.2, 0.1]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[15%] left-[8%] w-32 h-32 border border-[#3e8aff]/20 rounded-2xl hidden lg:block"
           />
 
-          {/* Floating dots */}
+          {/* Medium floating square - right */}
           <motion.div
-            animate={{ y: [0, -30, 0], x: [0, 10, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[20%] right-[25%] w-2 h-2 rounded-full bg-[#3e8aff]/40 hidden md:block"
-          />
-          <motion.div
-            animate={{ y: [0, 20, 0], x: [0, -8, 0] }}
-            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-[40%] left-[20%] w-1.5 h-1.5 rounded-full bg-[#3e8aff]/30 hidden md:block"
-          />
-          <motion.div
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-[45%] right-[15%] w-2.5 h-2.5 rounded-full bg-[#3e8aff]/25 hidden md:block"
-          />
-          <motion.div
-            animate={{ y: [0, 25, 0], x: [0, 5, 0] }}
-            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-            className="absolute top-[55%] left-[12%] w-1 h-1 rounded-full bg-[#3e8aff]/50 hidden md:block"
-          />
-
-          {/* Floating crosses/plus signs */}
-          <motion.div
-            animate={{ y: [0, -18, 0], rotate: [0, 90, 0] }}
-            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[30%] left-[18%] hidden lg:block"
-          >
-            <div className="relative w-4 h-4">
-              <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#3e8aff]/20 -translate-y-1/2" />
-              <div className="absolute top-0 left-1/2 w-[1px] h-full bg-[#3e8aff]/20 -translate-x-1/2" />
-            </div>
-          </motion.div>
-          <motion.div
-            animate={{ y: [0, 15, 0], rotate: [45, 135, 45] }}
+            animate={{
+              y: [0, 30, 0],
+              rotate: [45, -45, 45],
+              opacity: [0.15, 0.25, 0.15]
+            }}
             transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-            className="absolute bottom-[40%] right-[20%] hidden lg:block"
-          >
-            <div className="relative w-5 h-5">
-              <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#3e8aff]/15 -translate-y-1/2" />
-              <div className="absolute top-0 left-1/2 w-[1px] h-full bg-[#3e8aff]/15 -translate-x-1/2" />
-            </div>
-          </motion.div>
+            className="absolute top-[25%] right-[10%] w-20 h-20 border border-[#3e8aff]/15 rounded-xl hidden lg:block"
+          />
 
-          {/* Subtle line accents */}
+          {/* Small floating square - bottom left */}
           <motion.div
-            animate={{ scaleX: [0.8, 1, 0.8], opacity: [0.1, 0.2, 0.1] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[22%] right-[8%] w-20 h-[1px] bg-gradient-to-r from-transparent via-[#3e8aff]/30 to-transparent hidden lg:block"
+            animate={{
+              y: [0, -25, 0],
+              rotate: [15, -15, 15]
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute bottom-[35%] left-[15%] w-12 h-12 border-2 border-[#3e8aff]/10 rounded-lg hidden lg:block"
+          />
+
+          {/* Floating circles */}
+          <motion.div
+            animate={{
+              y: [0, -50, 0],
+              x: [0, 20, 0],
+              scale: [1, 1.1, 1]
+            }}
+            transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] right-[20%] w-24 h-24 rounded-full border border-[#3e8aff]/10 hidden md:block"
           />
           <motion.div
-            animate={{ scaleX: [1, 0.8, 1], opacity: [0.15, 0.1, 0.15] }}
+            animate={{
+              y: [0, 35, 0],
+              x: [0, -15, 0]
+            }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-[40%] right-[25%] w-16 h-16 rounded-full border-2 border-[#3e8aff]/15 hidden md:block"
+          />
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              scale: [1, 0.9, 1]
+            }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+            className="absolute top-[40%] left-[5%] w-10 h-10 rounded-full bg-[#3e8aff]/5 hidden lg:block"
+          />
+
+          {/* Glowing orbs */}
+          <motion.div
+            animate={{
+              y: [0, -30, 0],
+              opacity: [0.3, 0.6, 0.3]
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[30%] left-[25%] w-3 h-3 rounded-full bg-[#3e8aff] blur-sm hidden md:block"
+          />
+          <motion.div
+            animate={{
+              y: [0, 25, 0],
+              opacity: [0.2, 0.5, 0.2]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-[50%] right-[18%] w-2 h-2 rounded-full bg-[#3e8aff] blur-sm hidden md:block"
+          />
+          <motion.div
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+              opacity: [0.25, 0.5, 0.25]
+            }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+            className="absolute bottom-[45%] left-[20%] w-2.5 h-2.5 rounded-full bg-[#3e8aff] blur-sm hidden md:block"
+          />
+
+          {/* Diagonal lines */}
+          <motion.div
+            animate={{
+              opacity: [0.1, 0.2, 0.1],
+              scaleX: [0.9, 1, 0.9]
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[18%] right-[15%] w-32 h-[1px] bg-gradient-to-r from-transparent via-[#3e8aff]/30 to-transparent rotate-45 hidden lg:block"
+          />
+          <motion.div
+            animate={{
+              opacity: [0.15, 0.25, 0.15],
+              scaleX: [1, 0.9, 1]
+            }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-[30%] left-[5%] w-16 h-[1px] bg-gradient-to-r from-transparent via-[#3e8aff]/25 to-transparent hidden lg:block"
+            className="absolute bottom-[30%] left-[10%] w-24 h-[1px] bg-gradient-to-r from-transparent via-[#3e8aff]/25 to-transparent -rotate-45 hidden lg:block"
           />
         </div>
 
@@ -263,23 +319,12 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-center mb-8"
           >
-            <div className={`inline-flex items-center gap-3 px-1.5 py-1.5 rounded-full border ${
+            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm ${
               isDark
-                ? "bg-white/[0.02] border-white/[0.06]"
-                : "bg-black/[0.02] border-black/[0.06]"
+                ? "bg-white/[0.03] text-gray-300"
+                : "bg-black/[0.03] text-gray-600"
             }`}>
-              <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
-                isDark ? "bg-[#3e8aff]/10 text-[#3e8aff]" : "bg-[#3e8aff]/10 text-[#3e8aff]"
-              }`}>
-                400M+ Contacts
-              </span>
-              <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                98% Email Coverage
-              </span>
-              <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>•</span>
-              <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                85% Phone Find Rate
-              </span>
+              400M+ Contacts&nbsp;&nbsp;•&nbsp;&nbsp;98% Email Coverage&nbsp;&nbsp;•&nbsp;&nbsp;85% Phone Find Rate
             </div>
           </motion.div>
 
