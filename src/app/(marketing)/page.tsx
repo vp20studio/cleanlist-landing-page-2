@@ -207,12 +207,8 @@ export default function HomePage() {
                 ? "bg-white/[0.03] border-white/[0.08]"
                 : "bg-black/[0.02] border-black/[0.08]"
             }`}>
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-              </span>
               <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                15+ data providers • 400M+ contacts
+                400M+ Contacts • 98% Email Coverage • 85% Phone Find Rate
               </span>
             </div>
           </motion.div>
@@ -225,10 +221,10 @@ export default function HomePage() {
             className="text-center mb-6"
           >
             <h1 className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] ${isDark ? "text-white" : "text-gray-900"}`}>
-              The GTM{" "}
+              The{" "}
               <span className="relative inline-block">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                  Playbook
+                  GTM Playbook Engine
                 </span>
                 <motion.span
                   initial={{ scaleX: 0 }}
@@ -238,7 +234,7 @@ export default function HomePage() {
                 />
               </span>
               <br />
-              Engine
+              built on clean data
             </h1>
           </motion.div>
 
@@ -249,18 +245,8 @@ export default function HomePage() {
             transition={{ delay: 0.2 }}
             className="text-center mb-8"
           >
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Turn any go-to-market motion into a repeatable system.
-              <br />
-              <span className="relative inline-block mt-1">
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.9, duration: 0.4 }}
-                  className="absolute inset-0 bg-[#3e8aff]/10 rounded origin-left -z-10"
-                />
-                <span className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Minutes, not months.</span>
-              </span>
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Upload leads, enrich with email and phone, verify deliverability, and add context like ICP fit and research columns. Everything ships into your outbound tools and CRM ready to run.
             </p>
           </motion.div>
 
@@ -273,12 +259,9 @@ export default function HomePage() {
           >
             <Link
               href="#"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30 animate-glow-pulse"
-              style={{
-                animation: "glow-pulse 2s ease-in-out infinite",
-              }}
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30"
             >
-              Start free
+              Start building for free
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
@@ -301,7 +284,7 @@ export default function HomePage() {
             transition={{ delay: 0.5 }}
             className={`text-center text-sm mb-12 ${isDark ? "text-gray-500" : "text-gray-400"}`}
           >
-            No credit card required • Setup in 5 minutes
+            No credit card required • Setup in 2 minutes
           </motion.p>
 
           {/* Premium Video Demo */}
