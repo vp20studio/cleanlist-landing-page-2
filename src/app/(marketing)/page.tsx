@@ -390,97 +390,106 @@ export default function HomePage() {
                 </div>
               </div>
 
-              {/* Stats Bar - Connected to video */}
+              {/* Premium Stats Bar - Connected to video */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.5 }}
-                className={`relative rounded-b-2xl border border-t-0 overflow-hidden ${
-                  isDark
-                    ? "bg-gradient-to-b from-[#0a0a0a] to-[#0f0f0f] border-white/[0.1]"
-                    : "bg-gradient-to-b from-white to-gray-50 border-black/[0.08]"
-                }`}
+                className="relative"
               >
-                {/* Subtle top highlight */}
-                <div className={`absolute top-0 left-0 right-0 h-px ${
-                  isDark ? "bg-white/[0.05]" : "bg-black/[0.03]"
+                {/* Glass background */}
+                <div className={`absolute inset-0 rounded-b-2xl ${
+                  isDark
+                    ? "bg-gradient-to-r from-[#0c1220] via-[#0a0f1a] to-[#0c1220]"
+                    : "bg-gradient-to-r from-slate-50 via-white to-slate-50"
                 }`} />
 
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 ${isDark ? 'divide-white/[0.06]' : 'divide-black/[0.06]'}">
-                  {/* 15+ Providers */}
-                  <div className={`group relative p-4 md:p-5 transition-colors ${
-                    isDark ? "hover:bg-white/[0.02]" : "hover:bg-black/[0.01]"
-                  }`}>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Stack className="w-5 h-5 text-[#3e8aff]" weight="duotone" />
-                      </div>
-                      <div>
-                        <div className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>15+</div>
-                        <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Data Providers</div>
-                      </div>
-                    </div>
-                  </div>
+                {/* Subtle inner glow */}
+                <div className="absolute inset-0 rounded-b-2xl overflow-hidden">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-16 bg-[#3e8aff]/5 blur-2xl" />
+                </div>
 
-                  {/* 85% Find Rate */}
-                  <div className={`group relative p-4 md:p-5 transition-colors ${
-                    isDark ? "hover:bg-white/[0.02]" : "hover:bg-black/[0.01]"
-                  }`}>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <Crosshair className="w-5 h-5 text-green-500" weight="duotone" />
-                      </div>
-                      <div>
-                        <div className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>85%</div>
-                        <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Find Rate</div>
-                      </div>
-                    </div>
-                  </div>
+                {/* Border */}
+                <div className={`absolute inset-0 rounded-b-2xl border border-t-0 ${
+                  isDark ? "border-white/[0.08]" : "border-black/[0.06]"
+                }`} />
 
-                  {/* From $0.30 */}
-                  <div className={`group relative p-4 md:p-5 transition-colors ${
-                    isDark ? "hover:bg-white/[0.02]" : "hover:bg-black/[0.01]"
-                  }`}>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <CurrencyDollar className="w-5 h-5 text-amber-500" weight="duotone" />
-                      </div>
-                      <div>
-                        <div className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>$0.30</div>
-                        <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Per Phone</div>
-                      </div>
-                    </div>
-                  </div>
+                {/* Stats Content */}
+                <div className="relative px-2 py-5 md:py-6">
+                  <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-4 md:gap-x-0 md:divide-x md:divide-white/[0.08]">
 
-                  {/* Waterfall Logic */}
-                  <div className={`group relative p-4 md:p-5 transition-colors ${
-                    isDark ? "hover:bg-white/[0.02]" : "hover:bg-black/[0.01]"
-                  }`}>
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <ArrowsClockwise className="w-5 h-5 text-purple-500" weight="duotone" />
+                    {/* 15+ Providers */}
+                    <div className="flex items-center gap-3 px-4 md:px-8">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-[#3e8aff] rounded-xl blur-lg opacity-30" />
+                        <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex items-center justify-center shadow-lg">
+                          <Stack className="w-5 h-5 text-white" weight="bold" />
+                        </div>
                       </div>
                       <div>
-                        <div className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Smart</div>
-                        <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Waterfall Logic</div>
+                        <div className={`text-2xl font-bold tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+                          15<span className="text-[#3e8aff]">+</span>
+                        </div>
+                        <div className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>Data Providers</div>
                       </div>
                     </div>
+
+                    {/* 85% Find Rate */}
+                    <div className="flex items-center gap-3 px-4 md:px-8">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-emerald-500 rounded-xl blur-lg opacity-30" />
+                        <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg">
+                          <Crosshair className="w-5 h-5 text-white" weight="bold" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className={`text-2xl font-bold tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+                          85<span className="text-emerald-400">%</span>
+                        </div>
+                        <div className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>Find Rate</div>
+                      </div>
+                    </div>
+
+                    {/* $0.30 Per Phone */}
+                    <div className="flex items-center gap-3 px-4 md:px-8">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-amber-500 rounded-xl blur-lg opacity-30" />
+                        <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-amber-600 flex items-center justify-center shadow-lg">
+                          <CurrencyDollar className="w-5 h-5 text-white" weight="bold" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className={`text-2xl font-bold tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+                          <span className="text-amber-400">$</span>0.30
+                        </div>
+                        <div className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>Per Phone</div>
+                      </div>
+                    </div>
+
+                    {/* Waterfall Logic */}
+                    <div className="flex items-center gap-3 px-4 md:px-8">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-violet-500 rounded-xl blur-lg opacity-30" />
+                        <div className="relative w-11 h-11 rounded-xl bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center shadow-lg">
+                          <ArrowsClockwise className="w-5 h-5 text-white" weight="bold" />
+                        </div>
+                      </div>
+                      <div>
+                        <div className={`text-2xl font-bold tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+                          Smart
+                        </div>
+                        <div className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>Waterfall Logic</div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
 
-                {/* Bottom gradient line accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#3e8aff]/0 via-[#3e8aff]/50 to-[#3e8aff]/0" />
+                {/* Bottom shine line */}
+                <div className="absolute bottom-0 left-0 right-0 h-px">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#3e8aff]/40 to-transparent" />
+                </div>
               </motion.div>
-
-              {/* Glow effect for stats bar */}
-              <div
-                className="absolute -inset-[1px] top-auto h-20 rounded-b-2xl opacity-40 -z-10"
-                style={{
-                  background: "linear-gradient(135deg, rgba(62, 138, 255, 0.2), rgba(139, 92, 246, 0.15), rgba(62, 138, 255, 0.2))",
-                  filter: "blur(20px)"
-                }}
-              />
             </div>
 
             {/* Reflection effect */}
