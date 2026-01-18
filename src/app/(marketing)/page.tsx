@@ -160,55 +160,125 @@ export default function HomePage() {
     <>
       <StickySubNav />
 
-      {/* Hero Section - Lovable Style */}
-      <section className="relative pt-16 md:pt-24 pb-8 md:pb-16 overflow-hidden">
-        {/* Background Effects */}
+      {/* Hero Section */}
+      <section className="relative pt-20 md:pt-28 pb-8 md:pb-16 overflow-hidden">
+        {/* Background base */}
         <div className={`absolute inset-0 ${isDark ? "bg-[#030303]" : "bg-white"}`} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[800px] h-[400px] md:h-[600px] bg-[#3e8aff]/20 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
 
-        {/* Secondary glow orbs */}
-        <motion.div
-          animate={{ y: [0, -30, 0], x: [0, 20, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[30%] right-[10%] w-32 h-32 bg-purple-500/20 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{ y: [0, 20, 0], x: [0, -15, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[40%] left-[5%] w-24 h-24 bg-green-500/20 rounded-full blur-3xl"
-        />
+        {/* Gradient mesh background */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Primary glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/[0.08] rounded-full blur-[120px]" />
 
-        {/* Floating gradient pills */}
-        <motion.div
-          animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[20%] left-[15%] w-20 h-8 bg-gradient-to-r from-[#3e8aff]/30 to-purple-500/30 rounded-full blur-sm hidden md:block"
-        />
-        <motion.div
-          animate={{ y: [0, 12, 0], rotate: [0, -3, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-[35%] right-[20%] w-16 h-6 bg-gradient-to-r from-green-500/30 to-[#3e8aff]/30 rounded-full blur-sm hidden md:block"
-        />
-        <motion.div
-          animate={{ y: [0, -10, 0], rotate: [0, 4, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute bottom-[30%] left-[25%] w-14 h-5 bg-gradient-to-r from-purple-500/30 to-pink-500/30 rounded-full blur-sm hidden md:block"
-        />
+          {/* Grid pattern overlay */}
+          <div
+            className={`absolute inset-0 ${isDark ? "opacity-[0.03]" : "opacity-[0.02]"}`}
+            style={{
+              backgroundImage: `linear-gradient(${isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"} 1px, transparent 1px)`,
+              backgroundSize: "60px 60px"
+            }}
+          />
+        </div>
+
+        {/* Floating elements with parallax effect */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Floating rings */}
+          <motion.div
+            animate={{ y: [0, -20, 0], rotate: [0, 180, 360] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[15%] left-[10%] w-16 h-16 rounded-full border border-[#3e8aff]/20 hidden lg:block"
+          />
+          <motion.div
+            animate={{ y: [0, 15, 0], rotate: [360, 180, 0] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[25%] right-[12%] w-24 h-24 rounded-full border border-[#3e8aff]/10 hidden lg:block"
+          />
+          <motion.div
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-[35%] left-[8%] w-12 h-12 rounded-full border-2 border-[#3e8aff]/15 hidden lg:block"
+          />
+
+          {/* Floating dots */}
+          <motion.div
+            animate={{ y: [0, -30, 0], x: [0, 10, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[20%] right-[25%] w-2 h-2 rounded-full bg-[#3e8aff]/40 hidden md:block"
+          />
+          <motion.div
+            animate={{ y: [0, 20, 0], x: [0, -8, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="absolute top-[40%] left-[20%] w-1.5 h-1.5 rounded-full bg-[#3e8aff]/30 hidden md:block"
+          />
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-[45%] right-[15%] w-2.5 h-2.5 rounded-full bg-[#3e8aff]/25 hidden md:block"
+          />
+          <motion.div
+            animate={{ y: [0, 25, 0], x: [0, 5, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            className="absolute top-[55%] left-[12%] w-1 h-1 rounded-full bg-[#3e8aff]/50 hidden md:block"
+          />
+
+          {/* Floating crosses/plus signs */}
+          <motion.div
+            animate={{ y: [0, -18, 0], rotate: [0, 90, 0] }}
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[30%] left-[18%] hidden lg:block"
+          >
+            <div className="relative w-4 h-4">
+              <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#3e8aff]/20 -translate-y-1/2" />
+              <div className="absolute top-0 left-1/2 w-[1px] h-full bg-[#3e8aff]/20 -translate-x-1/2" />
+            </div>
+          </motion.div>
+          <motion.div
+            animate={{ y: [0, 15, 0], rotate: [45, 135, 45] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+            className="absolute bottom-[40%] right-[20%] hidden lg:block"
+          >
+            <div className="relative w-5 h-5">
+              <div className="absolute top-1/2 left-0 w-full h-[1px] bg-[#3e8aff]/15 -translate-y-1/2" />
+              <div className="absolute top-0 left-1/2 w-[1px] h-full bg-[#3e8aff]/15 -translate-x-1/2" />
+            </div>
+          </motion.div>
+
+          {/* Subtle line accents */}
+          <motion.div
+            animate={{ scaleX: [0.8, 1, 0.8], opacity: [0.1, 0.2, 0.1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-[22%] right-[8%] w-20 h-[1px] bg-gradient-to-r from-transparent via-[#3e8aff]/30 to-transparent hidden lg:block"
+          />
+          <motion.div
+            animate={{ scaleX: [1, 0.8, 1], opacity: [0.15, 0.1, 0.15] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-[30%] left-[5%] w-16 h-[1px] bg-gradient-to-r from-transparent via-[#3e8aff]/25 to-transparent hidden lg:block"
+          />
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex justify-center mb-6"
+            className="flex justify-center mb-8"
           >
-            <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${
+            <div className={`inline-flex items-center gap-3 px-1.5 py-1.5 rounded-full border ${
               isDark
-                ? "bg-white/[0.03] border-white/[0.08]"
-                : "bg-black/[0.02] border-black/[0.08]"
+                ? "bg-white/[0.02] border-white/[0.06]"
+                : "bg-black/[0.02] border-black/[0.06]"
             }`}>
-              <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                400M+ Contacts • 98% Email Coverage • 85% Phone Find Rate
+              <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
+                isDark ? "bg-[#3e8aff]/10 text-[#3e8aff]" : "bg-[#3e8aff]/10 text-[#3e8aff]"
+              }`}>
+                400M+ Contacts
+              </span>
+              <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                98% Email Coverage
+              </span>
+              <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>•</span>
+              <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                85% Phone Find Rate
               </span>
             </div>
           </motion.div>
@@ -220,18 +290,10 @@ export default function HomePage() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6"
           >
-            <h1 className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h1 className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
               The{" "}
-              <span className="relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                  GTM Playbook Engine
-                </span>
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ delay: 0.7, duration: 0.5 }}
-                  className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] rounded-full origin-left"
-                />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                GTM Playbook Engine
               </span>
               <br />
               built on clean data
@@ -245,8 +307,8 @@ export default function HomePage() {
             transition={{ delay: 0.2 }}
             className="text-center mb-8"
           >
-            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Upload leads, enrich with email and phone, verify deliverability, and add context like ICP fit and research columns. Everything ships into your outbound tools and CRM ready to run.
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Upload leads, enrich with email and phone, verify deliverability, and add context. Everything ships into your outbound tools and CRM ready to run.
             </p>
           </motion.div>
 
