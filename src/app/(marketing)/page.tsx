@@ -316,13 +316,13 @@ export default function HomePage() {
             <div className="absolute -bottom-20 left-1/4 w-[400px] h-[200px] bg-purple-500/15 rounded-full blur-[80px] -z-10" />
             <div className="absolute -bottom-10 right-1/4 w-[300px] h-[150px] bg-green-500/10 rounded-full blur-[60px] -z-10" />
 
-            {/* Floating Feature Cards */}
+            {/* Floating Feature Cards - Positioned outside video */}
             {/* Top Left - 15+ Providers */}
             <motion.div
               initial={{ opacity: 0, x: -30, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="absolute -left-4 lg:-left-8 top-8 lg:top-16 z-20 hidden md:block"
+              className="absolute -left-48 xl:-left-56 top-12 z-20 hidden lg:block"
             >
               <motion.div
                 animate={{ y: [0, -6, 0] }}
@@ -353,7 +353,7 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 30, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ delay: 1.1, duration: 0.5 }}
-              className="absolute -right-4 lg:-right-8 top-20 lg:top-28 z-20 hidden md:block"
+              className="absolute -right-48 xl:-right-56 top-24 z-20 hidden lg:block"
             >
               <motion.div
                 animate={{ y: [0, -8, 0] }}
@@ -384,7 +384,7 @@ export default function HomePage() {
               initial={{ opacity: 0, x: -30, y: -20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ delay: 1.2, duration: 0.5 }}
-              className="absolute -left-4 lg:-left-4 bottom-24 lg:bottom-32 z-20 hidden md:block"
+              className="absolute -left-44 xl:-left-52 bottom-32 z-20 hidden lg:block"
             >
               <motion.div
                 animate={{ y: [0, -5, 0] }}
@@ -415,7 +415,7 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 30, y: -20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ delay: 1.3, duration: 0.5 }}
-              className="absolute -right-4 lg:-right-4 bottom-36 lg:bottom-44 z-20 hidden md:block"
+              className="absolute -right-44 xl:-right-52 bottom-44 z-20 hidden lg:block"
             >
               <motion.div
                 animate={{ y: [0, -7, 0] }}
