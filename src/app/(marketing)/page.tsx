@@ -34,7 +34,6 @@ import StickySubNav from "@/components/StickySubNav";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import PlaybooksSection from "@/components/PlaybooksSection";
 import SolutionSection from "@/components/SolutionSection";
-import AnimatedStats from "@/components/AnimatedStats";
 import WaterfallVisualization from "@/components/WaterfallVisualization";
 import FeatureCallouts from "@/components/FeatureCallouts";
 import LogoMarquee from "@/components/LogoMarquee";
@@ -266,15 +265,6 @@ export default function HomePage() {
                 <span className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Minutes, not months.</span>
               </span>
             </p>
-          </motion.div>
-
-          {/* Animated Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <AnimatedStats />
           </motion.div>
 
           {/* CTAs */}
