@@ -29,13 +29,10 @@ import {
   CaretDown,
   Calendar,
 } from "@phosphor-icons/react";
-import { DashboardMockup, VideoDemo } from "@/components/ui";
 import StickySubNav from "@/components/StickySubNav";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import PlaybooksSection from "@/components/PlaybooksSection";
 import SolutionSection from "@/components/SolutionSection";
-import WaterfallVisualization from "@/components/WaterfallVisualization";
-import FeatureCallouts from "@/components/FeatureCallouts";
 import LogoMarquee from "@/components/LogoMarquee";
 import DataTransformDemo from "@/components/DataTransformDemo";
 import FinalCTA from "@/components/FinalCTA";
@@ -307,72 +304,234 @@ export default function HomePage() {
             No credit card required • Setup in 5 minutes
           </motion.p>
 
-          {/* Product Demo Mockup with Waterfall */}
+          {/* Premium Video Demo */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.7 }}
-            className="relative max-w-4xl mx-auto px-4 md:px-20"
+            className="relative max-w-5xl mx-auto px-4"
           >
-            {/* Live Demo Label */}
+            {/* Ambient glow effects */}
+            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#3e8aff]/20 rounded-full blur-[100px] -z-10" />
+            <div className="absolute -bottom-20 left-1/4 w-[400px] h-[200px] bg-purple-500/15 rounded-full blur-[80px] -z-10" />
+            <div className="absolute -bottom-10 right-1/4 w-[300px] h-[150px] bg-green-500/10 rounded-full blur-[60px] -z-10" />
+
+            {/* Floating Feature Cards */}
+            {/* Top Left - 15+ Providers */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 }}
-              className="absolute -top-3 left-1/2 -translate-x-1/2 z-30"
+              initial={{ opacity: 0, x: -30, y: 20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 1, duration: 0.5 }}
+              className="absolute -left-4 lg:-left-8 top-8 lg:top-16 z-20 hidden md:block"
             >
-              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border ${
-                isDark
-                  ? "bg-[#0a0a0a] border-white/[0.08]"
-                  : "bg-white border-black/[0.08]"
-              }`}>
-                <Sparkle className="w-3 h-3 text-[#3e8aff]" />
-                <span className={`text-xs font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Live Demo</span>
-              </div>
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-xl shadow-2xl ${
+                  isDark
+                    ? "bg-[#0a0a0a]/80 border-white/[0.1]"
+                    : "bg-white/80 border-black/[0.08]"
+                }`}
+                style={{
+                  boxShadow: isDark
+                    ? "0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(62, 138, 255, 0.1)"
+                    : "0 20px 40px rgba(0,0,0,0.1), 0 0 30px rgba(62, 138, 255, 0.05)"
+                }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5 flex items-center justify-center">
+                  <Stack className="w-5 h-5 text-[#3e8aff]" weight="duotone" />
+                </div>
+                <div>
+                  <div className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</div>
+                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Waterfall enrichment</div>
+                </div>
+              </motion.div>
             </motion.div>
 
-            {/* Demo Container */}
-            <div className="relative">
-              {/* Feature Callouts - Outside overflow container */}
-              <FeatureCallouts />
+            {/* Top Right - 85% Find Rate */}
+            <motion.div
+              initial={{ opacity: 0, x: 30, y: 20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 1.1, duration: 0.5 }}
+              className="absolute -right-4 lg:-right-8 top-20 lg:top-28 z-20 hidden md:block"
+            >
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-xl shadow-2xl ${
+                  isDark
+                    ? "bg-[#0a0a0a]/80 border-white/[0.1]"
+                    : "bg-white/80 border-black/[0.08]"
+                }`}
+                style={{
+                  boxShadow: isDark
+                    ? "0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(34, 197, 94, 0.1)"
+                    : "0 20px 40px rgba(0,0,0,0.1), 0 0 30px rgba(34, 197, 94, 0.05)"
+                }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center">
+                  <Crosshair className="w-5 h-5 text-green-500" weight="duotone" />
+                </div>
+                <div>
+                  <div className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</div>
+                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Industry leading</div>
+                </div>
+              </motion.div>
+            </motion.div>
 
-              <div className={`relative rounded-2xl border overflow-hidden ${
-                isDark
-                  ? "bg-[#0a0a0a] border-white/[0.08]"
-                  : "bg-white border-black/[0.08]"
-              }`} style={{
-                boxShadow: isDark ? "0 0 60px rgba(62, 138, 255, 0.15)" : "0 25px 50px -12px rgba(0, 0, 0, 0.15)"
-              }}>
-                {/* Window Controls */}
-                <div className={`flex items-center gap-2 px-4 py-3 border-b ${
-                  isDark ? "border-white/[0.05]" : "border-black/[0.05]"
+            {/* Bottom Left - Pricing */}
+            <motion.div
+              initial={{ opacity: 0, x: -30, y: -20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+              className="absolute -left-4 lg:-left-4 bottom-24 lg:bottom-32 z-20 hidden md:block"
+            >
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-xl shadow-2xl ${
+                  isDark
+                    ? "bg-[#0a0a0a]/80 border-white/[0.1]"
+                    : "bg-white/80 border-black/[0.08]"
+                }`}
+                style={{
+                  boxShadow: isDark
+                    ? "0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(245, 158, 11, 0.1)"
+                    : "0 20px 40px rgba(0,0,0,0.1), 0 0 30px rgba(245, 158, 11, 0.05)"
+                }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 flex items-center justify-center">
+                  <CurrencyDollar className="w-5 h-5 text-amber-500" weight="duotone" />
+                </div>
+                <div>
+                  <div className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>From $0.30</div>
+                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Per phone number</div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Bottom Right - Waterfall Logic */}
+            <motion.div
+              initial={{ opacity: 0, x: 30, y: -20 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              transition={{ delay: 1.3, duration: 0.5 }}
+              className="absolute -right-4 lg:-right-4 bottom-36 lg:bottom-44 z-20 hidden md:block"
+            >
+              <motion.div
+                animate={{ y: [0, -7, 0] }}
+                transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                className={`flex items-center gap-3 px-4 py-3 rounded-2xl border backdrop-blur-xl shadow-2xl ${
+                  isDark
+                    ? "bg-[#0a0a0a]/80 border-white/[0.1]"
+                    : "bg-white/80 border-black/[0.08]"
+                }`}
+                style={{
+                  boxShadow: isDark
+                    ? "0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(139, 92, 246, 0.1)"
+                    : "0 20px 40px rgba(0,0,0,0.1), 0 0 30px rgba(139, 92, 246, 0.05)"
+                }}
+              >
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 flex items-center justify-center">
+                  <ArrowsClockwise className="w-5 h-5 text-purple-500" weight="duotone" />
+                </div>
+                <div>
+                  <div className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</div>
+                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Auto-fallback system</div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Main Video Container */}
+            <div className="relative group">
+              {/* Gradient border glow */}
+              <div
+                className="absolute -inset-[1px] rounded-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background: "linear-gradient(135deg, rgba(62, 138, 255, 0.4), rgba(139, 92, 246, 0.3), rgba(62, 138, 255, 0.4))",
+                  filter: "blur(1px)"
+                }}
+              />
+
+              <div
+                className={`relative rounded-2xl border overflow-hidden ${
+                  isDark
+                    ? "bg-[#0a0a0a] border-white/[0.1]"
+                    : "bg-white border-black/[0.08]"
+                }`}
+                style={{
+                  boxShadow: isDark
+                    ? "0 0 80px rgba(62, 138, 255, 0.15), 0 25px 50px rgba(0,0,0,0.5)"
+                    : "0 25px 50px -12px rgba(0, 0, 0, 0.2), 0 0 60px rgba(62, 138, 255, 0.08)"
+                }}
+              >
+                {/* Window Chrome */}
+                <div className={`flex items-center justify-between px-4 py-3 border-b ${
+                  isDark ? "border-white/[0.05] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50/50"
                 }`}>
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  <div className="flex items-center gap-3">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-[#ff5f57] shadow-[0_0_6px_rgba(255,95,87,0.4)]" />
+                      <div className="w-3 h-3 rounded-full bg-[#febc2e] shadow-[0_0_6px_rgba(254,188,46,0.4)]" />
+                      <div className="w-3 h-3 rounded-full bg-[#28c840] shadow-[0_0_6px_rgba(40,200,64,0.4)]" />
+                    </div>
+                    <div className="flex items-center gap-2 ml-2">
+                      <Phone className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                      <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                        Find Phone Numbers — Live Demo
+                      </span>
+                    </div>
                   </div>
-                  <span className={`text-xs ml-4 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                    Live Waterfall Enrichment Demo
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"
+                    />
+                    <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>Live</span>
+                  </div>
                 </div>
 
-                {/* Waterfall Visualization */}
-                <WaterfallVisualization compact={false} autoPlay={true} />
+                {/* Video */}
+                <div className="relative">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto block"
+                  >
+                    <source src="/videos/phone-enrichment.mp4" type="video/mp4" />
+                  </video>
+
+                  {/* Subtle vignette */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: isDark
+                        ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.2) 100%)"
+                        : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)"
+                    }}
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Decorative blurs around demo */}
-            <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#3e8aff]/20 rounded-full blur-3xl -z-10" />
-            <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-purple-500/20 rounded-full blur-3xl -z-10" />
+            {/* Reflection effect */}
+            <div
+              className="absolute -bottom-16 left-8 right-8 h-32 rounded-2xl opacity-20 -z-10 blur-sm"
+              style={{
+                background: "linear-gradient(to bottom, rgba(62, 138, 255, 0.15), transparent)",
+                transform: "scaleY(-0.25) perspective(500px) rotateX(25deg)"
+              }}
+            />
           </motion.div>
 
           {/* Scroll Indicator */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-            className="flex flex-col items-center mt-12"
+            transition={{ delay: 1.5 }}
+            className="flex flex-col items-center mt-16"
           >
             <span className={`text-xs mb-2 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
               Scroll to explore
@@ -384,89 +543,6 @@ export default function HomePage() {
               <CaretDown className={`w-5 h-5 ${isDark ? "text-gray-500" : "text-gray-400"}`} />
             </motion.div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Featured Video Demo */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h3 className={`text-lg font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              See phone enrichment in action
-            </h3>
-          </motion.div>
-          <div className="relative">
-            {/* Floating Tags */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className={`absolute -left-4 md:-left-16 top-16 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
-                isDark
-                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
-                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
-              }`}
-            >
-              <Stack className="w-4 h-4 text-[#3e8aff]" />
-              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className={`absolute -right-4 md:-right-20 top-24 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
-                isDark
-                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
-                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
-              }`}
-            >
-              <Crosshair className="w-4 h-4 text-[#3e8aff]" />
-              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5 }}
-              className={`absolute -left-4 md:-left-12 bottom-32 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
-                isDark
-                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
-                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
-              }`}
-            >
-              <CurrencyDollar className="w-4 h-4 text-[#3e8aff]" />
-              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>From $0.30/phone</span>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className={`absolute -right-4 md:-right-16 bottom-40 z-20 hidden md:flex items-center gap-2 px-4 py-2.5 rounded-full border shadow-lg ${
-                isDark
-                  ? "bg-[#0a0a0a]/90 border-white/[0.08] backdrop-blur-sm"
-                  : "bg-white/90 border-black/[0.08] backdrop-blur-sm shadow-black/5"
-              }`}
-            >
-              <ArrowsClockwise className="w-4 h-4 text-[#3e8aff]" />
-              <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</span>
-            </motion.div>
-
-            <VideoDemo
-              src="/videos/phone-enrichment.mp4"
-              title="Find Phone Numbers — Live Demo"
-            />
-          </div>
         </div>
       </section>
 
