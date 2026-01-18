@@ -311,34 +311,25 @@ export default function HomePage() {
             transition={{ delay: 0.6, duration: 0.7 }}
             className="relative max-w-5xl mx-auto px-4"
           >
-            {/* Ambient glow effects */}
-            <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#3e8aff]/20 rounded-full blur-[100px] -z-10" />
-            <div className="absolute -bottom-20 left-1/4 w-[400px] h-[200px] bg-purple-500/15 rounded-full blur-[80px] -z-10" />
-            <div className="absolute -bottom-10 right-1/4 w-[300px] h-[150px] bg-green-500/10 rounded-full blur-[60px] -z-10" />
 
             {/* Main Video Container */}
-            <div className="relative group">
-              {/* Gradient border glow */}
-              <div
-                className="absolute -inset-[1px] rounded-t-2xl opacity-60 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: "linear-gradient(135deg, rgba(62, 138, 255, 0.4), rgba(139, 92, 246, 0.3), rgba(62, 138, 255, 0.4))",
-                  filter: "blur(1px)"
-                }}
-              />
-
-              <div
-                className={`relative rounded-t-2xl border border-b-0 overflow-hidden ${
-                  isDark
-                    ? "bg-[#0a0a0a] border-white/[0.1]"
-                    : "bg-white border-black/[0.08]"
-                }`}
-                style={{
-                  boxShadow: isDark
-                    ? "0 0 80px rgba(62, 138, 255, 0.15), 0 -10px 50px rgba(0,0,0,0.5)"
-                    : "0 -10px 50px -12px rgba(0, 0, 0, 0.2), 0 0 60px rgba(62, 138, 255, 0.08)"
-                }}
-              >
+            <div
+              className={`relative rounded-2xl overflow-hidden ${
+                isDark
+                  ? "bg-[#0a0a0a]"
+                  : "bg-white"
+              }`}
+              style={{
+                boxShadow: isDark
+                  ? "0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 12px 24px -8px rgba(0, 0, 0, 0.6)"
+                  : "0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 12px 24px -8px rgba(0, 0, 0, 0.08)"
+              }}
+            >
+              <div className={`relative rounded-t-2xl border-x border-t overflow-hidden ${
+                isDark
+                  ? "border-white/[0.08]"
+                  : "border-black/[0.06]"
+              }`}>
                 {/* Window Chrome */}
                 <div className={`flex items-center justify-between px-4 py-3 border-b ${
                   isDark ? "border-white/[0.05] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50/50"
@@ -391,75 +382,60 @@ export default function HomePage() {
               </div>
 
               {/* Stats Bar - Connected to video */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                className={`relative rounded-b-2xl border border-t-0 ${
-                  isDark
-                    ? "bg-[#0a0a0a] border-white/[0.08]"
-                    : "bg-white border-black/[0.06]"
-                }`}
-              >
-                {/* Stats Content */}
-                <div className="relative px-4 py-4 md:py-5">
-                  <div className={`flex flex-wrap justify-center items-center gap-6 md:gap-0 md:divide-x ${
-                    isDark ? "md:divide-white/[0.08]" : "md:divide-black/[0.06]"
-                  }`}>
+              <div className={`border-x border-b rounded-b-2xl ${
+                isDark ? "border-white/[0.08]" : "border-black/[0.06]"
+              }`}>
+                <div className={`border-t ${isDark ? "border-white/[0.05]" : "border-black/[0.05]"}`}>
+                  <div className="relative px-4 py-4 md:py-5">
+                    <div className={`flex flex-wrap justify-center items-center gap-6 md:gap-0 md:divide-x ${
+                      isDark ? "md:divide-white/[0.08]" : "md:divide-black/[0.06]"
+                    }`}>
 
-                    {/* 15+ Providers */}
-                    <div className="flex items-center gap-2.5 px-4 md:px-6">
-                      <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                        <Stack className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                      {/* 15+ Providers */}
+                      <div className="flex items-center gap-2.5 px-4 md:px-6">
+                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
+                          <Stack className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                        </div>
+                        <div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</div>
+                        </div>
                       </div>
-                      <div>
-                        <div className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</div>
+
+                      {/* 85% Find Rate */}
+                      <div className="flex items-center gap-2.5 px-4 md:px-6">
+                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
+                          <Crosshair className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                        </div>
+                        <div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</div>
+                        </div>
                       </div>
+
+                      {/* $0.30 Per Phone */}
+                      <div className="flex items-center gap-2.5 px-4 md:px-6">
+                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
+                          <CurrencyDollar className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                        </div>
+                        <div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>$0.30 Per Phone</div>
+                        </div>
+                      </div>
+
+                      {/* Waterfall Logic */}
+                      <div className="flex items-center gap-2.5 px-4 md:px-6">
+                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
+                          <ArrowsClockwise className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                        </div>
+                        <div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</div>
+                        </div>
+                      </div>
+
                     </div>
-
-                    {/* 85% Find Rate */}
-                    <div className="flex items-center gap-2.5 px-4 md:px-6">
-                      <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                        <Crosshair className="w-4 h-4 text-[#3e8aff]" weight="fill" />
-                      </div>
-                      <div>
-                        <div className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</div>
-                      </div>
-                    </div>
-
-                    {/* $0.30 Per Phone */}
-                    <div className="flex items-center gap-2.5 px-4 md:px-6">
-                      <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                        <CurrencyDollar className="w-4 h-4 text-[#3e8aff]" weight="fill" />
-                      </div>
-                      <div>
-                        <div className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>$0.30 Per Phone</div>
-                      </div>
-                    </div>
-
-                    {/* Waterfall Logic */}
-                    <div className="flex items-center gap-2.5 px-4 md:px-6">
-                      <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                        <ArrowsClockwise className="w-4 h-4 text-[#3e8aff]" weight="fill" />
-                      </div>
-                      <div>
-                        <div className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</div>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-
-            {/* Reflection effect */}
-            <div
-              className="absolute -bottom-20 left-8 right-8 h-32 rounded-2xl opacity-15 -z-10 blur-sm"
-              style={{
-                background: "linear-gradient(to bottom, rgba(62, 138, 255, 0.2), transparent)",
-                transform: "scaleY(-0.2) perspective(500px) rotateX(25deg)"
-              }}
-            />
           </motion.div>
 
           {/* Scroll Indicator */}
