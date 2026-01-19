@@ -515,13 +515,13 @@ export default function HomePage() {
                         </div>
                       </div>
 
-                      {/* 98% Find Rate */}
+                      {/* 98% Coverage */}
                       <div className="flex items-center gap-2.5 px-4 md:px-6">
                         <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
                           <Envelope className="w-4 h-4 text-[#3e8aff]" weight="fill" />
                         </div>
                         <div>
-                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>98% Find Rate</div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>98% Coverage</div>
                         </div>
                       </div>
 
