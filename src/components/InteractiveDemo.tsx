@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-  LinkedinLogo,
   Sparkle,
   Check,
   ArrowsClockwise,
@@ -12,16 +11,18 @@ import {
   Phone,
   Buildings,
   User,
+  DownloadSimple,
 } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 import WaterfallEnrichmentDemo from "./WaterfallEnrichmentDemo";
+import LeadExtractionDemo from "./LeadExtractionDemo";
 
 const demoTabs = [
   {
-    id: "linkedin",
-    label: "LinkedIn Extraction",
-    icon: <LinkedinLogo />,
+    id: "extraction",
+    label: "Lead Extraction",
+    icon: <DownloadSimple />,
   },
   {
     id: "enrichment",
@@ -36,7 +37,7 @@ const demoTabs = [
 ];
 
 export default function InteractiveDemo() {
-  const [activeTab, setActiveTab] = useState("linkedin");
+  const [activeTab, setActiveTab] = useState("extraction");
   const [animationStep, setAnimationStep] = useState(0);
   const { theme } = useTheme();
   const isDark = theme === "dark";
@@ -46,11 +47,9 @@ export default function InteractiveDemo() {
 
   // Auto-start animation when section comes into view
   useEffect(() => {
-    if (isInView && !hasAutoPlayed.current && activeTab === "linkedin") {
+    if (isInView && !hasAutoPlayed.current && activeTab === "extraction") {
       hasAutoPlayed.current = true;
-      setTimeout(() => setAnimationStep(1), 500);
-      setTimeout(() => setAnimationStep(2), 1500);
-      setTimeout(() => setAnimationStep(3), 2500);
+      // Lead Extraction demo handles its own animation
     }
   }, [isInView, activeTab]);
 
@@ -116,95 +115,14 @@ export default function InteractiveDemo() {
           className="max-w-5xl mx-auto"
         >
           <AnimatePresence mode="wait">
-            {activeTab === "linkedin" && (
+            {activeTab === "extraction" && (
               <motion.div
-                key="linkedin"
+                key="extraction"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="grid md:grid-cols-2 gap-6 md:gap-8 items-center"
               >
-                {/* LinkedIn Profile Mockup */}
-                <div className={`p-5 md:p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-black/[0.08]"}`}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0077b5] to-[#00a0dc] flex items-center justify-center">
-                      <User className="text-white" size={24} />
-                    </div>
-                    <div>
-                      <div className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Sarah Chen</div>
-                      <div className="text-sm text-gray-500">VP of Sales at TechCorp</div>
-                    </div>
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: animationStep >= 1 ? 1 : 0 }}
-                      className="ml-auto"
-                    >
-                      <div className="px-3 py-1.5 rounded-lg bg-[#3e8aff] text-white text-xs font-medium flex items-center gap-1">
-                        <Check size={12} />
-                        Extracted
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  <div className="space-y-2">
-                    {[
-                      { icon: <Buildings size={16} />, label: "TechCorp Inc.", delay: 0 },
-                      { icon: <Envelope size={16} />, label: "sarah.chen@techcorp.com", delay: 0.2, enriched: true },
-                      { icon: <Phone size={16} />, label: "+1 (415) 555-0123", delay: 0.4, enriched: true },
-                    ].map((item, i) => (
-                      <motion.div
-                        key={item.label}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: animationStep >= 2 ? 1 : 0.3, x: 0 }}
-                        transition={{ delay: item.delay }}
-                        className={`flex items-center gap-3 p-2 rounded-lg ${
-                          item.enriched && animationStep >= 2
-                            ? "bg-green-500/10 border border-green-500/20"
-                            : isDark ? "bg-white/[0.03]" : "bg-gray-50"
-                        }`}
-                      >
-                        <span className={item.enriched && animationStep >= 2 ? "text-green-500" : "text-gray-400"}>
-                          {item.icon}
-                        </span>
-                        <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{item.label}</span>
-                        {item.enriched && animationStep >= 2 && (
-                          <Check size={16} className="text-green-500 ml-auto" />
-                        )}
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Steps */}
-                <div className="space-y-4">
-                  <h3 className={`text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    One-Click LinkedIn Extraction
-                  </h3>
-                  {[
-                    { step: 1, title: "Install Chrome Extension", desc: "Add Cleanlist to your browser" },
-                    { step: 2, title: "Browse Sales Navigator", desc: "Find your target prospects" },
-                    { step: 3, title: "Click Extract", desc: "Get verified emails & phones instantly" },
-                  ].map((item) => (
-                    <motion.div
-                      key={item.step}
-                      initial={{ opacity: 0.5 }}
-                      animate={{ opacity: animationStep >= item.step ? 1 : 0.5 }}
-                      className="flex items-start gap-4"
-                    >
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                        animationStep >= item.step
-                          ? "bg-[#3e8aff] text-white"
-                          : isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-500"
-                      }`}>
-                        {animationStep >= item.step ? <Check size={16} /> : item.step}
-                      </div>
-                      <div>
-                        <div className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.title}</div>
-                        <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{item.desc}</div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+                <LeadExtractionDemo />
               </motion.div>
             )}
 
