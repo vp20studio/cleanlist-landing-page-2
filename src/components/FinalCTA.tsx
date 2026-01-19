@@ -13,7 +13,6 @@ import {
   Shield,
   Clock,
   Buildings,
-  CheckCircle,
 } from "@phosphor-icons/react";
 
 const benefits = [
@@ -27,17 +26,17 @@ const trustedCompanies = [
   { name: "HubSpot", logo: "/images/integrations/hubspot.png" },
   { name: "Pipedrive", logo: "/images/integrations/pipedrive.png" },
   { name: "Outreach", logo: "/images/integrations/outreach.png" },
-  { name: "Apollo", logo: "/images/integrations/apollo.png" },
+  { name: "Affinity", logo: "/images/integrations/affinity.svg" },
   { name: "Salesloft", logo: "/images/integrations/salesloft.svg" },
 ];
 
-// Team avatars for social proof
-const teamAvatars = [
-  { src: "https://randomuser.me/api/portraits/women/44.jpg", name: "Sarah" },
-  { src: "https://randomuser.me/api/portraits/men/32.jpg", name: "Michael" },
-  { src: "https://randomuser.me/api/portraits/women/68.jpg", name: "Emily" },
-  { src: "https://randomuser.me/api/portraits/men/75.jpg", name: "David" },
-  { src: "https://randomuser.me/api/portraits/women/89.jpg", name: "Lisa" },
+// Team logos for social proof (using integration logos as representative teams)
+const teamLogos = [
+  { src: "/images/integrations/hubspot.png", name: "HubSpot" },
+  { src: "/images/integrations/pipedrive.png", name: "Pipedrive" },
+  { src: "/images/integrations/freshsales.png", name: "Freshsales" },
+  { src: "/images/integrations/close.png", name: "Close" },
+  { src: "/images/integrations/insightly.png", name: "Insightly" },
 ];
 
 export default function FinalCTA() {
@@ -209,21 +208,22 @@ export default function FinalCTA() {
           className="flex items-center justify-center gap-4 mb-8"
         >
           <div className="flex -space-x-3">
-            {teamAvatars.map((avatar, i) => (
+            {teamLogos.map((logo, i) => (
               <motion.div
-                key={avatar.name}
+                key={logo.name}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.4 + i * 0.08 }}
-                className={`relative w-10 h-10 rounded-full overflow-hidden border-2 ${
-                  isDark ? "border-[#0a0a0a]" : "border-white"
+                className={`relative w-10 h-10 rounded-full overflow-hidden border-2 flex items-center justify-center ${
+                  isDark ? "border-[#0a0a0a] bg-white/10" : "border-white bg-white"
                 } shadow-lg`}
               >
                 <Image
-                  src={avatar.src}
-                  alt={avatar.name}
-                  fill
-                  className="object-cover"
+                  src={logo.src}
+                  alt={logo.name}
+                  width={24}
+                  height={24}
+                  className="object-contain"
                 />
               </motion.div>
             ))}
@@ -237,7 +237,7 @@ export default function FinalCTA() {
                   : "border-white bg-gradient-to-br from-[#3e8aff] to-[#2563eb]"
               } shadow-lg`}
             >
-              <span className="text-white text-xs font-bold">+995</span>
+              <span className="text-white text-xs font-bold">+95</span>
             </motion.div>
           </div>
           <div className="flex flex-col items-start">
@@ -260,7 +260,7 @@ export default function FinalCTA() {
               </span>
             </div>
             <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>
-              Rated by 1,000+ teams
+              Rated by 100+ teams
             </span>
           </div>
         </motion.div>
@@ -418,23 +418,6 @@ export default function FinalCTA() {
           </div>
         </motion.div>
 
-        {/* Animated Success Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.5, delay: 1.5 }}
-          className="mt-10 inline-flex items-center gap-2"
-        >
-          <motion.div
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <CheckCircle weight="fill" className="w-5 h-5 text-green-500" />
-          </motion.div>
-          <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-            SOC 2 Type II Compliant • GDPR Ready
-          </span>
-        </motion.div>
       </div>
     </section>
   );
