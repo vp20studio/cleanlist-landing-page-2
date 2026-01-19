@@ -777,232 +777,270 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Hub & Spoke Orbital Visualization */}
+          {/* Hub & Spoke Premium Visualization */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative max-w-4xl mx-auto mb-16"
+            className="relative max-w-5xl mx-auto"
           >
-            {/* Orbital container */}
-            <div className="relative h-[500px] md:h-[600px]">
-              {/* Background glow effects */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className={`absolute top-1/4 left-1/4 w-48 h-48 rounded-full blur-[80px] ${isDark ? "bg-[#3b82f6]/20" : "bg-[#3b82f6]/10"}`} />
-                <div className={`absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full blur-[80px] ${isDark ? "bg-[#8b5cf6]/20" : "bg-[#8b5cf6]/10"}`} />
-                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-[100px] ${isDark ? "bg-[#3e8aff]/15" : "bg-[#3e8aff]/10"}`} />
+            {/* Main visualization container */}
+            <div className={`relative rounded-3xl overflow-hidden p-8 md:p-12 ${
+              isDark
+                ? "bg-gradient-to-b from-[#0a0a0a] to-[#050505] border border-white/[0.05]"
+                : "bg-gradient-to-b from-white to-[#f8fafc] border border-[#3e8aff]/10 shadow-2xl shadow-[#3e8aff]/5"
+            }`}>
+              {/* Animated background mesh */}
+              <div className="absolute inset-0 overflow-hidden">
+                {/* Central glow */}
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[100px] ${
+                    isDark ? "bg-[#3e8aff]/20" : "bg-[#3e8aff]/15"
+                  }`}
+                />
+                {/* Secondary glows */}
+                <motion.div
+                  animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className={`absolute top-1/4 left-1/4 w-[200px] h-[200px] rounded-full blur-[80px] ${
+                    isDark ? "bg-[#22c55e]/15" : "bg-[#22c55e]/10"
+                  }`}
+                />
+                <motion.div
+                  animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className={`absolute bottom-1/4 right-1/4 w-[200px] h-[200px] rounded-full blur-[80px] ${
+                    isDark ? "bg-[#8b5cf6]/15" : "bg-[#8b5cf6]/10"
+                  }`}
+                />
+                {/* Grid pattern */}
+                <svg className="absolute inset-0 w-full h-full opacity-[0.03]">
+                  <defs>
+                    <pattern id="hubGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                      <path d="M 40 0 L 0 0 0 40" fill="none" stroke={isDark ? "#fff" : "#3e8aff"} strokeWidth="1"/>
+                    </pattern>
+                  </defs>
+                  <rect width="100%" height="100%" fill="url(#hubGrid)" />
+                </svg>
               </div>
 
-              {/* Connection lines - SVG with animated gradients */}
-              <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-                <defs>
-                  {/* CRM gradient (blue) */}
-                  <linearGradient id="crmGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor={isDark ? "#3b82f6" : "#3b82f6"} stopOpacity="0.8" />
-                    <stop offset="50%" stopColor={isDark ? "#60a5fa" : "#93c5fd"} stopOpacity="0.5" />
-                    <stop offset="100%" stopColor={isDark ? "#3b82f6" : "#3b82f6"} stopOpacity="0.2" />
-                  </linearGradient>
-                  {/* Sales gradient (green) */}
-                  <linearGradient id="salesGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor={isDark ? "#22c55e" : "#22c55e"} stopOpacity="0.8" />
-                    <stop offset="50%" stopColor={isDark ? "#4ade80" : "#86efac"} stopOpacity="0.5" />
-                    <stop offset="100%" stopColor={isDark ? "#22c55e" : "#22c55e"} stopOpacity="0.2" />
-                  </linearGradient>
-                  {/* Marketing gradient (purple) */}
-                  <linearGradient id="marketingGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor={isDark ? "#8b5cf6" : "#8b5cf6"} stopOpacity="0.8" />
-                    <stop offset="50%" stopColor={isDark ? "#a78bfa" : "#c4b5fd"} stopOpacity="0.5" />
-                    <stop offset="100%" stopColor={isDark ? "#8b5cf6" : "#8b5cf6"} stopOpacity="0.2" />
-                  </linearGradient>
-                  {/* Animated dash pattern */}
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
-                </defs>
+              {/* Orbital container */}
+              <div className="relative h-[450px] md:h-[550px]">
+                {/* SVG Connection Web */}
+                <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 1 }}>
+                  <defs>
+                    {/* Gradient definitions */}
+                    <linearGradient id="lineGradientBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity={isDark ? "0.6" : "0.4"} />
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.1" />
+                    </linearGradient>
+                    <linearGradient id="lineGradientGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#22c55e" stopOpacity={isDark ? "0.6" : "0.4"} />
+                      <stop offset="100%" stopColor="#22c55e" stopOpacity="0.1" />
+                    </linearGradient>
+                    <linearGradient id="lineGradientPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#8b5cf6" stopOpacity={isDark ? "0.6" : "0.4"} />
+                      <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.1" />
+                    </linearGradient>
+                    <filter id="lineGlow" x="-50%" y="-50%" width="200%" height="200%">
+                      <feGaussianBlur stdDeviation="3" result="blur"/>
+                      <feMerge>
+                        <feMergeNode in="blur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
 
-                {/* Orbital rings */}
-                <circle
-                  cx="50%"
-                  cy="50%"
-                  r="20%"
-                  fill="none"
-                  stroke={isDark ? "rgba(62,138,255,0.1)" : "rgba(62,138,255,0.08)"}
-                  strokeWidth="1"
-                  strokeDasharray="4 4"
-                />
-                <circle
-                  cx="50%"
-                  cy="50%"
-                  r="35%"
-                  fill="none"
-                  stroke={isDark ? "rgba(139,92,246,0.08)" : "rgba(139,92,246,0.06)"}
-                  strokeWidth="1"
-                  strokeDasharray="8 4"
-                />
-                <circle
-                  cx="50%"
-                  cy="50%"
-                  r="48%"
-                  fill="none"
-                  stroke={isDark ? "rgba(34,197,94,0.06)" : "rgba(34,197,94,0.05)"}
-                  strokeWidth="1"
-                  strokeDasharray="12 6"
-                />
+                  {/* Orbital rings with animation */}
+                  <circle cx="50%" cy="50%" r="12%" fill="none" stroke={isDark ? "rgba(62,138,255,0.15)" : "rgba(62,138,255,0.1)"} strokeWidth="2" strokeDasharray="4 8">
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="60s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="50%" cy="50%" r="25%" fill="none" stroke={isDark ? "rgba(62,138,255,0.1)" : "rgba(62,138,255,0.08)"} strokeWidth="1" strokeDasharray="8 12">
+                    <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="90s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="50%" cy="50%" r="38%" fill="none" stroke={isDark ? "rgba(139,92,246,0.08)" : "rgba(139,92,246,0.05)"} strokeWidth="1" strokeDasharray="12 16">
+                    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="120s" repeatCount="indefinite"/>
+                  </circle>
 
-                {/* Colored connection lines */}
-                {[
-                  { x: "28%", y: "8%", category: "crm" }, // HubSpot
-                  { x: "72%", y: "8%", category: "marketing" }, // ActiveCampaign
-                  { x: "8%", y: "25%", category: "crm" }, // Affinity
-                  { x: "92%", y: "25%", category: "crm" }, // Close
-                  { x: "2%", y: "50%", category: "crm" }, // Freshsales
-                  { x: "98%", y: "50%", category: "crm" }, // Holded
-                  { x: "8%", y: "75%", category: "crm" }, // Insightly
-                  { x: "92%", y: "75%", category: "marketing" }, // Marketing360
-                  { x: "22%", y: "90%", category: "sales" }, // Outreach
-                  { x: "50%", y: "95%", category: "crm" }, // Pipedrive
-                  { x: "78%", y: "90%", category: "crm" }, // RecruitCRM
-                  { x: "18%", y: "50%", category: "crm" }, // Salesflare
-                  { x: "82%", y: "50%", category: "sales" }, // Salesloft
-                ].map((pos, i) => (
-                  <g key={i}>
-                    {/* Glow line */}
-                    <line
-                      x1="50%"
-                      y1="50%"
-                      x2={pos.x}
-                      y2={pos.y}
-                      stroke={`url(#${pos.category}Gradient)`}
-                      strokeWidth={isDark ? "2" : "1.5"}
-                      filter="url(#glow)"
-                      className="opacity-60"
-                    />
-                    {/* Animated data dot */}
-                    <circle r="3" fill={pos.category === "crm" ? "#3b82f6" : pos.category === "sales" ? "#22c55e" : "#8b5cf6"}>
-                      <animateMotion
-                        dur={`${2 + i * 0.3}s`}
-                        repeatCount="indefinite"
-                        path={`M${50},${50} L${parseFloat(pos.x)},${parseFloat(pos.y)}`}
-                        keyPoints="0;1;0"
-                        keyTimes="0;0.5;1"
-                      />
-                      <animate
-                        attributeName="opacity"
-                        values="0;1;1;0"
-                        keyTimes="0;0.2;0.8;1"
-                        dur={`${2 + i * 0.3}s`}
-                        repeatCount="indefinite"
-                      />
-                    </circle>
-                  </g>
-                ))}
-              </svg>
+                  {/* Connection lines with glow and animated dots */}
+                  {[
+                    { x: 25, y: 12, cat: "crm" },
+                    { x: 75, y: 12, cat: "marketing" },
+                    { x: 10, y: 30, cat: "crm" },
+                    { x: 90, y: 30, cat: "crm" },
+                    { x: 5, y: 50, cat: "crm" },
+                    { x: 95, y: 50, cat: "crm" },
+                    { x: 10, y: 70, cat: "crm" },
+                    { x: 90, y: 70, cat: "marketing" },
+                    { x: 20, y: 88, cat: "sales" },
+                    { x: 50, y: 92, cat: "crm" },
+                    { x: 80, y: 88, cat: "crm" },
+                    { x: 18, y: 50, cat: "crm" },
+                    { x: 82, y: 50, cat: "sales" },
+                  ].map((pos, i) => {
+                    const gradient = pos.cat === "crm" ? "lineGradientBlue" : pos.cat === "sales" ? "lineGradientGreen" : "lineGradientPurple";
+                    const color = pos.cat === "crm" ? "#3b82f6" : pos.cat === "sales" ? "#22c55e" : "#8b5cf6";
+                    return (
+                      <g key={i}>
+                        {/* Main connection line */}
+                        <line
+                          x1="50%"
+                          y1="50%"
+                          x2={`${pos.x}%`}
+                          y2={`${pos.y}%`}
+                          stroke={`url(#${gradient})`}
+                          strokeWidth={isDark ? "2" : "1.5"}
+                          filter="url(#lineGlow)"
+                        />
+                        {/* Animated pulse dot */}
+                        <circle r="4" fill={color} opacity="0.8">
+                          <animateMotion
+                            dur={`${3 + i * 0.2}s`}
+                            repeatCount="indefinite"
+                            path={`M${50 * 8.5},${50 * 5.5} L${pos.x * 8.5},${pos.y * 5.5}`}
+                            keyPoints="0;1;0"
+                            keyTimes="0;0.5;1"
+                          />
+                          <animate attributeName="r" values="2;5;2" dur={`${3 + i * 0.2}s`} repeatCount="indefinite"/>
+                          <animate attributeName="opacity" values="0.3;1;0.3" dur={`${3 + i * 0.2}s`} repeatCount="indefinite"/>
+                        </circle>
+                      </g>
+                    );
+                  })}
+                </svg>
 
-              {/* Center Hub - Cleanlist */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, type: "spring" }}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
-              >
-                <div className={`w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex flex-col items-center justify-center shadow-2xl ${isDark ? "shadow-[#3e8aff]/40" : "shadow-[#3e8aff]/30"}`}>
-                  <Image
-                    src="/images/favicon.png"
-                    alt="Cleanlist"
-                    width={40}
-                    height={40}
-                    className="w-8 h-8 md:w-10 md:h-10 mb-1"
-                  />
-                  <span className="text-sm md:text-base font-semibold text-white">Cleanlist</span>
-                </div>
-                {/* Multiple glow layers */}
-                <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/40 blur-2xl -z-10" />
-                <div className="absolute -inset-4 rounded-3xl bg-[#3e8aff]/20 blur-3xl -z-20" />
-              </motion.div>
-
-              {/* Orbiting Integrations */}
-              {[
-                { name: "HubSpot", logo: "/images/integrations/hubspot.png", x: "28%", y: "8%", delay: 0.1, category: "crm", needsWhiteBg: false },
-                { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", x: "72%", y: "8%", delay: 0.15, category: "marketing", needsWhiteBg: false },
-                { name: "Affinity", logo: "/images/integrations/affinity.svg", x: "8%", y: "25%", delay: 0.2, category: "crm", needsWhiteBg: true },
-                { name: "Close", logo: "/images/integrations/close.png", x: "92%", y: "25%", delay: 0.25, category: "crm", needsWhiteBg: false },
-                { name: "Freshsales", logo: "/images/integrations/freshsales.png", x: "2%", y: "50%", delay: 0.3, category: "crm", needsWhiteBg: false },
-                { name: "Holded", logo: "/images/integrations/holded.png", x: "98%", y: "50%", delay: 0.35, category: "crm", needsWhiteBg: false },
-                { name: "Insightly", logo: "/images/integrations/insightly.png", x: "8%", y: "75%", delay: 0.4, category: "crm", needsWhiteBg: false },
-                { name: "Marketing360", logo: "/images/integrations/marketing360.png", x: "92%", y: "75%", delay: 0.45, category: "marketing", needsWhiteBg: false },
-                { name: "Outreach.io", logo: "/images/integrations/outreach.png", x: "22%", y: "90%", delay: 0.5, category: "sales", needsWhiteBg: false },
-                { name: "Pipedrive", logo: "/images/integrations/pipedrive.png", x: "50%", y: "95%", delay: 0.55, category: "crm", needsWhiteBg: false },
-                { name: "RecruitCRM", logo: "/images/integrations/recruitcrm.png", x: "78%", y: "90%", delay: 0.6, category: "crm", needsWhiteBg: false },
-                { name: "Salesflare", logo: "/images/integrations/salesflare.webp", x: "18%", y: "50%", delay: 0.65, category: "crm", needsWhiteBg: false },
-                { name: "Salesloft", logo: "/images/integrations/salesloft.svg", x: "82%", y: "50%", delay: 0.7, category: "sales", needsWhiteBg: false },
-              ].map((integration) => {
-                const categoryColor = integration.category === "crm" ? "#3b82f6" : integration.category === "sales" ? "#22c55e" : "#8b5cf6";
-                return (
+                {/* Center Hub - Cleanlist */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, type: "spring" }}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
+                >
                   <motion.div
-                    key={integration.name}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: integration.delay, type: "spring", stiffness: 200 }}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20"
-                    style={{ left: integration.x, top: integration.y }}
+                    animate={{ scale: [1, 1.02, 1] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className={`relative w-28 h-28 md:w-36 md:h-36 rounded-3xl bg-gradient-to-br from-[#3e8aff] via-[#2563eb] to-[#1d4ed8] flex flex-col items-center justify-center shadow-2xl ${
+                      isDark ? "shadow-[#3e8aff]/50" : "shadow-[#3e8aff]/40"
+                    }`}
                   >
-                    <div
-                      className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 backdrop-blur-sm overflow-hidden transition-all hover:scale-110 ${
-                        integration.needsWhiteBg
-                          ? "bg-white border-white/20"
-                          : isDark
-                            ? "bg-[#0a0a0a]/90 border-white/[0.15]"
-                            : "bg-white/95 border-black/[0.08] shadow-lg"
-                      }`}
-                      style={{
-                        boxShadow: isDark
-                          ? `0 0 20px ${categoryColor}30, 0 4px 12px rgba(0,0,0,0.3)`
-                          : `0 4px 20px ${categoryColor}20, 0 2px 8px rgba(0,0,0,0.08)`
-                      }}
-                    >
-                      <Image
-                        src={integration.logo}
-                        alt={integration.name}
-                        width={32}
-                        height={32}
-                        className="w-7 h-7 md:w-8 md:h-8 object-contain"
-                      />
-                    </div>
-                    <span className={`text-[10px] md:text-xs mt-1.5 whitespace-nowrap font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                      {integration.name}
-                    </span>
-                    {/* Category indicator dot */}
-                    <div
-                      className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full border border-white/50"
-                      style={{ backgroundColor: categoryColor }}
+                    <Image
+                      src="/images/favicon.png"
+                      alt="Cleanlist"
+                      width={48}
+                      height={48}
+                      className="w-10 h-10 md:w-12 md:h-12 mb-1"
+                    />
+                    <span className="text-base md:text-lg font-bold text-white">Cleanlist</span>
+                    {/* Pulse ring */}
+                    <motion.div
+                      animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                      className="absolute inset-0 rounded-3xl border-2 border-[#3e8aff]"
                     />
                   </motion.div>
-                );
-              })}
+                  {/* Glow layers */}
+                  <div className="absolute inset-0 rounded-3xl bg-[#3e8aff]/50 blur-2xl -z-10" />
+                  <div className="absolute -inset-6 rounded-[2rem] bg-[#3e8aff]/20 blur-3xl -z-20" />
+                </motion.div>
+
+                {/* Orbiting Integrations */}
+                {[
+                  { name: "HubSpot", logo: "/images/integrations/hubspot.png", x: "25%", y: "12%", delay: 0.1, category: "crm", needsWhiteBg: false },
+                  { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", x: "75%", y: "12%", delay: 0.15, category: "marketing", needsWhiteBg: false },
+                  { name: "Affinity", logo: "/images/integrations/affinity.svg", x: "10%", y: "30%", delay: 0.2, category: "crm", needsWhiteBg: true },
+                  { name: "Close", logo: "/images/integrations/close.png", x: "90%", y: "30%", delay: 0.25, category: "crm", needsWhiteBg: false },
+                  { name: "Freshsales", logo: "/images/integrations/freshsales.png", x: "5%", y: "50%", delay: 0.3, category: "crm", needsWhiteBg: false },
+                  { name: "Holded", logo: "/images/integrations/holded.png", x: "95%", y: "50%", delay: 0.35, category: "crm", needsWhiteBg: false },
+                  { name: "Insightly", logo: "/images/integrations/insightly.png", x: "10%", y: "70%", delay: 0.4, category: "crm", needsWhiteBg: false },
+                  { name: "Marketing360", logo: "/images/integrations/marketing360.png", x: "90%", y: "70%", delay: 0.45, category: "marketing", needsWhiteBg: false },
+                  { name: "Outreach.io", logo: "/images/integrations/outreach.png", x: "20%", y: "88%", delay: 0.5, category: "sales", needsWhiteBg: false },
+                  { name: "Pipedrive", logo: "/images/integrations/pipedrive.png", x: "50%", y: "92%", delay: 0.55, category: "crm", needsWhiteBg: false },
+                  { name: "RecruitCRM", logo: "/images/integrations/recruitcrm.png", x: "80%", y: "88%", delay: 0.6, category: "crm", needsWhiteBg: false },
+                  { name: "Salesflare", logo: "/images/integrations/salesflare.webp", x: "18%", y: "50%", delay: 0.65, category: "crm", needsWhiteBg: false },
+                  { name: "Salesloft", logo: "/images/integrations/salesloft.svg", x: "82%", y: "50%", delay: 0.7, category: "sales", needsWhiteBg: false },
+                ].map((integration, i) => {
+                  const categoryColor = integration.category === "crm" ? "#3b82f6" : integration.category === "sales" ? "#22c55e" : "#8b5cf6";
+                  return (
+                    <motion.div
+                      key={integration.name}
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: integration.delay, type: "spring", stiffness: 200 }}
+                      whileHover={{ scale: 1.15, zIndex: 50 }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20 cursor-pointer group"
+                      style={{ left: integration.x, top: integration.y }}
+                    >
+                      <motion.div
+                        animate={{ y: [0, -4, 0] }}
+                        transition={{ duration: 3 + i * 0.2, repeat: Infinity, ease: "easeInOut" }}
+                        className={`relative w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center border-2 backdrop-blur-sm overflow-hidden transition-all ${
+                          integration.needsWhiteBg
+                            ? "bg-white border-gray-200"
+                            : isDark
+                              ? "bg-[#0d0d0d] border-white/[0.1] group-hover:border-white/[0.3]"
+                              : "bg-white border-gray-200 group-hover:border-[#3e8aff]/50"
+                        }`}
+                        style={{
+                          boxShadow: isDark
+                            ? `0 0 30px ${categoryColor}40, 0 8px 20px rgba(0,0,0,0.4)`
+                            : `0 4px 20px ${categoryColor}25, 0 8px 30px rgba(0,0,0,0.1)`
+                        }}
+                      >
+                        <Image
+                          src={integration.logo}
+                          alt={integration.name}
+                          width={36}
+                          height={36}
+                          className="w-8 h-8 md:w-9 md:h-9 object-contain"
+                        />
+                        {/* Category ring */}
+                        <div
+                          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
+                          style={{ boxShadow: `inset 0 0 0 2px ${categoryColor}` }}
+                        />
+                      </motion.div>
+                      <span className={`text-[10px] md:text-xs mt-2 whitespace-nowrap font-medium transition-colors ${
+                        isDark ? "text-gray-500 group-hover:text-gray-300" : "text-gray-500 group-hover:text-gray-800"
+                      }`}>
+                        {integration.name}
+                      </span>
+                      {/* Category dot */}
+                      <div
+                        className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white shadow-sm"
+                        style={{ backgroundColor: categoryColor }}
+                      />
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Category Legend */}
+            {/* Category Legend - More spacing */}
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8 }}
-              className="flex items-center justify-center gap-6 mt-4"
+              className={`flex items-center justify-center gap-8 mt-8 pt-6 border-t ${isDark ? "border-white/[0.05]" : "border-gray-200"}`}
             >
               {[
-                { label: "CRM", color: "#3b82f6" },
-                { label: "Sales Engagement", color: "#22c55e" },
-                { label: "Marketing", color: "#8b5cf6" },
+                { label: "CRM", color: "#3b82f6", count: 9 },
+                { label: "Sales Engagement", color: "#22c55e", count: 2 },
+                { label: "Marketing", color: "#8b5cf6", count: 2 },
               ].map((cat) => (
                 <div key={cat.label} className="flex items-center gap-2">
-                  <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: cat.color }} />
-                  <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>{cat.label}</span>
+                  <div
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: cat.color, boxShadow: `0 0 10px ${cat.color}50` }}
+                  />
+                  <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>{cat.label}</span>
+                  <span className={`text-xs px-1.5 py-0.5 rounded ${isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-500"}`}>
+                    {cat.count}
+                  </span>
                 </div>
               ))}
             </motion.div>
