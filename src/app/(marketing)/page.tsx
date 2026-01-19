@@ -508,20 +508,20 @@ export default function HomePage() {
                       {/* 85% Find Rate */}
                       <div className="flex items-center gap-2.5 px-4 md:px-6">
                         <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <Crosshair className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                          <Phone className="w-4 h-4 text-[#3e8aff]" weight="fill" />
                         </div>
                         <div>
                           <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</div>
                         </div>
                       </div>
 
-                      {/* $0.30 Per Phone */}
+                      {/* 98% Find Rate */}
                       <div className="flex items-center gap-2.5 px-4 md:px-6">
                         <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <CurrencyDollar className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                          <Envelope className="w-4 h-4 text-[#3e8aff]" weight="fill" />
                         </div>
                         <div>
-                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>$0.30 Per Phone</div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>98% Find Rate</div>
                         </div>
                       </div>
 
