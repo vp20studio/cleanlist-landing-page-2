@@ -13,11 +13,14 @@ const plans = [
     credits: "1,000",
     highlight: false,
     features: [
-      "1,000 verifications/month",
-      "Email validation API",
-      "CSV upload & export",
-      "Basic support",
-      "7-day data retention",
+      { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+      { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+      { text: "Bulk CSV List Enrichment", highlighted: false },
+      { text: "Sales Navigator List Enrichment", highlighted: false },
+      { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+      { text: "Contact Data Cleaning", highlighted: false },
+      { text: "Access to All Export Integrations", highlighted: false },
+      { text: "Live Company & Contact Enrichment", highlighted: false },
     ],
     cta: "Start Free",
     icon: Lightning,
@@ -31,13 +34,14 @@ const plans = [
     highlight: true,
     badge: "Most Popular",
     features: [
-      "25,000 verifications/month",
-      "Email validation + enrichment",
-      "Real-time API access",
-      "HubSpot & Salesforce sync",
-      "Priority support",
-      "30-day data retention",
-      "Team collaboration",
+      { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+      { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+      { text: "Bulk CSV List Enrichment", highlighted: false },
+      { text: "Sales Navigator List Enrichment", highlighted: false },
+      { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+      { text: "Contact Data Cleaning", highlighted: false },
+      { text: "Access to All Export Integrations", highlighted: false },
+      { text: "Live Company & Contact Enrichment", highlighted: false },
     ],
     cta: "Get Started",
     icon: Sparkle,
@@ -50,14 +54,16 @@ const plans = [
     credits: "Unlimited",
     highlight: false,
     features: [
-      "Unlimited verifications",
-      "Full enrichment suite",
-      "Dedicated API endpoints",
-      "Custom integrations",
-      "SLA guarantee (99.9%)",
-      "Dedicated account manager",
-      "SSO & audit logs",
-      "Custom data retention",
+      { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+      { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+      { text: "Bulk CSV List Enrichment", highlighted: false },
+      { text: "Sales Navigator List Enrichment", highlighted: false },
+      { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+      { text: "Contact Data Cleaning", highlighted: false },
+      { text: "Access to All Export Integrations", highlighted: false },
+      { text: "Live Company & Contact Enrichment", highlighted: false },
+      { text: "Dedicated Success Manager", highlighted: false },
+      { text: "Priority Support & Onboarding", highlighted: false },
     ],
     cta: "Contact Sales",
     icon: Buildings,
@@ -121,11 +127,9 @@ export default function Pricing() {
             className="relative w-14 h-8 rounded-full bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] p-1 transition-colors hover:border-[rgba(255,255,255,0.2)]"
           >
             <motion.div
-              layout
+              animate={{ x: isYearly ? 24 : 0 }}
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              className={`w-6 h-6 rounded-full bg-gradient-to-r from-[#3e8aff] to-[#2563eb] shadow-lg ${
-                isYearly ? "ml-auto" : ""
-              }`}
+              className="w-6 h-6 rounded-full bg-gradient-to-r from-[#3e8aff] to-[#2563eb] shadow-lg"
             />
           </button>
 
@@ -268,17 +272,21 @@ function PricingCard({
             <li key={i} className="flex items-start gap-3">
               <div
                 className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                  plan.highlight
+                  feature.highlighted
+                    ? "bg-[rgba(62,138,255,0.15)]"
+                    : plan.highlight
                     ? "bg-[rgba(62,138,255,0.1)]"
                     : "bg-[rgba(255,255,255,0.05)]"
                 }`}
               >
                 <Check
                   size={12}
-                  className={plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}
+                  className={feature.highlighted || plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}
                 />
               </div>
-              <span className="text-sm text-[#888888]">{feature}</span>
+              <span className={`text-sm ${feature.highlighted ? "text-white font-medium" : "text-[#888888]"}`}>
+                {feature.text}
+              </span>
             </li>
           ))}
         </ul>

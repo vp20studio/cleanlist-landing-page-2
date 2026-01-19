@@ -377,10 +377,15 @@ export default function PricingPage() {
                 Start Free Trial
               </Link>
               <div className="space-y-3">
-                {["Everything in Free", "Email Validation", "CRM Export", "Priority Support"].map((feature) => (
-                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
-                    {feature}
+                {[
+                  { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+                  { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+                  { text: "Bulk CSV List Enrichment", highlighted: false },
+                  { text: "Triple email verification", highlighted: false },
+                ].map((feature) => (
+                  <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
+                    <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
+                    {feature.text}
                   </div>
                 ))}
               </div>
@@ -438,10 +443,19 @@ export default function PricingPage() {
                 Start Free Trial
               </Link>
               <div className="space-y-3">
-                {["Everything in Starter", "CRM Integrations", "Smart Columns", "ICP Scoring"].map((feature) => (
-                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
-                    {feature}
+                {[
+                  { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+                  { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+                  { text: "Bulk CSV List Enrichment", highlighted: false },
+                  { text: "Sales Navigator List Enrichment", highlighted: false },
+                  { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+                  { text: "Contact Data Cleaning", highlighted: false },
+                  { text: "Access to All Export Integrations", highlighted: false },
+                  { text: "Live Company & Contact Enrichment", highlighted: false },
+                ].map((feature) => (
+                  <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
+                    <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
+                    {feature.text}
                   </div>
                 ))}
               </div>
@@ -496,10 +510,21 @@ export default function PricingPage() {
                 Start Free Trial
               </Link>
               <div className="space-y-3">
-                {["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"].map((feature) => (
-                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
-                    {feature}
+                {[
+                  { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+                  { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+                  { text: "Bulk CSV List Enrichment", highlighted: false },
+                  { text: "Sales Navigator List Enrichment", highlighted: false },
+                  { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+                  { text: "Contact Data Cleaning", highlighted: false },
+                  { text: "Access to All Export Integrations", highlighted: false },
+                  { text: "Live Company & Contact Enrichment", highlighted: false },
+                  { text: "Dedicated Success Manager", highlighted: false },
+                  { text: "Priority Support & Onboarding", highlighted: false },
+                ].map((feature) => (
+                  <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
+                    <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
+                    {feature.text}
                   </div>
                 ))}
               </div>
