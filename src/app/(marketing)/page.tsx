@@ -711,15 +711,16 @@ export default function HomePage() {
                           ? "bg-gradient-to-b from-[#3e8aff]/20 to-[#3e8aff]/5 border-2 border-[#3e8aff]/40"
                           : "bg-gradient-to-b from-[#3e8aff]/10 to-[#3e8aff]/5 border-2 border-[#3e8aff]/30 shadow-lg shadow-[#3e8aff]/10"
                       }`}>
-                        {/* Logo container with glow */}
+                        {/* Logo with glow */}
                         <div className="relative">
                           <div className="absolute inset-0 bg-[#3e8aff] rounded-xl blur-md opacity-40" />
-                          <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex items-center justify-center shadow-lg">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="w-7 h-7">
-                              <path d="M17 8C17 8 15.5 9.5 12 13C8.5 16.5 5 18 5 18C5 18 6.5 16.5 10 13C13.5 9.5 17 8 17 8Z" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                              <path d="M19 5L17 8M17 8L12 13M5 18L10 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </svg>
-                          </div>
+                          <Image
+                            src="/images/favicon.png"
+                            alt="Cleanlist"
+                            width={48}
+                            height={48}
+                            className="relative w-12 h-12 rounded-xl shadow-lg"
+                          />
                         </div>
                         <div>
                           <div className={`text-sm font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</div>
@@ -1011,20 +1012,23 @@ export default function HomePage() {
                   <motion.div
                     animate={{ scale: [1, 1.02, 1] }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    className={`relative w-28 h-28 md:w-36 md:h-36 rounded-3xl bg-gradient-to-br from-[#3e8aff] via-[#2563eb] to-[#1d4ed8] flex flex-col items-center justify-center shadow-2xl ${
-                      isDark ? "shadow-[#3e8aff]/50" : "shadow-[#3e8aff]/40"
-                    }`}
+                    className="relative flex flex-col items-center justify-center"
                   >
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="w-10 h-10 md:w-12 md:h-12 mb-1">
-                      <path d="M17 8C17 8 15.5 9.5 12 13C8.5 16.5 5 18 5 18C5 18 6.5 16.5 10 13C13.5 9.5 17 8 17 8Z" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M19 5L17 8M17 8L12 13M5 18L10 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span className="text-base md:text-lg font-bold text-white">Cleanlist</span>
+                    <Image
+                      src="/images/favicon.png"
+                      alt="Cleanlist"
+                      width={144}
+                      height={144}
+                      className={`w-24 h-24 md:w-32 md:h-32 rounded-3xl shadow-2xl ${
+                        isDark ? "shadow-[#3e8aff]/50" : "shadow-[#3e8aff]/40"
+                      }`}
+                    />
+                    <span className="text-base md:text-lg font-bold text-white mt-2">Cleanlist</span>
                     {/* Pulse ring */}
                     <motion.div
-                      animate={{ scale: [1, 1.5], opacity: [0.5, 0] }}
+                      animate={{ scale: [1, 1.3], opacity: [0.5, 0] }}
                       transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
-                      className="absolute inset-0 rounded-3xl border-2 border-[#3e8aff]"
+                      className="absolute top-0 w-24 h-24 md:w-32 md:h-32 rounded-3xl border-2 border-[#3e8aff]"
                     />
                   </motion.div>
                   {/* Glow layers */}
