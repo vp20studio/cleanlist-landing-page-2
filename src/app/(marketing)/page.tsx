@@ -581,10 +581,19 @@ export default function HomePage() {
       <PlaybooksSection />
 
       {/* Where Cleanlist Sits - Comparison Section */}
-      <section id="compare" className={`py-16 md:py-24 transition-colors relative overflow-hidden ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section id="compare" className={`py-20 md:py-32 transition-colors relative overflow-hidden ${isDark ? "bg-[#030303]" : "bg-gradient-to-b from-white to-[#f8fafc]"}`}>
         {/* Background effects */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] ${isDark ? "bg-[#3e8aff]/5" : "bg-[#3e8aff]/10"}`} />
+          <motion.div
+            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] rounded-full blur-[200px] ${isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/15"}`}
+          />
+          <motion.div
+            animate={{ x: [0, 50, 0] }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className={`absolute top-1/4 -left-[10%] w-[400px] h-[400px] rounded-full blur-[120px] ${isDark ? "bg-green-500/5" : "bg-green-400/10"}`}
+          />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
@@ -592,13 +601,18 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-10 md:mb-16"
+            className="text-center mb-12 md:mb-20"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
+            >
               <Sparkle className="w-4 h-4" />
               COMPARISON
-            </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            </motion.div>
+            <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
               Where Cleanlist{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 sits
@@ -615,120 +629,194 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto overflow-x-auto"
+            transition={{ duration: 0.6 }}
+            className="max-w-5xl mx-auto"
           >
-            <div className={`rounded-2xl border overflow-hidden min-w-[700px] backdrop-blur-xl ${isDark ? "bg-gradient-to-b from-white/[0.03] to-white/[0.01] border-white/[0.08]" : "bg-white/80 border-black/[0.08] shadow-xl shadow-black/[0.03]"}`}>
-              {/* Header Row */}
-              <div className={`grid grid-cols-5 gap-2 p-5 md:p-6 border-b ${isDark ? "border-white/[0.08]" : "border-black/[0.06]"}`}>
-                <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                  Capabilities
-                </div>
+            {/* Premium Card Container */}
+            <div className={`relative rounded-3xl overflow-hidden ${
+              isDark
+                ? "bg-gradient-to-b from-[#0a0a0a] to-[#050505] border border-white/[0.08]"
+                : "bg-white border border-gray-200 shadow-2xl shadow-[#3e8aff]/5"
+            }`}>
+              {/* Glow effect for Cleanlist column */}
+              <div className="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-l from-[#3e8aff]/5 to-transparent pointer-events-none" />
 
-                {/* Competitor Column Headers */}
-                <div className="text-center">
-                  <div className={`inline-flex flex-col items-center gap-1.5 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDark ? "bg-orange-500/20" : "bg-orange-100"}`}>
-                      <Wrench className="w-4 h-4 text-orange-500" />
+              {/* Table Container */}
+              <div className="overflow-x-auto">
+                <div className="min-w-[750px]">
+                  {/* Header Row */}
+                  <div className={`grid grid-cols-5 gap-4 p-6 md:p-8 ${isDark ? "border-b border-white/[0.06]" : "border-b border-gray-100"}`}>
+                    <div className={`flex items-end text-sm font-semibold uppercase tracking-wider ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                      Capabilities
                     </div>
-                    <div className={`text-xs font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Workflow Builders</div>
-                    <div className={`text-[10px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>Clay, etc.</div>
-                  </div>
-                </div>
 
-                <div className="text-center">
-                  <div className={`inline-flex flex-col items-center gap-1.5 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDark ? "bg-purple-500/20" : "bg-purple-100"}`}>
-                      <Database className="w-4 h-4 text-purple-500" />
-                    </div>
-                    <div className={`text-xs font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>CRM Enrichment</div>
-                    <div className={`text-[10px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>Apollo, ZoomInfo</div>
-                  </div>
-                </div>
+                    {/* Competitor Column Headers */}
+                    {[
+                      { name: "Workflow Builders", sub: "Clay, etc.", icon: <Wrench className="w-5 h-5" />, color: "orange" },
+                      { name: "CRM Enrichment", sub: "Apollo, ZoomInfo", icon: <Database className="w-5 h-5" />, color: "purple" },
+                      { name: "Signal Platforms", sub: "6sense, etc.", icon: <ChartLine className="w-5 h-5" />, color: "pink" },
+                    ].map((col, i) => (
+                      <motion.div
+                        key={col.name}
+                        initial={{ opacity: 0, y: -10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className="text-center"
+                      >
+                        <div className={`inline-flex flex-col items-center gap-2 p-4 rounded-2xl transition-all hover:scale-105 ${
+                          isDark ? "bg-white/[0.03] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"
+                        }`}>
+                          <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                            col.color === "orange"
+                              ? (isDark ? "bg-orange-500/20 text-orange-400" : "bg-orange-100 text-orange-500")
+                              : col.color === "purple"
+                                ? (isDark ? "bg-purple-500/20 text-purple-400" : "bg-purple-100 text-purple-500")
+                                : (isDark ? "bg-pink-500/20 text-pink-400" : "bg-pink-100 text-pink-500")
+                          }`}>
+                            {col.icon}
+                          </div>
+                          <div>
+                            <div className={`text-sm font-semibold ${isDark ? "text-gray-200" : "text-gray-800"}`}>{col.name}</div>
+                            <div className={`text-xs mt-0.5 ${isDark ? "text-gray-500" : "text-gray-400"}`}>{col.sub}</div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
 
-                <div className="text-center">
-                  <div className={`inline-flex flex-col items-center gap-1.5 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDark ? "bg-pink-500/20" : "bg-pink-100"}`}>
-                      <ChartLine className="w-4 h-4 text-pink-500" />
-                    </div>
-                    <div className={`text-xs font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Signal Platforms</div>
-                    <div className={`text-[10px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>6sense, etc.</div>
+                    {/* Cleanlist Column Header - Premium Highlighted */}
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 }}
+                      className="text-center relative"
+                    >
+                      {/* Floating badge */}
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5, type: "spring" }}
+                        className="absolute -top-3 left-1/2 -translate-x-1/2 z-20"
+                      >
+                        <div className="px-3 py-1 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 text-white text-[11px] font-semibold shadow-lg shadow-green-500/30">
+                          All-in-one
+                        </div>
+                      </motion.div>
+                      <div className={`inline-flex flex-col items-center gap-2 p-4 rounded-2xl relative transition-all ${
+                        isDark
+                          ? "bg-gradient-to-b from-[#3e8aff]/20 to-[#3e8aff]/5 border-2 border-[#3e8aff]/40"
+                          : "bg-gradient-to-b from-[#3e8aff]/10 to-[#3e8aff]/5 border-2 border-[#3e8aff]/30 shadow-lg shadow-[#3e8aff]/10"
+                      }`}>
+                        {/* Logo container with glow */}
+                        <div className="relative">
+                          <div className="absolute inset-0 bg-[#3e8aff] rounded-xl blur-md opacity-40" />
+                          <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex items-center justify-center shadow-lg">
+                            <Image
+                              src="/images/favicon.png"
+                              alt="Cleanlist"
+                              width={28}
+                              height={28}
+                              className="w-7 h-7"
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <div className={`text-sm font-bold ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</div>
+                          <div className="text-xs mt-0.5 text-[#3e8aff] font-medium">Best of all</div>
+                        </div>
+                      </div>
+                    </motion.div>
                   </div>
-                </div>
 
-                {/* Cleanlist Column Header - Highlighted */}
-                <div className="text-center relative">
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-green-500 text-white text-[10px] font-medium z-10">
-                    All-in-one
-                  </div>
-                  <div className="inline-flex flex-col items-center gap-1.5 p-3 rounded-xl bg-gradient-to-b from-[#3e8aff]/20 to-[#3e8aff]/5 border border-[#3e8aff]/30 relative">
-                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#3e8aff]">
-                      <Crown className="w-4 h-4 text-white" />
-                    </div>
-                    <div className={`text-xs font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</div>
-                    <div className="text-[10px] text-[#3e8aff]">Best of all</div>
-                  </div>
-                </div>
-              </div>
+                  {/* Feature Rows */}
+                  <div className="divide-y divide-transparent">
+                    {comparisonFeatures.map((row, index) => (
+                      <motion.div
+                        key={row.feature}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.08 }}
+                        className={`grid grid-cols-5 gap-4 px-6 md:px-8 py-5 group transition-all ${
+                          isDark
+                            ? "hover:bg-white/[0.02] border-b border-white/[0.04]"
+                            : "hover:bg-[#3e8aff]/[0.02] border-b border-gray-50"
+                        }`}
+                      >
+                        <div className={`text-sm font-medium flex items-center gap-3 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.08 + 0.2 }}
+                            className={`w-2 h-2 rounded-full bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] opacity-0 group-hover:opacity-100 transition-opacity`}
+                          />
+                          {row.feature}
+                        </div>
 
-              {/* Feature Rows */}
-              {comparisonFeatures.map((row, index) => (
-                <motion.div
-                  key={row.feature}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className={`grid grid-cols-5 gap-2 p-4 md:py-5 md:px-6 group transition-colors ${
+                        {/* Competitor columns */}
+                        {[row.workflow, row.crm, row.signal].map((value, i) => (
+                          <div key={i} className="flex justify-center items-center">
+                            <motion.div
+                              whileHover={{ scale: 1.1 }}
+                              className={`w-9 h-9 rounded-full flex items-center justify-center transition-all ${
+                                value === true
+                                  ? (isDark ? "bg-green-500/15" : "bg-green-100")
+                                  : value === false
+                                    ? (isDark ? "bg-red-500/10" : "bg-red-50")
+                                    : (isDark ? "bg-white/[0.05]" : "bg-gray-100")
+                              }`}
+                            >
+                              {value === true ? (
+                                <Check className="w-4 h-4 text-green-500" weight="bold" />
+                              ) : value === false ? (
+                                <X className="w-4 h-4 text-red-400" />
+                              ) : (
+                                <Minus className="w-4 h-4 text-gray-400" />
+                              )}
+                            </motion.div>
+                          </div>
+                        ))}
+
+                        {/* Cleanlist column - always highlighted */}
+                        <div className="flex justify-center items-center">
+                          <motion.div
+                            whileHover={{ scale: 1.15 }}
+                            className={`relative w-10 h-10 rounded-full flex items-center justify-center ${
+                              isDark
+                                ? "bg-gradient-to-br from-green-500/30 to-green-500/10"
+                                : "bg-gradient-to-br from-green-500/20 to-green-400/10"
+                            }`}
+                          >
+                            <div className="absolute inset-0 rounded-full bg-green-500/20 animate-pulse" />
+                            <Check className="w-5 h-5 text-green-500 relative z-10" weight="bold" />
+                          </motion.div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* Legend */}
+                  <div className={`flex flex-wrap items-center justify-center gap-6 md:gap-10 p-6 ${
                     isDark
-                      ? "hover:bg-white/[0.02]"
-                      : "hover:bg-[#3e8aff]/[0.02]"
-                  } ${
-                    index !== comparisonFeatures.length - 1
-                      ? (isDark ? "border-b border-white/[0.05]" : "border-b border-gray-100")
-                      : ""
-                  }`}
-                >
-                  <div className={`text-sm font-medium flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <span className={`w-1.5 h-1.5 rounded-full bg-[#3e8aff] opacity-0 group-hover:opacity-100 transition-opacity`} />
-                    {row.feature}
+                      ? "bg-gradient-to-r from-white/[0.02] to-white/[0.01] border-t border-white/[0.06]"
+                      : "bg-gradient-to-r from-gray-50 to-white border-t border-gray-100"
+                  }`}>
+                    {[
+                      { icon: <Check className="w-3.5 h-3.5 text-green-500" weight="bold" />, label: "Full support", bg: "bg-green-500/15" },
+                      { icon: <Minus className="w-3.5 h-3.5 text-gray-400" />, label: "Partial", bg: isDark ? "bg-white/10" : "bg-gray-200" },
+                      { icon: <X className="w-3.5 h-3.5 text-red-400" />, label: "Not supported", bg: "bg-red-500/15" },
+                    ].map((item) => (
+                      <div key={item.label} className={`flex items-center gap-2.5 text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                        <div className={`w-6 h-6 rounded-full ${item.bg} flex items-center justify-center`}>
+                          {item.icon}
+                        </div>
+                        <span className="font-medium">{item.label}</span>
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex justify-center items-center">
-                    {renderSupportIcon(row.workflow)}
-                  </div>
-                  <div className="flex justify-center items-center">
-                    {renderSupportIcon(row.crm)}
-                  </div>
-                  <div className="flex justify-center items-center">
-                    {renderSupportIcon(row.signal)}
-                  </div>
-                  {/* Cleanlist column with highlight */}
-                  <div className={`flex justify-center items-center rounded-lg py-2 ${isDark ? "bg-[#3e8aff]/5" : "bg-[#3e8aff]/5"}`}>
-                    <div className="w-7 h-7 rounded-full bg-green-500/20 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-green-500" weight="bold" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-
-              {/* Legend */}
-              <div className={`flex items-center justify-center gap-6 md:gap-10 p-4 border-t ${isDark ? "bg-white/[0.02] border-white/[0.08]" : "bg-gradient-to-r from-gray-50 to-white border-black/[0.06]"}`}>
-                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                  <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
-                    <Check className="w-3 h-3 text-green-500" />
-                  </div>
-                  Full support
-                </div>
-                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                  <div className={`w-5 h-5 rounded-full flex items-center justify-center ${isDark ? "bg-white/10" : "bg-gray-200"}`}>
-                    <Minus className="w-3 h-3 text-gray-400" />
-                  </div>
-                  Partial
-                </div>
-                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
-                  <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center">
-                    <X className="w-3 h-3 text-red-400" />
-                  </div>
-                  Not supported
                 </div>
               </div>
             </div>
@@ -739,18 +827,20 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mt-10"
+            className="text-center mt-12"
           >
-            <p className={`text-sm mb-4 ${isDark ? "text-gray-500" : "text-gray-500"}`}>
+            <p className={`text-sm mb-5 ${isDark ? "text-gray-500" : "text-gray-500"}`}>
               Why choose when you can have it all?
             </p>
-            <Link
-              href="#pricing"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all hover:shadow-lg hover:shadow-[#3e8aff]/25"
-            >
-              See Pricing
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                href="#pricing"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#3e8aff] to-[#2563eb] text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-[#3e8aff]/25 transition-all"
+              >
+                See Pricing
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
       </section>
