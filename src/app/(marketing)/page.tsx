@@ -382,14 +382,16 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
           >
             <Link
-              href="#"
+              href="https://portal.cleanlist.ai/auth/register"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30"
             >
               Start building for free
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              href="#"
+              href="https://calendly.com/cleanlist/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`inline-flex items-center justify-center gap-2 px-6 py-3.5 border font-medium rounded-lg transition-colors ${
                 isDark
                   ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
@@ -713,13 +715,10 @@ export default function HomePage() {
                         <div className="relative">
                           <div className="absolute inset-0 bg-[#3e8aff] rounded-xl blur-md opacity-40" />
                           <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex items-center justify-center shadow-lg">
-                            <Image
-                              src="/images/favicon.png"
-                              alt="Cleanlist"
-                              width={28}
-                              height={28}
-                              className="w-7 h-7"
-                            />
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" className="w-7 h-7">
+                              <path d="M17 8C17 8 15.5 9.5 12 13C8.5 16.5 5 18 5 18C5 18 6.5 16.5 10 13C13.5 9.5 17 8 17 8Z" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M19 5L17 8M17 8L12 13M5 18L10 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
                           </div>
                         </div>
                         <div>
@@ -1016,13 +1015,10 @@ export default function HomePage() {
                       isDark ? "shadow-[#3e8aff]/50" : "shadow-[#3e8aff]/40"
                     }`}
                   >
-                    <Image
-                      src="/images/favicon.png"
-                      alt="Cleanlist"
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 md:w-12 md:h-12 mb-1"
-                    />
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="w-10 h-10 md:w-12 md:h-12 mb-1">
+                      <path d="M17 8C17 8 15.5 9.5 12 13C8.5 16.5 5 18 5 18C5 18 6.5 16.5 10 13C13.5 9.5 17 8 17 8Z" fill="white" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M19 5L17 8M17 8L12 13M5 18L10 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                     <span className="text-base md:text-lg font-bold text-white">Cleanlist</span>
                     {/* Pulse ring */}
                     <motion.div
@@ -1294,7 +1290,7 @@ export default function HomePage() {
               <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>30 credits</p>
               <p className="text-xs text-gray-500 mb-6">30 emails or 3 phones/mo</p>
               <Link
-                href="#"
+                href="https://portal.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started
@@ -1362,7 +1358,7 @@ export default function HomePage() {
                 {pricingTiers.starter[starterTier].email} emails or {pricingTiers.starter[starterTier].phone} phones/mo
               </p>
               <Link
-                href="#"
+                href="https://portal.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Start Free Trial
@@ -1433,7 +1429,7 @@ export default function HomePage() {
                 {pricingTiers.pro[proTier].email} emails or {pricingTiers.pro[proTier].phone} phones/mo
               </p>
               <Link
-                href="#"
+                href="https://portal.cleanlist.ai/auth/register"
                 className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
               >
                 Start Free Trial
@@ -1501,7 +1497,7 @@ export default function HomePage() {
                 {pricingTiers.enterprise[enterpriseTier].email} emails or {pricingTiers.enterprise[enterpriseTier].phone} phones/mo
               </p>
               <Link
-                href="#"
+                href="https://portal.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Start Free Trial

@@ -180,7 +180,7 @@ export default function FinalCTA() {
                 {/* Glow effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
                 <Link
-                  href="#"
+                  href="https://portal.cleanlist.ai/auth/register"
                   className="relative inline-flex items-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-[#3e8aff] to-[#2563eb] text-white font-bold rounded-xl text-lg md:text-xl overflow-hidden"
                 >
                   {/* Shimmer */}
@@ -197,7 +197,9 @@ export default function FinalCTA() {
               {/* Secondary CTA */}
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                 <Link
-                  href="#"
+                  href="https://calendly.com/cleanlist/30min"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`inline-flex items-center gap-3 px-8 md:px-10 py-4 md:py-5 rounded-xl font-bold text-lg md:text-xl border-2 transition-all ${
                     isDark
                       ? "border-white/20 text-white hover:border-[#3e8aff]/50 hover:bg-white/5"
