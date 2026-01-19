@@ -271,13 +271,13 @@ export default function PricingPage() {
             </span>
             <button
               onClick={() => setAnnual(!annual)}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
+              className={`relative w-14 h-7 rounded-full transition-colors ${
                 annual ? "bg-[#3e8aff]" : (isDark ? "bg-white/[0.1]" : "bg-gray-300")
               }`}
             >
               <div
-                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
-                  annual ? "left-8" : "left-1"
+                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-transform ${
+                  annual ? "translate-x-8" : "translate-x-1"
                 }`}
               />
             </button>
