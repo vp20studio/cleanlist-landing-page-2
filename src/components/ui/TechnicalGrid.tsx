@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 interface TechnicalBlock {
   icon?: ReactNode;
@@ -23,7 +24,7 @@ const colorClasses = {
   green: "text-green-500 bg-green-500/10 border-green-500/20",
   yellow: "text-yellow-500 bg-yellow-500/10 border-yellow-500/20",
   red: "text-red-500 bg-red-500/10 border-red-500/20",
-  purple: "text-purple-500 bg-purple-500/10 border-purple-500/20",
+  purple: "text-[#3e8aff] bg-[#3e8aff]/10 border-[#3e8aff]/20",
 };
 
 export default function TechnicalGrid({
@@ -31,6 +32,9 @@ export default function TechnicalGrid({
   columns = 4,
   className = "",
 }: TechnicalGridProps) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const gridCols = {
     2: "grid-cols-2",
     3: "grid-cols-2 md:grid-cols-3",
@@ -51,7 +55,9 @@ export default function TechnicalGrid({
           className={`relative p-4 rounded-xl border ${
             block.highlight
               ? "bg-[#3e8aff]/5 border-[#3e8aff]/30"
-              : "bg-[#0a0a0a] border-white/[0.08]"
+              : isDark
+                ? "bg-[#0a0a0a] border-white/[0.08]"
+                : "bg-white border-[#3e8aff]/20 shadow-sm"
           } hover:border-[#3e8aff]/30 transition-colors group`}
         >
           {block.icon && (
@@ -69,7 +75,7 @@ export default function TechnicalGrid({
           <div className="text-xs text-gray-500 uppercase tracking-wider mb-1">
             {block.label}
           </div>
-          <div className="text-xl font-bold text-white">{block.value}</div>
+          <div className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{block.value}</div>
           {block.subValue && (
             <div className="text-xs text-gray-500 mt-1">{block.subValue}</div>
           )}
