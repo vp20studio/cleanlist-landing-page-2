@@ -45,24 +45,21 @@ const dataProviders = [
   "Cognism", "LeadIQ", "Snov.io", "Kaspr", "FullContact", "People Data Labs"
 ];
 
-// All integrations for the hub visual
+// All integrations for the grid (CRMs and outreach platforms)
 const allIntegrations = [
-  { name: "Salesforce", abbr: "Sa", category: "crm", color: "#3b82f6" },
   { name: "HubSpot", abbr: "Hu", category: "crm", color: "#3b82f6" },
+  { name: "ActiveCampaign", abbr: "Ac", category: "marketing", color: "#8b5cf6" },
+  { name: "Affinity", abbr: "Af", category: "crm", color: "#3b82f6" },
+  { name: "Close", abbr: "Cl", category: "crm", color: "#3b82f6" },
+  { name: "Freshsales CRM", abbr: "Fr", category: "crm", color: "#3b82f6" },
+  { name: "Holded", abbr: "Ho", category: "crm", color: "#3b82f6" },
+  { name: "Insightly", abbr: "In", category: "crm", color: "#3b82f6" },
+  { name: "Marketing360", abbr: "M3", category: "marketing", color: "#8b5cf6" },
+  { name: "Outreach.io", abbr: "Ou", category: "sales", color: "#22c55e" },
   { name: "Pipedrive", abbr: "Pi", category: "crm", color: "#3b82f6" },
-  { name: "Outreach", abbr: "Ou", category: "sales", color: "#22c55e" },
-  { name: "Apollo", abbr: "Ap", category: "prospecting", color: "#f59e0b" },
-  { name: "Marketo", abbr: "Ma", category: "marketing", color: "#14b8a6" },
-  { name: "Mailchimp", abbr: "Ma", category: "marketing", color: "#14b8a6" },
-  { name: "Klaviyo", abbr: "Kl", category: "marketing", color: "#14b8a6" },
-  { name: "Braze", abbr: "Br", category: "marketing", color: "#14b8a6" },
-  { name: "Pardot", abbr: "Pa", category: "marketing", color: "#14b8a6" },
-  { name: "Snowflake", abbr: "Sn", category: "cdp", color: "#8b5cf6" },
-  { name: "BigQuery", abbr: "Bi", category: "cdp", color: "#8b5cf6" },
-  { name: "Segment", abbr: "Se", category: "cdp", color: "#8b5cf6" },
-  { name: "Zapier", abbr: "Za", category: "automation", color: "#ec4899" },
-  { name: "Slack", abbr: "Sl", category: "automation", color: "#ec4899" },
-  { name: "Intercom", abbr: "In", category: "automation", color: "#ec4899" },
+  { name: "RecruitCRM", abbr: "Rc", category: "crm", color: "#3b82f6" },
+  { name: "Salesflare", abbr: "Sf", category: "crm", color: "#3b82f6" },
+  { name: "Salesloft", abbr: "Sl", category: "sales", color: "#22c55e" },
 ];
 
 const integrationCategories = [
@@ -1012,31 +1009,68 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Integration Stats */}
+          {/* Native Integrations Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-3xl mx-auto mb-12 md:mb-16"
+            className={`rounded-2xl p-6 md:p-8 border mb-12 ${isDark ? "bg-[rgba(10,10,10,0.6)] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
           >
-            {[
-              { value: "15+", label: "Native Integrations" },
-              { value: "<5 min", label: "Setup Time" },
-              { value: "Real-time", label: "Bi-directional Sync" },
-              { value: "OAuth 2.0", label: "Secure Auth" },
-            ].map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`text-center p-4 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
-              >
-                <div className="text-xl md:text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
-                <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
-              </motion.div>
-            ))}
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+              <div>
+                <h3 className={`text-xl font-semibold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  Native Integrations
+                </h3>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                  One-click setup. No engineering required.
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>Can&apos;t find yours?</span>
+                <Link href="/integrations" className="text-sm text-[#3e8aff] hover:underline">
+                  Request integration
+                </Link>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              {allIntegrations.map((integration, index) => (
+                <motion.div
+                  key={integration.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.03 }}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  className={`group flex flex-col p-4 rounded-xl border transition-all cursor-pointer ${
+                    isDark
+                      ? "bg-[rgba(255,255,255,0.02)] border-white/[0.05] hover:border-[#3e8aff]/30 hover:bg-[#3e8aff]/5"
+                      : "bg-gray-50 border-gray-100 hover:border-[#3e8aff]/30 hover:bg-[#3e8aff]/5"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <div
+                      className="w-10 h-10 rounded-lg flex items-center justify-center font-semibold text-sm"
+                      style={{
+                        backgroundColor: `${integration.color}15`,
+                        color: integration.color,
+                      }}
+                    >
+                      {integration.abbr}
+                    </div>
+                    <ArrowRight
+                      className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${isDark ? "text-gray-400" : "text-gray-500"}`}
+                    />
+                  </div>
+                  <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
+                    {integration.name}
+                  </span>
+                  <span className={`text-xs mt-0.5 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                    Click to connect
+                  </span>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* API & Webhooks Footer */}
@@ -1092,13 +1126,13 @@ export default function HomePage() {
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
-              className={`relative w-14 h-7 rounded-full transition-colors ${
+              className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
                 isYearly ? "bg-[#3e8aff]" : (isDark ? "bg-white/[0.1]" : "bg-gray-300")
               }`}
             >
               <div
-                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-transform ${
-                  isYearly ? "translate-x-8" : "translate-x-1"
+                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
+                  isYearly ? "left-8" : "left-1"
                 }`}
               />
             </button>
@@ -1196,10 +1230,15 @@ export default function HomePage() {
                 Start Free Trial
               </Link>
               <div className="space-y-3">
-                {["Everything in Free", "Email Validation", "CRM Export", "Priority Support"].map((feature) => (
-                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
-                    {feature}
+                {[
+                  { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+                  { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+                  { text: "Bulk CSV List Enrichment", highlighted: false },
+                  { text: "Triple email verification", highlighted: false },
+                ].map((feature) => (
+                  <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
+                    <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
+                    {feature.text}
                   </div>
                 ))}
               </div>
@@ -1258,10 +1297,19 @@ export default function HomePage() {
                 Start Free Trial
               </Link>
               <div className="space-y-3">
-                {["Everything in Starter", "CRM Integrations", "Smart Columns", "ICP Scoring"].map((feature) => (
-                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
-                    {feature}
+                {[
+                  { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+                  { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+                  { text: "Bulk CSV List Enrichment", highlighted: false },
+                  { text: "Sales Navigator List Enrichment", highlighted: false },
+                  { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+                  { text: "Contact Data Cleaning", highlighted: false },
+                  { text: "Access to All Export Integrations", highlighted: false },
+                  { text: "Live Company & Contact Enrichment", highlighted: false },
+                ].map((feature) => (
+                  <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
+                    <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
+                    {feature.text}
                   </div>
                 ))}
               </div>
@@ -1317,10 +1365,21 @@ export default function HomePage() {
                 Start Free Trial
               </Link>
               <div className="space-y-3">
-                {["Everything in Pro", "Playbook Builder", "Team Workspaces", "Dedicated CSM"].map((feature) => (
-                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
-                    {feature}
+                {[
+                  { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+                  { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+                  { text: "Bulk CSV List Enrichment", highlighted: false },
+                  { text: "Sales Navigator List Enrichment", highlighted: false },
+                  { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+                  { text: "Contact Data Cleaning", highlighted: false },
+                  { text: "Access to All Export Integrations", highlighted: false },
+                  { text: "Live Company & Contact Enrichment", highlighted: false },
+                  { text: "Dedicated Success Manager", highlighted: false },
+                  { text: "Priority Support & Onboarding", highlighted: false },
+                ].map((feature) => (
+                  <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
+                    <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
+                    {feature.text}
                   </div>
                 ))}
               </div>
