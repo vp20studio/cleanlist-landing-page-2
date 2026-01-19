@@ -303,6 +303,13 @@ export default function PricingPage() {
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
+                <div className="flex gap-1 mt-2">
+                  <span
+                    className="px-3 py-1 text-xs rounded-md bg-[#3e8aff] text-white"
+                  >
+                    I
+                  </span>
+                </div>
               </div>
               <div className="mb-4">
                 <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>$0</span>

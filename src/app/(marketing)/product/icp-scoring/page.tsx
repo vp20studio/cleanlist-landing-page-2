@@ -54,8 +54,8 @@ export default function ICPScoringPage() {
     <>
       {/* Hero */}
       <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-purple-500/10 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -63,9 +63,9 @@ export default function ICPScoringPage() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-6"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
               >
-                <GlowIcon icon={<Crosshair />} size="xs" color="purple" variant="ghost" />
+                <GlowIcon icon={<Crosshair />} size="xs" color="blue" variant="ghost" />
                 ICP Scoring
               </motion.div>
 
@@ -76,7 +76,7 @@ export default function ICPScoringPage() {
                 className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
               >
                 Score Every Lead Against Your{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                   Ideal Customer
                 </span>
               </motion.h1>
@@ -99,7 +99,7 @@ export default function ICPScoringPage() {
               >
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
                 >
                   Start Free Trial
                   <ArrowRight />
@@ -202,8 +202,8 @@ export default function ICPScoringPage() {
                 viewport={{ once: true }}
                 className="sticky top-24"
               >
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-4">
-                  <GlowIcon icon={<ChartBar />} size="xs" color="purple" variant="ghost" />
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
+                  <GlowIcon icon={<ChartBar />} size="xs" color="blue" variant="ghost" />
                   How It Works
                 </div>
                 <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -238,7 +238,7 @@ export default function ICPScoringPage() {
                             {score.value}%
                           </span>
                         </div>
-                        <div className="h-2 bg-white/[0.05] rounded-full overflow-hidden">
+                        <div className={`h-2 rounded-full overflow-hidden ${isDark ? "bg-white/[0.05]" : "bg-gray-200"}`}>
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${score.value}%` }}
@@ -248,9 +248,9 @@ export default function ICPScoringPage() {
                               score.color === "green"
                                 ? "bg-green-500"
                                 : score.color === "purple"
-                                ? "bg-purple-500"
+                                ? "bg-[#3e8aff]"
                                 : score.color === "blue"
-                                ? "bg-blue-500"
+                                ? "bg-[#3e8aff]"
                                 : "bg-yellow-500"
                             }`}
                           />
@@ -343,12 +343,12 @@ export default function ICPScoringPage() {
               viewport={{ once: true }}
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
-              <GlowIcon icon={<Buildings />} size="lg" color="purple" variant="glow" className="mb-4" />
+              <GlowIcon icon={<Buildings />} size="lg" color="blue" variant="glow" className="mb-4" />
               <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Company Targeting</h3>
               <div className="space-y-3">
                 {companyTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
-                    <Check className="text-purple-400 mt-1 shrink-0" />
+                    <Check className="text-[#3e8aff] mt-1 shrink-0" />
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
@@ -566,8 +566,8 @@ export default function ICPScoringPage() {
 
       {/* CTA */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-purple-500/20 rounded-full blur-[150px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
 
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <motion.div
@@ -584,7 +584,7 @@ export default function ICPScoringPage() {
             </p>
             <Link
               href="#"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors text-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
             >
               Start Scoring Leads
               <ArrowRight />

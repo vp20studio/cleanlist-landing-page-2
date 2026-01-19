@@ -29,6 +29,8 @@ import {
   Crown,
   CaretDown,
   Calendar,
+  Wrench,
+  ChartLine,
 } from "@phosphor-icons/react";
 import StickySubNav from "@/components/StickySubNav";
 import InteractiveDemo from "@/components/InteractiveDemo";
@@ -579,8 +581,13 @@ export default function HomePage() {
       <PlaybooksSection />
 
       {/* Where Cleanlist Sits - Comparison Section */}
-      <section id="compare" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
+      <section id="compare" className={`py-16 md:py-24 transition-colors relative overflow-hidden ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+        {/* Background effects */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full blur-[150px] ${isDark ? "bg-[#3e8aff]/5" : "bg-[#3e8aff]/10"}`} />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -588,6 +595,7 @@ export default function HomePage() {
             className="text-center mb-10 md:mb-16"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6">
+              <Sparkle className="w-4 h-4" />
               COMPARISON
             </div>
             <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -602,69 +610,147 @@ export default function HomePage() {
             </p>
           </motion.div>
 
-          {/* Comparison Table */}
+          {/* Comparison Table - Premium Design */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="max-w-5xl mx-auto overflow-x-auto"
           >
-            <div className={`rounded-2xl border overflow-hidden min-w-[640px] ${isDark ? "bg-gradient-to-b from-white/[0.02] to-white/[0.05] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
-              {/* Header */}
-              <div className={`grid grid-cols-5 gap-4 p-4 md:p-6 border-b ${isDark ? "border-white/[0.08] bg-white/[0.02]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
-                <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>Features</div>
-                <div className="text-center">
-                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Workflow Builders</div>
-                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Clay, etc.</div>
+            <div className={`rounded-2xl border overflow-hidden min-w-[700px] backdrop-blur-xl ${isDark ? "bg-gradient-to-b from-white/[0.03] to-white/[0.01] border-white/[0.08]" : "bg-white/80 border-black/[0.08] shadow-xl shadow-black/[0.03]"}`}>
+              {/* Header Row */}
+              <div className={`grid grid-cols-5 gap-2 p-5 md:p-6 border-b ${isDark ? "border-white/[0.08]" : "border-black/[0.06]"}`}>
+                <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                  Capabilities
                 </div>
+
+                {/* Competitor Column Headers */}
                 <div className="text-center">
-                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>CRM Enrichment</div>
-                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>Apollo, ZoomInfo</div>
+                  <div className={`inline-flex flex-col items-center gap-1.5 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDark ? "bg-orange-500/20" : "bg-orange-100"}`}>
+                      <Wrench className="w-4 h-4 text-orange-500" />
+                    </div>
+                    <div className={`text-xs font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Workflow Builders</div>
+                    <div className={`text-[10px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>Clay, etc.</div>
+                  </div>
                 </div>
+
                 <div className="text-center">
-                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Signal Platforms</div>
-                  <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>6sense, etc.</div>
+                  <div className={`inline-flex flex-col items-center gap-1.5 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDark ? "bg-purple-500/20" : "bg-purple-100"}`}>
+                      <Database className="w-4 h-4 text-purple-500" />
+                    </div>
+                    <div className={`text-xs font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>CRM Enrichment</div>
+                    <div className={`text-[10px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>Apollo, ZoomInfo</div>
+                  </div>
                 </div>
+
                 <div className="text-center">
-                  <div className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/30`}>
-                    <Crown className="w-3 h-3 text-yellow-500" />
-                    <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</span>
+                  <div className={`inline-flex flex-col items-center gap-1.5 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${isDark ? "bg-pink-500/20" : "bg-pink-100"}`}>
+                      <ChartLine className="w-4 h-4 text-pink-500" />
+                    </div>
+                    <div className={`text-xs font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Signal Platforms</div>
+                    <div className={`text-[10px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>6sense, etc.</div>
+                  </div>
+                </div>
+
+                {/* Cleanlist Column Header - Highlighted */}
+                <div className="text-center relative">
+                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-green-500 text-white text-[10px] font-medium z-10">
+                    All-in-one
+                  </div>
+                  <div className="inline-flex flex-col items-center gap-1.5 p-3 rounded-xl bg-gradient-to-b from-[#3e8aff]/20 to-[#3e8aff]/5 border border-[#3e8aff]/30 relative">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#3e8aff]">
+                      <Crown className="w-4 h-4 text-white" />
+                    </div>
+                    <div className={`text-xs font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Cleanlist</div>
+                    <div className="text-[10px] text-[#3e8aff]">Best of all</div>
                   </div>
                 </div>
               </div>
 
-              {/* Rows */}
+              {/* Feature Rows */}
               {comparisonFeatures.map((row, index) => (
-                <div
+                <motion.div
                   key={row.feature}
-                  className={`grid grid-cols-5 gap-4 p-4 md:p-6 ${
-                    index !== comparisonFeatures.length - 1 ? (isDark ? "border-b border-white/[0.05]" : "border-b border-gray-100") : ""
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className={`grid grid-cols-5 gap-2 p-4 md:py-5 md:px-6 group transition-colors ${
+                    isDark
+                      ? "hover:bg-white/[0.02]"
+                      : "hover:bg-[#3e8aff]/[0.02]"
+                  } ${
+                    index !== comparisonFeatures.length - 1
+                      ? (isDark ? "border-b border-white/[0.05]" : "border-b border-gray-100")
+                      : ""
                   }`}
                 >
-                  <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>{row.feature}</div>
-                  <div className="flex justify-center">{renderSupportIcon(row.workflow)}</div>
-                  <div className="flex justify-center">{renderSupportIcon(row.crm)}</div>
-                  <div className="flex justify-center">{renderSupportIcon(row.signal)}</div>
-                  <div className="flex justify-center">{renderSupportIcon(row.cleanlist)}</div>
-                </div>
+                  <div className={`text-sm font-medium flex items-center gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full bg-[#3e8aff] opacity-0 group-hover:opacity-100 transition-opacity`} />
+                    {row.feature}
+                  </div>
+                  <div className="flex justify-center items-center">
+                    {renderSupportIcon(row.workflow)}
+                  </div>
+                  <div className="flex justify-center items-center">
+                    {renderSupportIcon(row.crm)}
+                  </div>
+                  <div className="flex justify-center items-center">
+                    {renderSupportIcon(row.signal)}
+                  </div>
+                  {/* Cleanlist column with highlight */}
+                  <div className={`flex justify-center items-center rounded-lg py-2 ${isDark ? "bg-[#3e8aff]/5" : "bg-[#3e8aff]/5"}`}>
+                    <div className="w-7 h-7 rounded-full bg-green-500/20 flex items-center justify-center">
+                      <Check className="w-4 h-4 text-green-500" weight="bold" />
+                    </div>
+                  </div>
+                </motion.div>
               ))}
 
               {/* Legend */}
-              <div className={`flex items-center justify-center gap-4 md:gap-8 p-4 border-t flex-wrap ${isDark ? "bg-white/[0.02] border-white/[0.08]" : "bg-[#F8F9FA] border-black/[0.08]"}`}>
-                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  <Check className="w-4 h-4 text-green-500" />
+              <div className={`flex items-center justify-center gap-6 md:gap-10 p-4 border-t ${isDark ? "bg-white/[0.02] border-white/[0.08]" : "bg-gradient-to-r from-gray-50 to-white border-black/[0.06]"}`}>
+                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                  <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                    <Check className="w-3 h-3 text-green-500" />
+                  </div>
                   Full support
                 </div>
-                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  <Minus className="w-4 h-4 text-gray-400" />
-                  Partial support
+                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                  <div className={`w-5 h-5 rounded-full flex items-center justify-center ${isDark ? "bg-white/10" : "bg-gray-200"}`}>
+                    <Minus className="w-3 h-3 text-gray-400" />
+                  </div>
+                  Partial
                 </div>
-                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  <X className="w-4 h-4 text-red-400" />
+                <div className={`flex items-center gap-2 text-xs ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                  <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center">
+                    <X className="w-3 h-3 text-red-400" />
+                  </div>
                   Not supported
                 </div>
               </div>
             </div>
+          </motion.div>
+
+          {/* Bottom CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-10"
+          >
+            <p className={`text-sm mb-4 ${isDark ? "text-gray-500" : "text-gray-500"}`}>
+              Why choose when you can have it all?
+            </p>
+            <Link
+              href="#pricing"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all hover:shadow-lg hover:shadow-[#3e8aff]/25"
+            >
+              See Pricing
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -700,40 +786,119 @@ export default function HomePage() {
           >
             {/* Orbital container */}
             <div className="relative h-[500px] md:h-[600px]">
-              {/* Connection lines - SVG */}
+              {/* Background glow effects */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className={`absolute top-1/4 left-1/4 w-48 h-48 rounded-full blur-[80px] ${isDark ? "bg-[#3b82f6]/20" : "bg-[#3b82f6]/10"}`} />
+                <div className={`absolute bottom-1/4 right-1/4 w-48 h-48 rounded-full blur-[80px] ${isDark ? "bg-[#8b5cf6]/20" : "bg-[#8b5cf6]/10"}`} />
+                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-[100px] ${isDark ? "bg-[#3e8aff]/15" : "bg-[#3e8aff]/10"}`} />
+              </div>
+
+              {/* Connection lines - SVG with animated gradients */}
               <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
                 <defs>
-                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor={isDark ? "rgba(62,138,255,0.3)" : "rgba(62,138,255,0.2)"} />
-                    <stop offset="100%" stopColor={isDark ? "rgba(62,138,255,0.05)" : "rgba(62,138,255,0.05)"} />
+                  {/* CRM gradient (blue) */}
+                  <linearGradient id="crmGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={isDark ? "#3b82f6" : "#3b82f6"} stopOpacity="0.8" />
+                    <stop offset="50%" stopColor={isDark ? "#60a5fa" : "#93c5fd"} stopOpacity="0.5" />
+                    <stop offset="100%" stopColor={isDark ? "#3b82f6" : "#3b82f6"} stopOpacity="0.2" />
                   </linearGradient>
+                  {/* Sales gradient (green) */}
+                  <linearGradient id="salesGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={isDark ? "#22c55e" : "#22c55e"} stopOpacity="0.8" />
+                    <stop offset="50%" stopColor={isDark ? "#4ade80" : "#86efac"} stopOpacity="0.5" />
+                    <stop offset="100%" stopColor={isDark ? "#22c55e" : "#22c55e"} stopOpacity="0.2" />
+                  </linearGradient>
+                  {/* Marketing gradient (purple) */}
+                  <linearGradient id="marketingGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={isDark ? "#8b5cf6" : "#8b5cf6"} stopOpacity="0.8" />
+                    <stop offset="50%" stopColor={isDark ? "#a78bfa" : "#c4b5fd"} stopOpacity="0.5" />
+                    <stop offset="100%" stopColor={isDark ? "#8b5cf6" : "#8b5cf6"} stopOpacity="0.2" />
+                  </linearGradient>
+                  {/* Animated dash pattern */}
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                      <feMergeNode in="coloredBlur"/>
+                      <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                  </filter>
                 </defs>
-                {/* Lines from center to each integration */}
+
+                {/* Orbital rings */}
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="20%"
+                  fill="none"
+                  stroke={isDark ? "rgba(62,138,255,0.1)" : "rgba(62,138,255,0.08)"}
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="35%"
+                  fill="none"
+                  stroke={isDark ? "rgba(139,92,246,0.08)" : "rgba(139,92,246,0.06)"}
+                  strokeWidth="1"
+                  strokeDasharray="8 4"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  r="48%"
+                  fill="none"
+                  stroke={isDark ? "rgba(34,197,94,0.06)" : "rgba(34,197,94,0.05)"}
+                  strokeWidth="1"
+                  strokeDasharray="12 6"
+                />
+
+                {/* Colored connection lines */}
                 {[
-                  { x: "28%", y: "12%" }, // HubSpot
-                  { x: "72%", y: "12%" }, // ActiveCampaign
-                  { x: "12%", y: "28%" }, // Affinity
-                  { x: "88%", y: "28%" }, // Close
-                  { x: "5%", y: "50%" },  // Freshsales
-                  { x: "95%", y: "50%" }, // Holded
-                  { x: "12%", y: "72%" }, // Insightly
-                  { x: "88%", y: "72%" }, // Marketing360
-                  { x: "28%", y: "88%" }, // Outreach
-                  { x: "50%", y: "92%" }, // Pipedrive
-                  { x: "72%", y: "88%" }, // RecruitCRM
-                  { x: "20%", y: "50%" }, // Salesflare
-                  { x: "80%", y: "50%" }, // Salesloft
+                  { x: "28%", y: "8%", category: "crm" }, // HubSpot
+                  { x: "72%", y: "8%", category: "marketing" }, // ActiveCampaign
+                  { x: "8%", y: "25%", category: "crm" }, // Affinity
+                  { x: "92%", y: "25%", category: "crm" }, // Close
+                  { x: "2%", y: "50%", category: "crm" }, // Freshsales
+                  { x: "98%", y: "50%", category: "crm" }, // Holded
+                  { x: "8%", y: "75%", category: "crm" }, // Insightly
+                  { x: "92%", y: "75%", category: "marketing" }, // Marketing360
+                  { x: "22%", y: "90%", category: "sales" }, // Outreach
+                  { x: "50%", y: "95%", category: "crm" }, // Pipedrive
+                  { x: "78%", y: "90%", category: "crm" }, // RecruitCRM
+                  { x: "18%", y: "50%", category: "crm" }, // Salesflare
+                  { x: "82%", y: "50%", category: "sales" }, // Salesloft
                 ].map((pos, i) => (
-                  <line
-                    key={i}
-                    x1="50%"
-                    y1="50%"
-                    x2={pos.x}
-                    y2={pos.y}
-                    stroke="url(#lineGradient)"
-                    strokeWidth="1"
-                    className="opacity-60"
-                  />
+                  <g key={i}>
+                    {/* Glow line */}
+                    <line
+                      x1="50%"
+                      y1="50%"
+                      x2={pos.x}
+                      y2={pos.y}
+                      stroke={`url(#${pos.category}Gradient)`}
+                      strokeWidth={isDark ? "2" : "1.5"}
+                      filter="url(#glow)"
+                      className="opacity-60"
+                    />
+                    {/* Animated data dot */}
+                    <circle r="3" fill={pos.category === "crm" ? "#3b82f6" : pos.category === "sales" ? "#22c55e" : "#8b5cf6"}>
+                      <animateMotion
+                        dur={`${2 + i * 0.3}s`}
+                        repeatCount="indefinite"
+                        path={`M${50},${50} L${parseFloat(pos.x)},${parseFloat(pos.y)}`}
+                        keyPoints="0;1;0"
+                        keyTimes="0;0.5;1"
+                      />
+                      <animate
+                        attributeName="opacity"
+                        values="0;1;1;0"
+                        keyTimes="0;0.2;0.8;1"
+                        dur={`${2 + i * 0.3}s`}
+                        repeatCount="indefinite"
+                      />
+                    </circle>
+                  </g>
                 ))}
               </svg>
 
@@ -745,7 +910,7 @@ export default function HomePage() {
                 transition={{ delay: 0.2, type: "spring" }}
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
               >
-                <div className={`w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex flex-col items-center justify-center shadow-2xl ${isDark ? "shadow-[#3e8aff]/30" : "shadow-[#3e8aff]/20"}`}>
+                <div className={`w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex flex-col items-center justify-center shadow-2xl ${isDark ? "shadow-[#3e8aff]/40" : "shadow-[#3e8aff]/30"}`}>
                   <Image
                     src="/images/favicon.png"
                     alt="Cleanlist"
@@ -755,53 +920,71 @@ export default function HomePage() {
                   />
                   <span className="text-sm md:text-base font-semibold text-white">Cleanlist</span>
                 </div>
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/30 blur-2xl -z-10" />
+                {/* Multiple glow layers */}
+                <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/40 blur-2xl -z-10" />
+                <div className="absolute -inset-4 rounded-3xl bg-[#3e8aff]/20 blur-3xl -z-20" />
               </motion.div>
 
               {/* Orbiting Integrations */}
               {[
-                { name: "HubSpot", logo: "/images/integrations/hubspot.png", x: "28%", y: "8%", delay: 0.1 },
-                { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", x: "72%", y: "8%", delay: 0.15 },
-                { name: "Affinity", logo: "/images/integrations/affinity.svg", x: "8%", y: "25%", delay: 0.2 },
-                { name: "Close", logo: "/images/integrations/close.png", x: "92%", y: "25%", delay: 0.25 },
-                { name: "Freshsales", logo: "/images/integrations/freshsales.png", x: "2%", y: "50%", delay: 0.3 },
-                { name: "Holded", logo: "/images/integrations/holded.png", x: "98%", y: "50%", delay: 0.35 },
-                { name: "Insightly", logo: "/images/integrations/insightly.png", x: "8%", y: "75%", delay: 0.4 },
-                { name: "Marketing360", logo: "/images/integrations/marketing360.png", x: "92%", y: "75%", delay: 0.45 },
-                { name: "Outreach.io", logo: "/images/integrations/outreach.png", x: "22%", y: "90%", delay: 0.5 },
-                { name: "Pipedrive", logo: "/images/integrations/pipedrive.png", x: "50%", y: "95%", delay: 0.55 },
-                { name: "RecruitCRM", logo: "/images/integrations/recruitcrm.png", x: "78%", y: "90%", delay: 0.6 },
-                { name: "Salesflare", logo: "/images/integrations/salesflare.webp", x: "18%", y: "50%", delay: 0.65 },
-                { name: "Salesloft", logo: "/images/integrations/salesloft.svg", x: "82%", y: "50%", delay: 0.7 },
-              ].map((integration) => (
-                <motion.div
-                  key={integration.name}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: integration.delay, type: "spring", stiffness: 200 }}
-                  className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20"
-                  style={{ left: integration.x, top: integration.y }}
-                >
-                  <div
-                    className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border backdrop-blur-sm overflow-hidden ${
-                      isDark ? "border-white/[0.1] bg-[#0a0a0a]/80" : "border-black/[0.08] bg-white/90 shadow-lg"
-                    }`}
+                { name: "HubSpot", logo: "/images/integrations/hubspot.png", x: "28%", y: "8%", delay: 0.1, category: "crm", needsWhiteBg: false },
+                { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", x: "72%", y: "8%", delay: 0.15, category: "marketing", needsWhiteBg: false },
+                { name: "Affinity", logo: "/images/integrations/affinity.svg", x: "8%", y: "25%", delay: 0.2, category: "crm", needsWhiteBg: true },
+                { name: "Close", logo: "/images/integrations/close.png", x: "92%", y: "25%", delay: 0.25, category: "crm", needsWhiteBg: false },
+                { name: "Freshsales", logo: "/images/integrations/freshsales.png", x: "2%", y: "50%", delay: 0.3, category: "crm", needsWhiteBg: false },
+                { name: "Holded", logo: "/images/integrations/holded.png", x: "98%", y: "50%", delay: 0.35, category: "crm", needsWhiteBg: false },
+                { name: "Insightly", logo: "/images/integrations/insightly.png", x: "8%", y: "75%", delay: 0.4, category: "crm", needsWhiteBg: false },
+                { name: "Marketing360", logo: "/images/integrations/marketing360.png", x: "92%", y: "75%", delay: 0.45, category: "marketing", needsWhiteBg: false },
+                { name: "Outreach.io", logo: "/images/integrations/outreach.png", x: "22%", y: "90%", delay: 0.5, category: "sales", needsWhiteBg: false },
+                { name: "Pipedrive", logo: "/images/integrations/pipedrive.png", x: "50%", y: "95%", delay: 0.55, category: "crm", needsWhiteBg: false },
+                { name: "RecruitCRM", logo: "/images/integrations/recruitcrm.png", x: "78%", y: "90%", delay: 0.6, category: "crm", needsWhiteBg: false },
+                { name: "Salesflare", logo: "/images/integrations/salesflare.webp", x: "18%", y: "50%", delay: 0.65, category: "crm", needsWhiteBg: false },
+                { name: "Salesloft", logo: "/images/integrations/salesloft.svg", x: "82%", y: "50%", delay: 0.7, category: "sales", needsWhiteBg: false },
+              ].map((integration) => {
+                const categoryColor = integration.category === "crm" ? "#3b82f6" : integration.category === "sales" ? "#22c55e" : "#8b5cf6";
+                return (
+                  <motion.div
+                    key={integration.name}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: integration.delay, type: "spring", stiffness: 200 }}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20"
+                    style={{ left: integration.x, top: integration.y }}
                   >
-                    <Image
-                      src={integration.logo}
-                      alt={integration.name}
-                      width={32}
-                      height={32}
-                      className="w-7 h-7 md:w-8 md:h-8 object-contain"
+                    <div
+                      className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border-2 backdrop-blur-sm overflow-hidden transition-all hover:scale-110 ${
+                        integration.needsWhiteBg
+                          ? "bg-white border-white/20"
+                          : isDark
+                            ? "bg-[#0a0a0a]/90 border-white/[0.15]"
+                            : "bg-white/95 border-black/[0.08] shadow-lg"
+                      }`}
+                      style={{
+                        boxShadow: isDark
+                          ? `0 0 20px ${categoryColor}30, 0 4px 12px rgba(0,0,0,0.3)`
+                          : `0 4px 20px ${categoryColor}20, 0 2px 8px rgba(0,0,0,0.08)`
+                      }}
+                    >
+                      <Image
+                        src={integration.logo}
+                        alt={integration.name}
+                        width={32}
+                        height={32}
+                        className="w-7 h-7 md:w-8 md:h-8 object-contain"
+                      />
+                    </div>
+                    <span className={`text-[10px] md:text-xs mt-1.5 whitespace-nowrap font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                      {integration.name}
+                    </span>
+                    {/* Category indicator dot */}
+                    <div
+                      className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full border border-white/50"
+                      style={{ backgroundColor: categoryColor }}
                     />
-                  </div>
-                  <span className={`text-[10px] md:text-xs mt-1.5 whitespace-nowrap ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    {integration.name}
-                  </span>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Category Legend */}
@@ -972,6 +1155,9 @@ export default function HomePage() {
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
+                <div className="flex gap-1 mt-2">
+                  <span className="px-3 py-1 text-xs rounded-md bg-[#3e8aff] text-white">I</span>
+                </div>
               </div>
               <div className="mb-4">
                 <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>$0</span>

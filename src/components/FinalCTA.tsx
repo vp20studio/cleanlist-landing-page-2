@@ -3,22 +3,17 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
-import { GlowIcon } from "@/components/ui";
 import {
   ArrowRight,
-  Sparkle,
   Lightning,
   Shield,
   Clock,
-  Buildings,
+  CheckCircle,
+  Sparkle,
+  Star,
 } from "@phosphor-icons/react";
-
-const benefits = [
-  { icon: <Lightning />, text: "30 credits free", color: "blue" as const },
-  { icon: <Shield />, text: "No card required", color: "green" as const },
-  { icon: <Clock />, text: "Setup in 5 minutes", color: "purple" as const },
-];
 
 export default function FinalCTA() {
   const { theme } = useTheme();
@@ -27,230 +22,277 @@ export default function FinalCTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background - Theme aware */}
-      <div className={`absolute inset-0 ${isDark ? "bg-[#030303]" : "bg-white"}`} />
-
-      {/* Animated Glow Orbs */}
-      <motion.div
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
+    <section ref={ref} className={`py-20 md:py-28 relative overflow-hidden ${isDark ? "bg-[#030303]" : "bg-gradient-to-b from-white to-[#f8fafc]"}`}>
+      {/* Subtle Grid Pattern */}
+      <div
+        className={`absolute inset-0 ${isDark ? "opacity-[0.03]" : "opacity-[0.4]"}`}
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233e8aff' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] rounded-full blur-[150px] ${
-          isDark ? "bg-[#3e8aff]/15" : "bg-[#3e8aff]/10"
-        }`}
-      />
-      <motion.div
-        animate={{
-          scale: [1.2, 1, 1.2],
-          x: [0, 60, 0],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className={`absolute top-1/4 right-1/4 w-[300px] md:w-[400px] h-[300px] md:h-[400px] rounded-full blur-[100px] ${
-          isDark ? "bg-purple-500/15" : "bg-purple-500/10"
-        }`}
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          y: [0, -40, 0],
-        }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className={`absolute bottom-1/4 left-1/4 w-[250px] md:w-[350px] h-[250px] md:h-[350px] rounded-full blur-[100px] ${
-          isDark ? "bg-green-500/10" : "bg-green-500/8"
-        }`}
       />
 
-      {/* Floating Particles */}
-      {[...Array(15)].map((_, i) => (
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6">
+        {/* Main CTA Card */}
         <motion.div
-          key={i}
-          className={`absolute w-1.5 h-1.5 rounded-full ${
-            isDark ? "bg-[#3e8aff]/40" : "bg-[#3e8aff]/30"
-          }`}
-          style={{
-            left: `${5 + i * 6}%`,
-            top: `${10 + (i % 5) * 18}%`,
-          }}
-          animate={{
-            y: [0, -40, 0],
-            x: [0, i % 2 === 0 ? 15 : -15, 0],
-            opacity: [0.2, 0.6, 0.2],
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            duration: 5 + i * 0.3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: i * 0.15,
-          }}
-        />
-      ))}
-
-      {/* Radial Lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={`absolute top-1/2 left-1/2 h-[1px] ${
-              isDark
-                ? "bg-gradient-to-r from-transparent via-white/[0.08] to-transparent"
-                : "bg-gradient-to-r from-transparent via-[#3e8aff]/10 to-transparent"
-            }`}
-            style={{
-              width: "150%",
-              transform: `translate(-50%, -50%) rotate(${i * 30}deg)`,
-            }}
-            animate={{
-              opacity: [0.1, 0.4, 0.1],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Content */}
-      <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center z-10">
-        {/* Animated Badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 mb-8"
-        >
-          <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="glow" animated />
-          <span className="text-sm font-medium text-[#3e8aff]">
-            No credit card required
-          </span>
-        </motion.div>
-
-        {/* Headline */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 ${
-            isDark ? "text-white" : "text-gray-900"
+          transition={{ duration: 0.7 }}
+          className={`relative rounded-3xl overflow-hidden ${
+            isDark
+              ? "bg-gradient-to-br from-[#0a0f1a] via-[#0d1117] to-[#0a0a0a] border border-white/[0.08]"
+              : "bg-gradient-to-br from-[#3e8aff] via-[#2563eb] to-[#1d4ed8] shadow-2xl shadow-[#3e8aff]/20"
           }`}
         >
-          Your first{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-            30 credits
-          </span>{" "}
-          are free
-        </motion.h2>
+          {/* Background Pattern for Card */}
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Mesh Gradient */}
+            <div className={`absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[100px] ${
+              isDark ? "bg-[#3e8aff]/20" : "bg-white/20"
+            }`} />
+            <div className={`absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[80px] ${
+              isDark ? "bg-[#60a5fa]/10" : "bg-white/10"
+            }`} />
 
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className={`text-lg md:text-xl mb-10 max-w-2xl mx-auto ${
-            isDark ? "text-gray-400" : "text-gray-600"
-          }`}
-        >
-          No commitment. See why 1,000+ GTM teams trust Cleanlist for verified contact data.
-        </motion.p>
+            {/* Subtle Lines */}
+            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="ctaGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path
+                    d="M 40 0 L 0 0 0 40"
+                    fill="none"
+                    stroke={isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0.1)"}
+                    strokeWidth="1"
+                  />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#ctaGrid)" />
+            </svg>
+          </div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4 mb-10"
-        >
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="#"
-              className="relative inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-xl hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center overflow-hidden group shadow-lg shadow-[#3e8aff]/25"
-            >
-              {/* Shimmer Effect */}
+          <div className="relative px-6 md:px-12 lg:px-16 py-12 md:py-16 lg:py-20">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              {/* Left Content */}
+              <div>
+                {/* Trust Badge */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 ${
+                    isDark
+                      ? "bg-[#3e8aff]/10 border border-[#3e8aff]/20"
+                      : "bg-white/20 border border-white/30 backdrop-blur-sm"
+                  }`}
+                >
+                  <div className="flex -space-x-1">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <Star key={i} weight="fill" className={`w-4 h-4 ${isDark ? "text-yellow-400" : "text-yellow-300"}`} />
+                    ))}
+                  </div>
+                  <span className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-white"}`}>
+                    Trusted by 1,000+ GTM teams
+                  </span>
+                </motion.div>
+
+                {/* Headline */}
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight ${
+                    isDark ? "text-white" : "text-white"
+                  }`}
+                >
+                  Start enriching your data{" "}
+                  <span className={isDark ? "text-[#3e8aff]" : "text-white/90"}>
+                    for free
+                  </span>
+                </motion.h2>
+
+                {/* Description */}
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className={`text-lg mb-8 max-w-md ${
+                    isDark ? "text-gray-400" : "text-white/80"
+                  }`}
+                >
+                  Get 30 free credits to test our waterfall enrichment.
+                  No credit card required.
+                </motion.p>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="flex flex-col sm:flex-row gap-3 mb-8"
+                >
+                  <Link
+                    href="#"
+                    className={`group inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold rounded-xl transition-all text-base ${
+                      isDark
+                        ? "bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90 shadow-lg shadow-[#3e8aff]/25"
+                        : "bg-white text-[#3e8aff] hover:bg-white/90 shadow-lg shadow-black/10"
+                    }`}
+                  >
+                    Start Free Trial
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" weight="bold" />
+                  </Link>
+                  <Link
+                    href="#"
+                    className={`inline-flex items-center justify-center gap-2 px-6 py-3.5 font-semibold rounded-xl transition-all text-base ${
+                      isDark
+                        ? "bg-white/[0.05] text-white border border-white/[0.1] hover:bg-white/[0.1]"
+                        : "bg-white/10 text-white border border-white/20 hover:bg-white/20 backdrop-blur-sm"
+                    }`}
+                  >
+                    Book a Demo
+                  </Link>
+                </motion.div>
+
+                {/* Benefits */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  className="flex flex-wrap gap-4"
+                >
+                  {[
+                    { icon: <Lightning weight="fill" />, text: "30 free credits" },
+                    { icon: <Shield weight="fill" />, text: "No card required" },
+                    { icon: <Clock weight="fill" />, text: "5 min setup" },
+                  ].map((item, i) => (
+                    <div
+                      key={i}
+                      className={`flex items-center gap-2 text-sm ${
+                        isDark ? "text-gray-400" : "text-white/80"
+                      }`}
+                    >
+                      <span className={isDark ? "text-[#3e8aff]" : "text-white/90"}>
+                        {item.icon}
+                      </span>
+                      {item.text}
+                    </div>
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Right Side - Stats Card */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{ x: ["-100%", "200%"] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-              />
-              <span className="relative flex items-center gap-2">
-                Start Free
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-              </span>
-            </Link>
-          </motion.div>
+                initial={{ opacity: 0, x: 30 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.4 }}
+                className="hidden lg:block"
+              >
+                <div className={`p-6 rounded-2xl backdrop-blur-sm ${
+                  isDark
+                    ? "bg-white/[0.03] border border-white/[0.08]"
+                    : "bg-white/10 border border-white/20"
+                }`}>
+                  {/* Platform Preview */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                      isDark ? "bg-[#3e8aff]/20" : "bg-white/20"
+                    }`}>
+                      <Sparkle weight="fill" className={isDark ? "text-[#3e8aff]" : "text-white"} size={20} />
+                    </div>
+                    <div>
+                      <div className={`font-semibold ${isDark ? "text-white" : "text-white"}`}>
+                        Cleanlist Platform
+                      </div>
+                      <div className={`text-xs ${isDark ? "text-gray-500" : "text-white/60"}`}>
+                        Enterprise-grade enrichment
+                      </div>
+                    </div>
+                  </div>
 
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="#"
-              className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 border font-medium rounded-xl transition-colors text-base md:text-lg w-full sm:w-auto justify-center ${
-                isDark
-                  ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
-                  : "border-gray-300 text-gray-900 hover:bg-gray-100"
-              }`}
-            >
-              <Buildings size={20} />
-              Book a Demo
-            </Link>
-          </motion.div>
+                  {/* Stats Grid */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {[
+                      { value: "98%", label: "Data accuracy", highlight: true },
+                      { value: "15+", label: "Data providers" },
+                      { value: "400M+", label: "B2B contacts" },
+                      { value: "85%", label: "Phone match rate" },
+                    ].map((stat, i) => (
+                      <div
+                        key={i}
+                        className={`p-4 rounded-xl ${
+                          stat.highlight
+                            ? isDark
+                              ? "bg-[#3e8aff]/10 border border-[#3e8aff]/20"
+                              : "bg-white/20 border border-white/30"
+                            : isDark
+                              ? "bg-white/[0.02]"
+                              : "bg-white/10"
+                        }`}
+                      >
+                        <div className={`text-2xl font-bold mb-1 ${
+                          stat.highlight
+                            ? isDark ? "text-[#3e8aff]" : "text-white"
+                            : isDark ? "text-white" : "text-white"
+                        }`}>
+                          {stat.value}
+                        </div>
+                        <div className={`text-xs ${isDark ? "text-gray-500" : "text-white/60"}`}>
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Social Proof */}
+                  <div className={`mt-6 pt-6 border-t ${isDark ? "border-white/[0.05]" : "border-white/10"}`}>
+                    <div className="flex items-center gap-3">
+                      <div className="flex -space-x-2">
+                        {[1, 2, 3, 4].map((i) => (
+                          <div
+                            key={i}
+                            className={`w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-medium ${
+                              isDark
+                                ? "bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/10 border-[#0d1117] text-[#3e8aff]"
+                                : "bg-white/20 border-[#2563eb] text-white"
+                            }`}
+                          >
+                            {["JD", "SK", "ML", "AR"][i - 1]}
+                          </div>
+                        ))}
+                      </div>
+                      <div className={`text-sm ${isDark ? "text-gray-400" : "text-white/80"}`}>
+                        <span className="font-semibold">1,000+</span> teams already using Cleanlist
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Benefits */}
+        {/* Bottom Logos */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-12 text-center"
         >
-          {benefits.map((benefit, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
-              className={`flex items-center gap-2 text-sm ${
-                isDark ? "text-gray-400" : "text-gray-600"
-              }`}
-            >
-              <GlowIcon icon={benefit.icon} size="xs" color={benefit.color} variant="glow" />
-              <span>{benefit.text}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Floating Stats */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-4 md:gap-8"
-        >
-          {[
-            { value: "85%", label: "Phone retrieval" },
-            { value: "400M+", label: "Contacts" },
-            { value: "15+", label: "Data providers" },
-          ].map((stat) => (
-            <motion.div
-              key={stat.label}
-              whileHover={{ y: -3, scale: 1.05 }}
-              className={`px-4 py-3 rounded-xl border backdrop-blur-sm transition-all cursor-default ${
-                isDark
-                  ? "bg-white/[0.03] border-white/[0.08] hover:border-[#3e8aff]/30"
-                  : "bg-white/50 border-gray-200 hover:border-[#3e8aff]/30"
-              }`}
-            >
-              <div className="text-xl md:text-2xl font-bold text-[#3e8aff]">
-                {stat.value}
-              </div>
-              <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
+          <p className={`text-sm mb-6 ${isDark ? "text-gray-500" : "text-gray-500"}`}>
+            Integrates with your existing stack
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            {["HubSpot", "Salesforce", "Pipedrive", "Outreach", "Salesloft"].map((name, i) => (
+              <motion.div
+                key={name}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.4, delay: 0.9 + i * 0.1 }}
+                className={`text-sm font-medium ${isDark ? "text-gray-600" : "text-gray-400"}`}
+              >
+                {name}
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>

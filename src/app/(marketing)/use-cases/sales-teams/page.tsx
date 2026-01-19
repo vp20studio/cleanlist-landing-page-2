@@ -112,7 +112,7 @@ export default function SalesTeamsPage() {
                 label: "Deliverability",
                 value: "98%",
                 subValue: "Email success rate",
-                color: "purple",
+                color: "blue",
               },
               {
                 icon: <TrendUp />,

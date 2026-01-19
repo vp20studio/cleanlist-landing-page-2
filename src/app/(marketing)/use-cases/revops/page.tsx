@@ -29,17 +29,17 @@ export default function RevOpsPage() {
     <>
       {/* Hero */}
       <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-500/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-purple-500/10 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
           <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
             >
-              <GlowIcon icon={<Gear />} size="xs" color="purple" variant="ghost" />
+              <GlowIcon icon={<Gear />} size="xs" color="blue" variant="ghost" />
               For RevOps
             </motion.div>
 
@@ -50,7 +50,7 @@ export default function RevOpsPage() {
               className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
             >
               Automate Data Hygiene{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-violet-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 at Scale
               </span>
             </motion.h1>
@@ -73,7 +73,7 @@ export default function RevOpsPage() {
             >
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
                 See Playbook Builder
                 <ArrowRight />
@@ -100,7 +100,7 @@ export default function RevOpsPage() {
                 label: "Automation",
                 value: "100%",
                 subValue: "Hands-off operation",
-                color: "purple",
+                color: "blue",
               },
               {
                 icon: <Database />,
@@ -204,8 +204,8 @@ export default function RevOpsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
-                <GlowIcon icon={<FlowArrow />} size="xs" color="purple" variant="ghost" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
+                <GlowIcon icon={<FlowArrow />} size="xs" color="blue" variant="ghost" />
                 Playbook Builder
               </div>
               <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
@@ -243,7 +243,7 @@ export default function RevOpsPage() {
 
               <Link
                 href="/product/playbook-builder"
-                className="inline-flex items-center gap-2 mt-8 text-purple-500 hover:underline"
+                className="inline-flex items-center gap-2 mt-8 text-[#3e8aff] hover:underline"
               >
                 Explore Playbook Builder <ArrowRight />
               </Link>
@@ -358,8 +358,8 @@ export default function RevOpsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <GlowCard className="h-full p-6" glowColor="#a855f7">
-                  <GlowIcon icon={feature.icon} size="lg" color="purple" variant="glow" className="mb-4" />
+                <GlowCard className="h-full p-6" glowColor="#3e8aff">
+                  <GlowIcon icon={feature.icon} size="lg" color="blue" variant="glow" className="mb-4" />
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>
@@ -371,8 +371,8 @@ export default function RevOpsPage() {
 
       {/* CTA */}
       <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-purple-500/20 rounded-full blur-[150px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
 
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <motion.div
@@ -388,7 +388,7 @@ export default function RevOpsPage() {
             </p>
             <Link
               href="#"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors text-lg"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
             >
               Start Free Trial
               <ArrowRight />

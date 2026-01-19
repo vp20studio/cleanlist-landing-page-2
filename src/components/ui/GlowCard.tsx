@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 interface GlowCardProps {
   children: ReactNode;
@@ -18,6 +19,9 @@ export default function GlowCard({
   hover = true,
   padding = "md",
 }: GlowCardProps) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
   const paddingClasses = {
     sm: "p-4",
     md: "p-6",
@@ -27,7 +31,11 @@ export default function GlowCard({
   return (
     <motion.div
       whileHover={hover ? { y: -2 } : undefined}
-      className={`group relative rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl overflow-hidden transition-all duration-500 ${hover ? "hover:border-[rgba(62,138,255,0.3)]" : ""} ${paddingClasses[padding]} ${className}`}
+      className={`group relative rounded-2xl border backdrop-blur-xl overflow-hidden transition-all duration-500 ${
+        isDark
+          ? "border-white/[0.08] bg-[rgba(10,10,10,0.6)]"
+          : "border-[#3e8aff]/20 bg-gradient-to-br from-[#3e8aff]/5 to-white/80 shadow-lg shadow-[#3e8aff]/5"
+      } ${hover ? "hover:border-[rgba(62,138,255,0.3)]" : ""} ${paddingClasses[padding]} ${className}`}
     >
       {/* Hover glow */}
       {hover && (
@@ -35,12 +43,12 @@ export default function GlowCard({
           <div
             className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
             style={{
-              background: `linear-gradient(135deg, ${glowColor}08 0%, transparent 50%)`,
+              background: `linear-gradient(135deg, ${glowColor}${isDark ? '08' : '15'} 0%, transparent 50%)`,
             }}
           />
           <div
             className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none"
-            style={{ backgroundColor: `${glowColor}15` }}
+            style={{ backgroundColor: `${glowColor}${isDark ? '15' : '10'}` }}
           />
         </>
       )}

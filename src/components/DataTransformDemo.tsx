@@ -15,6 +15,7 @@ import {
   LinkedinLogo,
   Briefcase,
   Lightning,
+  Lock,
 } from "@phosphor-icons/react";
 
 interface FieldData {
@@ -34,11 +35,18 @@ const fields: FieldData[] = [
   { label: "LinkedIn", icon: <LinkedinLogo size={14} />, beforeValue: "—", afterValue: "linkedin.com/in/johnsmith", status: "enriched" },
 ];
 
-const dataProviders = [
-  "Clearbit", "Findymail", "Datagma", "ZoomInfo", "Hunter",
-  "Dropcontact", "Apollo", "Lusha", "RocketReach", "Seamless.ai",
-  "Cognism", "LeadIQ", "Snov.io", "Kaspr", "FullContact"
+// Primary providers (featured)
+const primaryProviders = [
+  "Cleanlist Cache", "Wiza", "Findymail", "Prospeo", "Lusha"
 ];
+
+// Additional providers (shown as locked/dimmed)
+const additionalProviders = [
+  "Hunter", "Dropcontact", "RocketReach", "Seamless.ai", "Cognism",
+  "LeadIQ", "Snov.io", "Kaspr", "FullContact", "Datagma", "People Data Labs"
+];
+
+const dataProviders = [...primaryProviders, ...additionalProviders];
 
 export default function DataTransformDemo() {
   const { theme } = useTheme();
@@ -67,10 +75,10 @@ export default function DataTransformDemo() {
     setEnrichedFields([]);
     setActiveProvider(0);
 
-    // Animate through providers
+    // Animate through primary providers only
     const providerInterval = setInterval(() => {
       setActiveProvider(prev => {
-        if (prev >= dataProviders.length - 1) {
+        if (prev >= primaryProviders.length - 1) {
           clearInterval(providerInterval);
           return prev;
         }
@@ -373,7 +381,8 @@ export default function DataTransformDemo() {
             </div>
 
             <div className="flex items-center gap-2 flex-wrap">
-              {dataProviders.map((provider, i) => (
+              {/* Primary providers - animate during enrichment */}
+              {primaryProviders.map((provider, i) => (
                 <motion.span
                   key={provider}
                   initial={{ opacity: 0.3 }}
@@ -392,6 +401,20 @@ export default function DataTransformDemo() {
                   {provider}
                 </motion.span>
               ))}
+              {/* Additional providers - always shown as locked/dimmed */}
+              {additionalProviders.map((provider) => (
+                <span
+                  key={provider}
+                  className={`text-xs px-2.5 py-1.5 rounded-md flex items-center gap-1 ${
+                    isDark
+                      ? "bg-white/[0.02] text-gray-600"
+                      : "bg-gray-50 text-gray-400"
+                  }`}
+                >
+                  {provider}
+                  <Lock size={10} className="opacity-50" />
+                </span>
+              ))}
             </div>
 
             {stage === "enriching" && (
@@ -400,7 +423,7 @@ export default function DataTransformDemo() {
                 animate={{ opacity: 1 }}
                 className={`text-xs mt-3 ${isDark ? "text-gray-500" : "text-gray-400"}`}
               >
-                Querying {dataProviders[activeProvider]}...
+                Querying {primaryProviders[activeProvider]}...
               </motion.p>
             )}
 
@@ -410,7 +433,7 @@ export default function DataTransformDemo() {
                 animate={{ opacity: 1 }}
                 className="text-xs mt-3 text-green-500"
               >
-                All fields enriched successfully from 15+ providers
+                All fields enriched successfully from {primaryProviders.length + additionalProviders.length}+ providers
               </motion.p>
             )}
           </motion.div>

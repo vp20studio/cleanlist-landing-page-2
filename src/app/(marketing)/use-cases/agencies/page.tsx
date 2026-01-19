@@ -114,7 +114,7 @@ export default function AgenciesPage() {
                 label: "Processing",
                 value: "10M+",
                 subValue: "Records/month",
-                color: "purple",
+                color: "blue",
               },
               {
                 icon: <Shield />,
