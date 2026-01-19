@@ -690,6 +690,134 @@ export default function HomePage() {
             </p>
           </motion.div>
 
+          {/* Hub & Spoke Orbital Visualization */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative max-w-4xl mx-auto mb-16"
+          >
+            {/* Orbital container */}
+            <div className="relative h-[500px] md:h-[600px]">
+              {/* Connection lines - SVG */}
+              <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
+                <defs>
+                  <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor={isDark ? "rgba(62,138,255,0.3)" : "rgba(62,138,255,0.2)"} />
+                    <stop offset="100%" stopColor={isDark ? "rgba(62,138,255,0.05)" : "rgba(62,138,255,0.05)"} />
+                  </linearGradient>
+                </defs>
+                {/* Lines from center to each integration */}
+                {[
+                  { x: "28%", y: "12%" }, // HubSpot
+                  { x: "72%", y: "12%" }, // ActiveCampaign
+                  { x: "12%", y: "28%" }, // Affinity
+                  { x: "88%", y: "28%" }, // Close
+                  { x: "5%", y: "50%" },  // Freshsales
+                  { x: "95%", y: "50%" }, // Holded
+                  { x: "12%", y: "72%" }, // Insightly
+                  { x: "88%", y: "72%" }, // Marketing360
+                  { x: "28%", y: "88%" }, // Outreach
+                  { x: "50%", y: "92%" }, // Pipedrive
+                  { x: "72%", y: "88%" }, // RecruitCRM
+                  { x: "20%", y: "50%" }, // Salesflare
+                  { x: "80%", y: "50%" }, // Salesloft
+                ].map((pos, i) => (
+                  <line
+                    key={i}
+                    x1="50%"
+                    y1="50%"
+                    x2={pos.x}
+                    y2={pos.y}
+                    stroke="url(#lineGradient)"
+                    strokeWidth="1"
+                    className="opacity-60"
+                  />
+                ))}
+              </svg>
+
+              {/* Center Hub - Cleanlist */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, type: "spring" }}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+              >
+                <div className={`w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex flex-col items-center justify-center shadow-2xl ${isDark ? "shadow-[#3e8aff]/30" : "shadow-[#3e8aff]/20"}`}>
+                  <Check className="w-8 h-8 md:w-10 md:h-10 text-white mb-1" weight="bold" />
+                  <span className="text-sm md:text-base font-semibold text-white">Cleanlist</span>
+                </div>
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/30 blur-2xl -z-10" />
+              </motion.div>
+
+              {/* Orbiting Integrations */}
+              {[
+                { name: "HubSpot", abbr: "Hu", color: "#3b82f6", x: "28%", y: "8%", delay: 0.1 },
+                { name: "ActiveCampaign", abbr: "Ac", color: "#8b5cf6", x: "72%", y: "8%", delay: 0.15 },
+                { name: "Affinity", abbr: "Af", color: "#3b82f6", x: "8%", y: "25%", delay: 0.2 },
+                { name: "Close", abbr: "Cl", color: "#3b82f6", x: "92%", y: "25%", delay: 0.25 },
+                { name: "Freshsales", abbr: "Fr", color: "#3b82f6", x: "2%", y: "50%", delay: 0.3 },
+                { name: "Holded", abbr: "Ho", color: "#3b82f6", x: "98%", y: "50%", delay: 0.35 },
+                { name: "Insightly", abbr: "In", color: "#3b82f6", x: "8%", y: "75%", delay: 0.4 },
+                { name: "Marketing360", abbr: "M3", color: "#8b5cf6", x: "92%", y: "75%", delay: 0.45 },
+                { name: "Outreach.io", abbr: "Ou", color: "#22c55e", x: "22%", y: "90%", delay: 0.5 },
+                { name: "Pipedrive", abbr: "Pi", color: "#3b82f6", x: "50%", y: "95%", delay: 0.55 },
+                { name: "RecruitCRM", abbr: "Rc", color: "#3b82f6", x: "78%", y: "90%", delay: 0.6 },
+                { name: "Salesflare", abbr: "Sf", color: "#3b82f6", x: "18%", y: "50%", delay: 0.65 },
+                { name: "Salesloft", abbr: "Sl", color: "#22c55e", x: "82%", y: "50%", delay: 0.7 },
+              ].map((integration) => (
+                <motion.div
+                  key={integration.name}
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: integration.delay, type: "spring", stiffness: 200 }}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20"
+                  style={{ left: integration.x, top: integration.y }}
+                >
+                  <div
+                    className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-xs md:text-sm font-bold border backdrop-blur-sm ${
+                      isDark ? "border-white/[0.1] bg-[#0a0a0a]/80" : "border-black/[0.08] bg-white/90 shadow-lg"
+                    }`}
+                    style={{ color: integration.color }}
+                  >
+                    <div
+                      className="w-full h-full rounded-xl flex items-center justify-center"
+                      style={{ backgroundColor: `${integration.color}15` }}
+                    >
+                      {integration.abbr}
+                    </div>
+                  </div>
+                  <span className={`text-[10px] md:text-xs mt-1.5 whitespace-nowrap ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    {integration.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Category Legend */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8 }}
+              className="flex items-center justify-center gap-6 mt-4"
+            >
+              {[
+                { label: "CRM", color: "#3b82f6" },
+                { label: "Sales Engagement", color: "#22c55e" },
+                { label: "Marketing", color: "#8b5cf6" },
+              ].map((cat) => (
+                <div key={cat.label} className="flex items-center gap-2">
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: cat.color }} />
+                  <span className={`text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}>{cat.label}</span>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
           {/* Native Integrations Grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
