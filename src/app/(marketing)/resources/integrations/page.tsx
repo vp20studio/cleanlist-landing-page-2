@@ -12,33 +12,27 @@ import {
 } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 
-// All integrations for the hub visual
+// All integrations - CRMs and outreach platforms
 const allIntegrations = [
-  { name: "Salesforce", abbr: "Sa", category: "crm", color: "#3b82f6" },
   { name: "HubSpot", abbr: "Hu", category: "crm", color: "#3b82f6" },
+  { name: "ActiveCampaign", abbr: "Ac", category: "marketing", color: "#8b5cf6" },
+  { name: "Affinity", abbr: "Af", category: "crm", color: "#3b82f6" },
+  { name: "Close", abbr: "Cl", category: "crm", color: "#3b82f6" },
+  { name: "Freshsales CRM", abbr: "Fr", category: "crm", color: "#3b82f6" },
+  { name: "Holded", abbr: "Ho", category: "crm", color: "#3b82f6" },
+  { name: "Insightly", abbr: "In", category: "crm", color: "#3b82f6" },
+  { name: "Marketing360", abbr: "M3", category: "marketing", color: "#8b5cf6" },
+  { name: "Outreach.io", abbr: "Ou", category: "sales", color: "#22c55e" },
   { name: "Pipedrive", abbr: "Pi", category: "crm", color: "#3b82f6" },
-  { name: "Outreach", abbr: "Ou", category: "sales", color: "#22c55e" },
-  { name: "Apollo", abbr: "Ap", category: "prospecting", color: "#f59e0b" },
-  { name: "Marketo", abbr: "Ma", category: "marketing", color: "#14b8a6" },
-  { name: "Mailchimp", abbr: "Ma", category: "marketing", color: "#14b8a6" },
-  { name: "Klaviyo", abbr: "Kl", category: "marketing", color: "#14b8a6" },
-  { name: "Braze", abbr: "Br", category: "marketing", color: "#14b8a6" },
-  { name: "Pardot", abbr: "Pa", category: "marketing", color: "#14b8a6" },
-  { name: "Snowflake", abbr: "Sn", category: "cdp", color: "#8b5cf6" },
-  { name: "BigQuery", abbr: "Bi", category: "cdp", color: "#8b5cf6" },
-  { name: "Segment", abbr: "Se", category: "cdp", color: "#8b5cf6" },
-  { name: "Zapier", abbr: "Za", category: "automation", color: "#ec4899" },
-  { name: "Slack", abbr: "Sl", category: "automation", color: "#ec4899" },
-  { name: "Intercom", abbr: "In", category: "automation", color: "#ec4899" },
+  { name: "RecruitCRM", abbr: "Rc", category: "crm", color: "#3b82f6" },
+  { name: "Salesflare", abbr: "Sf", category: "crm", color: "#3b82f6" },
+  { name: "Salesloft", abbr: "Sl", category: "sales", color: "#22c55e" },
 ];
 
 const integrationCategories = [
   { id: "crm", label: "CRM", color: "#3b82f6" },
-  { id: "sales", label: "Sales", color: "#22c55e" },
-  { id: "marketing", label: "Marketing", color: "#14b8a6" },
-  { id: "prospecting", label: "Prospecting", color: "#f59e0b" },
-  { id: "automation", label: "Automation", color: "#ec4899" },
-  { id: "cdp", label: "CDP", color: "#8b5cf6" },
+  { id: "sales", label: "Sales Engagement", color: "#22c55e" },
+  { id: "marketing", label: "Marketing", color: "#8b5cf6" },
 ];
 
 export default function IntegrationsPage() {
@@ -81,143 +75,6 @@ export default function IntegrationsPage() {
             Cleanlist connects natively to 15+ tools you already use. No data silos, no manual exports—just
             seamless, real-time data flow.
           </motion.p>
-        </div>
-      </section>
-
-      {/* Hub & Spoke Visualization - Fixed Grid Layout */}
-      <section className="py-8">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3 }}
-            className="relative max-w-4xl mx-auto"
-          >
-            <div className="grid grid-cols-5 md:grid-cols-9 gap-4 md:gap-6 items-center justify-items-center py-8">
-              {/* Top Row */}
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.4 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Sa</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Salesforce</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.45 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Hu</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>HubSpot</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Ou</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Outreach</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.55 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Ap</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Apollo</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Ma</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Marketo</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.65 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Mc</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Mailchimp</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.7 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Sn</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Snowflake</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.75 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Za</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Zapier</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Sl</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Slack</span>
-              </motion.div>
-            </div>
-
-            {/* Middle Row with Center Hub */}
-            <div className="flex items-center justify-center gap-4 md:gap-8 py-4">
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Pi</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Pipedrive</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.65 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Kl</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Klaviyo</span>
-              </motion.div>
-
-              {/* Connection lines to center */}
-              <div className={`hidden md:block w-12 h-px ${isDark ? "bg-gradient-to-r from-white/20 to-white/5" : "bg-gradient-to-r from-gray-300 to-gray-100"}`} />
-
-              {/* Center Hub - Cleanlist */}
-              <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, type: "spring" }} className="relative z-10 mx-4">
-                <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex flex-col items-center justify-center shadow-lg shadow-[#3e8aff]/30">
-                  <Check className="w-6 h-6 md:w-8 md:h-8 text-white mb-1" />
-                  <span className="text-xs md:text-sm font-semibold text-white">Cleanlist</span>
-                </div>
-                <div className="absolute inset-0 rounded-2xl bg-[#3e8aff]/20 blur-xl -z-10" />
-              </motion.div>
-
-              <div className={`hidden md:block w-12 h-px ${isDark ? "bg-gradient-to-l from-white/20 to-white/5" : "bg-gradient-to-l from-gray-300 to-gray-100"}`} />
-
-              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.65 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Bi</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>BigQuery</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#8b5cf6]/15 text-[#8b5cf6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Se</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Segment</span>
-              </motion.div>
-            </div>
-
-            {/* Bottom Row */}
-            <div className="grid grid-cols-5 md:grid-cols-9 gap-4 md:gap-6 items-center justify-items-center py-8">
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Br</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Braze</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.85 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#14b8a6]/15 text-[#14b8a6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Pa</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Pardot</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.9 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#ec4899]/15 text-[#ec4899] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>In</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Intercom</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.95 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Zo</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Zoho</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.0 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Rc</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Recruitcrm</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.05 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Lu</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Lusha</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1 }} className="flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#f59e0b]/15 text-[#f59e0b] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Rr</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>RocketReach</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.15 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#3b82f6]/15 text-[#3b82f6] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>Sf</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>Seamless</span>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.2 }} className="hidden md:flex flex-col items-center">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-sm font-bold border bg-[#22c55e]/15 text-[#22c55e] ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>+5</div>
-                <span className={`text-xs mt-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>More</span>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Category Legend */}
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }} className="flex items-center justify-center gap-4 md:gap-6 flex-wrap mt-8">
-            {integrationCategories.map((cat) => (
-              <div key={cat.id} className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: cat.color }} />
-                <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{cat.label}</span>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </section>
 

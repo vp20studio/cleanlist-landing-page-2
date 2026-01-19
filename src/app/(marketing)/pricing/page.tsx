@@ -284,11 +284,9 @@ export default function PricingPage() {
             <span className={`text-sm font-medium transition-colors ${annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Yearly
             </span>
-            {annual && (
-              <span className="px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full">
-                Save 17%
-              </span>
-            )}
+            <span className={`px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full transition-opacity duration-200 ${annual ? "opacity-100" : "opacity-0"}`}>
+              Save 17%
+            </span>
           </motion.div>
         </div>
       </section>
@@ -311,7 +309,7 @@ export default function PricingPage() {
                 <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>$0</span>
                 <span className="text-gray-500">/month</span>
               </div>
-              <p className={`text-sm mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>30 emails or 3 phones</p>
+              <p className="text-xs text-gray-500 mb-6">30 emails or 3 phones/mo</p>
               <Link
                 href="#"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
@@ -319,10 +317,19 @@ export default function PricingPage() {
                 Get Started
               </Link>
               <div className="space-y-3">
-                {pricingTiers.free.features.map((feature) => (
-                  <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <Check className="w-4 h-4 text-green-500" />
-                    {feature}
+                {[
+                  { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
+                  { text: "1-Click Enrichment on LinkedIn", highlighted: false },
+                  { text: "Bulk CSV List Enrichment", highlighted: false },
+                  { text: "Sales Navigator List Enrichment", highlighted: false },
+                  { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+                  { text: "Contact Data Cleaning", highlighted: false },
+                  { text: "Access to All Export Integrations", highlighted: false },
+                  { text: "Live Company & Contact Enrichment", highlighted: false },
+                ].map((feature) => (
+                  <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
+                    <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
+                    {feature.text}
                   </div>
                 ))}
               </div>
@@ -381,7 +388,11 @@ export default function PricingPage() {
                   { text: "Waterfall enrichment – 15+ data sources", highlighted: true },
                   { text: "1-Click Enrichment on LinkedIn", highlighted: false },
                   { text: "Bulk CSV List Enrichment", highlighted: false },
-                  { text: "Triple email verification", highlighted: false },
+                  { text: "Sales Navigator List Enrichment", highlighted: false },
+                  { text: "Triple email verification (incl. catch-alls)", highlighted: false },
+                  { text: "Contact Data Cleaning", highlighted: false },
+                  { text: "Access to All Export Integrations", highlighted: false },
+                  { text: "Live Company & Contact Enrichment", highlighted: false },
                 ].map((feature) => (
                   <div key={feature.text} className={`flex items-center gap-2 text-sm ${feature.highlighted ? (isDark ? "text-white font-medium" : "text-gray-900 font-medium") : (isDark ? "text-gray-400" : "text-gray-600")}`}>
                     <Check className={`w-4 h-4 ${feature.highlighted ? "text-[#3e8aff]" : "text-green-500"}`} />
