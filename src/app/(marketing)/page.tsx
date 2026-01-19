@@ -836,12 +836,12 @@ export default function HomePage() {
             >
               <div className="mb-4">
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
-                <p className="text-sm text-gray-500">30 credits</p>
               </div>
               <div className="mb-4">
                 <span className={`text-3xl md:text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>$0</span>
                 <span className="text-gray-500">/month</span>
               </div>
+              <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>30 credits</p>
               <p className="text-xs text-gray-500 mb-6">30 emails or 3 phones/mo</p>
               <Link
                 href="#"
