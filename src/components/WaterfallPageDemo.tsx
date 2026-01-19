@@ -28,12 +28,12 @@ interface Provider {
 }
 
 const providers: Provider[] = [
-  { name: "Apollo", color: "#f59e0b", time: 300, found: true, fieldsFound: ["email", "title"] },
-  { name: "ZoomInfo", color: "#8b5cf6", time: 500, found: true, fieldsFound: ["phone", "company"] },
-  { name: "Clearbit", color: "#3b82f6", time: 400, found: true, fieldsFound: ["email", "location"] },
-  { name: "Hunter", color: "#ef4444", time: 200, found: false, fieldsFound: [] },
-  { name: "Lusha", color: "#22c55e", time: 600, found: true, fieldsFound: ["phone", "linkedin"] },
-  { name: "RocketReach", color: "#ec4899", time: 450, found: true, fieldsFound: ["email", "title"] },
+  { name: "Cleanlist", color: "#3e8aff", time: 200, found: true, fieldsFound: ["email", "title"] },
+  { name: "Wiza", color: "#8b5cf6", time: 400, found: true, fieldsFound: ["phone", "company"] },
+  { name: "Findymail", color: "#f59e0b", time: 300, found: true, fieldsFound: ["email", "location"] },
+  { name: "Prospeo", color: "#ef4444", time: 350, found: false, fieldsFound: [] },
+  { name: "Lusha", color: "#22c55e", time: 500, found: true, fieldsFound: ["phone", "linkedin"] },
+  { name: "+10 more", color: "#ec4899", time: 450, found: true, fieldsFound: ["email", "title"] },
 ];
 
 const goldenRecordFields = [

@@ -14,11 +14,11 @@ interface Provider {
 }
 
 const providers: Provider[] = [
-  { id: "apollo", name: "Apollo", color: "#3e8aff", successRate: 0.65 },
-  { id: "zoominfo", name: "ZoomInfo", color: "#4a9eff", successRate: 0.72 },
-  { id: "lusha", name: "Lusha", color: "#8b5cf6", successRate: 0.68 },
-  { id: "clearbit", name: "Clearbit", color: "#10b981", successRate: 0.70 },
-  { id: "hunter", name: "Hunter.io", color: "#f59e0b", successRate: 0.62 },
+  { id: "cleanlist", name: "Cleanlist", color: "#3e8aff", successRate: 0.75 },
+  { id: "wiza", name: "Wiza", color: "#8b5cf6", successRate: 0.72 },
+  { id: "findymail", name: "Findymail", color: "#f59e0b", successRate: 0.70 },
+  { id: "prospeo", name: "Prospeo", color: "#10b981", successRate: 0.68 },
+  { id: "lusha", name: "Lusha", color: "#4a9eff", successRate: 0.65 },
 ];
 
 interface DataPoint {

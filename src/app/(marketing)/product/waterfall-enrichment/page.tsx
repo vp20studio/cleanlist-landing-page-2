@@ -110,7 +110,7 @@ export default function WaterfallEnrichmentPage() {
                 className="grid grid-cols-3 gap-4"
               >
                 {[
-                  { value: "Multi", label: "Data Sources" },
+                  { value: "15+", label: "Data Sources" },
                   { value: "98%", label: "Accuracy" },
                   { value: "1-10", label: "Credits/Record" },
                 ].map((stat) => (
@@ -145,7 +145,7 @@ export default function WaterfallEnrichmentPage() {
               {
                 icon: <Database />,
                 label: "Sources",
-                value: "Multi",
+                value: "15+",
                 subValue: "Premium providers",
                 color: "blue",
               },
@@ -300,12 +300,12 @@ export default function WaterfallEnrichmentPage() {
                   <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#3e8aff] to-[#3e8aff]/20" />
                   <div className="grid grid-cols-3 gap-2">
                     {[
-                      { name: "Provider A", status: "Found" },
-                      { name: "Provider B", status: "Found" },
-                      { name: "Provider C", status: "Partial" },
-                      { name: "Provider D", status: "Found" },
-                      { name: "Provider E", status: "Found" },
-                      { name: "Provider F", status: "Found" },
+                      { name: "Cleanlist", status: "Found" },
+                      { name: "Wiza", status: "Found" },
+                      { name: "Findymail", status: "Partial" },
+                      { name: "Prospeo", status: "Found" },
+                      { name: "Lusha", status: "Found" },
+                      { name: "+10 more", status: "Found" },
                     ].map((source, i) => (
                       <motion.div
                         key={source.name}

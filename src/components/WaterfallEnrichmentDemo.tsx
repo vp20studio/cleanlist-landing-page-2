@@ -25,11 +25,11 @@ interface Provider {
 }
 
 const providers: Provider[] = [
-  { name: "Apollo", color: "#f59e0b", time: "0.3s", found: true, fieldsFound: ["email", "title"] },
-  { name: "ZoomInfo", color: "#8b5cf6", time: "0.5s", found: true, fieldsFound: ["phone", "company"] },
-  { name: "Clearbit", color: "#3b82f6", time: "0.4s", found: true, fieldsFound: ["email", "company"] },
-  { name: "Hunter", color: "#ef4444", time: "0.2s", found: false, fieldsFound: [] },
-  { name: "Lusha", color: "#22c55e", time: "0.6s", found: true, fieldsFound: ["phone", "email"] },
+  { name: "Cleanlist", color: "#3e8aff", time: "0.2s", found: true, fieldsFound: ["email", "title"] },
+  { name: "Wiza", color: "#8b5cf6", time: "0.4s", found: true, fieldsFound: ["phone", "company"] },
+  { name: "Findymail", color: "#f59e0b", time: "0.3s", found: true, fieldsFound: ["email", "company"] },
+  { name: "Prospeo", color: "#ef4444", time: "0.3s", found: false, fieldsFound: [] },
+  { name: "Lusha", color: "#22c55e", time: "0.5s", found: true, fieldsFound: ["phone", "email"] },
 ];
 
 const sampleLead = {
