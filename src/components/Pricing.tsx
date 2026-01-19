@@ -124,12 +124,14 @@ export default function Pricing() {
 
           <button
             onClick={() => setIsYearly(!isYearly)}
-            className="relative w-14 h-8 rounded-full bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.1)] p-1 transition-colors hover:border-[rgba(255,255,255,0.2)]"
+            className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
+              isYearly ? "bg-[#3e8aff]" : "bg-[rgba(255,255,255,0.1)]"
+            }`}
           >
-            <motion.div
-              animate={{ x: isYearly ? 24 : 0 }}
-              transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              className="w-6 h-6 rounded-full bg-gradient-to-r from-[#3e8aff] to-[#2563eb] shadow-lg"
+            <div
+              className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
+                isYearly ? "left-8" : "left-1"
+              }`}
             />
           </button>
 
