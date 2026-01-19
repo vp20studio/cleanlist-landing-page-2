@@ -830,7 +830,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`rounded-2xl p-6 md:p-8 border mb-12 ${isDark ? "bg-[rgba(10,10,10,0.6)] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
+            className={`rounded-2xl p-6 md:p-8 border mb-12 mt-16 ${isDark ? "bg-[rgba(10,10,10,0.6)] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
           >
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
               <div>
@@ -851,40 +851,41 @@ export default function HomePage() {
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
               {allIntegrations.map((integration, index) => (
-                <motion.div
-                  key={integration.name}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.03 }}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  className={`group flex flex-col p-4 rounded-xl border transition-all cursor-pointer ${
-                    isDark
-                      ? "bg-[rgba(255,255,255,0.02)] border-white/[0.05] hover:border-[#3e8aff]/30 hover:bg-[#3e8aff]/5"
-                      : "bg-gray-50 border-gray-100 hover:border-[#3e8aff]/30 hover:bg-[#3e8aff]/5"
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-white">
-                      <Image
-                        src={integration.logo}
-                        alt={integration.name}
-                        width={28}
-                        height={28}
-                        className="w-7 h-7 object-contain"
+                <Link key={integration.name} href="/resources/integrations">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.03 }}
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    className={`group flex flex-col p-4 rounded-xl border transition-all cursor-pointer h-full ${
+                      isDark
+                        ? "bg-[rgba(255,255,255,0.02)] border-white/[0.05] hover:border-[#3e8aff]/30 hover:bg-[#3e8aff]/5"
+                        : "bg-gray-50 border-gray-100 hover:border-[#3e8aff]/30 hover:bg-[#3e8aff]/5"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-white">
+                        <Image
+                          src={integration.logo}
+                          alt={integration.name}
+                          width={28}
+                          height={28}
+                          className="w-7 h-7 object-contain"
+                        />
+                      </div>
+                      <ArrowRight
+                        className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${isDark ? "text-gray-400" : "text-gray-500"}`}
                       />
                     </div>
-                    <ArrowRight
-                      className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${isDark ? "text-gray-400" : "text-gray-500"}`}
-                    />
-                  </div>
-                  <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
-                    {integration.name}
-                  </span>
-                  <span className={`text-xs mt-0.5 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                    Click to connect
-                  </span>
-                </motion.div>
+                    <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
+                      {integration.name}
+                    </span>
+                    <span className={`text-xs mt-0.5 ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                      Click to connect
+                    </span>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </motion.div>

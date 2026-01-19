@@ -80,7 +80,7 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Native Integrations Grid */}
-      <section className="py-12 md:py-16">
+      <section className="py-16 md:py-24">
         <div className="max-w-5xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
