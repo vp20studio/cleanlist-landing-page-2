@@ -53,12 +53,6 @@ const productSections: NavSection[] = [
         badge: "Flagship",
       },
       {
-        label: "Email & Phone Finder",
-        href: "/product/email-phone-finder",
-        icon: <Envelope />,
-        description: "Verified contact discovery",
-      },
-      {
         label: "Smart Columns",
         href: "/product/smart-columns",
         icon: <Sparkle />,

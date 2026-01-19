@@ -367,35 +367,6 @@ export default function SolutionSection() {
           </motion.div>
         </div>
 
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
-        >
-          {[
-            { value: "50+", label: "Playbook templates" },
-            { value: "15+", label: "Data providers" },
-            { value: "5min", label: "Average setup" },
-            { value: "10x", label: "Faster launches" },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.7 + i * 0.1 }}
-              className={`text-center p-6 rounded-2xl border ${
-                isDark
-                  ? "bg-white/[0.02] border-white/[0.08]"
-                  : "bg-gray-50 border-black/[0.08]"
-              }`}
-            >
-              <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] mb-2">{stat.value}</div>
-              <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{stat.label}</div>
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

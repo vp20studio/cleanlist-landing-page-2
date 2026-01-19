@@ -401,18 +401,18 @@ export default function DataTransformDemo() {
                   {provider}
                 </motion.span>
               ))}
-              {/* Additional providers - always shown as locked/dimmed */}
+              {/* Additional providers - blurred/dimmed */}
               {additionalProviders.map((provider) => (
                 <span
                   key={provider}
-                  className={`text-xs px-2.5 py-1.5 rounded-md flex items-center gap-1 ${
+                  className={`text-xs px-2.5 py-1.5 rounded-md flex items-center gap-1 blur-[1px] opacity-40 ${
                     isDark
-                      ? "bg-white/[0.02] text-gray-600"
-                      : "bg-gray-50 text-gray-400"
+                      ? "bg-white/[0.02] text-gray-500"
+                      : "bg-gray-100 text-gray-400"
                   }`}
                 >
                   {provider}
-                  <Lock size={10} className="opacity-50" />
+                  <Lock size={10} />
                 </span>
               ))}
             </div>
@@ -433,7 +433,7 @@ export default function DataTransformDemo() {
                 animate={{ opacity: 1 }}
                 className="text-xs mt-3 text-green-500"
               >
-                All fields enriched successfully from {primaryProviders.length + additionalProviders.length}+ providers
+                All fields enriched successfully from 15+ providers
               </motion.p>
             )}
           </motion.div>

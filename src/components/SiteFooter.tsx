@@ -2,14 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { TwitterLogo, LinkedinLogo, GithubLogo, Envelope } from "@phosphor-icons/react";
+import { LinkedinLogo, Envelope } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
 const footerLinks = {
   products: [
     { label: "Waterfall Enrichment", href: "/product/waterfall-enrichment" },
-    { label: "Email & Phone Finder", href: "/product/email-phone-finder" },
     { label: "Smart Columns", href: "/product/smart-columns" },
     { label: "ICP Scoring", href: "/product/icp-scoring" },
     { label: "Sales Nav Scraper", href: "/product/sales-nav-scraper" },
@@ -30,33 +29,12 @@ const footerLinks = {
   ],
 };
 
-const stats = [
-  { value: "5", label: "CRM Integrations" },
-  { value: "98%", label: "Accuracy" },
-  { value: "1-10", label: "Credits/Record" },
-  { value: "12", label: "Smart Columns" },
-];
-
 export default function SiteFooter() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
   return (
     <footer className={`border-t transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
-      {/* Stats Bar */}
-      <div className={`border-b ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#3e8aff]">{stat.value}</div>
-                <div className={`text-xs md:text-sm mt-1 ${isDark ? "text-gray-500" : "text-gray-600"}`}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-8 lg:gap-12">
@@ -76,16 +54,12 @@ export default function SiteFooter() {
               your leads with 98% accuracy.
             </p>
             <div className="flex items-center gap-3 md:gap-4">
-              {[
-                { Icon: TwitterLogo, color: "blue" as const },
-                { Icon: LinkedinLogo, color: "linkedin" as const },
-                { Icon: GithubLogo, color: "gray" as const },
-                { Icon: Envelope, color: "blue" as const },
-              ].map(({ Icon, color }, i) => (
-                <a key={i} href="#" className="transition-transform hover:scale-110">
-                  <GlowIcon icon={<Icon />} size="sm" color={color} variant="glow" />
-                </a>
-              ))}
+              <a href="https://ca.linkedin.com/company/cleanlist-ai" target="_blank" rel="noopener noreferrer" className="transition-transform hover:scale-110">
+                <GlowIcon icon={<LinkedinLogo />} size="sm" color="linkedin" variant="glow" />
+              </a>
+              <a href="mailto:levon@cleanlist.ai" className="transition-transform hover:scale-110">
+                <GlowIcon icon={<Envelope />} size="sm" color="blue" variant="glow" />
+              </a>
             </div>
           </div>
 
@@ -167,8 +141,8 @@ export default function SiteFooter() {
               <span>&copy; {new Date().getFullYear()} Cleanlist. All rights reserved.</span>
             </div>
             <div className={`flex items-center gap-4 md:gap-6 text-xs md:text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>
-              <span>Privacy Policy</span>
-              <span>Terms of Service</span>
+              <Link href="/privacy-policy" className="hover:text-[#3e8aff] transition-colors">Privacy Policy</Link>
+              <Link href="/terms-conditions" className="hover:text-[#3e8aff] transition-colors">Terms & Conditions</Link>
             </div>
             <div className={`flex items-center gap-2 text-xs md:text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
