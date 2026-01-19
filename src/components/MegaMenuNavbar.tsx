@@ -458,7 +458,7 @@ export default function MegaMenuNavbar() {
               </button>
 
               <Link
-                href="https://portal.cleanlist.ai"
+                href="https://portal.cleanlist.ai/auth/login"
                 className={`px-4 py-2 text-sm transition-colors ${
                   theme === "dark"
                     ? "text-gray-300 hover:text-white"
@@ -644,7 +644,7 @@ export default function MegaMenuNavbar() {
                     Get Started
                   </Link>
                   <Link
-                    href="https://portal.cleanlist.ai"
+                    href="https://portal.cleanlist.ai/auth/login"
                     className={`w-full py-2.5 text-center text-sm ${
                       theme === "dark" ? "text-gray-400" : "text-gray-600"
                     }`}
