@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Database,
@@ -47,19 +48,19 @@ const dataProviders = [
 
 // All integrations for the grid (CRMs and outreach platforms)
 const allIntegrations = [
-  { name: "HubSpot", abbr: "Hu", category: "crm", color: "#3b82f6" },
-  { name: "ActiveCampaign", abbr: "Ac", category: "marketing", color: "#8b5cf6" },
-  { name: "Affinity", abbr: "Af", category: "crm", color: "#3b82f6" },
-  { name: "Close", abbr: "Cl", category: "crm", color: "#3b82f6" },
-  { name: "Freshsales CRM", abbr: "Fr", category: "crm", color: "#3b82f6" },
-  { name: "Holded", abbr: "Ho", category: "crm", color: "#3b82f6" },
-  { name: "Insightly", abbr: "In", category: "crm", color: "#3b82f6" },
-  { name: "Marketing360", abbr: "M3", category: "marketing", color: "#8b5cf6" },
-  { name: "Outreach.io", abbr: "Ou", category: "sales", color: "#22c55e" },
-  { name: "Pipedrive", abbr: "Pi", category: "crm", color: "#3b82f6" },
-  { name: "RecruitCRM", abbr: "Rc", category: "crm", color: "#3b82f6" },
-  { name: "Salesflare", abbr: "Sf", category: "crm", color: "#3b82f6" },
-  { name: "Salesloft", abbr: "Sl", category: "sales", color: "#22c55e" },
+  { name: "HubSpot", logo: "/images/integrations/hubspot.png", category: "crm", color: "#ff7a59" },
+  { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", category: "marketing", color: "#004cff" },
+  { name: "Affinity", logo: "/images/integrations/affinity.svg", category: "crm", color: "#4285f4" },
+  { name: "Close", logo: "/images/integrations/close.png", category: "crm", color: "#1a1a1a" },
+  { name: "Freshsales CRM", logo: "/images/integrations/freshsales.png", category: "crm", color: "#f26d21" },
+  { name: "Holded", logo: "/images/integrations/holded.png", category: "crm", color: "#2196f3" },
+  { name: "Insightly", logo: "/images/integrations/insightly.png", category: "crm", color: "#e94444" },
+  { name: "Marketing360", logo: "/images/integrations/marketing360.png", category: "marketing", color: "#00a0e4" },
+  { name: "Outreach.io", logo: "/images/integrations/outreach.png", category: "sales", color: "#5951ff" },
+  { name: "Pipedrive", logo: "/images/integrations/pipedrive.png", category: "crm", color: "#00d084" },
+  { name: "RecruitCRM", logo: "/images/integrations/recruitcrm.png", category: "crm", color: "#1a73e8" },
+  { name: "Salesflare", logo: "/images/integrations/salesflare.webp", category: "crm", color: "#0066ff" },
+  { name: "Salesloft", logo: "/images/integrations/salesloft.svg", category: "sales", color: "#0b6fcc" },
 ];
 
 const integrationCategories = [
@@ -745,7 +746,13 @@ export default function HomePage() {
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
               >
                 <div className={`w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex flex-col items-center justify-center shadow-2xl ${isDark ? "shadow-[#3e8aff]/30" : "shadow-[#3e8aff]/20"}`}>
-                  <Check className="w-8 h-8 md:w-10 md:h-10 text-white mb-1" weight="bold" />
+                  <Image
+                    src="/images/favicon.png"
+                    alt="Cleanlist"
+                    width={40}
+                    height={40}
+                    className="w-8 h-8 md:w-10 md:h-10 mb-1"
+                  />
                   <span className="text-sm md:text-base font-semibold text-white">Cleanlist</span>
                 </div>
                 {/* Glow effect */}
@@ -754,19 +761,19 @@ export default function HomePage() {
 
               {/* Orbiting Integrations */}
               {[
-                { name: "HubSpot", abbr: "Hu", color: "#3b82f6", x: "28%", y: "8%", delay: 0.1 },
-                { name: "ActiveCampaign", abbr: "Ac", color: "#8b5cf6", x: "72%", y: "8%", delay: 0.15 },
-                { name: "Affinity", abbr: "Af", color: "#3b82f6", x: "8%", y: "25%", delay: 0.2 },
-                { name: "Close", abbr: "Cl", color: "#3b82f6", x: "92%", y: "25%", delay: 0.25 },
-                { name: "Freshsales", abbr: "Fr", color: "#3b82f6", x: "2%", y: "50%", delay: 0.3 },
-                { name: "Holded", abbr: "Ho", color: "#3b82f6", x: "98%", y: "50%", delay: 0.35 },
-                { name: "Insightly", abbr: "In", color: "#3b82f6", x: "8%", y: "75%", delay: 0.4 },
-                { name: "Marketing360", abbr: "M3", color: "#8b5cf6", x: "92%", y: "75%", delay: 0.45 },
-                { name: "Outreach.io", abbr: "Ou", color: "#22c55e", x: "22%", y: "90%", delay: 0.5 },
-                { name: "Pipedrive", abbr: "Pi", color: "#3b82f6", x: "50%", y: "95%", delay: 0.55 },
-                { name: "RecruitCRM", abbr: "Rc", color: "#3b82f6", x: "78%", y: "90%", delay: 0.6 },
-                { name: "Salesflare", abbr: "Sf", color: "#3b82f6", x: "18%", y: "50%", delay: 0.65 },
-                { name: "Salesloft", abbr: "Sl", color: "#22c55e", x: "82%", y: "50%", delay: 0.7 },
+                { name: "HubSpot", logo: "/images/integrations/hubspot.png", x: "28%", y: "8%", delay: 0.1 },
+                { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", x: "72%", y: "8%", delay: 0.15 },
+                { name: "Affinity", logo: "/images/integrations/affinity.svg", x: "8%", y: "25%", delay: 0.2 },
+                { name: "Close", logo: "/images/integrations/close.png", x: "92%", y: "25%", delay: 0.25 },
+                { name: "Freshsales", logo: "/images/integrations/freshsales.png", x: "2%", y: "50%", delay: 0.3 },
+                { name: "Holded", logo: "/images/integrations/holded.png", x: "98%", y: "50%", delay: 0.35 },
+                { name: "Insightly", logo: "/images/integrations/insightly.png", x: "8%", y: "75%", delay: 0.4 },
+                { name: "Marketing360", logo: "/images/integrations/marketing360.png", x: "92%", y: "75%", delay: 0.45 },
+                { name: "Outreach.io", logo: "/images/integrations/outreach.png", x: "22%", y: "90%", delay: 0.5 },
+                { name: "Pipedrive", logo: "/images/integrations/pipedrive.png", x: "50%", y: "95%", delay: 0.55 },
+                { name: "RecruitCRM", logo: "/images/integrations/recruitcrm.png", x: "78%", y: "90%", delay: 0.6 },
+                { name: "Salesflare", logo: "/images/integrations/salesflare.webp", x: "18%", y: "50%", delay: 0.65 },
+                { name: "Salesloft", logo: "/images/integrations/salesloft.svg", x: "82%", y: "50%", delay: 0.7 },
               ].map((integration) => (
                 <motion.div
                   key={integration.name}
@@ -778,17 +785,17 @@ export default function HomePage() {
                   style={{ left: integration.x, top: integration.y }}
                 >
                   <div
-                    className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center text-xs md:text-sm font-bold border backdrop-blur-sm ${
+                    className={`w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center border backdrop-blur-sm overflow-hidden ${
                       isDark ? "border-white/[0.1] bg-[#0a0a0a]/80" : "border-black/[0.08] bg-white/90 shadow-lg"
                     }`}
-                    style={{ color: integration.color }}
                   >
-                    <div
-                      className="w-full h-full rounded-xl flex items-center justify-center"
-                      style={{ backgroundColor: `${integration.color}15` }}
-                    >
-                      {integration.abbr}
-                    </div>
+                    <Image
+                      src={integration.logo}
+                      alt={integration.name}
+                      width={32}
+                      height={32}
+                      className="w-7 h-7 md:w-8 md:h-8 object-contain"
+                    />
                   </div>
                   <span className={`text-[10px] md:text-xs mt-1.5 whitespace-nowrap ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                     {integration.name}
@@ -858,14 +865,14 @@ export default function HomePage() {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <div
-                      className="w-10 h-10 rounded-lg flex items-center justify-center font-semibold text-sm"
-                      style={{
-                        backgroundColor: `${integration.color}15`,
-                        color: integration.color,
-                      }}
-                    >
-                      {integration.abbr}
+                    <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden bg-white">
+                      <Image
+                        src={integration.logo}
+                        alt={integration.name}
+                        width={28}
+                        height={28}
+                        className="w-7 h-7 object-contain"
+                      />
                     </div>
                     <ArrowRight
                       className={`w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ${isDark ? "text-gray-400" : "text-gray-500"}`}
