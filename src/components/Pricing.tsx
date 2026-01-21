@@ -116,6 +116,9 @@ export default function Pricing() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex items-center justify-center mb-12"
         >
+          {/* Invisible spacer to balance the badge */}
+          <span className="w-[72px] hidden sm:block" />
+
           <div className="flex items-center gap-3">
             <span
               className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-[#888888]"}`}
@@ -141,12 +144,12 @@ export default function Pricing() {
             >
               Yearly
             </span>
-
-            {/* Save badge - inline with toggle */}
-            <span className={`text-xs px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.1)] text-[#22c55e] border border-[rgba(34,197,94,0.2)] transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>
-              Save 20%
-            </span>
           </div>
+
+          {/* Save badge */}
+          <span className={`ml-3 px-2 py-1 text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] rounded-full transition-opacity duration-200 w-[72px] text-center ${isYearly ? "opacity-100" : "opacity-0"}`}>
+            Save 20%
+          </span>
         </motion.div>
 
         {/* Pricing Cards */}
