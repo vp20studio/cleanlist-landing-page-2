@@ -194,9 +194,11 @@ export function StarsBackground({ starCount = 50, seed = 0, className = "", show
   const stars = generateStars(starCount, seed);
 
   return (
-    <div className={`absolute inset-0 overflow-hidden ${className}`}>
-      {/* Animated stars */}
-      {stars.map((star) => (
+    <div className={`absolute inset-0 ${className}`}>
+      {/* Stars container with overflow hidden */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Animated stars */}
+        {stars.map((star) => (
         <motion.div
           key={star.id}
           className="absolute rounded-full bg-white"
@@ -218,8 +220,9 @@ export function StarsBackground({ starCount = 50, seed = 0, className = "", show
           }}
         />
       ))}
+      </div>
 
-      {/* Rocket - only on desktop */}
+      {/* Rocket - only on desktop, outside overflow container so it can fly up */}
       {showRocket && <Rocket />}
     </div>
   );
