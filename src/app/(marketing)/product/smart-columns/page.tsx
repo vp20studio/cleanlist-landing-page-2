@@ -20,7 +20,6 @@ import {
   Shield,
 } from "@phosphor-icons/react";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
-import SmartColumnDemo from "@/components/SmartColumnDemo";
 
 export default function SmartColumnsPage() {
   const { theme } = useTheme();
@@ -124,9 +123,78 @@ export default function SmartColumnsPage() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="max-h-[600px] overflow-hidden rounded-xl"
+              className="relative"
             >
-              <SmartColumnDemo />
+              {/* Video Container */}
+              <div
+                className={`relative rounded-2xl overflow-hidden ${
+                  isDark
+                    ? "bg-[#0a0a0a] border border-white/[0.08]"
+                    : "bg-white border border-black/[0.08] shadow-xl"
+                }`}
+              >
+                {/* Browser Chrome */}
+                <div
+                  className={`flex items-center gap-2 px-4 py-3 border-b ${
+                    isDark ? "border-white/[0.08] bg-[#0d0d0d]" : "border-black/[0.05] bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                  </div>
+                  <div
+                    className={`flex-1 mx-4 px-3 py-1 rounded-md text-xs ${
+                      isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-400"
+                    }`}
+                  >
+                    app.cleanlist.ai/smart-columns
+                  </div>
+                  <div
+                    className={`w-2 h-2 rounded-full animate-pulse ${
+                      isDark ? "bg-green-500" : "bg-green-500"
+                    }`}
+                  />
+                  <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                    Live
+                  </span>
+                </div>
+
+                {/* Video */}
+                <div className="relative">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto block"
+                  >
+                    <source src="/videos/smart-columns.mp4" type="video/mp4" />
+                  </video>
+
+                  {/* Subtle vignette overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: isDark
+                        ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)"
+                        : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)",
+                    }}
+                  />
+                </div>
+              </div>
+
+              {/* Reflection effect */}
+              <div
+                className="absolute -bottom-12 left-4 right-4 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
+                style={{
+                  background: isDark
+                    ? "linear-gradient(to bottom, rgba(62, 138, 255, 0.1), transparent)"
+                    : "linear-gradient(to bottom, rgba(62, 138, 255, 0.05), transparent)",
+                  transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
+                }}
+              />
             </motion.div>
           </div>
         </div>
@@ -143,7 +211,7 @@ export default function SmartColumnsPage() {
                 label: "AI Model",
                 value: "AI",
                 subValue: "Powered transforms",
-                color: "purple",
+                color: "blue",
               },
               {
                 icon: <Gear />,
@@ -187,7 +255,7 @@ export default function SmartColumnsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
               <GlowIcon icon={<MagicWand />} size="xs" color="blue" variant="ghost" />
               Natural Language
             </div>
@@ -250,14 +318,14 @@ export default function SmartColumnsPage() {
             >
               <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-4">
-                  <Sparkle className="text-purple-500" />
+                  <Sparkle className="text-[#3e8aff]" />
                   <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Live Example</span>
                 </div>
 
                 {/* Prompt */}
-                <div className="p-3 rounded-lg bg-purple-500/5 border border-purple-500/20 mb-6">
+                <div className="p-3 rounded-lg bg-[#3e8aff]/5 border border-[#3e8aff]/20 mb-6">
                   <div className="text-xs text-gray-500 mb-1">Your prompt:</div>
-                  <div className="text-sm text-purple-400 font-mono">
+                  <div className="text-sm text-[#3e8aff] font-mono">
                     &quot;Standardize job titles to seniority levels: C-Level, VP, Director, Manager, IC&quot;
                   </div>
                 </div>
@@ -412,11 +480,11 @@ export default function SmartColumnsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-purple-500/30 transition-colors`}
+                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors`}
               >
                 <div className="flex items-center justify-between mb-3">
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{column.title}</h3>
-                  <span className="text-xs px-2 py-1 rounded-full bg-purple-500/10 text-purple-400">
+                  <span className="text-xs px-2 py-1 rounded-full bg-[#3e8aff]/10 text-[#3e8aff]">
                     {column.category}
                   </span>
                 </div>
@@ -436,7 +504,7 @@ export default function SmartColumnsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-500 mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
                 <GlowIcon icon={<Brain />} size="xs" color="blue" variant="ghost" />
                 Custom AI Prompts
               </div>
@@ -467,7 +535,7 @@ export default function SmartColumnsPage() {
                     key={i}
                     className={`p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
                   >
-                    <div className="text-sm text-purple-400 font-mono mb-2">{example.prompt}</div>
+                    <div className="text-sm text-[#3e8aff] font-mono mb-2">{example.prompt}</div>
                     <div className="flex items-center gap-2 text-xs text-gray-500">
                       <ArrowsLeftRight />
                       {example.result}
@@ -478,7 +546,7 @@ export default function SmartColumnsPage() {
 
               <Link
                 href="#"
-                className="inline-flex items-center gap-2 mt-8 text-purple-500 hover:underline"
+                className="inline-flex items-center gap-2 mt-8 text-[#3e8aff] hover:underline"
               >
                 See prompt library <CaretRight />
               </Link>
@@ -488,7 +556,7 @@ export default function SmartColumnsPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="p-6 rounded-xl bg-gradient-to-br from-purple-500/10 to-transparent border border-purple-500/20"
+              className="p-6 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/20"
             >
               <div className="flex items-center gap-3 mb-6">
                 <GlowIcon icon={<Brain />} size="md" color="blue" variant="glow" />
