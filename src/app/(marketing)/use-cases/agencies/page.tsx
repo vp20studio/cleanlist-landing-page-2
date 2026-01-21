@@ -32,6 +32,15 @@ export default function AgenciesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-green-500/5 via-transparent to-transparent" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-green-500/10 rounded-full blur-[120px]" />
 
+        {/* Animated grid background */}
+        <div
+          className={`absolute inset-0 ${isDark ? "opacity-[0.02]" : "opacity-[0.03]"}`}
+          style={{
+            backgroundImage: `linear-gradient(${isDark ? "#fff" : "#000"} 1px, transparent 1px), linear-gradient(90deg, ${isDark ? "#fff" : "#000"} 1px, transparent 1px)`,
+            backgroundSize: "60px 60px",
+          }}
+        />
+
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
           <div className="max-w-3xl">
             <motion.div
