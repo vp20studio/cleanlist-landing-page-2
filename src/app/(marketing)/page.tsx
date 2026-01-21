@@ -38,7 +38,6 @@ import PlaybooksSection from "@/components/PlaybooksSection";
 import SolutionSection from "@/components/SolutionSection";
 import LogoMarquee from "@/components/LogoMarquee";
 import DataTransformDemo from "@/components/DataTransformDemo";
-import FinalCTA from "@/components/FinalCTA";
 import { useTheme } from "@/context/ThemeContext";
 
 // Data providers for waterfall enrichment (15+)
@@ -1548,8 +1547,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <FinalCTA />
     </>
   );
 }
