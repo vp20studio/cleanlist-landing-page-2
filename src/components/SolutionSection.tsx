@@ -411,10 +411,10 @@ export default function SolutionSection() {
 
             <motion.div
               key={activeFeature}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className={`relative p-6 md:p-8 rounded-3xl border w-full flex flex-col ${
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
+              className={`relative p-6 md:p-8 rounded-3xl border w-full flex flex-col h-[540px] ${
                 isDark
                   ? "bg-gradient-to-b from-[#0a0a0a] to-[#050505] border-white/[0.08]"
                   : "bg-white border-gray-200 shadow-xl shadow-[#3e8aff]/5"
@@ -435,7 +435,7 @@ export default function SolutionSection() {
               <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{activeData.description}</p>
 
               {/* Visual */}
-              <div className={`mb-6 p-4 rounded-2xl flex-1 flex flex-col justify-center ${
+              <div className={`mb-6 p-4 rounded-2xl flex-1 flex flex-col justify-center overflow-hidden ${
                 isDark
                   ? "bg-white/[0.02] border border-white/[0.05]"
                   : "bg-gray-50 border border-gray-100"
