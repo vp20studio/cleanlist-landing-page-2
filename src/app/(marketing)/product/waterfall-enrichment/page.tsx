@@ -112,7 +112,7 @@ export default function WaterfallEnrichmentPage() {
                 {[
                   { value: "15+", label: "Data Sources" },
                   { value: "98%", label: "Accuracy" },
-                  { value: "1-10", label: "Credits/Record" },
+                  { value: "1 or 11", label: "Credits/Record" },
                 ].map((stat) => (
                   <div
                     key={stat.label}
@@ -166,8 +166,8 @@ export default function WaterfallEnrichmentPage() {
               {
                 icon: <Phone />,
                 label: "Full Contact",
-                value: "10 Credits",
-                subValue: "Email + Phone",
+                value: "11 Credits",
+                subValue: "Email + Phone + Data",
                 color: "purple",
               },
               {
@@ -206,8 +206,8 @@ export default function WaterfallEnrichmentPage() {
               How Waterfall Enrichment Works
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Our proprietary cascade algorithm queries sources in parallel, validates
-              responses, and merges the best data into one complete record.
+              Our proprietary cascade algorithm queries sources sequentially until it finds
+              the best match, validates responses, and returns a complete record.
             </p>
           </motion.div>
 
@@ -216,13 +216,13 @@ export default function WaterfallEnrichmentPage() {
               steps={[
                 {
                   number: "01",
-                  title: "Parallel Query Dispatch",
+                  title: "Sequential Cascade Query",
                   description:
-                    "Your input record is sent to multiple premium data providers simultaneously.",
+                    "Your input record cascades through premium data providers in priority order until a match is found.",
                   icon: <Lightning />,
                   details: [
-                    "All sources queried in parallel, not sequential",
-                    "Fast response times across all providers",
+                    "Providers queried in optimized sequence",
+                    "Stops at first high-confidence match",
                     "Automatic timeout handling and retry logic",
                     "Source health monitoring and failover",
                   ],
@@ -300,12 +300,12 @@ export default function WaterfallEnrichmentPage() {
                   <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#3e8aff] to-[#3e8aff]/20" />
                   <div className="grid grid-cols-3 gap-2">
                     {[
-                      { name: "Cleanlist", status: "Found" },
-                      { name: "Wiza", status: "Found" },
-                      { name: "Findymail", status: "Partial" },
-                      { name: "Prospeo", status: "Found" },
-                      { name: "Lusha", status: "Found" },
-                      { name: "+10 more", status: "Found" },
+                      { name: "Provider 1", status: "Found" },
+                      { name: "Provider 2", status: "Found" },
+                      { name: "Provider 3", status: "Partial" },
+                      { name: "Provider 4", status: "Found" },
+                      { name: "Provider 5", status: "Found" },
+                      { name: "+10 more", status: "Queued" },
                     ].map((source, i) => (
                       <motion.div
                         key={source.name}
@@ -424,9 +424,9 @@ export default function WaterfallEnrichmentPage() {
             >
               <GlowIcon icon={<Phone />} size="xl" color="blue" variant="glow" className="mb-6" />
               <h3 className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>Full Enrichment</h3>
-              <div className="text-4xl font-bold text-[#3e8aff] mb-4">10 Credits</div>
+              <div className="text-4xl font-bold text-[#3e8aff] mb-4">11 Credits</div>
               <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                Complete contact data including direct dial phone numbers for multi-channel outreach.
+                Complete contact data including direct dial phone numbers for multi-channel outreach. (1 credit for email + 10 for phone)
               </p>
               <ul className="space-y-3">
                 {["Everything in Partial", "Direct dial phone number", "Mobile phone number", "Complete firmographics", "Social profiles"].map((item) => (

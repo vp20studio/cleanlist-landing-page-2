@@ -161,7 +161,7 @@ export default function SalesNavScraperPage() {
               {
                 icon: <Lightning />,
                 label: "Pricing",
-                value: "1-10 Cr",
+                value: "1-11 Cr",
                 subValue: "Per lead enriched",
                 highlight: true,
               },

@@ -21,23 +21,18 @@ import {
 } from "@phosphor-icons/react";
 import { GlowCard, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
-// Data providers in the waterfall
+// Data providers in the waterfall (generic representation)
 const dataProviders = [
-  { name: "Apollo", priority: 1, accuracy: "94%" },
-  { name: "RocketReach", priority: 2, accuracy: "91%" },
-  { name: "Clearbit", priority: 3, accuracy: "89%" },
-  { name: "ZoomInfo", priority: 4, accuracy: "88%" },
-  { name: "Hunter", priority: 5, accuracy: "86%" },
-  { name: "Lusha", priority: 6, accuracy: "85%" },
-  { name: "Snov.io", priority: 7, accuracy: "83%" },
-  { name: "FindThatLead", priority: 8, accuracy: "81%" },
-  { name: "Voila Norbert", priority: 9, accuracy: "79%" },
-  { name: "Anymail", priority: 10, accuracy: "78%" },
-  { name: "FullContact", priority: 11, accuracy: "76%" },
-  { name: "People Data Labs", priority: 12, accuracy: "75%" },
-  { name: "Dropcontact", priority: 13, accuracy: "74%" },
-  { name: "LeadIQ", priority: 14, accuracy: "73%" },
-  { name: "SalesIntel", priority: 15, accuracy: "72%" },
+  { name: "Provider 1", priority: 1, accuracy: "98%" },
+  { name: "Provider 2", priority: 2, accuracy: "96%" },
+  { name: "Provider 3", priority: 3, accuracy: "94%" },
+  { name: "Provider 4", priority: 4, accuracy: "92%" },
+  { name: "Provider 5", priority: 5, accuracy: "90%" },
+  { name: "Provider 6", priority: 6, accuracy: "88%" },
+  { name: "Provider 7", priority: 7, accuracy: "86%" },
+  { name: "Provider 8", priority: 8, accuracy: "84%" },
+  { name: "Provider 9", priority: 9, accuracy: "82%" },
+  { name: "+6 more", priority: 10, accuracy: "80%+" },
 ];
 
 const enrichmentFields = [
@@ -83,8 +78,8 @@ const sampleResponse = `{
       "linkedin": "https://linkedin.com/in/johnsmith",
       "twitter": "@johnsmith"
     },
-    "enrichment_source": "Apollo",
-    "confidence_score": 94
+    "enrichment_source": "waterfall",
+    "confidence_score": 98
   }
 }`;
 
@@ -121,8 +116,8 @@ export default function EnrichmentPage() {
 
             <p className="text-lg md:text-xl text-[#888888] mb-8 max-w-3xl mx-auto">
               Our Waterfall Enrichment cascades through 15+ premium data
-              providers—Apollo, RocketReach, Clearbit, and more—to find the most
-              accurate data while minimizing your credit spend.
+              providers to find the most accurate data while minimizing your
+              credit spend. One API call, multiple sources, best results.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -200,7 +195,7 @@ export default function EnrichmentPage() {
                   ))}
                   <div className="text-center py-2">
                     <span className="text-xs text-[#888888]">
-                      + 7 more providers in the waterfall
+                      15+ premium data providers in the waterfall
                     </span>
                   </div>
                 </div>
@@ -349,11 +344,11 @@ export default function EnrichmentPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">
-                      1:1 Credit Model
+                      Simple Credit Model
                     </h3>
                     <p className="text-sm text-[#888888]">
-                      1 credit = 1 email enriched. No hidden fees, no tiered
-                      pricing complexity. Simple and transparent.
+                      1 credit for email enrichment, 10 credits to add phone.
+                      11 total for full contact data. No hidden fees.
                     </p>
                   </div>
                 </div>

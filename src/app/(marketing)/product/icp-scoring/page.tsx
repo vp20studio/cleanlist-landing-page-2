@@ -426,28 +426,28 @@ export default function ICPScoringPage() {
             {[
               {
                 level: "Perfect Fit",
-                range: "85-100%",
+                range: "80-100%",
                 color: "green",
                 description: "Ideal prospects matching all key criteria",
                 action: "Prioritize for immediate outreach",
               },
               {
                 level: "Good Fit",
-                range: "70-84%",
+                range: "60-79%",
                 color: "blue",
                 description: "Strong matches with minor gaps",
                 action: "Include in primary sequences",
               },
               {
                 level: "Fair Fit",
-                range: "50-69%",
+                range: "40-59%",
                 color: "yellow",
                 description: "Partial matches worth nurturing",
                 action: "Add to nurture campaigns",
               },
               {
                 level: "Poor Fit",
-                range: "0-49%",
+                range: "0-39%",
                 color: "red",
                 description: "Low alignment with your ICP",
                 action: "Deprioritize or exclude",
