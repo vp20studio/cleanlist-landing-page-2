@@ -32,7 +32,7 @@ const footerLinks = {
 
 export default function SiteFooter() {
   return (
-    <footer className="relative bg-[#030303]">
+    <footer className="relative bg-[#030303]" style={{ clipPath: "inset(-1000px 0 0 0)" }}>
       {/* Stars Background with Rocket */}
       <StarsBackground starCount={30} seed={100} showRocket />
 
