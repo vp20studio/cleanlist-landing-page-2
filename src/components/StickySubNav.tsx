@@ -6,7 +6,7 @@ import { useTheme } from "@/context/ThemeContext";
 
 const sections = [
   { id: "solutions", label: "Solutions" },
-  { id: "how-it-works", label: "How It Works" },
+  { id: "demo", label: "How It Works" },
   { id: "compare", label: "Compare" },
   { id: "integrations", label: "Integrations" },
   { id: "pricing", label: "Pricing" },
