@@ -8,6 +8,7 @@ import { GlowIcon } from "@/components/ui";
 
 const footerLinks = {
   products: [
+    { label: "People Search", href: "/product/people-search" },
     { label: "Waterfall Enrichment", href: "/product/waterfall-enrichment" },
     { label: "Smart Columns", href: "/product/smart-columns" },
     { label: "ICP Scoring", href: "/product/icp-scoring" },

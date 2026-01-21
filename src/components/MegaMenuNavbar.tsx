@@ -46,6 +46,13 @@ const productSections: NavSection[] = [
     title: "Core Platform",
     items: [
       {
+        label: "People Search",
+        href: "/product/people-search",
+        icon: <Users />,
+        description: "500M+ B2B database search",
+        badge: "New",
+      },
+      {
         label: "Waterfall Enrichment",
         href: "/product/waterfall-enrichment",
         icon: <Stack />,
@@ -81,7 +88,6 @@ const productSections: NavSection[] = [
         href: "/product/playbook-builder",
         icon: <FlowArrow />,
         description: "Visual workflow automation",
-        badge: "New",
       },
     ],
   },
