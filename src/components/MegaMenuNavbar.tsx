@@ -24,6 +24,7 @@ import {
   Crosshair,
   Sun,
   Moon,
+  Article,
 } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
@@ -115,6 +116,12 @@ const useCaseItems: NavItem[] = [
 ];
 
 const resourceItems: NavItem[] = [
+  {
+    label: "Blog",
+    href: "/blog",
+    icon: <Article />,
+    description: "Insights for growth teams",
+  },
   {
     label: "Case Studies",
     href: "/resources/case-studies",

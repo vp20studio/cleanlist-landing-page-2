@@ -21,6 +21,7 @@ const footerLinks = {
     { label: "Agencies", href: "/use-cases/agencies" },
   ],
   resources: [
+    { label: "Blog", href: "/blog" },
     { label: "Case Studies", href: "/resources/case-studies" },
     { label: "Integrations", href: "/resources/integrations" },
   ],
