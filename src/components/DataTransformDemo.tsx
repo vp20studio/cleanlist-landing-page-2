@@ -449,13 +449,13 @@ export default function DataTransformDemo() {
         >
           {/* Section Header */}
           <div className="text-center mb-10 md:mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
               <Sparkle size={16} />
               AI-Powered
             </div>
             <h3 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Every data point you need,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-[#3e8aff]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 in one place
               </span>
             </h3>
@@ -492,12 +492,12 @@ export default function DataTransformDemo() {
                 transition={{ delay: i * 0.1 }}
                 className={`p-6 rounded-2xl border transition-all ${
                   isDark
-                    ? "bg-white/[0.02] border-white/[0.08] hover:border-purple-500/30 hover:bg-white/[0.04]"
-                    : "bg-white border-gray-200 hover:border-purple-500/30 hover:shadow-lg"
+                    ? "bg-white/[0.02] border-white/[0.08] hover:border-[#3e8aff]/30 hover:bg-white/[0.04]"
+                    : "bg-white border-gray-200 hover:border-[#3e8aff]/30 hover:shadow-lg"
                 }`}
               >
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? "bg-purple-500/10 text-purple-400" : "bg-purple-50 text-purple-500"
+                  isDark ? "bg-[#3e8aff]/10 text-[#3e8aff]" : "bg-[#3e8aff]/10 text-[#3e8aff]"
                 }`}>
                   {feature.icon}
                 </div>
@@ -526,7 +526,7 @@ export default function DataTransformDemo() {
                 opacity: [0.15, 0.25, 0.15],
               }}
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -top-20 -left-20 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] -z-10"
+              className="absolute -top-20 -left-20 w-64 h-64 bg-[#3e8aff]/20 rounded-full blur-[100px] -z-10"
             />
             <motion.div
               animate={{
@@ -534,7 +534,7 @@ export default function DataTransformDemo() {
                 opacity: [0.1, 0.2, 0.1],
               }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -bottom-20 -right-20 w-72 h-72 bg-[#3e8aff]/15 rounded-full blur-[100px] -z-10"
+              className="absolute -bottom-20 -right-20 w-72 h-72 bg-[#60a5fa]/15 rounded-full blur-[100px] -z-10"
             />
 
             {/* Video container */}
@@ -542,7 +542,7 @@ export default function DataTransformDemo() {
               {/* Gradient border glow on hover */}
               <div
                 className={`absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
-                  isDark ? "bg-gradient-to-r from-purple-500/50 via-[#3e8aff]/50 to-purple-500/50" : "bg-gradient-to-r from-purple-500/30 via-[#3e8aff]/30 to-purple-500/30"
+                  isDark ? "bg-gradient-to-r from-[#3e8aff]/50 via-[#60a5fa]/50 to-[#3e8aff]/50" : "bg-gradient-to-r from-[#3e8aff]/30 via-[#60a5fa]/30 to-[#3e8aff]/30"
                 }`}
                 style={{ filter: "blur(2px)" }}
               />
@@ -555,8 +555,8 @@ export default function DataTransformDemo() {
                 }`}
                 style={{
                   boxShadow: isDark
-                    ? "0 0 80px rgba(168, 85, 247, 0.12), 0 0 40px rgba(62, 138, 255, 0.08), inset 0 1px 0 rgba(255,255,255,0.03)"
-                    : "0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 40px rgba(168, 85, 247, 0.05)",
+                    ? "0 0 80px rgba(62, 138, 255, 0.12), 0 0 40px rgba(62, 138, 255, 0.08), inset 0 1px 0 rgba(255,255,255,0.03)"
+                    : "0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 40px rgba(62, 138, 255, 0.05)",
                 }}
               >
                 {/* Window Chrome */}
@@ -575,7 +575,7 @@ export default function DataTransformDemo() {
 
                     {/* Title with icon */}
                     <div className="flex items-center gap-2 ml-2">
-                      <Sparkle className="w-3.5 h-3.5 text-purple-400" weight="fill" />
+                      <Sparkle className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
                       <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                         Smart Columns Demo
                       </span>
@@ -587,7 +587,7 @@ export default function DataTransformDemo() {
                     <motion.div
                       animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
                       transition={{ duration: 2, repeat: Infinity }}
-                      className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                      className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]"
                     />
                     <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
                       Live
@@ -626,8 +626,8 @@ export default function DataTransformDemo() {
               className="absolute -bottom-12 left-4 right-4 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
               style={{
                 background: isDark
-                  ? "linear-gradient(to bottom, rgba(168, 85, 247, 0.1), transparent)"
-                  : "linear-gradient(to bottom, rgba(168, 85, 247, 0.05), transparent)",
+                  ? "linear-gradient(to bottom, rgba(62, 138, 255, 0.1), transparent)"
+                  : "linear-gradient(to bottom, rgba(62, 138, 255, 0.05), transparent)",
                 transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
               }}
             />
