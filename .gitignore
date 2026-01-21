@@ -40,4 +40,3 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 # Large video files - upload to CDN instead
-public/videos/smart-columns.mp4
