@@ -114,7 +114,7 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center justify-center gap-4 mb-12"
+          className="flex items-center justify-center gap-4 mb-12 relative"
         >
           <span
             className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-[#888888]"}`}
@@ -136,12 +136,13 @@ export default function Pricing() {
           </button>
 
           <span
-            className={`text-sm font-medium transition-colors flex items-center gap-2 ${isYearly ? "text-white" : "text-[#888888]"}`}
+            className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-[#888888]"}`}
           >
             Yearly
-            <span className="text-xs px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.1)] text-[#22c55e] border border-[rgba(34,197,94,0.2)]">
-              Save 20%
-            </span>
+          </span>
+
+          <span className={`absolute left-1/2 translate-x-16 text-xs px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.1)] text-[#22c55e] border border-[rgba(34,197,94,0.2)] transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>
+            Save 20%
           </span>
         </motion.div>
 

@@ -264,7 +264,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex items-center justify-center gap-4"
+            className="flex items-center justify-center gap-4 relative"
           >
             <span className={`text-sm font-medium transition-colors ${!annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Monthly
@@ -284,7 +284,7 @@ export default function PricingPage() {
             <span className={`text-sm font-medium transition-colors ${annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Yearly
             </span>
-            <span className={`px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full transition-opacity duration-200 ${annual ? "opacity-100" : "opacity-0"}`}>
+            <span className={`absolute left-1/2 translate-x-16 px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full transition-opacity duration-200 ${annual ? "opacity-100" : "opacity-0"}`}>
               Save 17%
             </span>
           </motion.div>

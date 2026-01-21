@@ -18,22 +18,34 @@ export default function StickySubNav() {
   const { theme } = useTheme();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      // Show after scrolling past hero (~600px)
-      setIsVisible(window.scrollY > 600);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          // Show after scrolling past hero (~600px)
+          setIsVisible(window.scrollY > 600);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     // Set up IntersectionObserver to track active section
     const observerOptions = {
       root: null,
-      rootMargin: "-100px 0px -50% 0px",
-      threshold: 0,
+      rootMargin: "-120px 0px -60% 0px",
+      threshold: 0.1,
     };
 
+    let debounceTimer: NodeJS.Timeout | null = null;
     const observerCallback: IntersectionObserverCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+          // Debounce to prevent rapid state changes
+          if (debounceTimer) clearTimeout(debounceTimer);
+          debounceTimer = setTimeout(() => {
+            setActiveSection(entry.target.id);
+          }, 50);
         }
       });
     };
@@ -48,12 +60,13 @@ export default function StickySubNav() {
       }
     });
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Check initial state
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       observer.disconnect();
+      if (debounceTimer) clearTimeout(debounceTimer);
     };
   }, []);
 
