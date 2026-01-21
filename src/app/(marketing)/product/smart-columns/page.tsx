@@ -42,161 +42,157 @@ export default function SmartColumnsPage() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="pt-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
-              >
-                <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="ghost" />
-                AI-Powered
-              </motion.div>
+          {/* Centered Hero Content */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
+            >
+              <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="ghost" />
+              AI-Powered
+            </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
-              >
-                Smart{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                  Columns
-                </span>
-              </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
+            >
+              Smart{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                Columns
+              </span>
+            </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-lg`}
-              >
-                AI-powered data normalization and transformation. Standardize job titles,
-                format phone numbers, parse names, and more—all with natural language prompts.
-              </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}
+            >
+              AI-powered data normalization and transformation. Standardize job titles,
+              format phone numbers, parse names, and more—all with natural language prompts.
+            </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap items-center gap-4 mb-8"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap items-center justify-center gap-4 mb-8"
+            >
+              <Link
+                href="/get-started"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
-                <Link
-                  href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
-                >
-                  Try Smart Columns
-                  <ArrowRight />
-                </Link>
-                <Link
-                  href="#examples"
-                  className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
-                >
-                  See Examples
-                </Link>
-              </motion.div>
+                Try Smart Columns
+                <ArrowRight />
+              </Link>
+              <Link
+                href="#examples"
+                className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
+              >
+                See Examples
+              </Link>
+            </motion.div>
 
-              {/* Key Stats */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="grid grid-cols-3 gap-4"
-              >
-                {[
-                  { value: "AI", label: "Powered" },
-                  { value: "12", label: "Column Types" },
-                  { value: "Fast", label: "Processing" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className={`p-3 rounded-lg border ${isDark ? "bg-white/[0.03] border-white/[0.05]" : "bg-white border-[#3e8aff]/20 shadow-sm"}`}
-                  >
+            {/* Key Stats */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="flex items-center justify-center gap-8 md:gap-12"
+            >
+              {[
+                { value: "AI", label: "Powered" },
+                { value: "12", label: "Column Types" },
+                { value: "Fast", label: "Processing" },
+              ].map((stat, i) => (
+                <div key={stat.label} className="flex items-center gap-3">
+                  {i > 0 && <div className={`w-px h-8 ${isDark ? "bg-white/[0.1]" : "bg-gray-200"}`} />}
+                  <div className="text-center">
                     <div className="text-2xl font-bold text-[#3e8aff]">{stat.value}</div>
                     <div className="text-xs text-gray-500">{stat.label}</div>
                   </div>
-                ))}
-              </motion.div>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="relative"
-            >
-              {/* Video Container */}
-              <div
-                className={`relative rounded-2xl overflow-hidden ${
-                  isDark
-                    ? "bg-[#0a0a0a] border border-white/[0.08]"
-                    : "bg-white border border-black/[0.08] shadow-xl"
-                }`}
-              >
-                {/* Browser Chrome */}
-                <div
-                  className={`flex items-center gap-2 px-4 py-3 border-b ${
-                    isDark ? "border-white/[0.08] bg-[#0d0d0d]" : "border-black/[0.05] bg-gray-50"
-                  }`}
-                >
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-                  </div>
-                  <div
-                    className={`flex-1 mx-4 px-3 py-1 rounded-md text-xs ${
-                      isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-400"
-                    }`}
-                  >
-                    app.cleanlist.ai/smart-columns
-                  </div>
-                  <div
-                    className={`w-2 h-2 rounded-full animate-pulse ${
-                      isDark ? "bg-green-500" : "bg-green-500"
-                    }`}
-                  />
-                  <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                    Live
-                  </span>
                 </div>
-
-                {/* Video */}
-                <div className="relative">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto block"
-                  >
-                    <source src="/videos/smart-columns.mp4" type="video/mp4" />
-                  </video>
-
-                  {/* Subtle vignette overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: isDark
-                        ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)"
-                        : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)",
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Reflection effect */}
-              <div
-                className="absolute -bottom-12 left-4 right-4 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
-                style={{
-                  background: isDark
-                    ? "linear-gradient(to bottom, rgba(62, 138, 255, 0.1), transparent)"
-                    : "linear-gradient(to bottom, rgba(62, 138, 255, 0.05), transparent)",
-                  transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
-                }}
-              />
+              ))}
             </motion.div>
           </div>
+
+          {/* Large Video Demo */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="relative max-w-5xl mx-auto"
+          >
+            {/* Video Container */}
+            <div
+              className={`relative rounded-2xl overflow-hidden ${
+                isDark
+                  ? "bg-[#0a0a0a] border border-white/[0.08]"
+                  : "bg-white border border-black/[0.08] shadow-2xl"
+              }`}
+            >
+              {/* Browser Chrome */}
+              <div
+                className={`flex items-center gap-2 px-4 py-3 border-b ${
+                  isDark ? "border-white/[0.08] bg-[#0d0d0d]" : "border-black/[0.05] bg-gray-50"
+                }`}
+              >
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                  <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                  <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                </div>
+                <div
+                  className={`flex-1 mx-4 px-3 py-1 rounded-md text-xs ${
+                    isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-400"
+                  }`}
+                >
+                  app.cleanlist.ai/smart-columns
+                </div>
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                  Live
+                </span>
+              </div>
+
+              {/* Video */}
+              <div className="relative">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto block"
+                >
+                  <source src="/videos/smart-columns.mp4" type="video/mp4" />
+                </video>
+
+                {/* Subtle vignette overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: isDark
+                      ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)"
+                      : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Reflection effect */}
+            <div
+              className="absolute -bottom-12 left-8 right-8 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
+              style={{
+                background: isDark
+                  ? "linear-gradient(to bottom, rgba(62, 138, 255, 0.1), transparent)"
+                  : "linear-gradient(to bottom, rgba(62, 138, 255, 0.05), transparent)",
+                transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
+              }}
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -596,7 +592,11 @@ export default function SmartColumnsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
+              <GlowIcon icon={<ArrowsClockwise />} size="xs" color="blue" variant="ghost" />
+              Flexible Integration
+            </div>
+            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Works With Your Data
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -604,45 +604,76 @@ export default function SmartColumnsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <FileXls />,
-                title: "Import Sources",
-                items: ["CSV Upload", "Excel Files", "Google Sheets", "API Integration"],
-              },
-              {
-                icon: <Sparkle />,
-                title: "Transform With AI",
-                items: ["Built-in Rules", "Custom Prompts", "Batch Processing", "Real-time Preview"],
-              },
-              {
-                icon: <ArrowsClockwise />,
-                title: "Export Anywhere",
-                items: ["Download CSV", "Push to CRM", "Webhook Delivery", "API Response"],
-              },
-            ].map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} text-center`}
-              >
-                <div className="mx-auto mb-4 w-fit">
-                  <GlowIcon icon={step.icon} size="lg" color="blue" variant="glow" />
-                </div>
-                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>{step.title}</h3>
-                <div className="space-y-2">
-                  {step.items.map((item) => (
-                    <div key={item} className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                      {item}
+          {/* Flow Steps */}
+          <div className="relative">
+            {/* Connection Lines (Desktop) */}
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 -translate-y-1/2 px-[16%]">
+              <div className={`h-0.5 ${isDark ? "bg-gradient-to-r from-[#3e8aff]/50 via-[#3e8aff] to-[#3e8aff]/50" : "bg-gradient-to-r from-[#3e8aff]/30 via-[#3e8aff]/60 to-[#3e8aff]/30"}`} />
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 relative">
+              {[
+                {
+                  icon: <FileXls />,
+                  title: "Import Sources",
+                  step: "01",
+                  items: ["CSV Upload", "Excel Files", "Google Sheets", "API Integration"],
+                },
+                {
+                  icon: <Sparkle />,
+                  title: "Transform With AI",
+                  step: "02",
+                  items: ["Built-in Rules", "Custom Prompts", "Batch Processing", "Real-time Preview"],
+                },
+                {
+                  icon: <ArrowsClockwise />,
+                  title: "Export Anywhere",
+                  step: "03",
+                  items: ["Download CSV", "Push to CRM", "Webhook Delivery", "API Response"],
+                },
+              ].map((step, index) => (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.15 }}
+                  className={`relative p-8 rounded-2xl ${isDark ? "bg-[#0a0a0a]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-gray-200"} shadow-lg`}
+                >
+                  {/* Step Number Badge */}
+                  <div className="absolute -top-3 left-8">
+                    <span className="px-3 py-1 text-xs font-semibold bg-[#3e8aff] text-white rounded-full">
+                      Step {step.step}
+                    </span>
+                  </div>
+
+                  {/* Icon */}
+                  <div className="mb-6 pt-2">
+                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/5"}`}>
+                      <div className="text-[#3e8aff]">
+                        {step.icon}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                  </div>
+
+                  <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+                    {step.title}
+                  </h3>
+
+                  <div className="space-y-3">
+                    {step.items.map((item) => (
+                      <div
+                        key={item}
+                        className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
+                      >
+                        <Check className="w-4 h-4 text-[#3e8aff] flex-shrink-0" />
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
