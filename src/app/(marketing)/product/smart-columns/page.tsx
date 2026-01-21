@@ -606,29 +606,39 @@ export default function SmartColumnsPage() {
 
           {/* Flow Steps */}
           <div className="relative">
-            {/* Connection Lines (Desktop) */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 -translate-y-1/2 px-[16%]">
-              <div className={`h-0.5 ${isDark ? "bg-gradient-to-r from-[#3e8aff]/50 via-[#3e8aff] to-[#3e8aff]/50" : "bg-gradient-to-r from-[#3e8aff]/30 via-[#3e8aff]/60 to-[#3e8aff]/30"}`} />
+            {/* Connection Arrows (Desktop) */}
+            <div className="hidden lg:flex absolute top-1/2 left-0 right-0 -translate-y-1/2 justify-center gap-[calc(33.33%-60px)] px-20 pointer-events-none z-10">
+              <div className="flex items-center">
+                <div className={`w-16 h-0.5 ${isDark ? "bg-[#3e8aff]/40" : "bg-[#3e8aff]/30"}`} />
+                <ArrowRight className={`w-5 h-5 -ml-1 ${isDark ? "text-[#3e8aff]/60" : "text-[#3e8aff]/50"}`} />
+              </div>
+              <div className="flex items-center">
+                <div className={`w-16 h-0.5 ${isDark ? "bg-[#3e8aff]/40" : "bg-[#3e8aff]/30"}`} />
+                <ArrowRight className={`w-5 h-5 -ml-1 ${isDark ? "text-[#3e8aff]/60" : "text-[#3e8aff]/50"}`} />
+              </div>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 relative">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 relative">
               {[
                 {
-                  icon: <FileXls />,
+                  icon: <FileXls weight="duotone" />,
                   title: "Import Sources",
                   step: "01",
+                  description: "Bring your data from anywhere",
                   items: ["CSV Upload", "Excel Files", "Google Sheets", "API Integration"],
                 },
                 {
-                  icon: <Sparkle />,
+                  icon: <Sparkle weight="duotone" />,
                   title: "Transform With AI",
                   step: "02",
+                  description: "AI-powered transformations",
                   items: ["Built-in Rules", "Custom Prompts", "Batch Processing", "Real-time Preview"],
                 },
                 {
-                  icon: <ArrowsClockwise />,
+                  icon: <ArrowsClockwise weight="duotone" />,
                   title: "Export Anywhere",
                   step: "03",
+                  description: "Send to any destination",
                   items: ["Download CSV", "Push to CRM", "Webhook Delivery", "API Response"],
                 },
               ].map((step, index) => (
@@ -638,35 +648,40 @@ export default function SmartColumnsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.15 }}
-                  className={`relative p-8 rounded-2xl ${isDark ? "bg-[#0a0a0a]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-gray-200"} shadow-lg`}
+                  className={`group relative p-6 lg:p-8 rounded-2xl ${isDark ? "bg-[#0a0a0a] hover:bg-[#0d0d0d]" : "bg-white hover:shadow-xl"} border ${isDark ? "border-white/[0.08] hover:border-[#3e8aff]/30" : "border-gray-200 hover:border-[#3e8aff]/30"} shadow-lg transition-all duration-300`}
                 >
                   {/* Step Number Badge */}
-                  <div className="absolute -top-3 left-8">
-                    <span className="px-3 py-1 text-xs font-semibold bg-[#3e8aff] text-white rounded-full">
+                  <div className="absolute -top-3 left-6">
+                    <span className="px-3 py-1.5 text-xs font-bold bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] text-white rounded-full shadow-lg shadow-[#3e8aff]/25">
                       Step {step.step}
                     </span>
                   </div>
 
                   {/* Icon */}
-                  <div className="mb-6 pt-2">
-                    <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/5"}`}>
-                      <div className="text-[#3e8aff]">
+                  <div className="mb-5 pt-3">
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${isDark ? "bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5" : "bg-gradient-to-br from-[#3e8aff]/10 to-[#3e8aff]/5"} border ${isDark ? "border-[#3e8aff]/20" : "border-[#3e8aff]/15"} group-hover:scale-105 transition-transform duration-300`}>
+                      <div className="text-[#3e8aff] text-2xl">
                         {step.icon}
                       </div>
                     </div>
                   </div>
 
-                  <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+                  <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>
                     {step.title}
                   </h3>
+                  <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-500"} mb-5`}>
+                    {step.description}
+                  </p>
 
-                  <div className="space-y-3">
+                  <div className={`space-y-2 p-4 rounded-xl ${isDark ? "bg-white/[0.02]" : "bg-gray-50"}`}>
                     {step.items.map((item) => (
                       <div
                         key={item}
-                        className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
+                        className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}
                       >
-                        <Check className="w-4 h-4 text-[#3e8aff] flex-shrink-0" />
+                        <div className={`w-5 h-5 rounded-full flex items-center justify-center ${isDark ? "bg-[#3e8aff]/20" : "bg-[#3e8aff]/10"}`}>
+                          <Check weight="bold" className="w-3 h-3 text-[#3e8aff]" />
+                        </div>
                         {item}
                       </div>
                     ))}

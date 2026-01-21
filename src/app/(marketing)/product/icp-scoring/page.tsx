@@ -16,7 +16,7 @@ import {
   Stack,
   Lightning,
 } from "@phosphor-icons/react";
-import { DashboardMockup, VerticalStepper, TechnicalGrid, GlowIcon } from "@/components/ui";
+import { VerticalStepper, TechnicalGrid, GlowIcon } from "@/components/ui";
 
 const companyTargeting = [
   { label: "Industries", description: "Target specific sectors and sub-categories" },
@@ -125,8 +125,98 @@ export default function ICPScoringPage() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
+              className="relative"
             >
-              <DashboardMockup variant="default" />
+              {/* ICP Score Demo Card */}
+              <div className={`rounded-2xl overflow-hidden ${isDark ? "bg-[#0a0a0a]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-gray-200"} shadow-2xl`}>
+                {/* Browser Chrome */}
+                <div className={`flex items-center gap-2 px-4 py-3 border-b ${isDark ? "border-white/[0.08] bg-[#0d0d0d]" : "border-gray-100 bg-gray-50"}`}>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                  </div>
+                  <div className={`flex-1 mx-4 px-3 py-1 rounded-md text-xs ${isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-400"}`}>
+                    app.cleanlist.ai/icp-scoring
+                  </div>
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>Live</span>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  {/* Table Header */}
+                  <div className={`grid grid-cols-[1.5fr,1fr,80px,100px] gap-3 px-3 py-2 text-xs font-semibold border-b ${isDark ? "border-white/[0.08] text-gray-400" : "border-gray-200 text-gray-500"}`}>
+                    <span>Contact</span>
+                    <span>Company</span>
+                    <span className="text-center">ICP Score</span>
+                    <span className="text-right">Fit Level</span>
+                  </div>
+
+                  {/* Contact Rows with Animated Scores */}
+                  <div className="divide-y divide-white/[0.05]">
+                    {[
+                      { name: "Sarah Chen", title: "VP Sales", company: "TechCorp", size: "500-1000", score: 94, level: "Perfect", delay: 0 },
+                      { name: "Michael Ross", title: "CRO", company: "ScaleUp Inc", size: "200-500", score: 87, level: "Perfect", delay: 0.15 },
+                      { name: "Lisa Park", title: "Head of BD", company: "GrowthCo", size: "50-200", score: 72, level: "Good", delay: 0.3 },
+                      { name: "James Wilson", title: "Sales Director", company: "CloudBase", size: "1000+", score: 65, level: "Good", delay: 0.45 },
+                      { name: "Emma Davis", title: "Account Exec", company: "StartupXYZ", size: "10-50", score: 45, level: "Fair", delay: 0.6 },
+                    ].map((contact) => (
+                      <motion.div
+                        key={contact.name}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: contact.delay + 0.5 }}
+                        className={`grid grid-cols-[1.5fr,1fr,80px,100px] gap-3 items-center px-3 py-3 ${isDark ? "hover:bg-white/[0.02]" : "hover:bg-gray-50"}`}
+                      >
+                        <div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{contact.name}</div>
+                          <div className="text-xs text-gray-500">{contact.title}</div>
+                        </div>
+                        <div>
+                          <div className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{contact.company}</div>
+                          <div className="text-xs text-gray-500">{contact.size}</div>
+                        </div>
+                        <div className="text-center">
+                          <motion.div
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ delay: contact.delay + 0.8, type: "spring", stiffness: 200 }}
+                            className={`inline-flex items-center justify-center w-10 h-10 rounded-full ${
+                              contact.score >= 80 ? "bg-[#3e8aff]/20" : contact.score >= 60 ? "bg-[#60a5fa]/15" : "bg-gray-500/15"
+                            }`}
+                          >
+                            <span className={`text-sm font-bold ${
+                              contact.score >= 80 ? "text-[#3e8aff]" : contact.score >= 60 ? "text-[#60a5fa]" : "text-gray-400"
+                            }`}>
+                              {contact.score}
+                            </span>
+                          </motion.div>
+                        </div>
+                        <div className="text-right">
+                          <motion.span
+                            initial={{ x: 20, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ delay: contact.delay + 1 }}
+                            className={`inline-flex px-2.5 py-1 text-xs font-semibold rounded-full ${
+                              contact.level === "Perfect"
+                                ? "bg-[#3e8aff]/20 text-[#3e8aff]"
+                                : contact.level === "Good"
+                                ? "bg-[#60a5fa]/20 text-[#60a5fa]"
+                                : "bg-gray-500/20 text-gray-400"
+                            }`}
+                          >
+                            {contact.level}
+                          </motion.span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative glow */}
+              <div className="absolute -inset-4 bg-[#3e8aff]/5 rounded-3xl blur-2xl -z-10" />
             </motion.div>
           </div>
         </div>
@@ -143,7 +233,7 @@ export default function ICPScoringPage() {
                 label: "Fit Levels",
                 value: "4",
                 subValue: "Perfect, Good, Fair, Poor",
-                color: "purple",
+                color: "blue",
               },
               {
                 icon: <Stack />,
@@ -194,48 +284,73 @@ export default function ICPScoringPage() {
                   with customizable weights for your specific priorities.
                 </p>
 
-                {/* Score Output Example */}
-                <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
-                  <div className="flex items-center justify-between mb-6">
-                    <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>Example Lead Score</span>
-                    <span className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full">
-                      Perfect Fit
-                    </span>
+                {/* Leads List with ICP Scores */}
+                <div className={`rounded-xl overflow-hidden ${isDark ? "bg-[#0a0a0a]" : "bg-white"} border ${isDark ? "border-white/[0.08]" : "border-gray-200"} shadow-lg`}>
+                  {/* Header */}
+                  <div className={`px-4 py-3 border-b ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-gray-100 bg-gray-50"}`}>
+                    <div className="flex items-center justify-between">
+                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Lead List</span>
+                      <span className="text-xs text-[#3e8aff]">ICP Score Column</span>
+                    </div>
                   </div>
 
-                  <div className="space-y-4">
+                  {/* Table Header */}
+                  <div className={`grid grid-cols-[1fr,80px,100px] gap-2 px-4 py-2 text-xs font-medium border-b ${isDark ? "border-white/[0.05] text-gray-500" : "border-gray-100 text-gray-500"}`}>
+                    <span>Name</span>
+                    <span className="text-center">ICP Score</span>
+                    <span className="text-right">Fit Level</span>
+                  </div>
+
+                  {/* Lead Rows */}
+                  <div className="divide-y divide-white/[0.05]">
                     {[
-                      { label: "Overall Score", value: 92, color: "green" },
-                      { label: "Company Fit", value: 95, color: "purple" },
-                      { label: "Prospect Fit", value: 88, color: "blue" },
-                      { label: "Behavioral Fit", value: 90, color: "yellow" },
-                      { label: "Geographic Fit", value: 100, color: "green" },
-                    ].map((score) => (
-                      <div key={score.label}>
-                        <div className="flex items-center justify-between text-sm mb-1">
-                          <span className={isDark ? "text-gray-300" : "text-gray-700"}>{score.label}</span>
-                          <span className={`text-${score.color}-400 font-medium`}>
-                            {score.value}%
-                          </span>
+                      { name: "Sarah Chen", company: "TechCorp", score: 94, level: "Perfect" },
+                      { name: "Mike Johnson", company: "ScaleUp Inc", score: 87, level: "Perfect" },
+                      { name: "Lisa Park", company: "GrowthCo", score: 72, level: "Good" },
+                      { name: "David Kim", company: "StartupXYZ", score: 65, level: "Good" },
+                      { name: "Emma Wilson", company: "MediumBiz", score: 48, level: "Fair" },
+                    ].map((lead, i) => (
+                      <motion.div
+                        key={lead.name}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 }}
+                        className={`grid grid-cols-[1fr,80px,100px] gap-2 items-center px-4 py-3 ${isDark ? "hover:bg-white/[0.02]" : "hover:bg-gray-50"}`}
+                      >
+                        <div>
+                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{lead.name}</div>
+                          <div className="text-xs text-gray-500">{lead.company}</div>
                         </div>
-                        <div className={`h-2 rounded-full overflow-hidden ${isDark ? "bg-white/[0.05]" : "bg-gray-200"}`}>
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${score.value}%` }}
+                        <div className="text-center">
+                          <motion.span
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1, ease: "easeOut" }}
-                            className={`h-full rounded-full ${
-                              score.color === "green"
-                                ? "bg-green-500"
-                                : score.color === "purple"
-                                ? "bg-[#3e8aff]"
-                                : score.color === "blue"
-                                ? "bg-[#3e8aff]"
-                                : "bg-yellow-500"
-                            }`}
-                          />
+                            transition={{ delay: i * 0.1 + 0.3 }}
+                            className="text-lg font-bold text-[#3e8aff]"
+                          >
+                            {lead.score}
+                          </motion.span>
                         </div>
-                      </div>
+                        <div className="text-right">
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 + 0.4, type: "spring" }}
+                            className={`inline-flex px-2 py-0.5 text-xs font-medium rounded-full ${
+                              lead.level === "Perfect"
+                                ? "bg-[#3e8aff]/20 text-[#3e8aff]"
+                                : lead.level === "Good"
+                                ? "bg-[#60a5fa]/20 text-[#60a5fa]"
+                                : "bg-gray-500/20 text-gray-400"
+                            }`}
+                          >
+                            {lead.level}
+                          </motion.span>
+                        </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
