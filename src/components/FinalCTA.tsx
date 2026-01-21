@@ -24,7 +24,11 @@ export default function FinalCTA() {
           className="text-center"
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 tracking-tight text-white">
-            Ready to clean your data?
+            Ready to transform your{" "}
+            <span className="text-[#3e8aff] underline decoration-[#3e8aff] underline-offset-4">
+              GTM strategy
+            </span>
+            ?
           </h2>
 
           <p className="text-lg md:text-xl lg:text-2xl mb-10 text-gray-400">
