@@ -279,17 +279,39 @@ function FeaturedPostCard({ post, isDark }: { post: Post; isDark: boolean }) {
               />
             ) : (
               <div
-                className="absolute inset-0"
-                style={{
-                  background: `linear-gradient(135deg, ${categoryColor}20 0%, ${categoryColor}05 100%)`,
-                }}
+                className={`absolute inset-0 ${
+                  isDark
+                    ? "bg-gradient-to-br from-[#0f1729] via-[#0a0f1a] to-[#030303]"
+                    : "bg-gradient-to-br from-[#f0f7ff] via-[#e8f4ff] to-[#dbeafe]"
+                }`}
               >
+                {/* Grid pattern */}
                 <div
-                  className="absolute inset-0 opacity-30"
+                  className="absolute inset-0"
                   style={{
-                    backgroundImage: `radial-gradient(circle at 30% 50%, ${categoryColor}40, transparent 50%)`,
+                    backgroundImage: isDark
+                      ? `linear-gradient(${categoryColor}15 1px, transparent 1px), linear-gradient(90deg, ${categoryColor}15 1px, transparent 1px)`
+                      : `linear-gradient(${categoryColor}20 1px, transparent 1px), linear-gradient(90deg, ${categoryColor}20 1px, transparent 1px)`,
+                    backgroundSize: "32px 32px",
                   }}
                 />
+                {/* Glow orbs */}
+                <div
+                  className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full blur-3xl"
+                  style={{ backgroundColor: `${categoryColor}${isDark ? "30" : "25"}` }}
+                />
+                <div
+                  className="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full blur-3xl"
+                  style={{ backgroundColor: `${isDark ? "#3e8aff" : "#60a5fa"}${isDark ? "20" : "20"}` }}
+                />
+                {/* Decorative elements */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className={`relative ${isDark ? "text-white/10" : "text-[#3e8aff]/20"}`}>
+                    <Sparkle size={80} weight="thin" className="absolute -top-8 -left-12 rotate-12" />
+                    <Tag size={100} weight="thin" />
+                    <ArrowRight size={60} weight="thin" className="absolute -bottom-6 -right-8 -rotate-12" />
+                  </div>
+                </div>
               </div>
             )}
             {/* Gradient overlay */}
@@ -297,7 +319,7 @@ function FeaturedPostCard({ post, isDark }: { post: Post; isDark: boolean }) {
               className={`absolute inset-0 ${
                 isDark
                   ? "bg-gradient-to-r from-transparent via-transparent to-[#0a0a0a]"
-                  : "bg-gradient-to-r from-transparent via-transparent to-white"
+                  : "bg-gradient-to-r from-transparent via-[#ffffff20] to-white"
               } md:block hidden`}
             />
           </div>
@@ -411,30 +433,40 @@ function PostCard({ post, isDark }: { post: Post; isDark: boolean }) {
             />
           ) : (
             <div
-              className="absolute inset-0"
-              style={{
-                background: `linear-gradient(135deg, ${categoryColor}15 0%, ${isDark ? "#0a0a0a" : "#f5f5f5"} 100%)`,
-              }}
+              className={`absolute inset-0 ${
+                isDark
+                  ? "bg-gradient-to-br from-[#0f1729] via-[#0a0f1a] to-[#0a0a0a]"
+                  : "bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0]"
+              }`}
             >
+              {/* Grid pattern */}
               <div
-                className="absolute inset-0 opacity-40"
+                className="absolute inset-0"
                 style={{
-                  backgroundImage: `radial-gradient(circle at 70% 30%, ${categoryColor}30, transparent 50%)`,
+                  backgroundImage: isDark
+                    ? `linear-gradient(${categoryColor}10 1px, transparent 1px), linear-gradient(90deg, ${categoryColor}10 1px, transparent 1px)`
+                    : `linear-gradient(${categoryColor}15 1px, transparent 1px), linear-gradient(90deg, ${categoryColor}15 1px, transparent 1px)`,
+                  backgroundSize: "24px 24px",
                 }}
               />
-              {/* Decorative icon */}
+              {/* Glow */}
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full blur-2xl"
+                style={{ backgroundColor: `${categoryColor}${isDark ? "25" : "20"}` }}
+              />
+              {/* Icon */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <Tag
-                  size={48}
-                  weight="thin"
-                  className={isDark ? "text-white/10" : "text-gray-300"}
+                  size={40}
+                  weight="duotone"
+                  style={{ color: `${categoryColor}${isDark ? "40" : "50"}` }}
                 />
               </div>
             </div>
           )}
           {/* Gradient fade */}
           <div
-            className={`absolute inset-x-0 bottom-0 h-16 ${
+            className={`absolute inset-x-0 bottom-0 h-12 ${
               isDark
                 ? "bg-gradient-to-t from-[#0a0a0a] to-transparent"
                 : "bg-gradient-to-t from-white to-transparent"
