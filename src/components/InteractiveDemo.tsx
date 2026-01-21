@@ -53,9 +53,14 @@ const searchResults = [
   { name: "David Kim", title: "Director of Sales", company: "Linear", location: "Austin", employees: "100-500" },
 ];
 
+const searchQuery = "VP Sales at SaaS companies in US, $1-10M revenue";
+
 export default function InteractiveDemo() {
   const [activeTab, setActiveTab] = useState("extraction");
   const [animationStep, setAnimationStep] = useState(0);
+  const [searchTypingIndex, setSearchTypingIndex] = useState(0);
+  const [isSearching, setIsSearching] = useState(false);
+  const [showSearchResults, setShowSearchResults] = useState(false);
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const containerRef = useRef<HTMLDivElement>(null);
@@ -70,14 +75,61 @@ export default function InteractiveDemo() {
     }
   }, [isInView, activeTab]);
 
+  // Search typing animation
+  useEffect(() => {
+    if (activeTab !== "search") {
+      setSearchTypingIndex(0);
+      setIsSearching(false);
+      setShowSearchResults(false);
+      return;
+    }
+
+    // Start typing after a short delay
+    const startDelay = setTimeout(() => {
+      const interval = setInterval(() => {
+        setSearchTypingIndex((prev) => {
+          if (prev >= searchQuery.length) {
+            clearInterval(interval);
+            // Start "searching" animation
+            setTimeout(() => {
+              setIsSearching(true);
+              // Show results after search
+              setTimeout(() => {
+                setIsSearching(false);
+                setShowSearchResults(true);
+                // Trigger animation steps for results
+                setAnimationStep(1);
+                setTimeout(() => setAnimationStep(2), 200);
+                setTimeout(() => setAnimationStep(3), 400);
+                setTimeout(() => setAnimationStep(4), 600);
+              }, 1000);
+            }, 300);
+            return prev;
+          }
+          return prev + 1;
+        });
+      }, 50);
+
+      return () => clearInterval(interval);
+    }, 400);
+
+    return () => clearTimeout(startDelay);
+  }, [activeTab]);
+
   // Reset animation when tab changes
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
     setAnimationStep(0);
-    // Auto-advance animation
-    setTimeout(() => setAnimationStep(1), 500);
-    setTimeout(() => setAnimationStep(2), 1500);
-    setTimeout(() => setAnimationStep(3), 2500);
+    setSearchTypingIndex(0);
+    setIsSearching(false);
+    setShowSearchResults(false);
+
+    // Auto-advance animation for non-search tabs
+    if (tabId !== "search") {
+      setTimeout(() => setAnimationStep(1), 500);
+      setTimeout(() => setAnimationStep(2), 1500);
+      setTimeout(() => setAnimationStep(3), 2500);
+    }
   };
 
   return (
@@ -255,57 +307,76 @@ export default function InteractiveDemo() {
                 {/* Search demo */}
                 <div className={`p-5 md:p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-black/[0.08]"}`}>
                   <div className="flex items-center gap-2 mb-4">
-                    <MagnifyingGlass className="text-[#3e8aff]" size={18} />
+                    <MagnifyingGlass className={`${isSearching ? "text-[#3e8aff] animate-pulse" : "text-[#3e8aff]"}`} size={18} />
                     <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>People Search</h4>
                   </div>
 
-                  {/* Search query */}
-                  <div className={`p-3 rounded-lg mb-4 ${isDark ? "bg-white/[0.03] border border-white/[0.08]" : "bg-gray-50 border border-gray-200"}`}>
-                    <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                      &ldquo;VP Sales at SaaS companies in US, $1-10M revenue&rdquo;
-                    </p>
+                  {/* Search query with typing animation */}
+                  <div className={`p-3 rounded-lg mb-4 transition-colors ${isSearching ? "border-[#3e8aff]" : ""} ${isDark ? "bg-white/[0.03] border border-white/[0.08]" : "bg-gray-50 border border-gray-200"}`}>
+                    <div className="flex items-start gap-2">
+                      <Sparkle className={`mt-0.5 flex-shrink-0 ${isSearching ? "text-[#3e8aff] animate-pulse" : "text-gray-400"}`} size={14} />
+                      <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                        {searchQuery.slice(0, searchTypingIndex)}
+                        {searchTypingIndex < searchQuery.length && (
+                          <span className="inline-block w-0.5 h-4 bg-[#3e8aff] animate-pulse ml-0.5 align-middle" />
+                        )}
+                      </p>
+                    </div>
+                    {isSearching && (
+                      <div className="mt-2 h-0.5 bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] animate-pulse rounded-full" />
+                    )}
                   </div>
 
                   {/* Results header */}
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                      <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                        {animationStep >= 1 ? "2,847 matches" : "Searching..."}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Results */}
-                  <div className="space-y-2">
-                    {searchResults.map((result, i) => (
+                  <AnimatePresence>
+                    {showSearchResults && (
                       <motion.div
-                        key={result.name}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: animationStep >= i + 1 ? 1 : 0.3, y: 0 }}
-                        transition={{ delay: i * 0.15 }}
-                        className={`flex items-center gap-3 p-2 rounded-lg ${isDark ? "bg-white/[0.02] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"} transition-colors`}
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        className="overflow-hidden"
                       >
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center text-white text-xs font-medium flex-shrink-0">
-                          {result.name.split(" ").map(n => n[0]).join("")}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-1.5">
-                            <span className={`text-sm font-medium truncate ${isDark ? "text-white" : "text-gray-900"}`}>{result.name}</span>
-                            <LinkedinLogo className="text-[#0077b5] flex-shrink-0" size={12} />
+                        <div className="flex items-center justify-between mb-3">
+                          <div className="flex items-center gap-2">
+                            <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                            <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                              2,847 matches found
+                            </span>
                           </div>
-                          <div className="text-xs text-gray-500 truncate">{result.title} at {result.company}</div>
                         </div>
-                        <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
-                          <MapPin size={10} />
-                          <span>{result.location}</span>
+
+                        {/* Results */}
+                        <div className="space-y-2">
+                          {searchResults.map((result, i) => (
+                            <motion.div
+                              key={result.name}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={{ opacity: animationStep >= i + 1 ? 1 : 0, x: 0 }}
+                              transition={{ delay: i * 0.1 }}
+                              className={`flex items-center gap-3 p-2 rounded-lg ${isDark ? "bg-white/[0.02] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"} transition-colors`}
+                            >
+                              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center text-white text-xs font-medium flex-shrink-0">
+                                {result.name.split(" ").map(n => n[0]).join("")}
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-1.5">
+                                  <span className={`text-sm font-medium truncate ${isDark ? "text-white" : "text-gray-900"}`}>{result.name}</span>
+                                  <LinkedinLogo className="text-[#0077b5] flex-shrink-0" size={12} />
+                                </div>
+                                <div className="text-xs text-gray-500 truncate">{result.title} at {result.company}</div>
+                              </div>
+                              <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
+                                <MapPin size={10} />
+                                <span>{result.location}</span>
+                              </div>
+                              <button className="p-1.5 rounded bg-[#3e8aff]/10 text-[#3e8aff] hover:bg-[#3e8aff]/20 transition-colors flex-shrink-0">
+                                <UserPlus size={14} />
+                              </button>
+                            </motion.div>
+                          ))}
                         </div>
-                        <button className="p-1.5 rounded bg-[#3e8aff]/10 text-[#3e8aff] hover:bg-[#3e8aff]/20 transition-colors flex-shrink-0">
-                          <UserPlus size={14} />
-                        </button>
                       </motion.div>
-                    ))}
-                  </div>
+                    )}
+                  </AnimatePresence>
                 </div>
 
                 {/* Explanation */}
