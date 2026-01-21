@@ -466,7 +466,7 @@ export default function ICPScoringPage() {
               <div className="space-y-3">
                 {prospectTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
-                    <Check className="text-blue-400 mt-1 shrink-0" />
+                    <Check className="text-[#3e8aff] mt-1 shrink-0" />
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
@@ -484,12 +484,12 @@ export default function ICPScoringPage() {
               transition={{ delay: 0.2 }}
               className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
-              <GlowIcon icon={<Globe />} size="lg" color="green" variant="glow" className="mb-4" />
+              <GlowIcon icon={<Globe />} size="lg" color="blue" variant="glow" className="mb-4" />
               <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>Geographic Targeting</h3>
               <div className="space-y-3">
                 {geoTargeting.map((item) => (
                   <div key={item.label} className="flex items-start gap-2">
-                    <Check className="text-green-400 mt-1 shrink-0" />
+                    <Check className="text-[#3e8aff] mt-1 shrink-0" />
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
                       <div className="text-xs text-gray-500">{item.description}</div>
@@ -522,28 +522,28 @@ export default function ICPScoringPage() {
               {
                 level: "Perfect Fit",
                 range: "80-100%",
-                color: "green",
+                score: 92,
                 description: "Ideal prospects matching all key criteria",
                 action: "Prioritize for immediate outreach",
               },
               {
                 level: "Good Fit",
                 range: "60-79%",
-                color: "blue",
+                score: 70,
                 description: "Strong matches with minor gaps",
                 action: "Include in primary sequences",
               },
               {
                 level: "Fair Fit",
                 range: "40-59%",
-                color: "yellow",
+                score: 50,
                 description: "Partial matches worth nurturing",
                 action: "Add to nurture campaigns",
               },
               {
                 level: "Poor Fit",
                 range: "0-39%",
-                color: "red",
+                score: 25,
                 description: "Low alignment with your ICP",
                 action: "Deprioritize or exclude",
               },
@@ -554,27 +554,33 @@ export default function ICPScoringPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl border ${
-                  fit.color === "green"
-                    ? "bg-green-500/5 border-green-500/20"
-                    : fit.color === "blue"
-                    ? "bg-blue-500/5 border-blue-500/20"
-                    : fit.color === "yellow"
-                    ? "bg-yellow-500/5 border-yellow-500/20"
-                    : "bg-red-500/5 border-red-500/20"
-                }`}
+                className={`p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200"} hover:border-[#3e8aff]/30 transition-colors`}
               >
-                <div
-                  className={`inline-flex px-3 py-1 rounded-full text-sm font-medium mb-4 ${
-                    fit.color === "green"
-                      ? "bg-green-500/20 text-green-400"
-                      : fit.color === "blue"
-                      ? "bg-blue-500/20 text-blue-400"
-                      : fit.color === "yellow"
-                      ? "bg-yellow-500/20 text-yellow-400"
-                      : "bg-red-500/20 text-red-400"
-                  }`}
-                >
+                {/* Score Circle */}
+                <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-4 ${
+                  fit.score >= 80
+                    ? "bg-[#3e8aff]/20"
+                    : fit.score >= 60
+                    ? "bg-[#3e8aff]/15"
+                    : fit.score >= 40
+                    ? "bg-[#3e8aff]/10"
+                    : "bg-gray-500/10"
+                }`}>
+                  <span className={`text-xl font-bold ${
+                    fit.score >= 60 ? "text-[#3e8aff]" : "text-gray-400"
+                  }`}>
+                    {fit.score}
+                  </span>
+                </div>
+                <div className={`inline-flex px-3 py-1 rounded-full text-xs font-semibold mb-3 ${
+                  fit.score >= 80
+                    ? "bg-[#3e8aff]/20 text-[#3e8aff]"
+                    : fit.score >= 60
+                    ? "bg-[#60a5fa]/20 text-[#60a5fa]"
+                    : fit.score >= 40
+                    ? "bg-gray-500/20 text-gray-400"
+                    : "bg-gray-500/15 text-gray-500"
+                }`}>
                   {fit.range}
                 </div>
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{fit.level}</h3>
