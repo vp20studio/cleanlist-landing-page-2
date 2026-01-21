@@ -445,9 +445,22 @@ export default function DataTransformDemo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-10 md:mt-14"
+          className="mt-20 md:mt-32"
         >
-          {/* Video Demo - Now first */}
+          {/* Section Header */}
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+              Transform any column with{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                AI
+              </span>
+            </h2>
+            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Normalize job titles, parse names, format phone numbers, categorize industries — all automatically. Your messy data, instantly structured.
+            </p>
+          </div>
+
+          {/* Video Demo */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
