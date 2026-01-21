@@ -162,7 +162,7 @@ export default function LeadExtractionDemo() {
       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
         {/* Animation Panel */}
         <div
-          className={`relative p-5 rounded-xl border overflow-hidden min-h-[320px] ${
+          className={`relative p-5 rounded-xl border overflow-hidden h-[320px] ${
             isDark
               ? "bg-[#0a0a0a] border-white/[0.08]"
               : "bg-white border-black/[0.08]"

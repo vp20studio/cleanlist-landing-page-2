@@ -346,13 +346,13 @@ export default function SolutionSection() {
         </motion.div>
 
         {/* Interactive Feature Cards */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
           {/* Left: Feature Selector */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-3"
+            className="flex flex-col gap-3"
           >
             {features.map((feature, index) => (
               <motion.div
@@ -361,7 +361,7 @@ export default function SolutionSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                 onClick={() => setActiveFeature(feature.id)}
-                className={`p-5 rounded-2xl cursor-pointer transition-all duration-300 group border ${
+                className={`flex-1 p-5 rounded-2xl cursor-pointer transition-all duration-300 group border flex items-center ${
                   activeFeature === feature.id
                     ? isDark
                       ? "bg-[#3e8aff]/10 border-[#3e8aff]/30 shadow-lg shadow-[#3e8aff]/10"
@@ -371,8 +371,8 @@ export default function SolutionSection() {
                       : "bg-white border-gray-200 hover:border-[#3e8aff]/20 hover:shadow-md"
                 }`}
               >
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
+                <div className="flex items-center gap-4 w-full">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${
                     activeFeature === feature.id
                       ? "bg-[#3e8aff] text-white shadow-lg shadow-[#3e8aff]/30"
                       : isDark
@@ -381,10 +381,10 @@ export default function SolutionSection() {
                   }`}>
                     <span className="text-xl">{feature.icon}</span>
                   </div>
-                  <div className="flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between mb-0.5">
                       <h3 className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{feature.title}</h3>
-                      <ArrowRight className={`w-5 h-5 transition-all ${
+                      <ArrowRight className={`w-5 h-5 flex-shrink-0 transition-all ${
                         activeFeature === feature.id
                           ? "opacity-100 translate-x-0 text-[#3e8aff]"
                           : "opacity-0 -translate-x-2"
@@ -402,10 +402,10 @@ export default function SolutionSection() {
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative"
+            className="relative flex"
           >
             {/* Glow behind card */}
-            <div className={`absolute -inset-4 rounded-3xl blur-2xl transition-all duration-500 ${
+            <div className={`absolute -inset-4 rounded-3xl blur-2xl transition-all duration-500 pointer-events-none ${
               isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/5"
             }`} />
 
@@ -414,7 +414,7 @@ export default function SolutionSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className={`relative p-6 md:p-8 rounded-3xl border ${
+              className={`relative p-6 md:p-8 rounded-3xl border w-full flex flex-col ${
                 isDark
                   ? "bg-gradient-to-b from-[#0a0a0a] to-[#050505] border-white/[0.08]"
                   : "bg-white border-gray-200 shadow-xl shadow-[#3e8aff]/5"
@@ -435,7 +435,7 @@ export default function SolutionSection() {
               <p className={`mb-6 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{activeData.description}</p>
 
               {/* Visual */}
-              <div className={`mb-6 p-4 rounded-2xl ${
+              <div className={`mb-6 p-4 rounded-2xl flex-1 flex flex-col justify-center ${
                 isDark
                   ? "bg-white/[0.02] border border-white/[0.05]"
                   : "bg-gray-50 border border-gray-100"

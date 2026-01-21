@@ -114,34 +114,40 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center justify-center gap-4 mb-12 relative"
+          className="flex items-center justify-center mb-12"
         >
-          <span
-            className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-[#888888]"}`}
-          >
-            Monthly
-          </span>
+          {/* Invisible spacer to balance the badge */}
+          <span className="w-[72px] hidden sm:block" />
 
-          <button
-            onClick={() => setIsYearly(!isYearly)}
-            className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
-              isYearly ? "bg-[#3e8aff]" : "bg-[rgba(255,255,255,0.1)]"
-            }`}
-          >
-            <div
-              className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
-                isYearly ? "left-8" : "left-1"
+          <div className="flex items-center gap-4">
+            <span
+              className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-[#888888]"}`}
+            >
+              Monthly
+            </span>
+
+            <button
+              onClick={() => setIsYearly(!isYearly)}
+              className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
+                isYearly ? "bg-[#3e8aff]" : "bg-[rgba(255,255,255,0.1)]"
               }`}
-            />
-          </button>
+            >
+              <div
+                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
+                  isYearly ? "left-8" : "left-1"
+                }`}
+              />
+            </button>
 
-          <span
-            className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-[#888888]"}`}
-          >
-            Yearly
-          </span>
+            <span
+              className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-[#888888]"}`}
+            >
+              Yearly
+            </span>
+          </div>
 
-          <span className={`absolute left-1/2 translate-x-16 text-xs px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.1)] text-[#22c55e] border border-[rgba(34,197,94,0.2)] transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>
+          {/* Save badge */}
+          <span className={`ml-3 text-xs px-2 py-0.5 rounded-full bg-[rgba(34,197,94,0.1)] text-[#22c55e] border border-[rgba(34,197,94,0.2)] transition-opacity duration-200 w-[72px] text-center ${isYearly ? "opacity-100" : "opacity-0"}`}>
             Save 20%
           </span>
         </motion.div>
