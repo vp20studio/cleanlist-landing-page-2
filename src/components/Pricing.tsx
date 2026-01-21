@@ -114,11 +114,8 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex items-center justify-center mb-12"
+          className="relative flex items-center justify-center mb-12"
         >
-          {/* Invisible spacer to balance the badge */}
-          <span className="w-[72px] hidden sm:block" />
-
           <div className="flex items-center gap-3">
             <span
               className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-[#888888]"}`}
@@ -144,12 +141,12 @@ export default function Pricing() {
             >
               Yearly
             </span>
-          </div>
 
-          {/* Save badge */}
-          <span className={`ml-3 px-2 py-1 text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] rounded-full transition-opacity duration-200 w-[72px] text-center ${isYearly ? "opacity-100" : "opacity-0"}`}>
-            Save 20%
-          </span>
+            {/* Save badge - absolute so it doesn't affect centering */}
+            <span className={`absolute left-1/2 ml-[85px] px-2 py-1 text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] rounded-full transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>
+              Save 20%
+            </span>
+          </div>
         </motion.div>
 
         {/* Pricing Cards */}
