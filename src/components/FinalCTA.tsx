@@ -12,8 +12,8 @@ export default function FinalCTA() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 relative overflow-hidden bg-[#030303]">
-      {/* Stars Background with Rocket */}
-      <StarsBackground showRocket />
+      {/* Stars Background */}
+      <StarsBackground />
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 md:px-6 relative z-10">

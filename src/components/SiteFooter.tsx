@@ -33,8 +33,8 @@ const footerLinks = {
 export default function SiteFooter() {
   return (
     <footer className="relative bg-[#030303] overflow-hidden">
-      {/* Stars Background */}
-      <StarsBackground starCount={30} seed={100} />
+      {/* Stars Background with Rocket */}
+      <StarsBackground starCount={30} seed={100} showRocket />
 
       {/* Main Footer */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">

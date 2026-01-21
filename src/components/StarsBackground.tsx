@@ -25,102 +25,160 @@ interface StarsBackgroundProps {
 function Rocket() {
   return (
     <motion.div
-      className="absolute bottom-0 right-[10%] hidden lg:block"
-      initial={{ y: 100, opacity: 0 }}
+      className="absolute bottom-0 right-[12%] hidden lg:block"
+      initial={{ y: 50, opacity: 0 }}
       animate={{
-        y: [100, 0, -600],
-        opacity: [0, 1, 1, 0.8],
+        y: [50, 0, -1200],
+        opacity: [0, 1, 1, 0.9],
       }}
       transition={{
-        duration: 30,
+        duration: 45,
         ease: "easeOut",
-        times: [0, 0.05, 0.8, 1],
+        times: [0, 0.02, 0.85, 1],
         repeat: Infinity,
-        repeatDelay: 10,
+        repeatDelay: 15,
       }}
     >
       {/* Rocket container */}
       <div className="relative">
+        {/* Large smoke cloud at base */}
+        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2">
+          {[...Array(12)].map((_, i) => (
+            <motion.div
+              key={`smoke-${i}`}
+              className="absolute rounded-full"
+              style={{
+                width: 30 + (i % 4) * 15,
+                height: 30 + (i % 4) * 15,
+                background: `radial-gradient(circle, rgba(200,200,200,${0.4 - i * 0.025}) 0%, transparent 70%)`,
+                left: `${(i - 6) * 12}px`,
+                bottom: `${(i % 3) * -10}px`,
+              }}
+              animate={{
+                y: [0, 60 + i * 8],
+                x: [(i - 6) * 3, (i - 6) * 20],
+                opacity: [0.5, 0],
+                scale: [1, 3 + i * 0.3],
+              }}
+              transition={{
+                duration: 2 + i * 0.15,
+                repeat: Infinity,
+                delay: i * 0.08,
+                ease: "easeOut",
+              }}
+            />
+          ))}
+        </div>
+
         {/* Engine glow */}
         <motion.div
-          className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-6 h-16"
+          className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-10 h-24"
           animate={{
-            opacity: [0.6, 1, 0.6],
-            scaleY: [0.8, 1.2, 0.8],
+            opacity: [0.7, 1, 0.7],
+            scaleY: [0.85, 1.15, 0.85],
           }}
           transition={{
-            duration: 0.15,
+            duration: 0.12,
             repeat: Infinity,
             ease: "easeInOut",
           }}
         >
+          {/* Outer glow */}
+          <div
+            className="absolute inset-0 blur-sm"
+            style={{
+              background: "radial-gradient(ellipse at top, #fbbf24 0%, #f97316 40%, transparent 70%)",
+            }}
+          />
           {/* Main flame */}
           <div
             className="w-full h-full"
             style={{
-              background: "linear-gradient(to bottom, #fff 0%, #fbbf24 20%, #f97316 50%, #dc2626 80%, transparent 100%)",
-              clipPath: "polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%)",
+              background: "linear-gradient(to bottom, #fff 0%, #fef3c7 10%, #fbbf24 25%, #f97316 50%, #dc2626 75%, transparent 100%)",
+              clipPath: "polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%)",
               filter: "blur(1px)",
             }}
           />
-          {/* Inner flame */}
+          {/* Inner flame - hot core */}
           <div
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-10"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-5 h-16"
             style={{
-              background: "linear-gradient(to bottom, #fff 0%, #93c5fd 40%, transparent 100%)",
+              background: "linear-gradient(to bottom, #fff 0%, #bfdbfe 30%, #60a5fa 60%, transparent 100%)",
               clipPath: "polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%)",
             }}
           />
         </motion.div>
 
-        {/* Rocket body - minimal SpaceX style */}
+        {/* Rocket body - larger SpaceX Falcon style */}
         <svg
-          width="24"
-          height="64"
-          viewBox="0 0 24 64"
+          width="40"
+          height="100"
+          viewBox="0 0 40 100"
           fill="none"
-          className="drop-shadow-lg"
+          className="drop-shadow-2xl"
         >
           {/* Main body */}
           <path
-            d="M12 0C12 0 6 8 6 20V52H8V56H10V60H14V56H16V52H18V20C18 8 12 0 12 0Z"
-            fill="url(#rocketGradient)"
+            d="M20 0C20 0 8 12 8 32V82H12V88H16V94H24V88H28V82H32V32C32 12 20 0 20 0Z"
+            fill="url(#rocketBody)"
+          />
+          {/* Body highlight */}
+          <path
+            d="M20 0C20 0 14 12 14 32V82H16V32C16 14 20 2 20 2V0Z"
+            fill="rgba(255,255,255,0.3)"
           />
           {/* Window */}
-          <circle cx="12" cy="18" r="3" fill="#1e3a5f" stroke="#60a5fa" strokeWidth="0.5" />
-          <circle cx="12" cy="18" r="1.5" fill="#3b82f6" opacity="0.5" />
+          <ellipse cx="20" cy="28" rx="5" ry="6" fill="#0f172a" stroke="#3b82f6" strokeWidth="1" />
+          <ellipse cx="20" cy="27" rx="2.5" ry="3" fill="#1e40af" opacity="0.6" />
+          <ellipse cx="19" cy="26" rx="1" ry="1.5" fill="#60a5fa" opacity="0.8" />
           {/* Fins */}
-          <path d="M6 44L2 56H6V44Z" fill="#94a3b8" />
-          <path d="M18 44L22 56H18V44Z" fill="#94a3b8" />
-          {/* Body details */}
-          <rect x="8" y="28" width="8" height="1" fill="#64748b" opacity="0.5" />
-          <rect x="8" y="36" width="8" height="1" fill="#64748b" opacity="0.5" />
+          <path d="M8 68L0 88H8V68Z" fill="url(#finGradient)" />
+          <path d="M32 68L40 88H32V68Z" fill="url(#finGradient)" />
+          {/* Landing legs hint */}
+          <path d="M12 82L8 94" stroke="#64748b" strokeWidth="1.5" />
+          <path d="M28 82L32 94" stroke="#64748b" strokeWidth="1.5" />
+          {/* Body panel lines */}
+          <line x1="12" y1="45" x2="28" y2="45" stroke="#94a3b8" strokeWidth="0.5" opacity="0.5" />
+          <line x1="12" y1="55" x2="28" y2="55" stroke="#94a3b8" strokeWidth="0.5" opacity="0.5" />
+          <line x1="12" y1="65" x2="28" y2="65" stroke="#94a3b8" strokeWidth="0.5" opacity="0.5" />
+          {/* Grid fins */}
+          <rect x="6" y="38" width="4" height="6" fill="#475569" rx="0.5" />
+          <rect x="30" y="38" width="4" height="6" fill="#475569" rx="0.5" />
           {/* Gradient definitions */}
           <defs>
-            <linearGradient id="rocketGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#e2e8f0" />
-              <stop offset="50%" stopColor="#f8fafc" />
-              <stop offset="100%" stopColor="#cbd5e1" />
+            <linearGradient id="rocketBody" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#cbd5e1" />
+              <stop offset="30%" stopColor="#f1f5f9" />
+              <stop offset="50%" stopColor="#ffffff" />
+              <stop offset="70%" stopColor="#f1f5f9" />
+              <stop offset="100%" stopColor="#94a3b8" />
+            </linearGradient>
+            <linearGradient id="finGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#64748b" />
+              <stop offset="100%" stopColor="#475569" />
             </linearGradient>
           </defs>
         </svg>
 
-        {/* Smoke/exhaust particles */}
-        {[...Array(5)].map((_, i) => (
+        {/* Additional smoke trails */}
+        {[...Array(8)].map((_, i) => (
           <motion.div
-            key={i}
-            className="absolute -bottom-12 left-1/2 w-2 h-2 rounded-full bg-gray-400/30"
+            key={`trail-${i}`}
+            className="absolute -bottom-20 left-1/2 rounded-full"
             style={{
-              marginLeft: `${(i - 2) * 6}px`,
+              width: 8 + (i % 3) * 4,
+              height: 8 + (i % 3) * 4,
+              background: `rgba(180, 180, 180, ${0.3 - i * 0.03})`,
+              marginLeft: `${(i - 4) * 8}px`,
             }}
             animate={{
-              y: [0, 40],
-              x: [(i - 2) * 2, (i - 2) * 8],
+              y: [0, 80 + i * 10],
+              x: [(i - 4) * 2, (i - 4) * 15],
               opacity: [0.4, 0],
-              scale: [0.5, 2],
+              scale: [0.8, 2.5],
             }}
             transition={{
-              duration: 1,
+              duration: 1.5,
               repeat: Infinity,
               delay: i * 0.1,
               ease: "easeOut",
