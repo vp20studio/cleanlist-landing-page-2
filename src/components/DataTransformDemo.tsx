@@ -438,6 +438,201 @@ export default function DataTransformDemo() {
             )}
           </motion.div>
         </motion.div>
+
+        {/* Smart Columns Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="mt-20 md:mt-32"
+        >
+          {/* Section Header */}
+          <div className="text-center mb-10 md:mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-sm text-purple-400 mb-4">
+              <Sparkle size={16} />
+              AI-Powered
+            </div>
+            <h3 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+              Every data point you need,{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-[#3e8aff]">
+                in one place
+              </span>
+            </h3>
+            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Understand your total market, qualify leads instantly, and personalize at scale.
+              Smart Columns transform raw data into actionable intelligence.
+            </p>
+          </div>
+
+          {/* Feature Grid */}
+          <div className="grid md:grid-cols-3 gap-6 mb-10 md:mb-14">
+            {[
+              {
+                icon: <Sparkle size={24} />,
+                title: "AI Enrichments",
+                description: "Access premium data from 15+ providers: identify new leads, score accounts, and personalize outreach automatically."
+              },
+              {
+                icon: <Lightning size={24} />,
+                title: "Intent Signals",
+                description: "Take instant action when prospects change jobs, visit your website, or show buying signals across the web."
+              },
+              {
+                icon: <User size={24} />,
+                title: "AI-Led Research",
+                description: "Search public databases, navigate gated forms, and find unique datapoints with natural language prompts."
+              }
+            ].map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`p-6 rounded-2xl border transition-all ${
+                  isDark
+                    ? "bg-white/[0.02] border-white/[0.08] hover:border-purple-500/30 hover:bg-white/[0.04]"
+                    : "bg-white border-gray-200 hover:border-purple-500/30 hover:shadow-lg"
+                }`}
+              >
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                  isDark ? "bg-purple-500/10 text-purple-400" : "bg-purple-50 text-purple-500"
+                }`}>
+                  {feature.icon}
+                </div>
+                <h4 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  {feature.title}
+                </h4>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Video Demo */}
+          <motion.div
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="relative max-w-5xl mx-auto"
+          >
+            {/* Background glows */}
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.15, 0.25, 0.15],
+              }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-20 -left-20 w-64 h-64 bg-purple-500/20 rounded-full blur-[100px] -z-10"
+            />
+            <motion.div
+              animate={{
+                scale: [1.2, 1, 1.2],
+                opacity: [0.1, 0.2, 0.1],
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -bottom-20 -right-20 w-72 h-72 bg-[#3e8aff]/15 rounded-full blur-[100px] -z-10"
+            />
+
+            {/* Video container */}
+            <div className="relative group">
+              {/* Gradient border glow on hover */}
+              <div
+                className={`absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${
+                  isDark ? "bg-gradient-to-r from-purple-500/50 via-[#3e8aff]/50 to-purple-500/50" : "bg-gradient-to-r from-purple-500/30 via-[#3e8aff]/30 to-purple-500/30"
+                }`}
+                style={{ filter: "blur(2px)" }}
+              />
+
+              <div
+                className={`relative rounded-2xl border overflow-hidden ${
+                  isDark
+                    ? "bg-[#0a0a0a] border-white/[0.08]"
+                    : "bg-white border-black/[0.08]"
+                }`}
+                style={{
+                  boxShadow: isDark
+                    ? "0 0 80px rgba(168, 85, 247, 0.12), 0 0 40px rgba(62, 138, 255, 0.08), inset 0 1px 0 rgba(255,255,255,0.03)"
+                    : "0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 40px rgba(168, 85, 247, 0.05)",
+                }}
+              >
+                {/* Window Chrome */}
+                <div
+                  className={`flex items-center justify-between px-4 py-3 border-b ${
+                    isDark ? "border-white/[0.05] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50/50"
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    {/* Window controls */}
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-[#ff5f57] shadow-[0_0_6px_rgba(255,95,87,0.4)]" />
+                      <div className="w-3 h-3 rounded-full bg-[#febc2e] shadow-[0_0_6px_rgba(254,188,46,0.4)]" />
+                      <div className="w-3 h-3 rounded-full bg-[#28c840] shadow-[0_0_6px_rgba(40,200,64,0.4)]" />
+                    </div>
+
+                    {/* Title with icon */}
+                    <div className="flex items-center gap-2 ml-2">
+                      <Sparkle className="w-3.5 h-3.5 text-purple-400" weight="fill" />
+                      <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
+                        Smart Columns Demo
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Live indicator */}
+                  <div className="flex items-center gap-2">
+                    <motion.div
+                      animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="w-2 h-2 rounded-full bg-purple-500 shadow-[0_0_8px_rgba(168,85,247,0.6)]"
+                    />
+                    <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                      Live
+                    </span>
+                  </div>
+                </div>
+
+                {/* Video */}
+                <div className="relative">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto block"
+                  >
+                    {/* TODO: Replace with your video CDN URL after uploading smart-columns.mp4 */}
+                    <source src="/videos/smart-columns.mp4" type="video/mp4" />
+                  </video>
+
+                  {/* Subtle vignette overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: isDark
+                        ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)"
+                        : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)",
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Reflection effect */}
+            <div
+              className="absolute -bottom-12 left-4 right-4 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
+              style={{
+                background: isDark
+                  ? "linear-gradient(to bottom, rgba(168, 85, 247, 0.1), transparent)"
+                  : "linear-gradient(to bottom, rgba(168, 85, 247, 0.05), transparent)",
+                transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
+              }}
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
