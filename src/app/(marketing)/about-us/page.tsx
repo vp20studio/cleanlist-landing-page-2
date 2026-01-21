@@ -283,38 +283,6 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Ready to deploy your first playbook?
-            </h2>
-            <p className={`text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Join teams who launch GTM motions in minutes, not months.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-lg"
-              >
-                Start Free
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/"
-                className={`inline-flex items-center gap-2 px-8 py-4 border font-medium rounded-lg transition-colors text-lg ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
-              >
-                Book a Demo
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }

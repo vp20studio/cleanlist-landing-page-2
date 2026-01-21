@@ -446,41 +446,6 @@ export default function EmailVerificationPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative py-20 overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 60% at 50% 100%, rgba(34, 197, 94, 0.15), transparent 70%)",
-          }}
-        />
-
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Stop bounces before they happen
-            </h2>
-            <p className="text-lg text-[#888888] mb-8">
-              Verify your first 100 emails free. No credit card required.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <MagneticButton href="/get-started" size="lg">
-                Start Verifying Free
-                <ArrowRight />
-              </MagneticButton>
-              <MagneticButton href="/pricing" variant="secondary" size="lg">
-                View Pricing
-              </MagneticButton>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </main>
   );
 }

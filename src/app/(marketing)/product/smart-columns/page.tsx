@@ -570,41 +570,6 @@ export default function SmartColumnsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-purple-500/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-purple-500/20 rounded-full blur-[150px]" />
-
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
-              Transform Your Data With AI
-            </h2>
-            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
-              Start cleaning and normalizing your data in seconds. No coding required.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 text-white font-medium rounded-lg hover:bg-purple-500/90 transition-colors text-lg"
-              >
-                Try Smart Columns Free
-                <ArrowRight />
-              </Link>
-              <Link
-                href="/pricing"
-                className={`inline-flex items-center gap-2 px-8 py-4 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors text-lg`}
-              >
-                View Pricing
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }

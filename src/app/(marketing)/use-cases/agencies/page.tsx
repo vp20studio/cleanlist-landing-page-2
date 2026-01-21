@@ -420,33 +420,6 @@ export default function AgenciesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-green-500/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-green-500/20 rounded-full blur-[150px]" />
-
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
-              Ready to Scale Your Agency?
-            </h2>
-            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
-              Apply for our agency program and start offering data services to your clients.
-            </p>
-            <Link
-              href="#"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-green-500 text-white font-medium rounded-lg hover:bg-green-500/90 transition-colors text-lg"
-            >
-              Apply for Agency Program
-              <ArrowRight />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }

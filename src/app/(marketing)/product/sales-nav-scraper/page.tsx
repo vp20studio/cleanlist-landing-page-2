@@ -553,41 +553,6 @@ export default function SalesNavScraperPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0077b5]/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#0077b5]/20 rounded-full blur-[150px]" />
-
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-6`}>
-              Start Exporting From Sales Navigator
-            </h2>
-            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}>
-              Install our Chrome extension and export your first 100 leads free.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#0077b5] text-white font-medium rounded-lg hover:bg-[#0077b5]/90 transition-colors text-lg"
-              >
-                <GoogleChromeLogo />
-                Install Chrome Extension
-              </Link>
-              <Link
-                href="/pricing"
-                className={`inline-flex items-center gap-2 px-8 py-4 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors text-lg`}
-              >
-                View Pricing
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }

@@ -232,28 +232,6 @@ export default function IntegrationsPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
-
-        <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Need a Custom Integration?
-            </h2>
-            <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Our team can help build custom integrations for your unique stack.
-            </p>
-            <Link
-              href="#"
-              className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg"
-            >
-              Contact Us
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }

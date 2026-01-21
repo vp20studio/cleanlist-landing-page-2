@@ -748,46 +748,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 md:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#3e8aff]/10 via-transparent to-transparent" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] md:w-[1000px] h-[300px] md:h-[500px] bg-[#3e8aff]/20 rounded-full blur-[150px]" />
-
-        <div className="relative max-w-4xl mx-auto px-4 md:px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Ready to Get Started?
-            </h2>
-            <p className={`text-lg md:text-xl mb-8 max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Start your free trial with 100 credits. No credit card required.
-            </p>
-            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 md:gap-4">
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors text-base md:text-lg w-full sm:w-auto justify-center"
-              >
-                Start Free Trial
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="#"
-                className={`inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 border font-medium rounded-lg transition-colors text-base md:text-lg w-full sm:w-auto justify-center ${
-                  isDark
-                    ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
-                    : "border-gray-300 text-gray-900 hover:bg-gray-100"
-                }`}
-              >
-                <Buildings className="w-5 h-5" />
-                Contact Sales
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }
