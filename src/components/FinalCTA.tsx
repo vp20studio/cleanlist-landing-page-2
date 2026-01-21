@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { useTheme } from "@/context/ThemeContext";
 import { ArrowRight, Calendar } from "@phosphor-icons/react";
 
 // Generate random star positions for warp effect
@@ -30,21 +29,15 @@ const warpLines = Array.from({ length: 20 }, (_, i) => ({
 }));
 
 export default function FinalCTA() {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section ref={ref} className={`py-24 md:py-32 relative overflow-hidden ${isDark ? "bg-[#030303]" : "bg-[#f8fafc]"}`}>
+    <section ref={ref} className="py-24 md:py-32 relative overflow-hidden bg-[#030303]">
       {/* Warp Speed Background */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Central glow point */}
-        <div
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full blur-[100px] ${
-            isDark ? "bg-[#3e8aff]/30" : "bg-[#3e8aff]/20"
-          }`}
-        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full blur-[100px] bg-[#3e8aff]/30" />
 
         {/* Warp speed streaks emanating from center */}
         <div className="absolute inset-0 flex items-center justify-center">
@@ -55,9 +48,7 @@ export default function FinalCTA() {
               style={{
                 width: "2px",
                 height: `${line.length}px`,
-                background: isDark
-                  ? `linear-gradient(to bottom, transparent, rgba(62, 138, 255, 0.4), transparent)`
-                  : `linear-gradient(to bottom, transparent, rgba(62, 138, 255, 0.3), transparent)`,
+                background: "linear-gradient(to bottom, transparent, rgba(62, 138, 255, 0.4), transparent)",
                 transformOrigin: "center top",
                 transform: `rotate(${line.angle}deg)`,
               }}
@@ -79,7 +70,7 @@ export default function FinalCTA() {
         {stars.map((star) => (
           <motion.div
             key={star.id}
-            className={`absolute rounded-full ${isDark ? "bg-white" : "bg-[#3e8aff]"}`}
+            className="absolute rounded-full bg-white"
             style={{
               width: star.size,
               height: star.size,
@@ -87,7 +78,7 @@ export default function FinalCTA() {
               top: `${star.y}%`,
             }}
             animate={{
-              opacity: [0, isDark ? 0.6 : 0.4, 0],
+              opacity: [0, 0.6, 0],
               scale: [0.5, 1.5, 0.5],
               x: [0, (star.x - 50) * 2],
               y: [0, (star.y - 50) * 2],
@@ -103,11 +94,9 @@ export default function FinalCTA() {
 
         {/* Subtle radial gradient overlay */}
         <div
-          className={`absolute inset-0 ${isDark ? "opacity-60" : "opacity-40"}`}
+          className="absolute inset-0 opacity-60"
           style={{
-            background: isDark
-              ? "radial-gradient(ellipse at center, rgba(62, 138, 255, 0.1) 0%, transparent 70%)"
-              : "radial-gradient(ellipse at center, rgba(62, 138, 255, 0.08) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(62, 138, 255, 0.1) 0%, transparent 70%)",
           }}
         />
 
@@ -115,9 +104,7 @@ export default function FinalCTA() {
         <div
           className="absolute inset-0"
           style={{
-            background: isDark
-              ? "radial-gradient(ellipse at center, transparent 30%, rgba(3, 3, 3, 0.8) 100%)"
-              : "radial-gradient(ellipse at center, transparent 30%, rgba(248, 250, 252, 0.9) 100%)",
+            background: "radial-gradient(ellipse at center, transparent 30%, rgba(3, 3, 3, 0.8) 100%)",
           }}
         />
       </div>
@@ -130,11 +117,11 @@ export default function FinalCTA() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 tracking-tight text-white">
             Ready to clean your data?
           </h2>
 
-          <p className={`text-lg md:text-xl lg:text-2xl mb-10 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p className="text-lg md:text-xl lg:text-2xl mb-10 text-gray-400">
             Get 30 free credits. No credit card required.
           </p>
 
@@ -151,11 +138,7 @@ export default function FinalCTA() {
               href="https://calendly.com/cleanlist/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2.5 px-8 py-4 font-semibold rounded-xl text-base md:text-lg transition-all duration-300 border-2 hover:scale-[1.02] ${
-                isDark
-                  ? "bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/30"
-                  : "bg-white/80 hover:bg-white text-gray-900 border-gray-300 hover:border-gray-400 shadow-lg"
-              }`}
+              className="inline-flex items-center gap-2.5 px-8 py-4 font-semibold rounded-xl text-base md:text-lg transition-all duration-300 border-2 hover:scale-[1.02] bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/30"
             >
               <Calendar size={22} weight="fill" className="text-[#3e8aff]" />
               Book a Demo
