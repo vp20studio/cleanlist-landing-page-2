@@ -4,29 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Calendar } from "@phosphor-icons/react";
-
-// Generate random star positions for warp effect
-const generateStars = (count: number) => {
-  return Array.from({ length: count }, (_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 2 + 0.5,
-    duration: Math.random() * 2 + 1,
-    delay: Math.random() * 3,
-  }));
-};
-
-const stars = generateStars(40);
-
-// Generate warp lines
-const warpLines = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  angle: (i / 20) * 360,
-  length: Math.random() * 100 + 50,
-  delay: Math.random() * 2,
-  duration: Math.random() * 1.5 + 1,
-}));
+import { StarsBackground } from "./StarsBackground";
 
 export default function FinalCTA() {
   const ref = useRef(null);
@@ -34,80 +12,8 @@ export default function FinalCTA() {
 
   return (
     <section ref={ref} className="py-24 md:py-32 relative overflow-hidden bg-[#030303]">
-      {/* Warp Speed Background */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Central glow point */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full blur-[100px] bg-[#3e8aff]/30" />
-
-        {/* Warp speed streaks emanating from center */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          {warpLines.map((line) => (
-            <motion.div
-              key={line.id}
-              className="absolute"
-              style={{
-                width: "2px",
-                height: `${line.length}px`,
-                background: "linear-gradient(to bottom, transparent, rgba(62, 138, 255, 0.4), transparent)",
-                transformOrigin: "center top",
-                transform: `rotate(${line.angle}deg)`,
-              }}
-              animate={{
-                opacity: [0, 0.8, 0],
-                scaleY: [0.3, 1.5, 0.3],
-              }}
-              transition={{
-                duration: line.duration,
-                repeat: Infinity,
-                delay: line.delay,
-                ease: "easeOut",
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Animated stars rushing past */}
-        {stars.map((star) => (
-          <motion.div
-            key={star.id}
-            className="absolute rounded-full bg-white"
-            style={{
-              width: star.size,
-              height: star.size,
-              left: `${star.x}%`,
-              top: `${star.y}%`,
-            }}
-            animate={{
-              opacity: [0, 0.6, 0],
-              scale: [0.5, 1.5, 0.5],
-              x: [0, (star.x - 50) * 2],
-              y: [0, (star.y - 50) * 2],
-            }}
-            transition={{
-              duration: star.duration,
-              repeat: Infinity,
-              delay: star.delay,
-              ease: "easeOut",
-            }}
-          />
-        ))}
-
-        {/* Subtle radial gradient overlay */}
-        <div
-          className="absolute inset-0 opacity-60"
-          style={{
-            background: "radial-gradient(ellipse at center, rgba(62, 138, 255, 0.1) 0%, transparent 70%)",
-          }}
-        />
-
-        {/* Outer vignette for depth */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "radial-gradient(ellipse at center, transparent 30%, rgba(3, 3, 3, 0.8) 100%)",
-          }}
-        />
-      </div>
+      {/* Stars Background */}
+      <StarsBackground />
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 md:px-6 relative z-10">

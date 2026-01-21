@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { LinkedinLogo, Envelope } from "@phosphor-icons/react";
 import { GlowIcon } from "@/components/ui";
+import { StarsBackground } from "./StarsBackground";
 
 const footerLinks = {
   products: [
@@ -31,9 +32,12 @@ const footerLinks = {
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-white/[0.08] bg-[#030303]">
+    <footer className="relative border-t border-white/[0.08] bg-[#030303] overflow-hidden">
+      {/* Stars Background */}
+      <StarsBackground starCount={30} seed={100} />
+
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2">
@@ -131,7 +135,7 @@ export default function SiteFooter() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/[0.08]">
+      <div className="relative z-10 border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
             <div className="flex items-center gap-6 text-xs md:text-sm text-gray-500">
