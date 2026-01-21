@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 // Generate random star positions
 const generateStars = (count: number, seed: number = 0) => {
-  // Use seed to ensure consistent stars between renders but different between instances
   return Array.from({ length: count }, (_, i) => ({
     id: i + seed,
     x: ((i * 17 + seed * 13) % 100),
     y: ((i * 23 + seed * 7) % 100),
-    size: ((i * 11 + seed) % 20) / 10 + 0.5,
-    duration: ((i * 7 + seed) % 20) / 10 + 1,
+    size: ((i * 11 + seed) % 20) / 10 + 1,
+    duration: ((i * 7 + seed) % 20) / 10 + 2,
     delay: ((i * 13 + seed) % 30) / 10,
+    maxOpacity: 0.4 + ((i * 3 + seed) % 40) / 100,
   }));
 };
 
@@ -38,8 +38,8 @@ export function StarsBackground({ starCount = 50, seed = 0, className = "" }: St
             top: `${star.y}%`,
           }}
           animate={{
-            opacity: [0, 0.7, 0],
-            scale: [0.5, 1.2, 0.5],
+            opacity: [0.1, star.maxOpacity, 0.1],
+            scale: [0.8, 1.3, 0.8],
           }}
           transition={{
             duration: star.duration,
@@ -49,14 +49,6 @@ export function StarsBackground({ starCount = 50, seed = 0, className = "" }: St
           }}
         />
       ))}
-
-      {/* Subtle gradient overlay for depth */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse at center, transparent 0%, rgba(3, 3, 3, 0.4) 100%)",
-        }}
-      />
     </div>
   );
 }
