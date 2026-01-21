@@ -25,18 +25,18 @@ interface StarsBackgroundProps {
 function Rocket() {
   return (
     <motion.div
-      className="absolute bottom-0 right-[12%] hidden lg:block"
-      initial={{ y: 50, opacity: 0 }}
+      className="absolute bottom-[20%] right-[12%] hidden lg:block"
+      initial={{ y: 0, opacity: 1 }}
       animate={{
-        y: [50, 0, -1200],
-        opacity: [0, 1, 1, 0.9],
+        y: [0, -50, -800],
+        opacity: [1, 1, 1, 0],
       }}
       transition={{
-        duration: 45,
-        ease: "easeOut",
-        times: [0, 0.02, 0.85, 1],
+        duration: 20,
+        ease: [0.25, 0.1, 0.25, 1],
+        times: [0, 0.1, 0.9, 1],
         repeat: Infinity,
-        repeatDelay: 15,
+        repeatDelay: 8,
       }}
     >
       {/* Rocket container */}
