@@ -12,6 +12,11 @@ import {
   Buildings,
   User,
   DownloadSimple,
+  MagnifyingGlass,
+  MapPin,
+  Users,
+  LinkedinLogo,
+  UserPlus,
 } from "@phosphor-icons/react";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
@@ -34,6 +39,18 @@ const demoTabs = [
     label: "Smart Columns + ICP",
     icon: <Crosshair />,
   },
+  {
+    id: "search",
+    label: "People Search",
+    icon: <MagnifyingGlass />,
+  },
+];
+
+const searchResults = [
+  { name: "Sarah Chen", title: "VP of Sales", company: "Amplitude", location: "San Francisco", employees: "500-1K" },
+  { name: "Michael Torres", title: "Head of Sales", company: "Notion", location: "New York", employees: "1K-5K" },
+  { name: "Emily Rodriguez", title: "VP Sales", company: "Figma", location: "Seattle", employees: "500-1K" },
+  { name: "David Kim", title: "Director of Sales", company: "Linear", location: "Austin", employees: "100-500" },
 ];
 
 export default function InteractiveDemo() {
@@ -221,6 +238,100 @@ export default function InteractiveDemo() {
                   <div className={`p-3 rounded-lg ${isDark ? "bg-[#3e8aff]/10" : "bg-blue-50"}`}>
                     <p className="text-sm text-[#3e8aff]">
                       <strong>Pro tip:</strong> Focus on leads with 80+ ICP scores for 2x higher conversion rates.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === "search" && (
+              <motion.div
+                key="search"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                className="grid md:grid-cols-2 gap-6 md:gap-8 items-center"
+              >
+                {/* Search demo */}
+                <div className={`p-5 md:p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-black/[0.08]"}`}>
+                  <div className="flex items-center gap-2 mb-4">
+                    <MagnifyingGlass className="text-[#3e8aff]" size={18} />
+                    <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>People Search</h4>
+                  </div>
+
+                  {/* Search query */}
+                  <div className={`p-3 rounded-lg mb-4 ${isDark ? "bg-white/[0.03] border border-white/[0.08]" : "bg-gray-50 border border-gray-200"}`}>
+                    <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                      &ldquo;VP Sales at SaaS companies in US, $1-10M revenue&rdquo;
+                    </p>
+                  </div>
+
+                  {/* Results header */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                      <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                        {animationStep >= 1 ? "2,847 matches" : "Searching..."}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Results */}
+                  <div className="space-y-2">
+                    {searchResults.map((result, i) => (
+                      <motion.div
+                        key={result.name}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: animationStep >= i + 1 ? 1 : 0.3, y: 0 }}
+                        transition={{ delay: i * 0.15 }}
+                        className={`flex items-center gap-3 p-2 rounded-lg ${isDark ? "bg-white/[0.02] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"} transition-colors`}
+                      >
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center text-white text-xs font-medium flex-shrink-0">
+                          {result.name.split(" ").map(n => n[0]).join("")}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-1.5">
+                            <span className={`text-sm font-medium truncate ${isDark ? "text-white" : "text-gray-900"}`}>{result.name}</span>
+                            <LinkedinLogo className="text-[#0077b5] flex-shrink-0" size={12} />
+                          </div>
+                          <div className="text-xs text-gray-500 truncate">{result.title} at {result.company}</div>
+                        </div>
+                        <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
+                          <MapPin size={10} />
+                          <span>{result.location}</span>
+                        </div>
+                        <button className="p-1.5 rounded bg-[#3e8aff]/10 text-[#3e8aff] hover:bg-[#3e8aff]/20 transition-colors flex-shrink-0">
+                          <UserPlus size={14} />
+                        </button>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Explanation */}
+                <div className="space-y-4">
+                  <h3 className={`text-xl font-semibold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+                    500M+ B2B Database
+                  </h3>
+                  <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    Search our database of 500M+ professionals using natural language. Find your ideal prospects in seconds.
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      "Natural language search",
+                      "30+ advanced filters",
+                      "98% email accuracy",
+                      "Real-time data updates",
+                    ].map((item) => (
+                      <div key={item} className="flex items-center gap-2">
+                        <Check size={16} className="text-[#3e8aff]" />
+                        <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className={`p-3 rounded-lg ${isDark ? "bg-[#3e8aff]/10" : "bg-blue-50"}`}>
+                    <p className="text-sm text-[#3e8aff]">
+                      <strong>Try it:</strong> Get 25 free searches when you sign up. No credit card required.
                     </p>
                   </div>
                 </div>
