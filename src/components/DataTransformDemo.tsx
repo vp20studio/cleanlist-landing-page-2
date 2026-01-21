@@ -445,79 +445,15 @@ export default function DataTransformDemo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="mt-20 md:mt-32"
+          className="mt-10 md:mt-14"
         >
-          {/* Section Header */}
-          <div className="text-center mb-10 md:mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <Sparkle size={16} />
-              AI-Powered
-            </div>
-            <h3 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Every data point you need,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                in one place
-              </span>
-            </h3>
-            <p className={`text-lg md:text-xl max-w-3xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Understand your total market, qualify leads instantly, and personalize at scale.
-              Smart Columns transform raw data into actionable intelligence.
-            </p>
-          </div>
-
-          {/* Feature Grid */}
-          <div className="grid md:grid-cols-3 gap-6 mb-10 md:mb-14">
-            {[
-              {
-                icon: <Sparkle size={24} />,
-                title: "AI Enrichments",
-                description: "Access premium data from 15+ providers: identify new leads, score accounts, and personalize outreach automatically."
-              },
-              {
-                icon: <Lightning size={24} />,
-                title: "Intent Signals",
-                description: "Take instant action when prospects change jobs, visit your website, or show buying signals across the web."
-              },
-              {
-                icon: <User size={24} />,
-                title: "AI-Led Research",
-                description: "Search public databases, navigate gated forms, and find unique datapoints with natural language prompts."
-              }
-            ].map((feature, i) => (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className={`p-6 rounded-2xl border transition-all ${
-                  isDark
-                    ? "bg-white/[0.02] border-white/[0.08] hover:border-[#3e8aff]/30 hover:bg-white/[0.04]"
-                    : "bg-white border-gray-200 hover:border-[#3e8aff]/30 hover:shadow-lg"
-                }`}
-              >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? "bg-[#3e8aff]/10 text-[#3e8aff]" : "bg-[#3e8aff]/10 text-[#3e8aff]"
-                }`}>
-                  {feature.icon}
-                </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                  {feature.title}
-                </h4>
-                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  {feature.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Video Demo */}
+          {/* Video Demo - Now first */}
           <motion.div
             initial={{ opacity: 0, y: 30, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative max-w-5xl mx-auto"
+            className="relative max-w-5xl mx-auto mb-10 md:mb-14"
           >
             {/* Background glows */}
             <motion.div
@@ -604,7 +540,6 @@ export default function DataTransformDemo() {
                     playsInline
                     className="w-full h-auto block"
                   >
-                    {/* TODO: Replace with your video CDN URL after uploading smart-columns.mp4 */}
                     <source src="/videos/smart-columns.mp4" type="video/mp4" />
                   </video>
 
@@ -632,6 +567,52 @@ export default function DataTransformDemo() {
               }}
             />
           </motion.div>
+
+          {/* Feature Grid - Now after video */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                icon: <Sparkle size={24} />,
+                title: "AI Enrichments",
+                description: "Access premium data from 15+ providers: identify new leads, score accounts, and personalize outreach automatically."
+              },
+              {
+                icon: <Lightning size={24} />,
+                title: "Intent Signals",
+                description: "Take instant action when prospects change jobs, visit your website, or show buying signals across the web."
+              },
+              {
+                icon: <User size={24} />,
+                title: "AI-Led Research",
+                description: "Search public databases, navigate gated forms, and find unique datapoints with natural language prompts."
+              }
+            ].map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`p-6 rounded-2xl border transition-all ${
+                  isDark
+                    ? "bg-white/[0.02] border-white/[0.08] hover:border-[#3e8aff]/30 hover:bg-white/[0.04]"
+                    : "bg-white border-gray-200 hover:border-[#3e8aff]/30 hover:shadow-lg"
+                }`}
+              >
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+                  isDark ? "bg-[#3e8aff]/10 text-[#3e8aff]" : "bg-[#3e8aff]/10 text-[#3e8aff]"
+                }`}>
+                  {feature.icon}
+                </div>
+                <h4 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  {feature.title}
+                </h4>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
