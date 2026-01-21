@@ -41,8 +41,8 @@ function Rocket() {
     >
       {/* Rocket container */}
       <div className="relative">
-        {/* Large smoke cloud at base - contained to prevent page overflow */}
-        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 overflow-hidden" style={{ width: 200, height: 80 }}>
+        {/* Large smoke cloud at base */}
+        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2">
           {[...Array(12)].map((_, i) => (
             <motion.div
               key={`smoke-${i}`}
@@ -51,8 +51,8 @@ function Rocket() {
                 width: 30 + (i % 4) * 15,
                 height: 30 + (i % 4) * 15,
                 background: `radial-gradient(circle, rgba(200,200,200,${0.4 - i * 0.025}) 0%, transparent 70%)`,
-                left: `${100 + (i - 6) * 12}px`,
-                top: 0,
+                left: `${(i - 6) * 12}px`,
+                bottom: `${(i % 3) * -10}px`,
               }}
               animate={{
                 y: [0, 60 + i * 8],
@@ -72,7 +72,7 @@ function Rocket() {
 
         {/* Engine glow */}
         <motion.div
-          className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-10 h-20"
+          className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-10 h-24"
           animate={{
             opacity: [0.7, 1, 0.7],
             scaleY: [0.85, 1.15, 0.85],
@@ -160,34 +160,31 @@ function Rocket() {
           </defs>
         </svg>
 
-        {/* Additional smoke trails - contained */}
-        <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 overflow-hidden" style={{ width: 150, height: 60 }}>
-          {[...Array(8)].map((_, i) => (
-            <motion.div
-              key={`trail-${i}`}
-              className="absolute rounded-full"
-              style={{
-                width: 8 + (i % 3) * 4,
-                height: 8 + (i % 3) * 4,
-                background: `rgba(180, 180, 180, ${0.3 - i * 0.03})`,
-                left: `${75 + (i - 4) * 8}px`,
-                top: 0,
-              }}
-              animate={{
-                y: [0, 50 + i * 6],
-                x: [(i - 4) * 2, (i - 4) * 15],
-                opacity: [0.4, 0],
-                scale: [0.8, 2.5],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                delay: i * 0.1,
-                ease: "easeOut",
-              }}
-            />
-          ))}
-        </div>
+        {/* Additional smoke trails */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`trail-${i}`}
+            className="absolute -bottom-20 left-1/2 rounded-full"
+            style={{
+              width: 8 + (i % 3) * 4,
+              height: 8 + (i % 3) * 4,
+              background: `rgba(180, 180, 180, ${0.3 - i * 0.03})`,
+              marginLeft: `${(i - 4) * 8}px`,
+            }}
+            animate={{
+              y: [0, 80 + i * 10],
+              x: [(i - 4) * 2, (i - 4) * 15],
+              opacity: [0.4, 0],
+              scale: [0.8, 2.5],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              delay: i * 0.1,
+              ease: "easeOut",
+            }}
+          />
+        ))}
       </div>
     </motion.div>
   );
