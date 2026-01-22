@@ -642,41 +642,35 @@ export default function SmartColumnsPage() {
             </p>
           </motion.div>
 
-          {/* Flow Steps - Improved Design */}
+          {/* Flow Steps - Professional Design */}
           <div className="relative max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8 relative">
               {[
                 {
-                  icon: <FileXls width={28} height={28} />,
                   title: "Upload Your List",
                   step: "01",
-                  color: "from-blue-500 to-blue-600",
                   examples: [
-                    { label: "CSV file with 1,000 leads", icon: "📄" },
-                    { label: "Google Sheet from prospecting", icon: "📊" },
-                    { label: "Excel export from trade show", icon: "📈" },
+                    "CSV file with 1,000 leads",
+                    "Google Sheet from prospecting",
+                    "Excel export from trade show",
                   ],
                 },
                 {
-                  icon: <Sparkle width={28} height={28} />,
                   title: "Add Smart Columns",
                   step: "02",
-                  color: "from-purple-500 to-purple-600",
                   examples: [
-                    { label: "Company enrichment (industry, size)", icon: "🏢" },
-                    { label: "ICP scoring (0-100 fit score)", icon: "🎯" },
-                    { label: "AI-generated email openers", icon: "✉️" },
+                    "Company enrichment (industry, size)",
+                    "ICP scoring (0-100 fit score)",
+                    "AI-generated email openers",
                   ],
                 },
                 {
-                  icon: <Lightning width={28} height={28} />,
                   title: "Export & Use",
                   step: "03",
-                  color: "from-green-500 to-green-600",
                   examples: [
-                    { label: "Download enriched CSV", icon: "⬇️" },
-                    { label: "Push to Salesforce CRM", icon: "☁️" },
-                    { label: "Send to Outreach/Apollo", icon: "🚀" },
+                    "Download enriched CSV",
+                    "Push to Salesforce CRM",
+                    "Send to Outreach/Apollo",
                   ],
                 },
               ].map((step, index) => (
@@ -685,50 +679,36 @@ export default function SmartColumnsPage() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.2, type: "spring", stiffness: 100 }}
+                  transition={{ delay: index * 0.15 }}
                   className="relative"
                 >
                   {/* Connecting line (desktop only) */}
                   {index < 2 && (
-                    <div className="hidden md:block absolute top-20 left-full w-8 h-0.5 bg-gradient-to-r from-[#3e8aff] to-transparent z-0" />
+                    <div className="hidden md:block absolute top-12 left-full w-8 h-0.5 bg-gradient-to-r from-[#3e8aff]/30 to-transparent z-0" />
                   )}
 
-                  <div className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group hover:shadow-2xl transition-all duration-300`}>
-                    {/* Step Badge */}
-                    <div className="absolute -top-4 -left-4">
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg text-white font-bold text-lg`}>
+                  <div className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-lg hover:shadow-xl transition-all duration-300`}>
+                    {/* Step Number - Large and Prominent */}
+                    <div className="mb-6">
+                      <div className="text-6xl font-bold text-[#3e8aff] opacity-20">
                         {step.step}
                       </div>
                     </div>
 
-                    {/* Icon with glow */}
-                    <div className="relative inline-block mb-6">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
-                        <div className="text-white">{step.icon}</div>
-                      </div>
-                    </div>
-
-                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+                    <h3 className={`text-xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
                       {step.title}
                     </h3>
 
-                    {/* Real Examples */}
+                    {/* Clean Text List */}
                     <div className="space-y-3">
                       {step.examples.map((example, i) => (
-                        <motion.div
+                        <div
                           key={i}
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.2 + (i * 0.1) }}
-                          className={`flex items-start gap-3 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"} group-hover:bg-[#3e8aff]/5 transition-colors`}
+                          className={`flex items-start gap-3 text-sm ${isDark ? "text-gray-400" : "text-gray-600"} leading-relaxed`}
                         >
-                          <span className="text-xl flex-shrink-0">{example.icon}</span>
-                          <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} leading-relaxed`}>
-                            {example.label}
-                          </div>
-                        </motion.div>
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#3e8aff] mt-2 flex-shrink-0" />
+                          <div>{example}</div>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -736,19 +716,16 @@ export default function SmartColumnsPage() {
               ))}
             </div>
 
-            {/* Bottom CTA */}
+            {/* Bottom Stat */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
+              transition={{ delay: 0.5 }}
               className="mt-16 text-center"
             >
-              <div className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${isDark ? "bg-[#3e8aff]/10 border border-[#3e8aff]/20" : "bg-blue-50 border border-blue-200"}`}>
-                <Lightning className="text-[#3e8aff]" width={20} height={20} />
-                <span className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
-                  Average processing time: <span className="text-[#3e8aff]">2-3 seconds per row</span>
-                </span>
+              <div className={`text-sm font-medium ${isDark ? "text-gray-500" : "text-gray-600"}`}>
+                Average processing time: <span className="text-[#3e8aff] font-semibold">2-3 seconds per row</span>
               </div>
             </motion.div>
           </div>
