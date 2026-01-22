@@ -46,164 +46,174 @@ const featureCategories = [
   {
     name: "Data Enrichment",
     features: [
-      { name: "Multi-Provider Lead Enrichment", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Email Enrichment (1 credit)", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Full Contact Enrichment (10 credits)", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Direct Phone Numbers", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Mobile Phone Numbers", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Company Firmographics", starter: true, pro: true, business: true, enterprise: true },
-      { name: "98% Accuracy Guarantee", starter: true, pro: true, business: true, enterprise: true },
-      { name: "LinkedIn Profile URLs", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Custom Field Mapping", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Multi-Provider Lead Enrichment", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Email Enrichment (1 credit)", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Full Contact Enrichment (10 credits)", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Direct Phone Numbers", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Mobile Phone Numbers", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Company Firmographics", free: true, starter: true, pro: true, enterprise: true },
+      { name: "98% Accuracy Guarantee", free: true, starter: true, pro: true, enterprise: true },
+      { name: "LinkedIn Profile URLs", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Custom Field Mapping", free: true, starter: true, pro: true, enterprise: true },
     ],
   },
   {
     name: "Email Verification",
     features: [
-      { name: "Syntax Validation", starter: true, pro: true, business: true, enterprise: true },
-      { name: "MX/DNS Lookup", starter: true, pro: true, business: true, enterprise: true },
-      { name: "SMTP Handshake Verification", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Catch-all Detection", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Disposable Email Detection", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Role-based Email Flagging", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Spam Trap Detection", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Deliverability Scoring", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Bulk Verification (10K+/batch)", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Real-time API Verification", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Syntax Validation", free: true, starter: true, pro: true, enterprise: true },
+      { name: "MX/DNS Lookup", free: true, starter: true, pro: true, enterprise: true },
+      { name: "SMTP Handshake Verification", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Catch-all Detection", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Disposable Email Detection", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Role-based Email Flagging", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Spam Trap Detection", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Deliverability Scoring", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Bulk Verification (10K+/batch)", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Real-time API Verification", free: true, starter: true, pro: true, enterprise: true },
     ],
   },
   {
     name: "Smart Columns (AI)",
     features: [
-      { name: "Job Title Normalization", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Company Name Standardization", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Name Parsing (First/Last)", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Phone Number Formatting", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Address Parsing", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Custom AI Prompts", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Seniority Level Classification", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Department Mapping", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Industry Categorization", starter: false, pro: true, business: true, enterprise: true },
-      { name: "GPT-4 Powered Transforms", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Job Title Normalization", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Company Name Standardization", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Name Parsing (First/Last)", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Phone Number Formatting", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Address Parsing", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Custom AI Prompts", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Seniority Level Classification", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Department Mapping", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Industry Categorization", free: true, starter: true, pro: true, enterprise: true },
+      { name: "GPT-4 Powered Transforms", free: true, starter: true, pro: true, enterprise: true },
     ],
   },
   {
     name: "Sales Navigator Scraper",
     features: [
-      { name: "Chrome Extension", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Bulk Lead Export", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Auto-enrichment on Export", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Preserve Sales Nav Filters", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Safe Rate Limiting", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Background Processing", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Direct CRM Sync", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Team Sharing", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Chrome Extension", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Bulk Lead Export", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Auto-enrichment on Export", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Preserve Sales Nav Filters", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Safe Rate Limiting", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Background Processing", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Direct CRM Sync", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Team Sharing", free: true, starter: true, pro: true, enterprise: true },
     ],
   },
   {
     name: "Playbook Builder",
     features: [
-      { name: "Visual Workflow Builder", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Number of Playbooks", starter: "0", pro: "5", business: "Unlimited", enterprise: "Unlimited" },
-      { name: "25+ Step Types (10 categories)", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Scheduled Runs (Cron)", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Webhook Triggers", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Conditional Logic & Branching", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Error Handling & Retries", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Deduplication Actions", starter: false, pro: true, business: true, enterprise: true },
-      { name: "CRM Sync Actions", starter: false, pro: true, business: true, enterprise: true },
-      { name: "ICP Scoring Step", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Visual Workflow Builder", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Number of Playbooks", free: "3", starter: "3", pro: "Unlimited", enterprise: "Unlimited" },
+      { name: "25+ Step Types (10 categories)", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Scheduled Runs (Cron)", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Webhook Triggers", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Conditional Logic & Branching", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Error Handling & Retries", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Deduplication Actions", free: true, starter: true, pro: true, enterprise: true },
+      { name: "CRM Sync Actions", free: true, starter: true, pro: true, enterprise: true },
+      { name: "ICP Scoring Step", free: true, starter: true, pro: true, enterprise: true },
     ],
   },
   {
     name: "Integrations",
     features: [
-      { name: "CSV Import/Export", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Google Sheets", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Salesforce", starter: false, pro: true, business: true, enterprise: true },
-      { name: "HubSpot", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Pipedrive", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Outreach", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Salesloft", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Zapier/Make/n8n", starter: false, pro: true, business: true, enterprise: true },
-      { name: "REST API", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Webhooks", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Custom Integrations", starter: false, pro: false, business: true, enterprise: true },
+      { name: "CSV Import/Export", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Google Sheets", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Salesforce", free: true, starter: true, pro: true, enterprise: true },
+      { name: "HubSpot", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Pipedrive", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Outreach", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Salesloft", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Zapier/Make/n8n", free: true, starter: true, pro: true, enterprise: true },
+      { name: "REST API", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Webhooks", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Custom Integrations", free: true, starter: true, pro: true, enterprise: true },
     ],
   },
   {
     name: "Team & Admin",
     features: [
-      { name: "Team Members", starter: "1", pro: "5", business: "25", enterprise: "Unlimited" },
-      { name: "Workspaces", starter: "1", pro: "1", business: "5", enterprise: "Unlimited" },
-      { name: "Role-based Permissions", starter: false, pro: false, business: true, enterprise: true },
-      { name: "SSO (SAML)", starter: false, pro: false, business: false, enterprise: true },
-      { name: "Audit Logs", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Usage Analytics", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Credit Allocation by Team", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Admin Dashboard", starter: false, pro: true, business: true, enterprise: true },
+      { name: "Team Members", free: "1", starter: "1", pro: "10", enterprise: "Unlimited" },
+      { name: "Workspaces", free: "1", starter: "1", pro: "3", enterprise: "Unlimited" },
+      { name: "Role-based Permissions", free: true, starter: true, pro: true, enterprise: true },
+      { name: "SSO (SAML)", free: false, starter: false, pro: false, enterprise: true },
+      { name: "Audit Logs", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Usage Analytics", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Credit Allocation by Team", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Admin Dashboard", free: true, starter: true, pro: true, enterprise: true },
     ],
   },
   {
     name: "Support & SLA",
     features: [
-      { name: "Email Support", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Priority Support", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Dedicated CSM", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Slack Channel", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Phone Support", starter: false, pro: false, business: false, enterprise: true },
-      { name: "Uptime SLA", starter: "99%", pro: "99.5%", business: "99.9%", enterprise: "99.99%" },
-      { name: "Response Time SLA", starter: "48hrs", pro: "24hrs", business: "4hrs", enterprise: "1hr" },
-      { name: "Onboarding Session", starter: false, pro: true, business: true, enterprise: true },
-      { name: "Quarterly Business Reviews", starter: false, pro: false, business: true, enterprise: true },
+      { name: "Email Support", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Priority Support", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Dedicated CSM", free: false, starter: false, pro: true, enterprise: true },
+      { name: "Slack Channel", free: false, starter: false, pro: true, enterprise: true },
+      { name: "Phone Support", free: false, starter: false, pro: false, enterprise: true },
+      { name: "Uptime SLA", free: "99%", starter: "99%", pro: "99.9%", enterprise: "99.99%" },
+      { name: "Response Time SLA", free: "48hrs", starter: "48hrs", pro: "12hrs", enterprise: "1hr" },
+      { name: "Onboarding Session", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Quarterly Business Reviews", free: false, starter: false, pro: true, enterprise: true },
     ],
   },
   {
     name: "Security & Compliance",
     features: [
-      { name: "SOC 2 Type II", starter: true, pro: true, business: true, enterprise: true },
-      { name: "GDPR Compliant", starter: true, pro: true, business: true, enterprise: true },
-      { name: "CCPA Compliant", starter: true, pro: true, business: true, enterprise: true },
-      { name: "256-bit Encryption", starter: true, pro: true, business: true, enterprise: true },
-      { name: "Data Retention Controls", starter: false, pro: true, business: true, enterprise: true },
-      { name: "IP Allowlisting", starter: false, pro: false, business: true, enterprise: true },
-      { name: "Custom DPA", starter: false, pro: false, business: false, enterprise: true },
-      { name: "Security Review", starter: false, pro: false, business: false, enterprise: true },
-      { name: "On-premise Option", starter: false, pro: false, business: false, enterprise: true },
+      { name: "SOC 2 Type II", free: true, starter: true, pro: true, enterprise: true },
+      { name: "GDPR Compliant", free: true, starter: true, pro: true, enterprise: true },
+      { name: "CCPA Compliant", free: true, starter: true, pro: true, enterprise: true },
+      { name: "256-bit Encryption", free: true, starter: true, pro: true, enterprise: true },
+      { name: "Data Retention Controls", free: true, starter: true, pro: true, enterprise: true },
+      { name: "IP Allowlisting", free: false, starter: false, pro: true, enterprise: true },
+      { name: "Custom DPA", free: false, starter: false, pro: false, enterprise: true },
+      { name: "Security Review", free: false, starter: false, pro: false, enterprise: true },
+      { name: "On-premise Option", free: false, starter: false, pro: false, enterprise: true },
     ],
   },
 ];
 
 const faqs = [
   {
-    question: "What is a credit?",
+    question: "How does credit-based pricing work?",
     answer:
-      "Credits are used for enrichment and transformations. Email-only enrichment costs 1 credit per record. Full contact enrichment (email + phone) costs 10 credits per record. Smart Column transformations have variable costs depending on the type.",
+      "Cleanlist uses a simple credit system: 1 credit = 1 email enrichment/verification, and 10 credits = 1 full contact record (email + phone). All plans include access to our full feature set—waterfall enrichment, email verification, Smart Columns AI, Sales Navigator scraper, Playbook Builder, and all CRM integrations. You only pay for the data you enrich.",
   },
   {
-    question: "Do unused credits roll over?",
+    question: "What's the difference between Free and Starter plans?",
     answer:
-      "Yes! Unused credits roll over for up to 3 months on Pro and Business plans. Enterprise plans have custom rollover terms.",
+      "Both Free and Starter include the exact same features and functionality—there are no feature restrictions. The only difference is the number of credits: Free includes 30 credits per month (30 emails or 3 phones), while Starter tiers range from 500-1,500 credits. If you need more volume, upgrade to Starter. If you just want to test Cleanlist, Free gives you full access.",
   },
   {
-    question: "Can I upgrade or downgrade anytime?",
+    question: "Do I get waterfall enrichment on all plans?",
     answer:
-      "Absolutely. Upgrade instantly and get prorated access to your new plan. Downgrade at any time—changes take effect at your next billing cycle.",
+      "Yes! Every plan, including Free, gets access to our waterfall enrichment engine. We query 15+ data providers (Wiza, Findymail, Prospeo, Lusha, and more) in parallel to find the best data for each contact. You get 98% accuracy guaranteed, regardless of your plan.",
   },
   {
-    question: "What happens if I run out of credits?",
+    question: "Can I use all integrations on every plan?",
     answer:
-      "You can purchase additional credits at any time, or upgrade to a higher plan. We'll notify you when you're running low so you're never caught off guard.",
+      "Absolutely. All plans include native integrations with Salesforce, HubSpot, Pipedrive, Outreach, Salesloft, and 10+ other platforms. You also get full API and webhook access, plus CSV/Google Sheets import/export. No integration is locked behind a paywall.",
   },
   {
-    question: "Is there a free trial?",
+    question: "How does the Playbook Builder work?",
     answer:
-      "Yes! Every plan comes with a 14-day free trial and 100 free credits. No credit card required to start.",
+      "The Playbook Builder is our visual automation engine for RevOps workflows. Free and Starter plans get 3 playbooks, while Pro and Enterprise get unlimited. All plans can use 25+ step types including enrichment, verification, deduplication, CRM sync, ICP scoring, and conditional logic. Schedule playbooks to run on cron, trigger via webhook, or run manually.",
   },
   {
-    question: "Do you offer discounts for startups or nonprofits?",
+    question: "What if I run out of credits mid-month?",
     answer:
-      "Yes, we offer special pricing for early-stage startups and registered nonprofits. Contact us to learn more.",
+      "You can upgrade to a higher tier instantly or purchase additional credit packs. We'll notify you when you're running low (at 80% and 90% usage). Unused credits roll over for up to 3 months, so you never lose what you've paid for.",
+  },
+  {
+    question: "Is there a free trial or setup fee?",
+    answer:
+      "There are no setup fees, contracts, or credit card requirements to start. The Free plan gives you 30 credits per month forever. If you upgrade to a paid plan, you can cancel anytime—we bill monthly or yearly (save 17% with annual billing).",
+  },
+  {
+    question: "What makes Cleanlist different from Apollo or ZoomInfo?",
+    answer:
+      "Unlike database providers, Cleanlist doesn't sell you a fixed list. We use waterfall enrichment to query 15+ providers in real-time, giving you fresher data with higher accuracy (98% guaranteed). You also get Smart Columns AI for data normalization, Playbook Builder for automation, and full CRM integration—all in one platform. No data decay, no stale contacts.",
   },
 ];
 
@@ -215,12 +225,19 @@ export default function PricingPage() {
   const [expandedCategories, setExpandedCategories] = useState<string[]>(
     featureCategories.map((c) => c.name)
   );
+  const [expandedFaqs, setExpandedFaqs] = useState<number[]>([]);
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
   const toggleCategory = (name: string) => {
     setExpandedCategories((prev) =>
       prev.includes(name) ? prev.filter((c) => c !== name) : [...prev, name]
+    );
+  };
+
+  const toggleFaq = (index: number) => {
+    setExpandedFaqs((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
 
@@ -264,34 +281,27 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex items-center justify-center"
+            className="flex items-center justify-center gap-3"
           >
-            {/* Invisible spacer to balance the badge */}
-            <span className="w-[72px] hidden sm:block" />
-
-            <div className="flex items-center gap-4">
-              <span className={`text-sm font-medium transition-colors ${!annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
-                Monthly
-              </span>
-              <button
-                onClick={() => setAnnual(!annual)}
-                className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
-                  annual ? "bg-[#3e8aff]" : (isDark ? "bg-white/[0.1]" : "bg-gray-300")
+            <span className={`text-sm font-medium transition-colors ${!annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
+              Monthly
+            </span>
+            <button
+              onClick={() => setAnnual(!annual)}
+              className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
+                annual ? "bg-[#3e8aff]" : (isDark ? "bg-white/[0.1]" : "bg-gray-300")
+              }`}
+            >
+              <div
+                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
+                  annual ? "left-8" : "left-1"
                 }`}
-              >
-                <div
-                  className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
-                    annual ? "left-8" : "left-1"
-                  }`}
-                />
-              </button>
-              <span className={`text-sm font-medium transition-colors ${annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
-                Yearly
-              </span>
-            </div>
-
-            {/* Save badge */}
-            <span className={`ml-3 px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full transition-opacity duration-200 w-[72px] text-center ${annual ? "opacity-100" : "opacity-0"}`}>
+              />
+            </button>
+            <span className={`text-sm font-medium transition-colors ${annual ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
+              Yearly
+            </span>
+            <span className={`px-2 py-1 text-xs font-medium text-green-400 bg-green-500/10 rounded-full transition-opacity duration-200 ${annual ? "opacity-100" : "opacity-0"}`}>
               Save 17%
             </span>
           </motion.div>
@@ -603,13 +613,13 @@ export default function PricingPage() {
                     Feature
                   </th>
                   <th className={`text-center py-4 px-4 font-medium w-1/6 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    Starter
+                    Free
                   </th>
                   <th className={`text-center py-4 px-4 font-medium w-1/6 bg-[#3e8aff]/5 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    Pro
+                    Starter
                   </th>
                   <th className={`text-center py-4 px-4 font-medium w-1/6 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    Business
+                    Pro
                   </th>
                   <th className={`text-center py-4 px-4 font-medium w-1/6 ${isDark ? "text-white" : "text-gray-900"}`}>
                     Enterprise
@@ -652,6 +662,19 @@ export default function PricingPage() {
                             {feature.name}
                           </td>
                           <td className="py-3 px-4 text-center">
+                            {typeof feature.free === "boolean" ? (
+                              feature.free ? (
+                                <Check className="w-4 h-4 text-green-500 mx-auto" />
+                              ) : (
+                                <X className={`w-4 h-4 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
+                              )
+                            ) : (
+                              <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                                {feature.free}
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-3 px-4 text-center bg-[#3e8aff]/5">
                             {typeof feature.starter === "boolean" ? (
                               feature.starter ? (
                                 <Check className="w-4 h-4 text-green-500 mx-auto" />
@@ -664,7 +687,7 @@ export default function PricingPage() {
                               </span>
                             )}
                           </td>
-                          <td className="py-3 px-4 text-center bg-[#3e8aff]/5">
+                          <td className="py-3 px-4 text-center">
                             {typeof feature.pro === "boolean" ? (
                               feature.pro ? (
                                 <Check className="w-4 h-4 text-green-500 mx-auto" />
@@ -674,19 +697,6 @@ export default function PricingPage() {
                             ) : (
                               <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                                 {feature.pro}
-                              </span>
-                            )}
-                          </td>
-                          <td className="py-3 px-4 text-center">
-                            {typeof feature.business === "boolean" ? (
-                              feature.business ? (
-                                <Check className="w-4 h-4 text-green-500 mx-auto" />
-                              ) : (
-                                <X className={`w-4 h-4 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
-                              )
-                            ) : (
-                              <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                                {feature.business}
                               </span>
                             )}
                           </td>
@@ -722,26 +732,45 @@ export default function PricingPage() {
             viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Frequently Asked Questions
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
+              FAQs
             </h2>
           </motion.div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {faqs.map((faq, index) => (
               <motion.div
                 key={faq.question}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
+                transition={{ delay: index * 0.05 }}
+                className={`rounded-xl border backdrop-blur-xl transition-all overflow-hidden ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
               >
-                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold mb-2 flex items-start gap-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                  <Question className="w-5 h-5 text-[#3e8aff] mt-0.5 flex-shrink-0" />
-                  {faq.question}
-                </h3>
-                <p className={`pl-7 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{faq.answer}</p>
+                <button
+                  onClick={() => toggleFaq(index)}
+                  className="w-full p-5 md:p-6 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors"
+                >
+                  <h3 className={`text-base md:text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
+                    {faq.question}
+                  </h3>
+                  {expandedFaqs.includes(index) ? (
+                    <CaretUp className={`w-5 h-5 flex-shrink-0 ${isDark ? "text-gray-400" : "text-gray-600"}`} />
+                  ) : (
+                    <CaretDown className={`w-5 h-5 flex-shrink-0 ${isDark ? "text-gray-400" : "text-gray-600"}`} />
+                  )}
+                </button>
+                {expandedFaqs.includes(index) && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-5 md:px-6 pb-5 md:pb-6"
+                  >
+                    <p className={`text-sm md:text-base ${isDark ? "text-gray-400" : "text-gray-600"}`}>{faq.answer}</p>
+                  </motion.div>
+                )}
               </motion.div>
             ))}
           </div>

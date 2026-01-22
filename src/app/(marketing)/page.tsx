@@ -1246,7 +1246,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center gap-4 mb-8 md:mb-12"
+            className="flex items-center justify-center gap-3 mb-8 md:mb-12"
           >
             <span className={`text-sm font-medium transition-colors ${!isYearly ? (isDark ? "text-white" : "text-gray-900") : "text-gray-500"}`}>
               Monthly
