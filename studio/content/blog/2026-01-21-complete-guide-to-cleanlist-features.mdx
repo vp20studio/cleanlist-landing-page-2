@@ -1,0 +1,272 @@
+---
+title: "The Complete Guide to Cleanlist: 6 Features That Fix Your GTM Data"
+description: "Discover how Cleanlist's waterfall enrichment, ICP scoring, smart columns, and more help GTM teams achieve 98% data accuracy. Full feature breakdown inside."
+date: "2026-01-21"
+category: "product-updates"
+tags: ["cleanlist", "product features", "data enrichment", "GTM tools", "sales tools"]
+author:
+  name: "Cleanlist Team"
+  role: "Product Team"
+featured: true
+draft: false
+keywords: ["cleanlist features", "data enrichment platform", "GTM data tools", "B2B data enrichment", "sales data platform"]
+---
+
+Bad data costs B2B companies 15-25% of their revenue. Bounced emails tank deliverability. Wrong phone numbers waste rep time. Incomplete records break automations.
+
+Cleanlist exists to fix this. We built a data platform specifically for GTM teams—combining enrichment, verification, and transformation in one place. No more duct-taping five different tools together.
+
+This guide covers every Cleanlist feature and how each one helps you ship cleaner data, faster.
+
+## The Numbers Behind Cleanlist
+
+Before diving into features, here's what powers the platform:
+
+| Metric | Value |
+|--------|-------|
+| Contact database | 400M+ records |
+| Email coverage | 98% |
+| Phone find rate | 85% |
+| Data providers | 15+ premium sources |
+| Companies using Cleanlist | 100+ |
+
+These aren't vanity metrics. They translate directly to more complete records, fewer bounces, and higher connect rates for your outbound campaigns.
+
+## Feature 1: Waterfall Enrichment
+
+**The problem**: Single-source data providers have gaps. You pay for enrichment and still end up with incomplete records.
+
+**The solution**: [Waterfall enrichment](/product/waterfall-enrichment) queries 15+ premium data providers in sequence until it finds complete, verified information.
+
+### How it works
+
+1. Your input record enters the cascade
+2. Provider 1 is queried—if they have verified data, we capture it
+3. If gaps remain, we cascade to Provider 2, then Provider 3, and so on
+4. Each response is validated (email syntax, deliverability, freshness)
+5. The best data from each provider merges into one "golden record"
+
+### What you get
+
+- **Partial enrichment (1 credit)**: Verified work email, LinkedIn URL, company data
+- **Full enrichment (11 credits)**: Everything above + direct dial phone, mobile number, complete firmographics
+
+### Output fields (25+)
+
+Contact data: verified email, personal email, direct phone, mobile, LinkedIn, Twitter, full name, job title, department, seniority level.
+
+Company data: name, domain, industry, employee count, revenue range, headquarters, founded year, tech stack, funding stage.
+
+Metadata: confidence score, sources used, last verified date, processing time.
+
+Most customers see 20-30% higher fill rates compared to single-source tools.
+
+## Feature 2: People Search
+
+**The problem**: You have a target account list but no contact details. Manually finding emails and phones takes hours.
+
+**The solution**: [People Search](/product/people-search) discovers contacts from LinkedIn profiles and Sales Navigator with one click.
+
+### Key capabilities
+
+- **LinkedIn lookup**: Paste a profile URL, get verified email and phone
+- **Company search**: Enter a company name, get decision-maker contacts
+- **Bulk discovery**: Upload a list of companies, get contacts for each
+- **Role filtering**: Search by title, department, seniority level
+
+### Use cases
+
+- Building prospect lists for outbound campaigns
+- Finding the right contact at target accounts
+- Expanding your database with net-new leads
+- Validating contacts before outreach
+
+People Search connects directly to our enrichment engine, so every contact returned is already verified.
+
+## Feature 3: ICP Scoring
+
+**The problem**: Not all leads are equal. Your sales team wastes time on poor-fit prospects while ideal customers slip through.
+
+**The solution**: [ICP Scoring](/product/icp-scoring) automatically scores and ranks every lead against your Ideal Customer Profile.
+
+### Define your ICP with granular criteria
+
+**Company targeting:**
+- Industries and sub-categories
+- Company size (startup to enterprise)
+- Revenue ranges ($0-$1M to $1B+)
+- Tech stack requirements
+- Business models (B2B, B2C, SaaS, marketplace)
+- Growth signals (hiring, funding, expansion)
+
+**Prospect targeting:**
+- Job titles and variations
+- Departments (Sales, Marketing, Engineering)
+- Seniority levels (C-Suite, VP, Director, Manager)
+- Years of experience
+- Skills and certifications
+
+**Geographic targeting:**
+- Countries, states, cities
+- Timezone alignment
+- Negative geo targeting (exclusions)
+
+### How scoring works
+
+Each lead is evaluated against your ICP criteria and assigned a score from 0-100. Higher scores indicate better fit.
+
+- **90-100**: Perfect fit—prioritize immediately
+- **70-89**: Strong fit—include in primary sequences
+- **50-69**: Moderate fit—consider for nurture campaigns
+- **Below 50**: Poor fit—deprioritize or exclude
+
+Scores update automatically as you enrich more data or adjust your ICP definition.
+
+## Feature 4: Smart Columns
+
+**The problem**: Your CRM data is messy. Job titles are inconsistent ("VP Sales" vs "Vice President of Sales" vs "VP, Sales"). Phone numbers have different formats. Names are parsed wrong.
+
+**The solution**: [Smart Columns](/product/smart-columns) uses AI to normalize and transform data automatically.
+
+### Transformation types
+
+**Job title normalization**: Convert "VP Sales" → "Vice President of Sales" or standardize to your preferred format.
+
+**Name parsing**: Split "John Smith" into First Name: "John", Last Name: "Smith". Handle edge cases like "Dr. Mary Jane Watson-Parker III".
+
+**Phone formatting**: Standardize to E.164 format (+1 555 123 4567) or any custom format you need.
+
+**Industry categorization**: Map free-text industries to standardized categories (NAICS, SIC, or custom).
+
+**Company name cleanup**: Remove Inc., LLC, Ltd. suffixes or standardize them.
+
+### How to use it
+
+Smart Columns accepts natural language prompts. Just describe what you want:
+
+- "Normalize all job titles to title case"
+- "Extract the domain from email addresses"
+- "Flag any phone numbers that aren't US-based"
+- "Categorize companies by employee count into Small/Medium/Enterprise"
+
+No formulas. No code. Just describe the transformation in plain English.
+
+## Feature 5: Sales Nav Scraper
+
+**The problem**: You've built the perfect Sales Navigator search but exporting contacts manually is tedious. And the exports come without verified contact details.
+
+**The solution**: [Sales Nav Scraper](/product/sales-nav-scraper) bulk exports your Sales Navigator lists and enriches them automatically.
+
+### Workflow
+
+1. Build your search in LinkedIn Sales Navigator
+2. Connect Cleanlist to your Sales Navigator account
+3. Select the list or search you want to export
+4. Cleanlist extracts all profiles and runs enrichment
+5. Download complete contact records (email, phone, company data)
+
+### Benefits over manual export
+
+- **Speed**: Export thousands of profiles in minutes, not hours
+- **Completeness**: Every record is enriched through the waterfall
+- **Accuracy**: Emails are verified, phones are validated
+- **No copy-paste**: Direct integration eliminates manual data entry
+
+This is particularly valuable for [sales teams](/use-cases/sales-teams) running ABM campaigns against defined account lists.
+
+## Feature 6: Playbook Builder
+
+**The problem**: Setting up GTM workflows requires engineering resources. Connecting data sources, building enrichment flows, syncing to CRMs—it takes weeks.
+
+**The solution**: [Playbook Builder](/product/playbook-builder) offers pre-built GTM playbooks you can deploy in minutes.
+
+### Available playbooks
+
+**Outbound Sales Playbook**
+- Ingest leads from any source
+- Enrich with waterfall enrichment
+- Score against your ICP
+- Push to Outreach, Salesloft, or Apollo
+
+**ABM Campaign Playbook**
+- Upload target account list
+- Discover decision-maker contacts
+- Enrich and verify all records
+- Sync to HubSpot or Salesforce
+
+**Event Follow-Up Playbook**
+- Import badge scans or registration lists
+- Enrich contacts in real-time
+- Score leads by fit and intent
+- Route to appropriate sales reps
+
+**CRM Cleanup Playbook**
+- Connect your CRM
+- Identify records with missing data
+- Enrich gaps automatically
+- Update records in place
+
+### No engineering required
+
+Each playbook is pre-configured with best practices. Select a playbook, connect your data sources, and deploy. Cleanlist handles the enrichment logic, data validation, and CRM syncing.
+
+## How It All Connects
+
+These features aren't siloed—they work together:
+
+1. **People Search** finds contacts at your target accounts
+2. **Waterfall Enrichment** fills in verified emails and phones
+3. **Smart Columns** normalizes job titles and company data
+4. **ICP Scoring** ranks leads by fit
+5. **Playbook Builder** pushes everything to your CRM
+
+The result: complete, clean, scored records flowing into your sales tools automatically.
+
+## Integration Ecosystem
+
+Cleanlist connects natively to 15+ tools:
+
+**CRMs**: HubSpot, Salesforce, Pipedrive, Salesflare
+
+**Sales engagement**: Outreach, Salesloft, Apollo
+
+**Data sources**: LinkedIn Sales Navigator, CSV uploads, API
+
+**Destinations**: Webhooks, Zapier, direct API
+
+## Getting Started
+
+Setup takes 2 minutes:
+
+1. Create a free Cleanlist account (no credit card required)
+2. Upload a test list of 50-100 contacts
+3. Run waterfall enrichment
+4. Review results and connect your CRM
+
+Most teams see results on day one. No implementation project, no IT involvement, no waiting.
+
+## Frequently Asked Questions
+
+### How is Cleanlist different from ZoomInfo or Apollo?
+
+Cleanlist uses waterfall enrichment across 15+ providers, not a single database. This means higher fill rates and fresher data. We also include transformation tools (Smart Columns) and ICP scoring that others charge separately for.
+
+### What's the pricing model?
+
+Credit-based pricing. Partial enrichment costs 1 credit per record, full enrichment costs 11 credits. No monthly minimums on most plans. See [pricing](/pricing) for details.
+
+### Can I try before buying?
+
+Yes. Free accounts include credits to test all features. No credit card required to start.
+
+### How do integrations work?
+
+Native integrations connect in one click (OAuth). For CRMs like Salesforce, we offer a managed package. Custom integrations use our REST API.
+
+### Is my data secure?
+
+Cleanlist is SOC 2 compliant. We don't store your input data longer than necessary for processing. All data is encrypted in transit and at rest.
+
+---
+
+Bad data is a solved problem. Cleanlist gives GTM teams the enrichment, verification, and transformation tools they need—all in one platform. [Start your free trial](/pricing) and see the difference clean data makes.
