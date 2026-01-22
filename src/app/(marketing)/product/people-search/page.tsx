@@ -49,7 +49,7 @@ const sampleResults = [
     employees: "500-1000",
     revenue: "$50M-100M",
     industry: "SaaS",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+    image: "https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff&size=128",
   },
   {
     name: "Michael Torres",
@@ -59,7 +59,7 @@ const sampleResults = [
     employees: "1000-5000",
     revenue: "$100M+",
     industry: "SaaS",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
+    image: "https://ui-avatars.com/api/?name=Michael+Torres&background=3b82f6&color=fff&size=128",
   },
   {
     name: "Emily Rodriguez",
@@ -69,7 +69,7 @@ const sampleResults = [
     employees: "500-1000",
     revenue: "$50M-100M",
     industry: "SaaS",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+    image: "https://ui-avatars.com/api/?name=Emily+Rodriguez&background=ec4899&color=fff&size=128",
   },
   {
     name: "David Kim",
@@ -77,7 +77,7 @@ const sampleResults = [
     company: "Linear",
     location: "Austin, TX",
     employees: "100-500",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
+    image: "https://ui-avatars.com/api/?name=David+Kim&background=14b8a6&color=fff&size=128",
     revenue: "$10M-50M",
     industry: "SaaS",
   },
@@ -89,6 +89,7 @@ const sampleResults = [
     employees: "200-500",
     revenue: "$25M-50M",
     industry: "SaaS",
+    image: "https://ui-avatars.com/api/?name=Jessica+Wright&background=f59e0b&color=fff&size=128",
   },
 ];
 

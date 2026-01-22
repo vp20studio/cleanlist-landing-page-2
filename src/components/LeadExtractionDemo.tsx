@@ -71,7 +71,7 @@ const importMethods: ImportMethodConfig[] = [
     subtitle: "Import & live sync with your CRM",
     icon: (
       <div className="w-5 h-5 flex items-center justify-center">
-        <Image src="/images/favicons/hubspot.ico" alt="HubSpot" width={20} height={20} className="w-full h-full object-contain" />
+        <Image src="/images/favicons/hubspot.png" alt="HubSpot" width={20} height={20} className="w-full h-full object-contain" />
       </div>
     ),
     color: "#ff7a59",
@@ -209,7 +209,7 @@ export default function LeadExtractionDemo() {
                   <div className="flex items-start gap-3">
                     <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0">
                       <Image
-                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
+                        src="https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff&size=128"
                         alt="Sarah Chen"
                         width={64}
                         height={64}
@@ -376,10 +376,10 @@ export default function LeadExtractionDemo() {
 
                   {/* Leads list */}
                   {[
-                    { name: "Sarah Chen", title: "VP Sales", company: "TechCorp", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
-                    { name: "Michael Park", title: "Director", company: "Acme Inc", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" },
-                    { name: "Emma Wilson", title: "Head of Growth", company: "StartupXYZ", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
-                    { name: "James Liu", title: "CRO", company: "Enterprise Co", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop" },
+                    { name: "Sarah Chen", title: "VP Sales", company: "TechCorp", image: "https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff&size=128" },
+                    { name: "Michael Park", title: "Director", company: "Acme Inc", image: "https://ui-avatars.com/api/?name=Michael+Park&background=3b82f6&color=fff&size=128" },
+                    { name: "Emma Wilson", title: "Head of Growth", company: "StartupXYZ", image: "https://ui-avatars.com/api/?name=Emma+Wilson&background=ec4899&color=fff&size=128" },
+                    { name: "James Liu", title: "CRO", company: "Enterprise Co", image: "https://ui-avatars.com/api/?name=James+Liu&background=14b8a6&color=fff&size=128" },
                   ].map((lead, i) => (
                     <motion.div
                       key={lead.name}

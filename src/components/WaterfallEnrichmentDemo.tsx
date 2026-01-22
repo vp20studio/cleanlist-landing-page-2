@@ -312,7 +312,7 @@ export default function WaterfallEnrichmentDemo() {
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0">
                     <Image
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
+                      src="https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff&size=128"
                       alt={sampleLead.name}
                       width={40}
                       height={40}

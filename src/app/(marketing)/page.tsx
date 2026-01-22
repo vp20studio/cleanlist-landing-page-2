@@ -653,9 +653,9 @@ export default function HomePage() {
 
                     {/* Competitor Column Headers */}
                     {[
-                      { name: "Workflow Builders", sub: "Clay, etc.", favicon: "/images/favicons/clay.png", color: "orange" },
-                      { name: "CRM Enrichment", sub: "Apollo, ZoomInfo", favicon: "/images/favicons/apollo.jpeg", color: "purple" },
-                      { name: "Signal Platforms", sub: "6sense, etc.", favicon: "/images/favicons/6sense.svg", color: "pink" },
+                      { name: "Workflow Builders", sub: "Clay, etc.", favicon: "/images/favicons/clay.png", bgcolor: "white" },
+                      { name: "CRM Enrichment", sub: "Apollo, ZoomInfo", favicon: "/images/favicons/apollo.jpeg", bgcolor: "yellow" },
+                      { name: "Signal Platforms", sub: "6sense, etc.", favicon: "/images/favicons/6sense.svg", bgcolor: "white" },
                     ].map((col, i) => (
                       <motion.div
                         key={col.name}
@@ -669,18 +669,16 @@ export default function HomePage() {
                           isDark ? "bg-white/[0.03] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"
                         }`}>
                           <div className={`w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden ${
-                            col.color === "orange"
-                              ? (isDark ? "bg-orange-500/20" : "bg-orange-100")
-                              : col.color === "purple"
-                                ? (isDark ? "bg-purple-500/20" : "bg-purple-100")
-                                : (isDark ? "bg-pink-500/20" : "bg-pink-100")
+                            col.bgcolor === "white"
+                              ? "bg-white"
+                              : "bg-[#FFD329]"
                           }`}>
                             <Image
                               src={col.favicon}
                               alt={col.name}
-                              width={32}
-                              height={32}
-                              className="w-8 h-8 object-contain"
+                              width={40}
+                              height={40}
+                              className="w-10 h-10 object-contain"
                             />
                           </div>
                           <div>

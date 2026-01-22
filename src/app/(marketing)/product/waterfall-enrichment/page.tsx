@@ -303,7 +303,7 @@ export default function WaterfallEnrichmentPage() {
                   <div className="flex items-center gap-4">
                     <div className="w-14 h-14 rounded-xl overflow-hidden bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] shadow-lg">
                       <Image
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+                        src="https://ui-avatars.com/api/?name=John+Smith&background=3b82f6&color=fff&size=128"
                         alt="John Smith"
                         width={56}
                         height={56}
@@ -489,7 +489,7 @@ export default function WaterfallEnrichmentPage() {
                 <div className="relative block mb-6">
                   <div className="absolute inset-0 bg-[#3e8aff]/20 rounded-xl blur-xl group-hover:blur-xl transition-all duration-500" />
                   <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
-                    <Envelope className="text-white" width={48} height={48} />
+                    <Envelope className="text-white" width={72} height={72} />
                   </div>
                 </div>
 
@@ -543,13 +543,16 @@ export default function WaterfallEnrichmentPage() {
                 </div>
 
                 {/* CTA */}
-                <button className={`w-full mt-8 py-3 px-6 rounded-xl font-semibold transition-all ${
-                  isDark
-                    ? "bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1]"
-                    : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
-                }`}>
+                <Link
+                  href="https://portal.cleanlist.ai/auth/register"
+                  className={`w-full mt-8 py-3 px-6 rounded-xl font-semibold transition-all block text-center ${
+                    isDark
+                      ? "bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1]"
+                      : "bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200"
+                  }`}
+                >
                   Start with Partial
-                </button>
+                </Link>
               </div>
             </motion.div>
 
@@ -578,7 +581,7 @@ export default function WaterfallEnrichmentPage() {
                 <div className="relative block mb-6">
                   <div className="absolute inset-0 bg-white/30 rounded-xl blur-xl group-hover:blur-xl transition-all duration-500" />
                   <div className="relative w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-lg">
-                    <Phone className="text-white" width={48} height={48} />
+                    <Phone className="text-white" width={72} height={72} />
                   </div>
                 </div>
 
@@ -631,9 +634,12 @@ export default function WaterfallEnrichmentPage() {
                 </div>
 
                 {/* CTA */}
-                <button className="w-full mt-8 py-3 px-6 rounded-xl bg-white text-[#3e8aff] font-semibold hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl hover:scale-[1.02]">
+                <Link
+                  href="https://portal.cleanlist.ai/auth/register"
+                  className="w-full mt-8 py-3 px-6 rounded-xl bg-white text-[#3e8aff] font-semibold hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl hover:scale-[1.02] block text-center"
+                >
                   Start with Full
-                </button>
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -678,7 +684,7 @@ export default function WaterfallEnrichmentPage() {
                   <div className="relative">
                     <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-xl" />
                     <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
-                      <User className="text-white" width={48} height={48} />
+                      <User className="text-white" width={72} height={72} />
                     </div>
                   </div>
                   <div>
@@ -741,7 +747,7 @@ export default function WaterfallEnrichmentPage() {
                   <div className="relative">
                     <div className="absolute inset-0 bg-purple-500/20 rounded-xl blur-xl" />
                     <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
-                      <Buildings className="text-white" width={48} height={48} />
+                      <Buildings className="text-white" width={72} height={72} />
                     </div>
                   </div>
                   <div>
@@ -799,7 +805,7 @@ export default function WaterfallEnrichmentPage() {
                   <div className="relative">
                     <div className="absolute inset-0 bg-yellow-500/20 rounded-xl blur-xl" />
                     <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center shadow-lg">
-                      <ChartBar className="text-white" width={48} height={48} />
+                      <ChartBar className="text-white" width={72} height={72} />
                     </div>
                   </div>
                   <div>
@@ -861,9 +867,9 @@ export default function WaterfallEnrichmentPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: <Users width={48} height={48} />,
-                iconColor: "from-blue-500 to-blue-600",
-                glowColor: "blue-500",
+                icon: <Users width={72} height={72} />,
+                iconColor: "from-[#3e8aff] to-[#2d7af0]",
+                glowColor: "[#3e8aff]",
                 title: "Lead List Enrichment",
                 description:
                   "Upload a list of companies and get complete contact details for decision-makers.",
@@ -871,9 +877,9 @@ export default function WaterfallEnrichmentPage() {
                 metric: "10K+ leads/day",
               },
               {
-                icon: <ArrowsClockwise width={48} height={48} />,
-                iconColor: "from-green-500 to-green-600",
-                glowColor: "green-500",
+                icon: <ArrowsClockwise width={72} height={72} />,
+                iconColor: "from-[#3e8aff] to-[#2d7af0]",
+                glowColor: "[#3e8aff]",
                 title: "CRM Data Hygiene",
                 description:
                   "Enrich existing CRM records to fill gaps and update stale information.",
@@ -881,9 +887,9 @@ export default function WaterfallEnrichmentPage() {
                 metric: "Real-time sync",
               },
               {
-                icon: <Crosshair width={48} height={48} />,
-                iconColor: "from-purple-500 to-purple-600",
-                glowColor: "purple-500",
+                icon: <Crosshair width={72} height={72} />,
+                iconColor: "from-[#3e8aff] to-[#2d7af0]",
+                glowColor: "[#3e8aff]",
                 title: "ABM Campaign Prep",
                 description:
                   "Get verified emails and direct dials for your target account list.",
@@ -891,9 +897,9 @@ export default function WaterfallEnrichmentPage() {
                 metric: "Complete buying committees",
               },
               {
-                icon: <Calendar width={48} height={48} />,
-                iconColor: "from-orange-500 to-orange-600",
-                glowColor: "orange-500",
+                icon: <Calendar width={72} height={72} />,
+                iconColor: "from-[#3e8aff] to-[#2d7af0]",
+                glowColor: "[#3e8aff]",
                 title: "Event Lead Capture",
                 description:
                   "Enrich badge scans with full contact and company data in real-time.",
@@ -901,9 +907,9 @@ export default function WaterfallEnrichmentPage() {
                 metric: "< 2s processing",
               },
               {
-                icon: <ChartBar width={48} height={48} />,
-                iconColor: "from-indigo-500 to-indigo-600",
-                glowColor: "indigo-500",
+                icon: <ChartBar width={72} height={72} />,
+                iconColor: "from-[#3e8aff] to-[#2d7af0]",
+                glowColor: "[#3e8aff]",
                 title: "Market Research",
                 description:
                   "Build comprehensive prospect databases for TAM analysis and segmentation.",
@@ -911,9 +917,9 @@ export default function WaterfallEnrichmentPage() {
                 metric: "25+ data points",
               },
               {
-                icon: <Globe width={48} height={48} />,
-                iconColor: "from-teal-500 to-teal-600",
-                glowColor: "teal-500",
+                icon: <Globe width={72} height={72} />,
+                iconColor: "from-[#3e8aff] to-[#2d7af0]",
+                glowColor: "[#3e8aff]",
                 title: "International Expansion",
                 description:
                   "Get localized contact data for EMEA, APAC, and LATAM markets.",
