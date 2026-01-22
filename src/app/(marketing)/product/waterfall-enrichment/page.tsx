@@ -300,8 +300,8 @@ export default function WaterfallEnrichmentPage() {
                 >
                   <div className="text-xs font-semibold text-[#3e8aff] mb-3 tracking-wider">INPUT RECORD</div>
                   <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
-                      <User className="text-white" width={40} height={40} />
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
+                      <User className="text-white" width={48} height={48} />
                     </div>
                     <div>
                       <div className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>John Smith</div>
@@ -480,9 +480,9 @@ export default function WaterfallEnrichmentPage() {
               <div className="relative">
                 {/* Icon with animated background */}
                 <div className="relative block mb-6">
-                  <div className="absolute inset-0 bg-[#3e8aff]/20 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-500" />
-                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
-                    <Envelope className="text-white" width={40} height={40} />
+                  <div className="absolute inset-0 bg-[#3e8aff]/20 rounded-xl blur-xl group-hover:blur-xl transition-all duration-500" />
+                  <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
+                    <Envelope className="text-white" width={48} height={48} />
                   </div>
                 </div>
 
@@ -569,9 +569,9 @@ export default function WaterfallEnrichmentPage() {
               <div className="relative">
                 {/* Icon */}
                 <div className="relative block mb-6">
-                  <div className="absolute inset-0 bg-white/30 rounded-2xl blur-2xl group-hover:blur-2xl transition-all duration-500" />
-                  <div className="relative w-20 h-20 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-lg">
-                    <Phone className="text-white" width={40} height={40} />
+                  <div className="absolute inset-0 bg-white/30 rounded-xl blur-xl group-hover:blur-xl transition-all duration-500" />
+                  <div className="relative w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-lg">
+                    <Phone className="text-white" width={48} height={48} />
                   </div>
                 </div>
 
@@ -669,9 +669,9 @@ export default function WaterfallEnrichmentPage() {
                 {/* Icon header */}
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-2xl" />
-                    <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
-                      <User className="text-white" width={40} height={40} />
+                    <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-xl" />
+                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+                      <User className="text-white" width={48} height={48} />
                     </div>
                   </div>
                   <div>
@@ -732,9 +732,9 @@ export default function WaterfallEnrichmentPage() {
                 {/* Icon header */}
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-purple-500/20 rounded-xl blur-2xl" />
-                    <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
-                      <Buildings className="text-white" width={40} height={40} />
+                    <div className="absolute inset-0 bg-purple-500/20 rounded-xl blur-xl" />
+                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
+                      <Buildings className="text-white" width={48} height={48} />
                     </div>
                   </div>
                   <div>
@@ -790,9 +790,9 @@ export default function WaterfallEnrichmentPage() {
                 {/* Icon header */}
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-yellow-500/20 rounded-xl blur-2xl" />
-                    <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center shadow-lg">
-                      <ChartBar className="text-white" width={40} height={40} />
+                    <div className="absolute inset-0 bg-yellow-500/20 rounded-xl blur-xl" />
+                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center shadow-lg">
+                      <ChartBar className="text-white" width={48} height={48} />
                     </div>
                   </div>
                   <div>
@@ -854,7 +854,7 @@ export default function WaterfallEnrichmentPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                icon: <Users width={40} height={40} />,
+                icon: <Users width={48} height={48} />,
                 iconColor: "from-blue-500 to-blue-600",
                 glowColor: "blue-500",
                 title: "Lead List Enrichment",
@@ -864,7 +864,7 @@ export default function WaterfallEnrichmentPage() {
                 metric: "10K+ leads/day",
               },
               {
-                icon: <ArrowsClockwise width={40} height={40} />,
+                icon: <ArrowsClockwise width={48} height={48} />,
                 iconColor: "from-green-500 to-green-600",
                 glowColor: "green-500",
                 title: "CRM Data Hygiene",
@@ -874,7 +874,7 @@ export default function WaterfallEnrichmentPage() {
                 metric: "Real-time sync",
               },
               {
-                icon: <Crosshair width={40} height={40} />,
+                icon: <Crosshair width={48} height={48} />,
                 iconColor: "from-purple-500 to-purple-600",
                 glowColor: "purple-500",
                 title: "ABM Campaign Prep",
@@ -884,7 +884,7 @@ export default function WaterfallEnrichmentPage() {
                 metric: "Complete buying committees",
               },
               {
-                icon: <Calendar width={40} height={40} />,
+                icon: <Calendar width={48} height={48} />,
                 iconColor: "from-orange-500 to-orange-600",
                 glowColor: "orange-500",
                 title: "Event Lead Capture",
@@ -894,7 +894,7 @@ export default function WaterfallEnrichmentPage() {
                 metric: "< 2s processing",
               },
               {
-                icon: <ChartBar width={40} height={40} />,
+                icon: <ChartBar width={48} height={48} />,
                 iconColor: "from-indigo-500 to-indigo-600",
                 glowColor: "indigo-500",
                 title: "Market Research",
@@ -904,7 +904,7 @@ export default function WaterfallEnrichmentPage() {
                 metric: "25+ data points",
               },
               {
-                icon: <Globe width={40} height={40} />,
+                icon: <Globe width={48} height={48} />,
                 iconColor: "from-teal-500 to-teal-600",
                 glowColor: "teal-500",
                 title: "International Expansion",
@@ -929,8 +929,8 @@ export default function WaterfallEnrichmentPage() {
                 <div className="relative">
                   {/* Icon with animated glow */}
                   <div className="relative block mb-6">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${useCase.iconColor} rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-                    <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${useCase.iconColor} flex items-center justify-center shadow-lg`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${useCase.iconColor} rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
+                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${useCase.iconColor} flex items-center justify-center shadow-lg`}>
                       <div className="text-white">{useCase.icon}</div>
                     </div>
                   </div>

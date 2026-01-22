@@ -473,29 +473,29 @@ export default function SmartColumnsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 title: "Clean First Name",
                 description: "Extract and format first names from full name fields",
                 category: "Data Cleanup",
-                icon: <Users width={40} height={40} />,
-                color: "from-blue-500 to-blue-600",
+                icon: <Users width={48} height={48} />,
+                color: "from-[#3e8aff] to-[#60a5fa]",
                 bgColor: "blue",
               },
               {
                 title: "Format Phone",
                 description: "Standardize phone numbers to consistent formats",
                 category: "Data Cleanup",
-                icon: <Phone width={40} height={40} />,
-                color: "from-blue-500 to-blue-600",
+                icon: <Phone width={48} height={48} />,
+                color: "from-[#3e8aff] to-[#60a5fa]",
                 bgColor: "blue",
               },
               {
                 title: "Email Validation",
                 description: "Verify email deliverability and catch bounces",
                 category: "Validation",
-                icon: <Shield width={40} height={40} />,
+                icon: <Shield width={48} height={48} />,
                 color: "from-green-500 to-green-600",
                 bgColor: "green",
               },
@@ -503,7 +503,7 @@ export default function SmartColumnsPage() {
                 title: "Enrich Company",
                 description: "Add firmographic data like size, industry, and revenue",
                 category: "Enrichment",
-                icon: <Buildings width={40} height={40} />,
+                icon: <Buildings width={48} height={48} />,
                 color: "from-purple-500 to-purple-600",
                 bgColor: "purple",
               },
@@ -511,15 +511,15 @@ export default function SmartColumnsPage() {
                 title: "LinkedIn Research",
                 description: "Pull data from LinkedIn profiles automatically",
                 category: "Research",
-                icon: <LinkedinLogo width={40} height={40} />,
-                color: "from-indigo-500 to-indigo-600",
-                bgColor: "indigo",
+                icon: <LinkedinLogo width={48} height={48} />,
+                color: "from-teal-500 to-teal-600",
+                bgColor: "teal",
               },
               {
                 title: "Website Analysis",
                 description: "Extract key information from company websites",
                 category: "Research",
-                icon: <Globe width={40} height={40} />,
+                icon: <Globe width={48} height={48} />,
                 color: "from-teal-500 to-teal-600",
                 bgColor: "teal",
               },
@@ -527,49 +527,49 @@ export default function SmartColumnsPage() {
                 title: "Find Competitors",
                 description: "Discover competitors for any company",
                 category: "Research",
-                icon: <Target width={40} height={40} />,
-                color: "from-orange-500 to-orange-600",
-                bgColor: "orange",
+                icon: <Target width={48} height={48} />,
+                color: "from-teal-500 to-teal-600",
+                bgColor: "teal",
               },
               {
                 title: "Find Similar Companies",
                 description: "Identify lookalike companies based on attributes",
                 category: "Research",
-                icon: <Briefcase width={40} height={40} />,
-                color: "from-pink-500 to-pink-600",
-                bgColor: "pink",
+                icon: <Briefcase width={48} height={48} />,
+                color: "from-teal-500 to-teal-600",
+                bgColor: "teal",
               },
               {
                 title: "ICP Fit Analysis",
                 description: "Score leads against your ideal customer profile",
                 category: "AI Analysis",
-                icon: <ChartBar width={40} height={40} />,
-                color: "from-yellow-500 to-yellow-600",
-                bgColor: "yellow",
+                icon: <ChartBar width={48} height={48} />,
+                color: "from-purple-500 to-purple-600",
+                bgColor: "purple",
               },
               {
                 title: "Cold Intro Email",
                 description: "Generate personalized outreach emails with AI",
                 category: "AI Generation",
-                icon: <Envelope width={40} height={40} />,
-                color: "from-red-500 to-red-600",
-                bgColor: "red",
+                icon: <Envelope width={48} height={48} />,
+                color: "from-purple-500 to-purple-600",
+                bgColor: "purple",
               },
               {
                 title: "Custom AI",
                 description: "Create any transformation with natural language prompts",
                 category: "AI",
-                icon: <Brain width={40} height={40} />,
-                color: "from-violet-500 to-violet-600",
-                bgColor: "violet",
+                icon: <Brain width={48} height={48} />,
+                color: "from-purple-500 to-purple-600",
+                bgColor: "purple",
               },
               {
                 title: "CRM Contact Lookup",
                 description: "Check if contact exists in your CRM before adding",
                 category: "CRM",
-                icon: <Database width={40} height={40} />,
-                color: "from-cyan-500 to-cyan-600",
-                bgColor: "cyan",
+                icon: <Database width={48} height={48} />,
+                color: "from-[#3e8aff] to-[#60a5fa]",
+                bgColor: "blue",
               },
             ].map((column, index) => (
               <motion.div
@@ -587,8 +587,8 @@ export default function SmartColumnsPage() {
                 <div className="relative">
                   {/* Icon */}
                   <div className="relative block mb-6">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${column.color} rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-                    <div className={`relative w-20 h-20 rounded-2xl bg-gradient-to-br ${column.color} flex items-center justify-center shadow-lg`}>
+                    <div className={`absolute inset-0 bg-gradient-to-br ${column.color} rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
+                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${column.color} flex items-center justify-center shadow-lg`}>
                       <div className="text-white">{column.icon}</div>
                     </div>
                   </div>
