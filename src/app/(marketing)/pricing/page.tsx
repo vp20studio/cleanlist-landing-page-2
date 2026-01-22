@@ -654,9 +654,9 @@ export default function PricingPage() {
                           <td className="py-3 px-4 text-center">
                             {typeof feature.starter === "boolean" ? (
                               feature.starter ? (
-                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                                <Check className="w-4 h-4 text-green-500 mx-auto" />
                               ) : (
-                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
+                                <X className={`w-4 h-4 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
                               <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -667,9 +667,9 @@ export default function PricingPage() {
                           <td className="py-3 px-4 text-center bg-[#3e8aff]/5">
                             {typeof feature.pro === "boolean" ? (
                               feature.pro ? (
-                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                                <Check className="w-4 h-4 text-green-500 mx-auto" />
                               ) : (
-                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
+                                <X className={`w-4 h-4 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
                               <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -680,9 +680,9 @@ export default function PricingPage() {
                           <td className="py-3 px-4 text-center">
                             {typeof feature.business === "boolean" ? (
                               feature.business ? (
-                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                                <Check className="w-4 h-4 text-green-500 mx-auto" />
                               ) : (
-                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
+                                <X className={`w-4 h-4 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
                               <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -693,9 +693,9 @@ export default function PricingPage() {
                           <td className="py-3 px-4 text-center">
                             {typeof feature.enterprise === "boolean" ? (
                               feature.enterprise ? (
-                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                                <Check className="w-4 h-4 text-green-500 mx-auto" />
                               ) : (
-                                <X className={`w-5 h-5 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
+                                <X className={`w-4 h-4 mx-auto ${isDark ? "text-gray-600" : "text-gray-400"}`} />
                               )
                             ) : (
                               <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
