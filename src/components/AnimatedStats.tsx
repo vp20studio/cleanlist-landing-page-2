@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Database, Stack, Crosshair, Lightning } from "@phosphor-icons/react";
+import { Database, Stack, Crosshair, Lightning } from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 

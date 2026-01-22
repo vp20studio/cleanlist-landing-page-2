@@ -16,7 +16,7 @@ import {
   Briefcase,
   Lightning,
   Lock,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 
 interface FieldData {
   label: string;
@@ -27,12 +27,12 @@ interface FieldData {
 }
 
 const fields: FieldData[] = [
-  { label: "Name", icon: <User size={14} />, beforeValue: "John Smith", afterValue: "John Smith", status: "found" },
-  { label: "Company", icon: <Buildings size={14} />, beforeValue: "Acme Corp", afterValue: "Acme Corp", status: "found" },
-  { label: "Email", icon: <Envelope size={14} />, beforeValue: "—", afterValue: "john@acmecorp.com", status: "enriched" },
-  { label: "Phone", icon: <Phone size={14} />, beforeValue: "—", afterValue: "+1 (555) 123-4567", status: "enriched" },
-  { label: "Title", icon: <Briefcase size={14} />, beforeValue: "—", afterValue: "VP of Sales", status: "enriched" },
-  { label: "LinkedIn", icon: <LinkedinLogo size={14} />, beforeValue: "—", afterValue: "linkedin.com/in/johnsmith", status: "enriched" },
+  { label: "Name", icon: <User width={14} height={14} />, beforeValue: "John Smith", afterValue: "John Smith", status: "found" },
+  { label: "Company", icon: <Buildings width={14} height={14} />, beforeValue: "Acme Corp", afterValue: "Acme Corp", status: "found" },
+  { label: "Email", icon: <Envelope width={14} height={14} />, beforeValue: "—", afterValue: "john@acmecorp.com", status: "enriched" },
+  { label: "Phone", icon: <Phone width={14} height={14} />, beforeValue: "—", afterValue: "+1 (555) 123-4567", status: "enriched" },
+  { label: "Title", icon: <Briefcase width={14} height={14} />, beforeValue: "—", afterValue: "VP of Sales", status: "enriched" },
+  { label: "LinkedIn", icon: <LinkedinLogo width={14} height={14} />, beforeValue: "—", afterValue: "linkedin.com/in/johnsmith", status: "enriched" },
 ];
 
 // Primary providers (featured)
@@ -123,7 +123,7 @@ export default function DataTransformDemo() {
           className="text-center mb-10 md:mb-16"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-            <Sparkle size={16} />
+            <Sparkle width={16} height={16} />
             Live Demo
           </div>
           <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -158,11 +158,11 @@ export default function DataTransformDemo() {
                     : "bg-[#3e8aff]"
                 }`}>
                   {stage === "enriching" ? (
-                    <SpinnerGap size={24} className="text-white animate-spin" />
+                    <SpinnerGap width={24} height={24} className="text-white animate-spin" />
                   ) : stage === "complete" ? (
-                    <Check size={24} className="text-white" />
+                    <Check width={24} height={24} className="text-white" />
                   ) : (
-                    <ArrowRight size={24} className="text-white" />
+                    <ArrowRight width={24} height={24} className="text-white" />
                   )}
                 </div>
                 {/* Pulsing ring */}
@@ -312,7 +312,7 @@ export default function DataTransformDemo() {
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
                               >
-                                <SpinnerGap size={16} className="text-[#3e8aff] animate-spin" />
+                                <SpinnerGap width={16} height={16} className="text-[#3e8aff] animate-spin" />
                               </motion.div>
                             ) : (
                               <motion.span
@@ -337,7 +337,7 @@ export default function DataTransformDemo() {
                               animate={{ scale: 1 }}
                               transition={{ type: "spring", stiffness: 500 }}
                             >
-                              <Check size={16} className="text-green-500" />
+                              <Check width={16} height={16} className="text-green-500" />
                             </motion.div>
                           )}
                         </div>
@@ -363,7 +363,7 @@ export default function DataTransformDemo() {
           >
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <Lightning size={16} className="text-[#3e8aff]" />
+                <Lightning width={16} height={16} className="text-[#3e8aff]" />
                 <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                   Waterfall Enrichment
                 </span>
@@ -412,7 +412,7 @@ export default function DataTransformDemo() {
                   }`}
                 >
                   {provider}
-                  <Lock size={10} />
+                  <Lock width={10} height={10} />
                 </span>
               ))}
             </div>
@@ -524,7 +524,7 @@ export default function DataTransformDemo() {
 
                     {/* Title with icon */}
                     <div className="flex items-center gap-2 ml-2">
-                      <Sparkle className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                      <Sparkle className="w-3.5 h-3.5 text-[#3e8aff]" />
                       <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                         Smart Columns Demo
                       </span>
@@ -585,17 +585,17 @@ export default function DataTransformDemo() {
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               {
-                icon: <Sparkle size={24} />,
+                icon: <Sparkle width={24} height={24} />,
                 title: "AI Enrichments",
                 description: "Access premium data from 15+ providers: identify new leads, score accounts, and personalize outreach automatically."
               },
               {
-                icon: <Lightning size={24} />,
+                icon: <Lightning width={24} height={24} />,
                 title: "Intent Signals",
                 description: "Take instant action when prospects change jobs, visit your website, or show buying signals across the web."
               },
               {
-                icon: <User size={24} />,
+                icon: <User width={24} height={24} />,
                 title: "AI-Led Research",
                 description: "Search public databases, navigate gated forms, and find unique datapoints with natural language prompts."
               }

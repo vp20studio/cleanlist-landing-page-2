@@ -31,7 +31,7 @@ import {
   Calendar,
   Wrench,
   ChartLine,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import StickySubNav from "@/components/StickySubNav";
 import InteractiveDemo from "@/components/InteractiveDemo";
 import PlaybooksSection from "@/components/PlaybooksSection";
@@ -324,19 +324,19 @@ export default function HomePage() {
                 : "bg-white border-gray-200 divide-gray-200 shadow-sm"
             }`}>
               <div className="flex items-center gap-2 px-4 py-2">
-                <Database className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                <Database className="w-3.5 h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
                   <span className="font-semibold">400M+</span> Contacts
                 </span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2">
-                <Envelope className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                <Envelope className="w-3.5 h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
                   <span className="font-semibold">98%</span> Email Coverage
                 </span>
               </div>
               <div className="flex items-center gap-2 px-4 py-2">
-                <Phone className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                <Phone className="w-3.5 h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
                   <span className="font-semibold">85%</span> Phone Find Rate
                 </span>
@@ -449,7 +449,7 @@ export default function HomePage() {
                       <div className="w-3 h-3 rounded-full bg-[#28c840] shadow-[0_0_6px_rgba(40,200,64,0.4)]" />
                     </div>
                     <div className="flex items-center gap-2 ml-2">
-                      <Phone className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                      <Phone className="w-3.5 h-3.5 text-[#3e8aff]" />
                       <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                         Find Phone Numbers — Live Demo
                       </span>
@@ -502,7 +502,7 @@ export default function HomePage() {
                       {/* 15+ Providers */}
                       <div className="flex items-center gap-2.5 px-4 md:px-6">
                         <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <Stack className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                          <Stack className="w-4 h-4 text-[#3e8aff]" />
                         </div>
                         <div>
                           <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</div>
@@ -512,7 +512,7 @@ export default function HomePage() {
                       {/* 85% Find Rate */}
                       <div className="flex items-center gap-2.5 px-4 md:px-6">
                         <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <Phone className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                          <Phone className="w-4 h-4 text-[#3e8aff]" />
                         </div>
                         <div>
                           <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</div>
@@ -522,7 +522,7 @@ export default function HomePage() {
                       {/* 98% Coverage */}
                       <div className="flex items-center gap-2.5 px-4 md:px-6">
                         <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <Envelope className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                          <Envelope className="w-4 h-4 text-[#3e8aff]" />
                         </div>
                         <div>
                           <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>98% Coverage</div>
@@ -532,7 +532,7 @@ export default function HomePage() {
                       {/* Waterfall Logic */}
                       <div className="flex items-center gap-2.5 px-4 md:px-6">
                         <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <ArrowsClockwise className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                          <ArrowsClockwise className="w-4 h-4 text-[#3e8aff]" />
                         </div>
                         <div>
                           <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</div>
@@ -769,7 +769,7 @@ export default function HomePage() {
                               }`}
                             >
                               {value === true ? (
-                                <Check className="w-4 h-4 text-green-500" weight="bold" />
+                                <Check className="w-4 h-4 text-green-500" />
                               ) : value === false ? (
                                 <X className="w-4 h-4 text-red-400" />
                               ) : (
@@ -790,7 +790,7 @@ export default function HomePage() {
                             }`}
                           >
                             <div className="absolute inset-0 rounded-full bg-green-500/20 animate-pulse" />
-                            <Check className="w-5 h-5 text-green-500 relative z-10" weight="bold" />
+                            <Check className="w-5 h-5 text-green-500 relative z-10" />
                           </motion.div>
                         </div>
                       </motion.div>
@@ -804,7 +804,7 @@ export default function HomePage() {
                       : "bg-gradient-to-r from-gray-50 to-white border-t border-gray-100"
                   }`}>
                     {[
-                      { icon: <Check className="w-3.5 h-3.5 text-green-500" weight="bold" />, label: "Full support", bg: "bg-green-500/15" },
+                      { icon: <Check className="w-3.5 h-3.5 text-green-500" />, label: "Full support", bg: "bg-green-500/15" },
                       { icon: <Minus className="w-3.5 h-3.5 text-gray-400" />, label: "Partial", bg: isDark ? "bg-white/10" : "bg-gray-200" },
                       { icon: <X className="w-3.5 h-3.5 text-red-400" />, label: "Not supported", bg: "bg-red-500/15" },
                     ].map((item) => (

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTheme } from "@/context/ThemeContext";
-import { Sparkle, Play } from "@phosphor-icons/react";
+import { Sparkle, Play } from "@/components/icons";
 
 interface VideoDemoProps {
   src: string;
@@ -115,7 +115,7 @@ export default function VideoDemo({
 
               {/* Title with icon */}
               <div className="flex items-center gap-2 ml-2">
-                <Sparkle className="w-3.5 h-3.5 text-[#3e8aff]" weight="fill" />
+                <Sparkle className="w-3.5 h-3.5 text-[#3e8aff]" />
                 <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                   {title}
                 </span>

@@ -28,7 +28,7 @@ import {
   Sparkle,
   PaperPlaneTilt,
   Plus,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import PlaybookBuilderDemo from "@/components/PlaybookBuilderDemo";
 
@@ -431,7 +431,7 @@ export default function PlaybookBuilderPage() {
 
                   {nodes.length === 0 && (
                     <div className={`flex flex-col items-center justify-center h-[200px] ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                      <FlowArrow className="mb-4 opacity-30" size={48} />
+                      <FlowArrow className="mb-4 opacity-30" width={48} height={48} />
                       <p>Add steps from the left panel to build your playbook</p>
                     </div>
                   )}

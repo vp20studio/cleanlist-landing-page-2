@@ -27,7 +27,7 @@ import {
   Users,
   Calendar,
   Link as LinkIcon,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import {
   TechnicalGrid,
   VerticalStepper,

@@ -18,7 +18,7 @@ import {
   Phone,
   MapPin,
   Briefcase,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { GlowCard, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
 // Data providers in the waterfall (generic representation)

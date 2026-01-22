@@ -17,7 +17,7 @@ import {
   Globe,
   Lock,
   StackSimple,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { TechnicalGrid, GlowCard, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 

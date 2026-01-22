@@ -12,7 +12,7 @@ import {
   Question,
   CaretDown,
   CaretUp,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
 // Pricing data with monthly and yearly prices (yearly saves ~17%)

@@ -15,7 +15,7 @@ import {
   CheckCircle,
   Play,
   CaretRight,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -154,7 +154,7 @@ function PlaybookCard({
                     : "bg-[#3e8aff]/10 text-[#3e8aff]"
               }`}
             >
-              <Icon size={28} weight={isActive ? "fill" : "regular"} />
+              <Icon width={28} height={28} />
               {isActive && (
                 <motion.div
                   animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
@@ -187,7 +187,7 @@ function PlaybookCard({
                   isDark ? "bg-white/5 text-gray-400" : "bg-gray-100 text-gray-500"
                 } group-hover:bg-[#3e8aff]/10 group-hover:text-[#3e8aff] transition-colors`}
               >
-                <Play size={14} weight="fill" />
+                <Play width={14} height={14} />
               </motion.div>
             )}
           </div>
@@ -249,7 +249,7 @@ function PlaybookCard({
                               ? "bg-white/10 text-gray-400"
                               : "bg-gray-200 text-gray-500"
                         }`}>
-                          {isStepComplete ? <CheckCircle size={14} weight="fill" /> : i + 1}
+                          {isStepComplete ? <CheckCircle width={14} height={14} /> : i + 1}
                         </div>
 
                         <motion.div
@@ -263,7 +263,7 @@ function PlaybookCard({
                                 : "bg-gray-200 text-gray-500"
                           }`}
                         >
-                          <StepIcon size={20} weight={isStepActive ? "fill" : "regular"} />
+                          <StepIcon width={20} height={20} />
                         </motion.div>
                         <span className={`text-xs font-medium ${
                           isStepActive || isStepComplete
@@ -285,8 +285,8 @@ function PlaybookCard({
                                 : "bg-gray-200"
                           }`}>
                             <CaretRight
-                              size={10}
-                              weight="bold"
+                              width={10} height={10}
+                             
                               className={`absolute -right-1 top-1/2 -translate-y-1/2 ${
                                 isStepComplete ? "text-[#3e8aff]" : isDark ? "text-white/20" : "text-gray-300"
                               }`}
@@ -325,7 +325,7 @@ function PlaybookCard({
                       : "bg-[#3e8aff]/10 text-[#3e8aff]"
                 }`}
               >
-                <CheckCircle size={18} weight="fill" />
+                <CheckCircle width={18} height={18} />
               </motion.div>
               <div>
                 <span className={`text-xs uppercase tracking-wider ${
@@ -346,7 +346,7 @@ function PlaybookCard({
                 className="inline-flex items-center gap-1 text-sm font-medium text-[#3e8aff] hover:underline"
               >
                 Use this playbook
-                <ArrowRight size={14} />
+                <ArrowRight width={14} height={14} />
               </Link>
             )}
           </div>
@@ -397,7 +397,7 @@ export default function PlaybooksSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 mb-6"
           >
-            <Lightning size={18} weight="fill" className="text-[#3e8aff]" />
+            <Lightning width={18} height={18} className="text-[#3e8aff]" />
             <span className="text-sm font-semibold text-[#3e8aff]">Pre-Built Playbooks</span>
           </motion.div>
 
@@ -453,7 +453,7 @@ export default function PlaybooksSection() {
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-semibold rounded-xl hover:bg-[#2563eb] transition-colors"
             >
               Browse all playbooks
-              <ArrowRight size={18} weight="bold" />
+              <ArrowRight width={18} height={18} />
             </Link>
           </div>
         </motion.div>

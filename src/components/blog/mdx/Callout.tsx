@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react";
 import { useTheme } from "@/context/ThemeContext";
-import { Info, Warning, CheckCircle, XCircle } from "@phosphor-icons/react";
+import { Info, Warning, CheckCircle, XCircle } from "@/components/icons";
 
 interface CalloutProps {
   children: ReactNode;
@@ -66,7 +66,7 @@ export default function Callout({
       }}
     >
       <div className="flex items-start gap-3">
-        <Icon size={20} style={{ color }} className="flex-shrink-0 mt-0.5" />
+        <Icon width={20} height={20} style={{ color }} className="flex-shrink-0 mt-0.5" />
         <div className="flex-1 min-w-0">
           {(title || defaultTitle) && (
             <p

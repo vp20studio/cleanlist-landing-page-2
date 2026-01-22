@@ -10,7 +10,7 @@ import {
   ArrowRight,
   Sparkle,
   ArrowUpRight,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { posts as velitePosts } from "#site/content";
 
 type Post = {
@@ -117,7 +117,7 @@ export default function BlogPage() {
                   : "bg-[#3e8aff]/10 text-[#3e8aff]"
               }`}
             >
-              <Sparkle weight="fill" size={12} />
+              <Sparkle width={12} height={12} />
               Blog
             </span>
 
@@ -252,11 +252,11 @@ function FeaturedPost({ post, isDark }: { post: Post; isDark: boolean }) {
         <div className="flex items-center justify-between">
           <div className={`flex items-center gap-4 text-sm ${isDark ? "text-[#555]" : "text-[#888]"}`}>
             <span className="flex items-center gap-1.5">
-              <CalendarBlank size={14} />
+              <CalendarBlank width={14} height={14} />
               {date}
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock size={14} />
+              <Clock width={14} height={14} />
               {post.readingTime} min read
             </span>
             {post.tags.length > 0 && (
@@ -279,7 +279,7 @@ function FeaturedPost({ post, isDark }: { post: Post; isDark: boolean }) {
             className={`flex items-center gap-1 text-sm font-medium text-[#3e8aff] opacity-0 group-hover:opacity-100 transition-opacity`}
           >
             Read
-            <ArrowRight size={14} />
+            <ArrowRight width={14} height={14} />
           </span>
         </div>
       </article>
@@ -320,7 +320,8 @@ function PostRow({ post, isDark }: { post: Post; isDark: boolean }) {
               {post.title}
             </h3>
             <ArrowUpRight
-              size={18}
+              width={18}
+              height={18}
               className={`flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity text-[#3e8aff]`}
             />
           </div>

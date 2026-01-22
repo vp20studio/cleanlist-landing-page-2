@@ -11,7 +11,7 @@ import {
   ArrowsClockwise,
   ArrowRight,
   MagicWand,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -140,17 +140,17 @@ export default function SmartColumnDemo() {
         >
           {stage === "complete" ? (
             <>
-              <ArrowsClockwise size={14} />
+              <ArrowsClockwise width={14} height={14} />
               Reset
             </>
           ) : stage === "processing" ? (
             <>
-              <CircleNotch size={14} className="animate-spin" />
+              <CircleNotch width={14} height={14} className="animate-spin" />
               Processing...
             </>
           ) : (
             <>
-              <Play size={14} />
+              <Play width={14} height={14} />
               Run
             </>
           )}
@@ -189,7 +189,7 @@ export default function SmartColumnDemo() {
       {/* Prompt Display */}
       <div className="p-4 rounded-xl bg-purple-500/5 border border-purple-500/20 mb-6">
         <div className="flex items-center gap-2 mb-2">
-          <MagicWand size={16} className="text-purple-400" />
+          <MagicWand width={16} height={16} className="text-purple-400" />
           <span className="text-xs text-purple-400 font-medium">AI Prompt</span>
         </div>
         <div className={`text-sm font-mono ${isDark ? "text-gray-300" : "text-gray-700"}`}>
@@ -247,7 +247,7 @@ export default function SmartColumnDemo() {
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                   >
-                    <CircleNotch size={16} className="text-purple-500" />
+                    <CircleNotch width={16} height={16} className="text-purple-500" />
                   </motion.div>
                 ) : row.status === "complete" ? (
                   <motion.div
@@ -255,10 +255,10 @@ export default function SmartColumnDemo() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500 }}
                   >
-                    <Check size={16} className="text-green-500" />
+                    <Check width={16} height={16} className="text-green-500" />
                   </motion.div>
                 ) : (
-                  <ArrowRight size={16} className="text-gray-500" />
+                  <ArrowRight width={16} height={16} className="text-gray-500" />
                 )}
               </div>
 
@@ -298,12 +298,12 @@ export default function SmartColumnDemo() {
             <div className="flex items-center gap-2">
               {stage === "complete" ? (
                 <>
-                  <Sparkle size={16} />
+                  <Sparkle width={16} height={16} />
                   <span>Transformation complete!</span>
                 </>
               ) : (
                 <>
-                  <CircleNotch size={16} className="animate-spin" />
+                  <CircleNotch width={16} height={16} className="animate-spin" />
                   <span>Processing with GPT-4...</span>
                 </>
               )}

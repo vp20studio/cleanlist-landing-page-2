@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { List, X, CaretDown, Sparkle, Envelope, LinkedinLogo, Lightning } from "@phosphor-icons/react";
+import { List, X, CaretDown, Sparkle, Envelope, LinkedinLogo, Lightning } from "@/components/icons";
 import Link from "next/link";
 
 const productLinks = [
@@ -93,7 +93,7 @@ export default function ProductNavbar() {
               <button className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-[#888888] hover:text-white transition-colors rounded-lg hover:bg-[rgba(255,255,255,0.05)]">
                 Product
                 <CaretDown
-                  size={16}
+                  width={16} height={16}
                   className={`transition-transform ${isProductDropdownOpen ? "rotate-180" : ""}`}
                 />
               </button>
@@ -114,7 +114,7 @@ export default function ProductNavbar() {
                         className="flex items-start gap-3 p-3 rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-colors group"
                       >
                         <div className="w-10 h-10 rounded-lg bg-[rgba(62,138,255,0.1)] flex items-center justify-center text-[#3e8aff] group-hover:bg-[rgba(62,138,255,0.15)] transition-colors">
-                          <product.icon size={20} />
+                          <product.icon width={20} height={20} />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-white group-hover:text-[#3e8aff] transition-colors">
@@ -166,7 +166,7 @@ export default function ProductNavbar() {
             className="md:hidden p-2 rounded-lg text-[#888888] hover:text-white hover:bg-[rgba(255,255,255,0.05)] transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <List size={24} />}
+            {isMobileMenuOpen ? <X width={24} height={24} /> : <List width={24} height={24} />}
           </button>
         </div>
       </div>
@@ -194,7 +194,7 @@ export default function ProductNavbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#888888] hover:text-white hover:bg-[rgba(255,255,255,0.05)]"
                   >
-                    <product.icon size={16} />
+                    <product.icon width={16} height={16} />
                     {product.name}
                   </Link>
                 ))}

@@ -15,7 +15,7 @@ import {
   Gear,
   Stack,
   Lightning,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { VerticalStepper, TechnicalGrid, GlowIcon } from "@/components/ui";
 
 const companyTargeting = [

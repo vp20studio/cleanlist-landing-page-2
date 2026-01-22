@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
-import { CalendarBlank, Clock, ArrowRight } from "@phosphor-icons/react";
+import { CalendarBlank, Clock, ArrowRight } from "@/components/icons";
 
 interface BlogCardProps {
   title: string;
@@ -122,11 +122,11 @@ export default function BlogCard({
             }`}
           >
             <span className="flex items-center gap-1">
-              <CalendarBlank size={14} />
+              <CalendarBlank width={14} height={14} />
               {formattedDate}
             </span>
             <span className="flex items-center gap-1">
-              <Clock size={14} />
+              <Clock width={14} height={14} />
               {readingTime} min read
             </span>
           </div>
@@ -134,7 +134,7 @@ export default function BlogCard({
           {/* Read More */}
           <div className="mt-4 flex items-center text-[#3e8aff] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
             Read article
-            <ArrowRight size={16} className="ml-1" />
+            <ArrowRight width={16} height={16} className="ml-1" />
           </div>
         </div>
 

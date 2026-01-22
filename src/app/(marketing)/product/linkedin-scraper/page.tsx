@@ -16,7 +16,7 @@ import {
   TrendUp,
   Clock,
   ArrowsClockwise,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { GlowCard, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
 const features = [

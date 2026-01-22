@@ -18,7 +18,7 @@ import {
   Cpu,
   Gear,
   Shield,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 
 export default function SmartColumnsPage() {
@@ -621,21 +621,21 @@ export default function SmartColumnsPage() {
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8 relative">
               {[
                 {
-                  icon: <FileXls weight="duotone" />,
+                  icon: <FileXls />,
                   title: "Import Sources",
                   step: "01",
                   description: "Bring your data from anywhere",
                   items: ["CSV Upload", "Excel Files", "Google Sheets", "API Integration"],
                 },
                 {
-                  icon: <Sparkle weight="duotone" />,
+                  icon: <Sparkle />,
                   title: "Transform With AI",
                   step: "02",
                   description: "AI-powered transformations",
                   items: ["Built-in Rules", "Custom Prompts", "Batch Processing", "Real-time Preview"],
                 },
                 {
-                  icon: <ArrowsClockwise weight="duotone" />,
+                  icon: <ArrowsClockwise />,
                   title: "Export Anywhere",
                   step: "03",
                   description: "Send to any destination",
@@ -680,7 +680,7 @@ export default function SmartColumnsPage() {
                         className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}
                       >
                         <div className={`w-5 h-5 rounded-full flex items-center justify-center ${isDark ? "bg-[#3e8aff]/20" : "bg-[#3e8aff]/10"}`}>
-                          <Check weight="bold" className="w-3 h-3 text-[#3e8aff]" />
+                          <Check className="w-3 h-3 text-[#3e8aff]" />
                         </div>
                         {item}
                       </div>

@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Calendar } from "@phosphor-icons/react";
+import { ArrowRight, Calendar } from "@/components/icons";
 import { StarsBackground } from "./StarsBackground";
 
 export default function FinalCTA() {
@@ -39,7 +39,7 @@ export default function FinalCTA() {
               className="group inline-flex items-center gap-2.5 px-8 py-4 bg-[#3e8aff] hover:bg-[#2d7af0] text-white font-semibold rounded-xl text-base md:text-lg transition-all duration-300 shadow-xl shadow-[#3e8aff]/30 hover:shadow-2xl hover:shadow-[#3e8aff]/40 hover:scale-[1.02]"
             >
               Get Started Free
-              <ArrowRight size={22} weight="bold" className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight width={22} height={22} className="group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <Link
@@ -48,7 +48,7 @@ export default function FinalCTA() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-8 py-4 font-semibold rounded-xl text-base md:text-lg transition-all duration-300 border-2 hover:scale-[1.02] bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/30"
             >
-              <Calendar size={22} weight="fill" className="text-[#3e8aff]" />
+              <Calendar width={22} height={22} className="text-[#3e8aff]" />
               Book a Demo
             </Link>
           </div>

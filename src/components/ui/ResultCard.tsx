@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TrendUp, TrendDown, ArrowRight } from "@phosphor-icons/react";
+import { TrendUp, TrendDown, ArrowRight } from "@/components/icons";
 
 interface ResultCardProps {
   company: string;

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
-import { User, LinkedinLogo } from "@phosphor-icons/react";
+import { User, LinkedinLogo } from "@/components/icons";
 
 interface AuthorCardProps {
   author: {
@@ -49,7 +49,7 @@ export default function AuthorCard({ author }: AuthorCardProps) {
             }`}
           >
             <User
-              size={24}
+              width={24} height={24}
               className={isDark ? "text-white" : "text-[#1a1a1a]"}
             />
           </div>
@@ -86,7 +86,7 @@ export default function AuthorCard({ author }: AuthorCardProps) {
               : "text-[#666666] hover:text-[#0077b5]"
           } transition-colors`}
         >
-          <LinkedinLogo size={16} weight="fill" />
+          <LinkedinLogo width={16} height={16} />
           Connect on LinkedIn
         </a>
       )}

@@ -34,7 +34,7 @@ import {
   TrendUp,
   Clock,
   User,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import {
   TechnicalGrid,
   GlowCard,
@@ -283,7 +283,7 @@ export default function PeopleSearchPage() {
             <div className="p-6">
               <div className={`relative rounded-xl border-2 transition-colors ${isSearching ? "border-[#3e8aff]" : isDark ? "border-white/[0.1]" : "border-gray-200"}`}>
                 <div className="flex items-start gap-3 p-4">
-                  <Sparkle className={`mt-1 flex-shrink-0 ${isSearching ? "text-[#3e8aff] animate-pulse" : "text-gray-400"}`} size={20} />
+                  <Sparkle className={`mt-1 flex-shrink-0 ${isSearching ? "text-[#3e8aff] animate-pulse" : "text-gray-400"}`} width={20} height={20} />
                   <div className="flex-1 min-h-[60px]">
                     <p className={`text-lg ${isDark ? "text-white" : "text-gray-900"}`}>
                       {searchQuery}
@@ -318,11 +318,11 @@ export default function PeopleSearchPage() {
                       </div>
                       <div className="flex items-center gap-2">
                         <button className="px-3 py-1.5 text-xs font-medium bg-[#3e8aff] text-white rounded-lg flex items-center gap-1">
-                          <ListPlus size={14} />
+                          <ListPlus width={14} height={14} />
                           Add to List
                         </button>
                         <button className={`px-3 py-1.5 text-xs font-medium rounded-lg flex items-center gap-1 ${isDark ? "bg-white/[0.05] text-gray-300" : "bg-gray-100 text-gray-700"}`}>
-                          <Export size={14} />
+                          <Export width={14} height={14} />
                           Export
                         </button>
                       </div>
@@ -346,7 +346,7 @@ export default function PeopleSearchPage() {
                               <span className={`font-medium truncate ${isDark ? "text-white" : "text-gray-900"}`}>
                                 {result.name}
                               </span>
-                              <LinkedinLogo className="text-[#0077b5] flex-shrink-0" size={14} />
+                              <LinkedinLogo className="text-[#0077b5] flex-shrink-0" width={14} height={14} />
                             </div>
                             <div className="flex items-center gap-2 text-xs text-gray-500 mt-0.5">
                               <span>{result.title}</span>
@@ -356,20 +356,20 @@ export default function PeopleSearchPage() {
                           </div>
                           <div className="hidden md:flex items-center gap-4 text-xs text-gray-500">
                             <span className="flex items-center gap-1">
-                              <MapPin size={12} />
+                              <MapPin width={12} height={12} />
                               {result.location}
                             </span>
                             <span className="flex items-center gap-1">
-                              <Users size={12} />
+                              <Users width={12} height={12} />
                               {result.employees}
                             </span>
                             <span className="flex items-center gap-1">
-                              <CurrencyDollar size={12} />
+                              <CurrencyDollar width={12} height={12} />
                               {result.revenue}
                             </span>
                           </div>
                           <button className="p-2 rounded-lg bg-[#3e8aff]/10 text-[#3e8aff] hover:bg-[#3e8aff]/20 transition-colors">
-                            <UserPlus size={16} />
+                            <UserPlus width={16} height={16} />
                           </button>
                         </motion.div>
                       ))}
@@ -494,7 +494,7 @@ export default function PeopleSearchPage() {
                   >
                     <div className="flex items-start gap-3">
                       <div className="w-8 h-8 rounded-full bg-[#3e8aff]/10 flex items-center justify-center flex-shrink-0">
-                        <MagnifyingGlass className="text-[#3e8aff]" size={16} />
+                        <MagnifyingGlass className="text-[#3e8aff]" width={16} height={16} />
                       </div>
                       <div className="flex-1">
                         <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>

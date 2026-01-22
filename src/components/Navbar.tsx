@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { List, X } from "@phosphor-icons/react";
+import { List, X } from "@/components/icons";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,7 +86,7 @@ export default function Navbar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
-            {isMobileMenuOpen ? <X size={24} /> : <List size={24} />}
+            {isMobileMenuOpen ? <X width={24} height={24} /> : <List width={24} height={24} />}
           </motion.button>
         </div>
       </div>

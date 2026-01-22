@@ -13,7 +13,7 @@ import {
   CurrencyDollar,
   Calendar,
   Lightning,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
 const caseStudies = [

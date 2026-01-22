@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkle } from "@phosphor-icons/react";
+import { ArrowRight, Sparkle } from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
 // Integrations for the orbital visualization (subset for visual)
@@ -315,7 +315,7 @@ export default function IntegrationCloud() {
                     {integration.abbr}
                   </div>
                   <ArrowRight
-                    size={16}
+                    width={16} height={16}
                     className={`opacity-0 group-hover:opacity-100 transition-opacity ${
                       isDark ? "text-[#888888]" : "text-gray-400"
                     }`}
@@ -335,7 +335,7 @@ export default function IntegrationCloud() {
             isDark ? "border-[rgba(255,255,255,0.08)]" : "border-gray-200"
           }`}>
             <div className="flex items-center gap-3">
-              <Sparkle size={20} className="text-[#3e8aff]" />
+              <Sparkle width={20} height={20} className="text-[#3e8aff]" />
               <span className={`text-sm ${isDark ? "text-[#888888]" : "text-gray-500"}`}>
                 <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>REST API</span> and{" "}
                 <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for
@@ -347,7 +347,7 @@ export default function IntegrationCloud() {
               className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:text-[#60a5fa] transition-colors"
             >
               View API Docs
-              <ArrowRight size={16} />
+              <ArrowRight width={16} height={16} />
             </a>
           </div>
         </motion.div>

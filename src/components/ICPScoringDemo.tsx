@@ -9,7 +9,7 @@ import {
   Lightning,
   CheckCircle,
   ArrowsClockwise,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 
 const sampleLeads = [
   { name: "Sarah Chen", company: "TechCorp", role: "VP Sales", employees: 500, industry: "SaaS", funding: "$50M" },
@@ -130,7 +130,7 @@ export default function ICPScoringDemo() {
     }`}>
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <Sparkle size={20} className="text-purple-400" />
+          <Sparkle width={20} height={20} className="text-purple-400" />
           <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
             Interactive ICP Scoring Demo
           </h3>
@@ -144,7 +144,7 @@ export default function ICPScoringDemo() {
                 : "text-gray-500 hover:text-gray-700 hover:bg-gray-100"
             }`}
           >
-            <ArrowsClockwise size={14} />
+            <ArrowsClockwise width={14} height={14} />
             Reset
           </button>
         )}
@@ -195,13 +195,13 @@ export default function ICPScoringDemo() {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 >
-                  <Lightning size={16} />
+                  <Lightning width={16} height={16} />
                 </motion.div>
                 Analyzing Leads...
               </>
             ) : (
               <>
-                <Brain size={16} />
+                <Brain width={16} height={16} />
                 Run ICP Analysis
               </>
             )}
@@ -292,7 +292,7 @@ export default function ICPScoringDemo() {
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 text-sm text-green-400 bg-green-500/10 p-3 rounded-lg border border-green-500/20"
             >
-              <CheckCircle size={16} />
+              <CheckCircle width={16} height={16} />
               <span>Analysis complete! {scores.filter(s => s >= 60).length} high-priority leads identified.</span>
             </motion.div>
           )}

@@ -17,7 +17,7 @@ import {
   Users,
   LinkedinLogo,
   UserPlus,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 import WaterfallEnrichmentDemo from "./WaterfallEnrichmentDemo";
@@ -282,7 +282,7 @@ export default function InteractiveDemo() {
                       "Engagement signals",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-2">
-                        <Check size={16} className="text-[#3e8aff]" />
+                        <Check width={16} height={16} className="text-[#3e8aff]" />
                         <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{item}</span>
                       </div>
                     ))}
@@ -307,14 +307,14 @@ export default function InteractiveDemo() {
                 {/* Search demo */}
                 <div className={`p-5 md:p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-black/[0.08]"}`}>
                   <div className="flex items-center gap-2 mb-4">
-                    <MagnifyingGlass className={`${isSearching ? "text-[#3e8aff] animate-pulse" : "text-[#3e8aff]"}`} size={18} />
+                    <MagnifyingGlass className={`${isSearching ? "text-[#3e8aff] animate-pulse" : "text-[#3e8aff]"}`} width={18} height={18} />
                     <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>People Search</h4>
                   </div>
 
                   {/* Search query with typing animation */}
                   <div className={`p-3 rounded-lg mb-4 transition-colors ${isSearching ? "border-[#3e8aff]" : ""} ${isDark ? "bg-white/[0.03] border border-white/[0.08]" : "bg-gray-50 border border-gray-200"}`}>
                     <div className="flex items-start gap-2">
-                      <Sparkle className={`mt-0.5 flex-shrink-0 ${isSearching ? "text-[#3e8aff] animate-pulse" : "text-gray-400"}`} size={14} />
+                      <Sparkle className={`mt-0.5 flex-shrink-0 ${isSearching ? "text-[#3e8aff] animate-pulse" : "text-gray-400"}`} width={14} height={14} />
                       <p className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>
                         {searchQuery.slice(0, searchTypingIndex)}
                         {searchTypingIndex < searchQuery.length && (
@@ -360,16 +360,16 @@ export default function InteractiveDemo() {
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-1.5">
                                   <span className={`text-sm font-medium truncate ${isDark ? "text-white" : "text-gray-900"}`}>{result.name}</span>
-                                  <LinkedinLogo className="text-[#0077b5] flex-shrink-0" size={12} />
+                                  <LinkedinLogo className="text-[#0077b5] flex-shrink-0" width={12} height={12} />
                                 </div>
                                 <div className="text-xs text-gray-500 truncate">{result.title} at {result.company}</div>
                               </div>
                               <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
-                                <MapPin size={10} />
+                                <MapPin width={10} height={10} />
                                 <span>{result.location}</span>
                               </div>
                               <button className="p-1.5 rounded bg-[#3e8aff]/10 text-[#3e8aff] hover:bg-[#3e8aff]/20 transition-colors flex-shrink-0">
-                                <UserPlus size={14} />
+                                <UserPlus width={14} height={14} />
                               </button>
                             </motion.div>
                           ))}
@@ -395,7 +395,7 @@ export default function InteractiveDemo() {
                       "Real-time data updates",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-2">
-                        <Check size={16} className="text-[#3e8aff]" />
+                        <Check width={16} height={16} className="text-[#3e8aff]" />
                         <span className={`text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}>{item}</span>
                       </div>
                     ))}

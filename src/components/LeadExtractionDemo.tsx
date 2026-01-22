@@ -22,7 +22,7 @@ import {
   CheckCircle,
   CircleNotch,
   Export,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
 // HubSpot logo as SVG component
@@ -47,21 +47,21 @@ const importMethods: ImportMethodConfig[] = [
     id: "linkedin",
     title: "Chrome Extension",
     subtitle: "One-click extraction from LinkedIn profiles",
-    icon: <Browser size={20} />,
+    icon: <Browser width={20} height={20} />,
     color: "#0077b5",
   },
   {
     id: "navigator",
     title: "Sales Navigator",
     subtitle: "Bulk extract from saved lists & searches",
-    icon: <LinkedinLogo size={20} />,
+    icon: <LinkedinLogo width={20} height={20} />,
     color: "#0077b5",
   },
   {
     id: "csv",
     title: "CSV Import",
     subtitle: "Upload and enrich bulk contact lists",
-    icon: <FileCsv size={20} />,
+    icon: <FileCsv width={20} height={20} />,
     color: "#22c55e",
   },
   {
@@ -191,7 +191,7 @@ export default function LeadExtractionDemo() {
                 className="space-y-4"
               >
                 <div className="flex items-center gap-2 text-xs text-gray-500 mb-4">
-                  <Browser size={14} />
+                  <Browser width={14} height={14} />
                   linkedin.com/in/sarah-chen
                 </div>
 
@@ -203,7 +203,7 @@ export default function LeadExtractionDemo() {
                 >
                   <div className="flex items-start gap-3">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0077b5] to-[#00a0dc] flex items-center justify-center flex-shrink-0">
-                      <User className="text-white" size={28} />
+                      <User className="text-white" width={28} height={28} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div
@@ -258,17 +258,17 @@ export default function LeadExtractionDemo() {
                   >
                     {animationStep >= 3 ? (
                       <>
-                        <Check size={14} />
+                        <Check width={14} height={14} />
                         Extracted!
                       </>
                     ) : animationStep >= 2 ? (
                       <>
-                        <CircleNotch size={14} className="animate-spin" />
+                        <CircleNotch width={14} height={14} className="animate-spin" />
                         Extracting...
                       </>
                     ) : (
                       <>
-                        <CursorClick size={14} />
+                        <CursorClick width={14} height={14} />
                         Extract Lead
                       </>
                     )}
@@ -289,8 +289,8 @@ export default function LeadExtractionDemo() {
                   }`}
                 >
                   {[
-                    { icon: <Envelope size={14} />, text: "sarah.chen@techcorp.com" },
-                    { icon: <Phone size={14} />, text: "+1 (415) 555-0123" },
+                    { icon: <Envelope width={14} height={14} />, text: "sarah.chen@techcorp.com" },
+                    { icon: <Phone width={14} height={14} />, text: "+1 (415) 555-0123" },
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -303,7 +303,7 @@ export default function LeadExtractionDemo() {
                       <span className={isDark ? "text-white" : "text-gray-900"}>
                         {item.text}
                       </span>
-                      <Check size={14} className="text-green-500 ml-auto" />
+                      <Check width={14} height={14} className="text-green-500 ml-auto" />
                     </motion.div>
                   ))}
                 </motion.div>
@@ -320,7 +320,7 @@ export default function LeadExtractionDemo() {
                 className="space-y-4"
               >
                 <div className="flex items-center gap-2 text-xs text-gray-500 mb-4">
-                  <LinkedinLogo size={14} weight="fill" />
+                  <LinkedinLogo width={14} height={14} />
                   Sales Navigator - Saved Leads
                 </div>
 
@@ -351,12 +351,12 @@ export default function LeadExtractionDemo() {
                     >
                       {animationStep >= 2 ? (
                         <>
-                          <Check size={12} />
+                          <Check width={12} height={12} />
                           Extracted
                         </>
                       ) : (
                         <>
-                          <Export size={12} />
+                          <Export width={12} height={12} />
                           Extract All
                         </>
                       )}
@@ -408,8 +408,8 @@ export default function LeadExtractionDemo() {
                           animate={{ scale: 1 }}
                         >
                           <CheckCircle
-                            size={18}
-                            weight="fill"
+                            width={18} height={18}
+                           
                             className="text-green-500"
                           />
                         </motion.div>
@@ -474,8 +474,8 @@ export default function LeadExtractionDemo() {
                       animate={{ scale: 1, opacity: 1 }}
                     >
                       <CheckCircle
-                        size={32}
-                        weight="fill"
+                        width={32} height={32}
+                       
                         className="text-green-500 mx-auto mb-2"
                       />
                       <div
@@ -492,7 +492,7 @@ export default function LeadExtractionDemo() {
                   ) : (
                     <>
                       <CloudArrowUp
-                        size={32}
+                        width={32} height={32}
                         className={`mx-auto mb-2 ${
                           isDark ? "text-gray-500" : "text-gray-400"
                         }`}
@@ -518,9 +518,9 @@ export default function LeadExtractionDemo() {
                     </div>
                     <div className="space-y-2">
                       {[
-                        { from: "full_name", to: "Name", icon: <User size={12} /> },
-                        { from: "work_email", to: "Email", icon: <Envelope size={12} /> },
-                        { from: "company", to: "Company", icon: <Buildings size={12} /> },
+                        { from: "full_name", to: "Name", icon: <User width={12} height={12} /> },
+                        { from: "work_email", to: "Email", icon: <Envelope width={12} height={12} /> },
+                        { from: "company", to: "Company", icon: <Buildings width={12} height={12} /> },
                       ].map((mapping, i) => (
                         <motion.div
                           key={mapping.from}
@@ -539,7 +539,7 @@ export default function LeadExtractionDemo() {
                           >
                             {mapping.to}
                           </span>
-                          <Check size={12} className="text-green-500 ml-auto" />
+                          <Check width={12} height={12} className="text-green-500 ml-auto" />
                         </motion.div>
                       ))}
                     </div>
@@ -577,7 +577,7 @@ export default function LeadExtractionDemo() {
                         animate={{ opacity: 1 }}
                         className="flex items-center gap-2 text-green-500 text-sm"
                       >
-                        <CheckCircle size={16} weight="fill" />
+                        <CheckCircle width={16} height={16} />
                         <span>Enrichment complete! 2,534 emails found (89%)</span>
                       </motion.div>
                     )}
@@ -647,7 +647,7 @@ export default function LeadExtractionDemo() {
                           : "bg-gray-50 border-gray-100"
                       }`}
                     >
-                      <ListBullets size={16} className="text-gray-400" />
+                      <ListBullets width={16} height={16} className="text-gray-400" />
                       <div className="flex-1">
                         <div
                           className={`text-sm ${
@@ -666,8 +666,8 @@ export default function LeadExtractionDemo() {
                           animate={{ scale: 1 }}
                         >
                           <CheckCircle
-                            size={18}
-                            weight="fill"
+                            width={18} height={18}
+                           
                             className="text-[#ff7a59]"
                           />
                         </motion.div>
@@ -702,12 +702,12 @@ export default function LeadExtractionDemo() {
                       >
                         {animationStep >= 4 ? (
                           <CheckCircle
-                            size={20}
-                            weight="fill"
+                            width={20} height={20}
+                           
                             className="text-green-500"
                           />
                         ) : (
-                          <ArrowsClockwise size={20} className="text-[#3e8aff]" />
+                          <ArrowsClockwise width={20} height={20} className="text-[#3e8aff]" />
                         )}
                       </motion.div>
                       <div className="flex-1">
@@ -772,7 +772,7 @@ export default function LeadExtractionDemo() {
                           : "bg-gray-100 text-gray-500"
                       }`}
                     >
-                      {animationStep >= i + 1 ? <Check size={12} /> : i + 1}
+                      {animationStep >= i + 1 ? <Check width={12} height={12} /> : i + 1}
                     </div>
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -807,7 +807,7 @@ export default function LeadExtractionDemo() {
                           : "bg-gray-100 text-gray-500"
                       }`}
                     >
-                      {animationStep >= i + 1 ? <Check size={12} /> : i + 1}
+                      {animationStep >= i + 1 ? <Check width={12} height={12} /> : i + 1}
                     </div>
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -842,7 +842,7 @@ export default function LeadExtractionDemo() {
                           : "bg-gray-100 text-gray-500"
                       }`}
                     >
-                      {animationStep >= i + 1 ? <Check size={12} /> : i + 1}
+                      {animationStep >= i + 1 ? <Check width={12} height={12} /> : i + 1}
                     </div>
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -877,7 +877,7 @@ export default function LeadExtractionDemo() {
                           : "bg-gray-100 text-gray-500"
                       }`}
                     >
-                      {animationStep >= i + 1 ? <Check size={12} /> : i + 1}
+                      {animationStep >= i + 1 ? <Check width={12} height={12} /> : i + 1}
                     </div>
                     <div>
                       <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTheme } from "@/context/ThemeContext";
-import { Shield, Envelope } from "@phosphor-icons/react";
+import { Shield, Envelope } from "@/components/icons";
 
 export default function PrivacyPolicyPage() {
   const { theme } = useTheme();
@@ -24,7 +24,7 @@ export default function PrivacyPolicyPage() {
                 ? "bg-[#3e8aff]/10 border border-[#3e8aff]/20"
                 : "bg-[#3e8aff]/5 border border-[#3e8aff]/10"
             }`}>
-              <Shield weight="fill" className="w-4 h-4 text-[#3e8aff]" />
+              <Shield className="w-4 h-4 text-[#3e8aff]" />
               <span className="text-sm font-medium text-[#3e8aff]">Your Privacy Matters</span>
             </div>
             <h1 className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -323,7 +323,7 @@ export default function PrivacyPolicyPage() {
                 <h2 className={`text-2xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>Contact and Compliance</h2>
                 <div className={`p-6 rounded-xl ${isDark ? "bg-white/[0.03] border border-white/[0.08]" : "bg-gray-50 border border-gray-200"}`}>
                   <div className="flex items-center gap-3 mb-4">
-                    <Envelope weight="fill" className="w-6 h-6 text-[#3e8aff]" />
+                    <Envelope className="w-6 h-6 text-[#3e8aff]" />
                     <span className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Questions or Requests</span>
                   </div>
                   <p className="mb-2">

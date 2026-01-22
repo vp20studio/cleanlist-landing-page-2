@@ -25,7 +25,7 @@ import {
   Sun,
   Moon,
   Article,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 

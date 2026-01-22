@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Copy, Check, Code } from "@phosphor-icons/react";
+import { Copy, Check, Code } from "@/components/icons";
 
 interface CodeBlockProps {
   code: string;

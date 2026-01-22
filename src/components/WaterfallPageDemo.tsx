@@ -16,7 +16,7 @@ import {
   Briefcase,
   MapPin,
   LinkSimple,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
 interface Provider {
@@ -37,12 +37,12 @@ const providers: Provider[] = [
 ];
 
 const goldenRecordFields = [
-  { key: "email", icon: <Envelope size={16} />, label: "Email", value: "john.smith@acmecorp.com" },
-  { key: "phone", icon: <Phone size={16} />, label: "Phone", value: "+1 (555) 123-4567" },
-  { key: "title", icon: <Briefcase size={16} />, label: "Title", value: "VP of Sales" },
-  { key: "company", icon: <Buildings size={16} />, label: "Company", value: "Acme Corporation" },
-  { key: "location", icon: <MapPin size={16} />, label: "Location", value: "San Francisco, CA" },
-  { key: "linkedin", icon: <LinkSimple size={16} />, label: "LinkedIn", value: "linkedin.com/in/jsmith" },
+  { key: "email", icon: <Envelope width={16} height={16} />, label: "Email", value: "john.smith@acmecorp.com" },
+  { key: "phone", icon: <Phone width={16} height={16} />, label: "Phone", value: "+1 (555) 123-4567" },
+  { key: "title", icon: <Briefcase width={16} height={16} />, label: "Title", value: "VP of Sales" },
+  { key: "company", icon: <Buildings width={16} height={16} />, label: "Company", value: "Acme Corporation" },
+  { key: "location", icon: <MapPin width={16} height={16} />, label: "Location", value: "San Francisco, CA" },
+  { key: "linkedin", icon: <LinkSimple width={16} height={16} />, label: "LinkedIn", value: "linkedin.com/in/jsmith" },
 ];
 
 type Stage = "idle" | "querying" | "merging" | "complete";
@@ -144,7 +144,7 @@ export default function WaterfallPageDemo() {
               : "opacity-50 cursor-not-allowed text-gray-500"
           }`}
         >
-          <ArrowCounterClockwise size={16} />
+          <ArrowCounterClockwise width={16} height={16} />
         </button>
       </div>
 
@@ -154,7 +154,7 @@ export default function WaterfallPageDemo() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center">
-              <Stack size={20} className="text-[#3e8aff]" />
+              <Stack width={20} height={20} className="text-[#3e8aff]" />
             </div>
             <div>
               <h3 className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -171,7 +171,7 @@ export default function WaterfallPageDemo() {
               animate={{ scale: 1 }}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-500/20 text-green-500 text-xs font-medium"
             >
-              <Check size={14} />
+              <Check width={14} height={14} />
               Complete
             </motion.div>
           )}
@@ -235,7 +235,7 @@ export default function WaterfallPageDemo() {
                           animate={{ rotate: 360 }}
                           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                         >
-                          <SpinnerGap size={16} className="text-[#3e8aff]" />
+                          <SpinnerGap width={16} height={16} className="text-[#3e8aff]" />
                         </motion.div>
                       )}
                       {isQueried && !isActive && (
@@ -246,11 +246,11 @@ export default function WaterfallPageDemo() {
                         >
                           {provider.found ? (
                             <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
-                              <Check size={12} className="text-green-500" />
+                              <Check width={12} height={12} className="text-green-500" />
                             </div>
                           ) : (
                             <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center">
-                              <X size={12} className="text-red-500" />
+                              <X width={12} height={12} className="text-red-500" />
                             </div>
                           )}
                         </motion.div>
@@ -305,7 +305,7 @@ export default function WaterfallPageDemo() {
                   {/* Lead Header */}
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 rounded-full bg-[#3e8aff]/20 flex items-center justify-center">
-                      <User size={20} className="text-[#3e8aff]" />
+                      <User width={20} height={20} className="text-[#3e8aff]" />
                     </div>
                     <div>
                       <div className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -319,7 +319,7 @@ export default function WaterfallPageDemo() {
                         animate={{ scale: 1 }}
                         className="ml-auto flex items-center gap-1.5 px-2 py-1 rounded-full bg-green-500/20 text-green-500 text-xs font-medium"
                       >
-                        <Sparkle size={12} />
+                        <Sparkle width={12} height={12} />
                         Enriched
                       </motion.div>
                     )}

@@ -15,7 +15,7 @@ import {
   ChartBar,
   Lightning,
   ChatCircle,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { TechnicalGrid, GlowCard, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 

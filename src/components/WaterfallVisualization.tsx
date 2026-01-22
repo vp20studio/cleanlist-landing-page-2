@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Database, Envelope, Phone, Buildings, CheckCircle, XCircle, CircleNotch } from "@phosphor-icons/react";
+import { Database, Envelope, Phone, Buildings, CheckCircle, XCircle, CircleNotch } from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -208,7 +208,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                     className={`${compact ? 'w-8 h-8' : 'w-10 h-10 md:w-12 md:h-12'} rounded-lg flex items-center justify-center mb-2`}
                     style={{ backgroundColor: `${provider.color}20` }}
                   >
-                    <Database size={compact ? 16 : 20} style={{ color: provider.color }} />
+                    <Database width={compact ? 16 : 20} height={compact ? 16 : 20} style={{ color: provider.color }} />
                   </div>
 
                   {/* Provider Name */}
@@ -232,7 +232,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                       >
-                        <CircleNotch size={16} className="text-[#3e8aff] animate-spin" />
+                        <CircleNotch width={16} height={16} className="text-[#3e8aff] animate-spin" />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -246,7 +246,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                         animate={{ scale: 1 }}
                         exit={{ scale: 0 }}
                       >
-                        <CheckCircle size={16} className="text-green-500" />
+                        <CheckCircle width={16} height={16} className="text-green-500" />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -320,7 +320,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                     } : {}}
                     transition={{ duration: 0.8, repeat: point.status === "searching" ? Infinity : 0 }}
                   >
-                    <Icon size={16} className={
+                    <Icon width={16} height={16} className={
                       point.status === "found"
                         ? "text-green-500"
                         : point.status === "not-found"
@@ -394,23 +394,23 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
         {!compact && (
           <div className={`flex items-center justify-center gap-6 mt-4 text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
             <div className="flex items-center gap-2">
-              <Envelope size={12} />
+              <Envelope width={12} height={12} />
               <span>Email</span>
             </div>
             <div className="flex items-center gap-2">
-              <Phone size={12} />
+              <Phone width={12} height={12} />
               <span>Phone</span>
             </div>
             <div className="flex items-center gap-2">
-              <Buildings size={12} />
+              <Buildings width={12} height={12} />
               <span>Company</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle size={12} className="text-green-500" />
+              <CheckCircle width={12} height={12} className="text-green-500" />
               <span>Found</span>
             </div>
             <div className="flex items-center gap-2">
-              <XCircle size={12} className="text-red-500" />
+              <XCircle width={12} height={12} className="text-red-500" />
               <span>Not Found</span>
             </div>
           </div>

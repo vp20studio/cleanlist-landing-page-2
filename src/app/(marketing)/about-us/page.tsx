@@ -10,7 +10,7 @@ import {
   Plug,
   TrendUp,
   Rocket,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
 const values = [

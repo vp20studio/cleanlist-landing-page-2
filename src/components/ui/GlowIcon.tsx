@@ -13,11 +13,11 @@ export interface GlowIconProps {
 }
 
 const sizeMap = {
-  xs: { container: "w-6 h-6", iconSize: 14, radius: "rounded-lg" },
-  sm: { container: "w-8 h-8", iconSize: 18, radius: "rounded-lg" },
-  md: { container: "w-10 h-10", iconSize: 22, radius: "rounded-xl" },
-  lg: { container: "w-12 h-12", iconSize: 26, radius: "rounded-xl" },
-  xl: { container: "w-14 h-14", iconSize: 30, radius: "rounded-2xl" },
+  xs: { container: "w-6 h-6", iconSize: "14px", radius: "rounded-lg" },
+  sm: { container: "w-8 h-8", iconSize: "18px", radius: "rounded-lg" },
+  md: { container: "w-10 h-10", iconSize: "22px", radius: "rounded-xl" },
+  lg: { container: "w-12 h-12", iconSize: "26px", radius: "rounded-xl" },
+  xl: { container: "w-14 h-14", iconSize: "30px", radius: "rounded-2xl" },
 };
 
 const colorMap = {
@@ -97,13 +97,14 @@ export default function GlowIcon({
   const sizeClasses = sizeMap[size];
   const colorClasses = colorMap[color];
 
-  // Clone icon with proper sizing and color for Phosphor icons
+  // Clone icon with proper sizing and color for SVG icons
   const iconColor = variant === "solid" ? colorClasses.hexSolid : colorClasses.hex;
-  const styledIcon = isValidElement<{ size?: number; color?: string; weight?: string; className?: string }>(icon)
+  const styledIcon = isValidElement<React.SVGProps<SVGSVGElement>>(icon)
     ? cloneElement(icon, {
-        size: sizeClasses.iconSize,
-        color: iconColor,
-        weight: "duotone",
+        width: sizeClasses.iconSize,
+        height: sizeClasses.iconSize,
+        style: { color: iconColor },
+        className: "flex-shrink-0",
       })
     : icon;
 

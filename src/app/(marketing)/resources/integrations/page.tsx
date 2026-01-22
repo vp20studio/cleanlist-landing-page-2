@@ -10,7 +10,7 @@ import {
   Lightning,
   Shield,
   Clock,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
 // All integrations - CRMs and outreach platforms

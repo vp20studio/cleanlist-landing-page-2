@@ -14,7 +14,7 @@ import {
   Lock,
   TrendUp,
   Clock,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { GlowCard, GlowIcon, SectionHeader, CodeBlock, MagneticButton, ResultCard } from "@/components/ui";
 
 const verificationSteps = [

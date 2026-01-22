@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { LinkedinLogo, Envelope } from "@phosphor-icons/react";
+import { LinkedinLogo, Envelope } from "@/components/icons";
 import { GlowIcon } from "@/components/ui";
 import { StarsBackground } from "./StarsBackground";
 

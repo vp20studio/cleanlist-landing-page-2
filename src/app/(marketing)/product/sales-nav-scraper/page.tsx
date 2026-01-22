@@ -20,7 +20,7 @@ import {
   FileXls,
   Lock,
   Globe,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 import SalesNavDemo from "@/components/SalesNavDemo";
 
@@ -293,7 +293,7 @@ export default function SalesNavScraperPage() {
                       <div className="flex items-center justify-between mb-3">
                         <div className="flex items-center gap-2">
                           <div className="w-6 h-6 rounded bg-[#0077b5] flex items-center justify-center">
-                            <Download className="text-white" size={12} />
+                            <Download className="text-white" width={12} height={12} />
                           </div>
                           <span className="text-sm font-medium text-white">Cleanlist Export</span>
                         </div>

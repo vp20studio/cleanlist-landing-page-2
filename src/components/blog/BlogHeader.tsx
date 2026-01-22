@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
-import { CalendarBlank, Clock, User, Tag } from "@phosphor-icons/react";
+import { CalendarBlank, Clock, User, Tag } from "@/components/icons";
 
 interface BlogHeaderProps {
   title: string;
@@ -89,7 +89,7 @@ export default function BlogHeader({
                     : "bg-black/5 text-[#666666]"
                 }`}
               >
-                <Tag size={12} className="mr-1" />
+                <Tag width={12} height={12} className="mr-1" />
                 {tag}
               </span>
             ))}
@@ -133,7 +133,7 @@ export default function BlogHeader({
                   }`}
                 >
                   <User
-                    size={20}
+                    width={20} height={20}
                     className={isDark ? "text-white" : "text-[#1a1a1a]"}
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function BlogHeader({
                 isDark ? "text-[#888888]" : "text-[#666666]"
               }`}
             >
-              <CalendarBlank size={16} />
+              <CalendarBlank width={16} height={16} />
               {formattedDate}
             </div>
 
@@ -174,7 +174,7 @@ export default function BlogHeader({
                 isDark ? "text-[#888888]" : "text-[#666666]"
               }`}
             >
-              <Clock size={16} />
+              <Clock width={16} height={16} />
               {readingTime} min read
             </div>
           </div>

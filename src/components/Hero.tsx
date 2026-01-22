@@ -11,7 +11,7 @@ import {
   Lightning,
   Database,
   ArrowRight,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -79,7 +79,7 @@ export default function Hero() {
           {/* Badge */}
           <motion.div variants={itemVariants} className="mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888]">
-              <Sparkle size={16} className="text-[#3e8aff]" />
+              <Sparkle width={16} height={16} className="text-[#3e8aff]" />
               <span>Trusted by 500+ growth teams</span>
             </span>
           </motion.div>
@@ -118,7 +118,7 @@ export default function Hero() {
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blue-glow" />
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Start cleaning for free
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight width={16} height={16} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.a>
             <motion.a
@@ -146,7 +146,7 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
                 </div>
                 <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-[rgba(255,255,255,0.05)] text-xs text-[#888888]">
-                  <Database size={14} />
+                  <Database width={14} height={14} />
                   <span>cleanlist-dashboard.app</span>
                 </div>
                 <div className="w-16" />
@@ -157,28 +157,28 @@ export default function Hero() {
                 {/* Stats Row */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                   <StatsCard
-                    icon={<Envelope size={20} />}
+                    icon={<Envelope width={20} height={20} />}
                     label="Emails Verified"
                     value="24,847"
                     change="+12.3%"
                     positive
                   />
                   <StatsCard
-                    icon={<Shield size={20} />}
+                    icon={<Shield width={20} height={20} />}
                     label="Invalid Removed"
                     value="3,241"
                     change="-18.2%"
                     positive
                   />
                   <StatsCard
-                    icon={<TrendUp size={20} />}
+                    icon={<TrendUp width={20} height={20} />}
                     label="Deliverability"
                     value="99.2%"
                     change="+4.7%"
                     positive
                   />
                   <StatsCard
-                    icon={<Users size={20} />}
+                    icon={<Users width={20} height={20} />}
                     label="Enriched Leads"
                     value="18,392"
                     change="+28.1%"
@@ -260,7 +260,7 @@ export default function Hero() {
                       </div>
                     </div>
                     <div className="flex items-center justify-center gap-1.5 text-sm text-[#22c55e]">
-                      <CheckCircle size={16} />
+                      <CheckCircle width={16} height={16} />
                       <span>Excellent</span>
                     </div>
                   </div>
@@ -277,7 +277,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.1)] flex items-center justify-center">
-                  <Lightning size={20} className="text-[#22c55e]" />
+                  <Lightning width={20} height={20} className="text-[#22c55e]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white">Instant API</p>
@@ -294,7 +294,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(62,138,255,0.1)] flex items-center justify-center">
-                  <Shield size={20} className="text-[#3e8aff]" />
+                  <Shield width={20} height={20} className="text-[#3e8aff]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white">GDPR Ready</p>
@@ -311,7 +311,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(245,158,11,0.1)] flex items-center justify-center">
-                  <TrendUp size={20} className="text-[#f59e0b]" />
+                  <TrendUp width={20} height={20} className="text-[#f59e0b]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white">ROI Boost</p>
@@ -375,7 +375,7 @@ function ProcessingRow({
       color: "text-[#22c55e]",
       bg: "bg-[rgba(34,197,94,0.1)]",
       label: "Verified",
-      icon: <CheckCircle size={14} />,
+      icon: <CheckCircle width={14} height={14} />,
     },
     invalid: {
       color: "text-[#ef4444]",
@@ -399,7 +399,7 @@ function ProcessingRow({
       color: "text-[#3e8aff]",
       bg: "bg-[rgba(62,138,255,0.1)]",
       label: "Enriching...",
-      icon: <Sparkle size={14} className="animate-pulse" />,
+      icon: <Sparkle width={14} height={14} className="animate-pulse" />,
     },
   };
 

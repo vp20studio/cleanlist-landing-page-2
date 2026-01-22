@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkle, Lightning, ChartBar, Link } from "@phosphor-icons/react";
+import { Sparkle, Lightning, ChartBar, Link } from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 

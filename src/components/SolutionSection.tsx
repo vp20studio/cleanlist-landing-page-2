@@ -18,7 +18,7 @@ import {
   Sparkle,
   TrendUp,
   Stack,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 import { GlowIcon } from "@/components/ui";
 
@@ -45,7 +45,7 @@ export default function SolutionSection() {
   const features: Feature[] = [
     {
       id: "playbooks",
-      icon: <BookOpen weight="duotone" />,
+      icon: <BookOpen />,
       title: "Pre-built Playbooks",
       subtitle: "Launch in minutes, not months",
       description: "Outbound, inbound, intent, ABM — proven GTM motions ready to deploy. No GTM engineer required.",
@@ -90,7 +90,7 @@ export default function SolutionSection() {
               isDark ? "bg-green-500/10 text-green-400" : "bg-green-50 text-green-600"
             }`}
           >
-            <Check className="w-3.5 h-3.5" weight="bold" />
+            <Check className="w-3.5 h-3.5" />
             <span>Ready to deploy instantly</span>
           </motion.div>
         </div>
@@ -98,7 +98,7 @@ export default function SolutionSection() {
     },
     {
       id: "enrichment",
-      icon: <Database weight="duotone" />,
+      icon: <Database />,
       title: "Waterfall Enrichment",
       subtitle: "15+ data providers, one click",
       description: "Cascade through multiple data sources automatically. Pay only for matches, maximize coverage.",
@@ -171,7 +171,7 @@ export default function SolutionSection() {
     },
     {
       id: "validation",
-      icon: <Target weight="duotone" />,
+      icon: <Target />,
       title: "ICP Scoring",
       subtitle: "Score leads that actually convert",
       description: "Custom rules, AI-powered scoring, and automatic routing. Every lead scored and sorted instantly.",
@@ -225,7 +225,7 @@ export default function SolutionSection() {
                       : "bg-gray-100 text-gray-500"
                 }`}
               >
-                <Check className="w-3 h-3" weight="bold" />
+                <Check className="w-3 h-3" />
                 {tag.label}
               </motion.div>
             ))}
@@ -235,7 +235,7 @@ export default function SolutionSection() {
     },
     {
       id: "execution",
-      icon: <Rocket weight="duotone" />,
+      icon: <Rocket />,
       title: "Stack Execution",
       subtitle: "Your tools, orchestrated",
       description: "Push enriched, validated contacts directly to CRM, sequencer, and ad platforms. Real-time sync.",
@@ -331,7 +331,7 @@ export default function SolutionSection() {
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#3e8aff]/30 bg-[#3e8aff]/10 text-[#3e8aff] text-sm font-medium mb-6"
           >
-            <Lightning weight="fill" className="w-4 h-4" />
+            <Lightning className="w-4 h-4" />
             The Solution
           </motion.span>
           <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -457,7 +457,7 @@ export default function SolutionSection() {
                         : "bg-[#3e8aff]/5 border border-[#3e8aff]/15"
                     }`}
                   >
-                    <CheckCircle className="w-4 h-4 text-[#3e8aff]" weight="fill" />
+                    <CheckCircle className="w-4 h-4 text-[#3e8aff]" />
                     <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-800"}`}>{benefit}</span>
                   </motion.div>
                 ))}
@@ -471,9 +471,9 @@ export default function SolutionSection() {
                   className="w-full py-4 rounded-xl font-semibold flex items-center justify-center gap-2 bg-gradient-to-r from-[#3e8aff] to-[#2563eb] text-white hover:shadow-xl hover:shadow-[#3e8aff]/25 transition-all"
                 >
                   {activeData.ctaText === "View integrations" ? (
-                    <ArrowSquareOut size={18} weight="bold" />
+                    <ArrowSquareOut width={18} height={18} />
                   ) : (
-                    <Play size={18} weight="fill" />
+                    <Play width={18} height={18} />
                   )}
                   {activeData.ctaText}
                 </motion.div>

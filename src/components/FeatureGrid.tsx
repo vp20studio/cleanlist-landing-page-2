@@ -13,7 +13,7 @@ import {
   LinkedinLogo,
   Code,
   ArrowRight,
-} from "@phosphor-icons/react";
+} from "@/components/icons";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -63,7 +63,7 @@ export default function FeatureGrid() {
           className="text-center mb-16"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888] mb-6">
-            <Sparkle size={16} className="text-[#3e8aff]" />
+            <Sparkle width={16} height={16} className="text-[#3e8aff]" />
             How it works
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
@@ -166,7 +166,7 @@ function VerificationCard() {
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 flex items-center justify-center">
-            <CheckCircle size={20} className="text-[#22c55e]" />
+            <CheckCircle width={20} height={20} className="text-[#22c55e]" />
           </div>
           <span className="text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] px-2.5 py-1 rounded-full">
             Real-time
@@ -217,7 +217,7 @@ function VerificationCard() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 25 }}
                   >
-                    <CheckCircle size={16} className="text-[#22c55e]" />
+                    <CheckCircle width={16} height={16} className="text-[#22c55e]" />
                   </motion.div>
                 )}
                 {item.status === "invalid" && (
@@ -226,7 +226,7 @@ function VerificationCard() {
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 500, damping: 25 }}
                   >
-                    <XCircle size={16} className="text-[#ef4444]" />
+                    <XCircle width={16} height={16} className="text-[#ef4444]" />
                   </motion.div>
                 )}
               </div>
@@ -272,7 +272,7 @@ function EnrichmentCard() {
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5 flex items-center justify-center">
-            <Sparkle size={20} className="text-[#3e8aff]" />
+            <Sparkle width={20} height={20} className="text-[#3e8aff]" />
           </div>
           <span className="text-xs font-medium text-[#3e8aff] bg-[rgba(62,138,255,0.1)] px-2.5 py-1 rounded-full">
             AI-Powered
@@ -318,7 +318,7 @@ function EnrichmentCard() {
               }}
             >
               <ArrowRight
-                size={24}
+                width={24} height={24}
                 className={`transition-colors duration-300 ${stage === "complete" ? "text-[#22c55e]" : "text-[#888888]"}`}
               />
             </motion.div>
@@ -346,7 +346,7 @@ function EnrichmentCard() {
                   } flex items-center justify-center text-white font-semibold text-sm`}
                 >
                   {stage === "complete" ? (
-                    <CheckCircle size={20} />
+                    <CheckCircle width={20} height={20} />
                   ) : (
                     <span className="w-5 h-3 bg-[rgba(255,255,255,0.1)] rounded animate-pulse" />
                   )}
@@ -369,28 +369,28 @@ function EnrichmentCard() {
               {/* Data Points */}
               <div className="grid grid-cols-2 gap-2">
                 <DataPoint
-                  icon={<LinkedinLogo size={14} />}
+                  icon={<LinkedinLogo width={14} height={14} />}
                   label="LinkedIn"
                   value="Connected"
                   stage={stage}
                   color="#0a66c2"
                 />
                 <DataPoint
-                  icon={<Buildings size={14} />}
+                  icon={<Buildings width={14} height={14} />}
                   label="Company"
                   value="Acme Corp"
                   stage={stage}
                   color="#3e8aff"
                 />
                 <DataPoint
-                  icon={<Users size={14} />}
+                  icon={<Users width={14} height={14} />}
                   label="Size"
                   value="500-1000"
                   stage={stage}
                   color="#8b5cf6"
                 />
                 <DataPoint
-                  icon={<CurrencyDollar size={14} />}
+                  icon={<CurrencyDollar width={14} height={14} />}
                   label="Revenue"
                   value="$50M+"
                   stage={stage}
@@ -520,7 +520,7 @@ const data = await response.json();
           <div className="md:w-1/3">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f59e0b]/20 to-[#f59e0b]/5 flex items-center justify-center">
-                <Lightning size={20} className="text-[#f59e0b]" />
+                <Lightning width={20} height={20} className="text-[#f59e0b]" />
               </div>
               <span className="text-xs font-medium text-[#f59e0b] bg-[rgba(245,158,11,0.1)] px-2.5 py-1 rounded-full">
                 {"<"}100ms
@@ -554,7 +554,7 @@ const data = await response.json();
               {/* Code header */}
               <div className="flex items-center justify-between px-4 py-2.5 border-b border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
                 <div className="flex items-center gap-2">
-                  <Code size={16} className="text-[#888888]" />
+                  <Code width={16} height={16} className="text-[#888888]" />
                   <span className="text-xs text-[#888888] font-mono">
                     example.ts
                   </span>
