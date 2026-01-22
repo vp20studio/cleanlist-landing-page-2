@@ -1153,7 +1153,7 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-3">
                 <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>Can&apos;t find yours?</span>
-                <Link href="/integrations" className="text-sm text-[#3e8aff] hover:underline">
+                <Link href="https://calendly.com/cleanlist/30min" target="_blank" rel="noopener noreferrer" className="text-sm text-[#3e8aff] hover:underline">
                   Request integration
                 </Link>
               </div>
@@ -1212,8 +1212,8 @@ export default function HomePage() {
                 <Lightning className="w-5 h-5 text-[#3e8aff]" />
                 <span><span className="text-[#3e8aff] font-medium">REST API</span> and <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for custom integrations</span>
               </div>
-              <Link href="#" className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:underline">
-                View API Docs <ArrowRight className="w-4 h-4" />
+              <Link href="/resources/integrations" className="inline-flex items-center gap-2 text-sm text-[#3e8aff] hover:underline">
+                Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </motion.div>

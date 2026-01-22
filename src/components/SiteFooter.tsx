@@ -22,7 +22,6 @@ const footerLinks = {
   ],
   resources: [
     { label: "Blog", href: "/blog" },
-    { label: "Case Studies", href: "/resources/case-studies" },
     { label: "Integrations", href: "/resources/integrations" },
   ],
   company: [

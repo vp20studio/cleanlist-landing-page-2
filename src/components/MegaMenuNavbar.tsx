@@ -123,12 +123,6 @@ const resourceItems: NavItem[] = [
     description: "Insights for growth teams",
   },
   {
-    label: "Case Studies",
-    href: "/resources/case-studies",
-    icon: <BookOpen />,
-    description: "See how teams use Cleanlist",
-  },
-  {
     label: "Integrations",
     href: "/resources/integrations",
     icon: <Plug />,

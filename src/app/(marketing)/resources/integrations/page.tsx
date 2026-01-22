@@ -93,7 +93,7 @@ export default function IntegrationsPage() {
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Native Integrations</h3>
                 <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>One-click setup. No engineering required.</p>
               </div>
-              <Link href="#" className="text-sm text-[#3e8aff] hover:underline">
+              <Link href="https://calendly.com/cleanlist/30min" target="_blank" rel="noopener noreferrer" className="text-sm text-[#3e8aff] hover:underline">
                 Can&apos;t find yours? Request integration
               </Link>
             </div>
@@ -129,9 +129,6 @@ export default function IntegrationsPage() {
                 <Lightning className="text-[#3e8aff]" />
                 <span className="text-[#3e8aff] font-medium">REST API</span> and <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for custom integrations
               </div>
-              <Link href="#" className="inline-flex items-center gap-1 text-sm text-[#3e8aff] hover:underline">
-                View API Docs <ArrowRight />
-              </Link>
             </div>
           </motion.div>
         </div>
@@ -192,10 +189,12 @@ export default function IntegrationsPage() {
               </div>
 
               <Link
-                href="#"
+                href="https://calendly.com/cleanlist/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
-                View API Docs
+                Request Integration
                 <ArrowRight />
               </Link>
             </motion.div>
