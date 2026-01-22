@@ -342,7 +342,9 @@ function PlaybookCard({
             </div>
             {isActive && (
               <Link
-                href="/product/playbook-builder"
+                href="https://portal.cleanlist.ai/auth/register"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm font-medium text-[#3e8aff] hover:underline"
               >
                 Use this playbook
@@ -449,10 +451,12 @@ export default function PlaybooksSection() {
               </p>
             </div>
             <Link
-              href="/product/playbook-builder"
+              href="https://calendly.com/cleanlist/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-semibold rounded-xl hover:bg-[#2563eb] transition-colors"
             >
-              Browse all playbooks
+              Speak with us
               <ArrowRight width={18} height={18} />
             </Link>
           </div>
