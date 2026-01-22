@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import Image from "next/image";
 import {
   Check,
   X,
@@ -211,13 +212,64 @@ export default function WaterfallPageDemo() {
                   >
                     <div className="flex items-center gap-3">
                       <div
-                        className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold"
+                        className="w-7 h-7 rounded-lg flex items-center justify-center overflow-hidden"
                         style={{
                           backgroundColor: `${provider.color}20`,
-                          color: provider.color,
                         }}
                       >
-                        {provider.name[0]}
+                        {provider.name === "Cleanlist" && (
+                          <Image
+                            src="/images/cleanlist-circle-avatar.png"
+                            alt="Cleanlist"
+                            width={28}
+                            height={28}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
+                        {provider.name === "Wiza" && (
+                          <Image
+                            src="/images/providers/wiza.webp"
+                            alt="Wiza"
+                            width={28}
+                            height={28}
+                            className="w-full h-full object-contain p-0.5"
+                          />
+                        )}
+                        {provider.name === "Findymail" && (
+                          <Image
+                            src="/images/providers/findymail.png"
+                            alt="Findymail"
+                            width={28}
+                            height={28}
+                            className="w-full h-full object-contain p-0.5"
+                          />
+                        )}
+                        {provider.name === "Prospeo" && (
+                          <Image
+                            src="/images/providers/prospeo.png"
+                            alt="Prospeo"
+                            width={28}
+                            height={28}
+                            className="w-full h-full object-contain p-0.5"
+                          />
+                        )}
+                        {provider.name === "Lusha" && (
+                          <Image
+                            src="/images/providers/lusha.jpeg"
+                            alt="Lusha"
+                            width={28}
+                            height={28}
+                            className="w-full h-full object-contain p-0.5"
+                          />
+                        )}
+                        {provider.name === "+10 more" && (
+                          <div
+                            className="w-full h-full flex items-center justify-center text-xs font-bold"
+                            style={{ color: provider.color }}
+                          >
+                            +10
+                          </div>
+                        )}
                       </div>
                       <div>
                         <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>

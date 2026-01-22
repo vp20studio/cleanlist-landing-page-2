@@ -108,11 +108,11 @@ export default function SolutionSection() {
       visual: (
         <div className="space-y-2">
           {[
-            { name: "Cleanlist Cache", status: "Checking...", active: true },
-            { name: "Wiza", status: "Found", active: true },
-            { name: "Findymail", status: "Found", active: true },
-            { name: "Prospeo", status: "Queued", active: false },
-            { name: "Lusha", status: "Queued", active: false },
+            { name: "Cleanlist Cache", logo: "/images/cleanlist-circle-avatar.png", status: "Checking...", active: true },
+            { name: "Wiza", logo: "/images/providers/wiza.webp", status: "Found", active: true },
+            { name: "Findymail", logo: "/images/providers/findymail.png", status: "Found", active: true },
+            { name: "Prospeo", logo: "/images/providers/prospeo.png", status: "Queued", active: false },
+            { name: "Lusha", logo: "/images/providers/lusha.jpeg", status: "Queued", active: false },
           ].map((provider, i) => (
             <motion.div
               key={provider.name}
@@ -129,17 +129,15 @@ export default function SolutionSection() {
                     : "bg-gray-50 border border-gray-100"
               }`}
             >
-              <motion.div
-                animate={provider.active ? { scale: [1, 1.2, 1] } : {}}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className={`w-2.5 h-2.5 rounded-full ${
-                  provider.status === "Found"
-                    ? "bg-green-500"
-                    : provider.active
-                      ? "bg-[#3e8aff]"
-                      : isDark ? "bg-gray-600" : "bg-gray-300"
-                }`}
-              />
+              <div className="w-7 h-7 rounded-lg overflow-hidden flex-shrink-0 bg-white">
+                <Image
+                  src={provider.logo}
+                  alt={provider.name}
+                  width={28}
+                  height={28}
+                  className="w-full h-full object-contain"
+                />
+              </div>
               <span className={`text-sm flex-1 font-medium ${
                 provider.active
                   ? isDark ? "text-white" : "text-gray-800"
