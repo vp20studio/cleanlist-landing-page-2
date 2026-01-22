@@ -577,7 +577,7 @@ export default function PricingPage() {
       </section>
 
       {/* Feature Comparison Table */}
-      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -623,7 +623,7 @@ export default function PricingPage() {
                     {/* Category Header */}
                     <tr
                       key={category.name}
-                      className={`border-b cursor-pointer transition-colors ${isDark ? "border-white/[0.08] bg-[#0a0a0a] hover:bg-[#0d0d0d]" : "border-black/[0.08] bg-gray-100 hover:bg-gray-200"}`}
+                      className={`border-b cursor-pointer transition-colors ${isDark ? "border-white/[0.08] bg-[#0a0a0a] hover:bg-[#0a0a0a]" : "border-black/[0.08] bg-gray-100 hover:bg-gray-200"}`}
                       onClick={() => toggleCategory(category.name)}
                     >
                       <td

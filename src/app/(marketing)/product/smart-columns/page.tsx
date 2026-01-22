@@ -147,7 +147,7 @@ export default function SmartColumnsPage() {
               {/* Browser Chrome */}
               <div
                 className={`flex items-center gap-2 px-4 py-3 border-b ${
-                  isDark ? "border-white/[0.08] bg-[#0d0d0d]" : "border-black/[0.05] bg-gray-50"
+                  isDark ? "border-white/[0.08] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50"
                 }`}
               >
                 <div className="flex items-center gap-1.5">
@@ -207,7 +207,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <TechnicalGrid
             columns={5}
@@ -457,7 +457,7 @@ export default function SmartColumnsPage() {
       </section>
 
       {/* Smart Column Types */}
-      <section id="examples" className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section id="examples" className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

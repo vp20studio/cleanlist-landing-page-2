@@ -1070,7 +1070,7 @@ export default function HomePage() {
                           integration.needsWhiteBg
                             ? "bg-white border-gray-200"
                             : isDark
-                              ? "bg-[#0d0d0d] border-white/[0.1] group-hover:border-white/[0.3]"
+                              ? "bg-[#0a0a0a] border-white/[0.1] group-hover:border-white/[0.3]"
                               : "bg-white border-gray-200 group-hover:border-[#3e8aff]/50"
                         }`}
                         style={{
@@ -1221,7 +1221,7 @@ export default function HomePage() {
       </section>
 
       {/* Pricing Section with Tier Toggles */}
-      <section id="pricing" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section id="pricing" className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

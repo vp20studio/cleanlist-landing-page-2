@@ -266,7 +266,7 @@ export default function PeopleSearchPage() {
             className={`rounded-2xl overflow-hidden border shadow-2xl ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200"}`}
           >
             {/* Search Header */}
-            <div className={`px-6 py-4 border-b ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-gray-200 bg-gray-50"}`}>
+            <div className={`px-6 py-4 border-b ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-gray-200 bg-gray-50"}`}>
               <div className="flex items-center gap-3">
                 <GlowIcon icon={<MagnifyingGlass />} size="md" color="blue" variant="glow" />
                 <div>
@@ -387,7 +387,7 @@ export default function PeopleSearchPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <TechnicalGrid
             columns={6}
@@ -556,7 +556,7 @@ export default function PeopleSearchPage() {
       </section>
 
       {/* Advanced Filters Section */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -681,7 +681,7 @@ export default function PeopleSearchPage() {
       </section>
 
       {/* Use Cases */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

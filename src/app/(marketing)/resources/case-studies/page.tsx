@@ -145,7 +145,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Stats */}
-      <section className={`py-12 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y transition-colors ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[

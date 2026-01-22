@@ -146,7 +146,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <TechnicalGrid
             columns={6}
@@ -443,7 +443,7 @@ export default function WaterfallEnrichmentPage() {
       </section>
 
       {/* Enrichment Types */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

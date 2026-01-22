@@ -134,7 +134,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Technical Stats */}
-      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#080808]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
+      <section className={`py-12 border-y ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <TechnicalGrid
             columns={5}
@@ -275,7 +275,7 @@ export default function SalesNavScraperPage() {
                 {/* Browser Mockup */}
                 <div className="rounded-lg bg-[#111] border border-white/[0.05] overflow-hidden">
                   {/* Address Bar */}
-                  <div className="flex items-center gap-2 px-3 py-2 bg-[#0d0d0d] border-b border-white/[0.05]">
+                  <div className="flex items-center gap-2 px-3 py-2 bg-[#0a0a0a] border-b border-white/[0.05]">
                     <div className="flex items-center gap-1.5">
                       <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                       <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -318,7 +318,7 @@ export default function SalesNavScraperPage() {
                       ].map((lead, i) => (
                         <div
                           key={lead.name}
-                          className="flex items-center gap-3 p-2 rounded bg-[#0d0d0d]"
+                          className="flex items-center gap-3 p-2 rounded bg-[#0a0a0a]"
                         >
                           <div className="w-8 h-8 rounded-full bg-gray-700" />
                           <div className="flex-1">
@@ -345,7 +345,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Features Grid */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -520,7 +520,7 @@ export default function SalesNavScraperPage() {
       </section>
 
       {/* Safety */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+      <section className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
