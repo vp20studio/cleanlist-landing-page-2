@@ -1,0 +1,211 @@
+---
+title: "How to Set Up Waterfall Enrichment for Your CRM in 5 Steps"
+description: "Learn how to implement waterfall enrichment that queries 15+ data sources and returns complete contact records with 98% accuracy. Step-by-step guide included."
+date: "2026-01-21"
+category: "guides"
+tags: ["waterfall enrichment", "data enrichment", "CRM", "lead enrichment", "how-to"]
+author:
+  name: "Cleanlist Team"
+  role: "Growth Engineering"
+featured: false
+draft: false
+keywords: ["how to waterfall enrichment", "multi-source data enrichment", "CRM data enrichment", "lead enrichment tool", "data cascade"]
+---
+
+If you've ever spent hours manually enriching leads only to end up with incomplete data, you're not alone. Most sales teams lose 20-30% of their pipeline to bad data—bounced emails, wrong phone numbers, outdated job titles.
+
+Waterfall enrichment solves this. Instead of relying on a single data provider (and accepting their gaps), waterfall enrichment queries multiple sources in sequence until it finds complete, verified information.
+
+In this guide, you'll learn how to set up waterfall enrichment for your CRM. By the end, you'll have automated data enrichment that pulls from 15+ sources—no manual work required.
+
+<Callout type="info" title="Before You Start">
+Make sure you have:
+- Admin access to your CRM (HubSpot, Salesforce, or similar)
+- A [Cleanlist account](https://cleanlist.ai) (free tier works for testing)
+- A test list of 50-100 contacts to validate results
+</Callout>
+
+## What is Waterfall Enrichment?
+
+Waterfall enrichment is a multi-provider data strategy that queries premium data sources in sequence until it finds the best match. Think of it like a cascade—your input record flows through Provider 1, then Provider 2, then Provider 3, collecting verified data at each stop.
+
+The key difference from traditional enrichment:
+
+- **Single-source enrichment**: Query one provider → accept whatever they return (gaps and all)
+- **Waterfall enrichment**: Query multiple providers → merge the best data from each into one complete record
+
+The result? A "golden record" with verified emails, direct dial phone numbers, and complete firmographics—all from one API call.
+
+[Cleanlist's waterfall enrichment](/product/waterfall-enrichment) connects to 15+ premium data sources and handles the cascade logic automatically. You get complete records; we handle the complexity.
+
+## Step 1: Prepare Your Input Data
+
+Before running enrichment, clean up your input file. The waterfall algorithm matches records based on the data you provide, so better input means better output.
+
+**Required fields (at least one):**
+- Full name + company name
+- LinkedIn profile URL
+- Work email address
+- Company domain
+
+**Optional fields that improve match rates:**
+- Job title
+- Location
+- Phone number (for verification)
+
+Export your contacts from your CRM as a CSV. Remove any duplicates and fix obvious formatting issues (all caps names, special characters in email fields).
+
+<Callout type="warning" title="Watch Out">
+Avoid using personal email addresses (Gmail, Yahoo) as input—they won't match to business profiles. Use company domains or LinkedIn URLs for best results.
+</Callout>
+
+**Expected result**: A clean CSV with 50-100 test records ready for enrichment.
+
+## Step 2: Upload to Cleanlist and Configure Enrichment
+
+Log into your Cleanlist dashboard and navigate to **Waterfall Enrichment**.
+
+1. Click **New Enrichment Job**
+2. Upload your CSV file
+3. Map your columns to Cleanlist fields (the system auto-detects most formats)
+4. Choose your enrichment level:
+
+| Enrichment Type | Credits | What You Get |
+|-----------------|---------|--------------|
+| **Partial** | 1 credit/record | Verified work email, LinkedIn URL, company data |
+| **Full** | 11 credits/record | Everything in Partial + direct dial phone, mobile number |
+
+For most [sales teams](/use-cases/sales-teams), start with partial enrichment to validate emails, then run full enrichment on your highest-priority accounts.
+
+5. Click **Start Enrichment**
+
+The cascade begins. Each record flows through our provider network—typically completing in under 30 seconds per record for partial enrichment.
+
+**Expected result**: Job status shows "Processing" with a progress bar.
+
+## Step 3: Understand the Cascade Logic
+
+Here's what happens behind the scenes when you run waterfall enrichment:
+
+**Sequential Query**: Your input record is sent to Provider 1 (our highest-confidence source). If they return a match with verified data, we capture it. If not, we cascade to Provider 2, then Provider 3, and so on through 15+ sources.
+
+**Response Validation**: Every response is validated before acceptance:
+- Email syntax check
+- Deliverability verification (is the mailbox active?)
+- Company data cross-reference
+- Freshness scoring (when was this data last updated?)
+
+**Best-Match Merge**: If multiple providers return data, our algorithm selects the highest-quality value for each field. Provider 1 might have the best email, Provider 3 the best phone number—you get the best of both.
+
+**Golden Record Output**: The final record includes 25+ fields:
+- Contact: verified email, phone, LinkedIn, job title, department
+- Company: name, domain, industry, employee count, revenue, headquarters
+- Metadata: confidence score, sources used, last verified date
+
+This cascade approach typically achieves 98% data accuracy—far higher than any single provider can deliver alone.
+
+## Step 4: Review Results and Export
+
+Once processing completes, review your enriched data in the Cleanlist dashboard.
+
+**Key metrics to check:**
+- **Match rate**: What percentage of records found matches? (Aim for 80%+)
+- **Fill rate per field**: How complete is each data point?
+- **Confidence scores**: Higher scores = higher accuracy
+
+Filter your results by confidence score. Records scoring 90+ are ready for outreach. Records below 70 may need manual verification.
+
+**Export options:**
+- Download as CSV (for spreadsheet analysis)
+- Push to HubSpot, Salesforce, or Outreach via native integrations
+- Access via API for custom workflows
+
+<Callout type="success" title="Pro Tip">
+Set up a webhook to automatically push enriched records to your CRM as they complete. No manual exports needed.
+</Callout>
+
+**Expected result**: Enriched CSV with complete contact records, ready for your sales team.
+
+## Step 5: Automate with CRM Integration
+
+Manual uploads work for one-off projects, but the real power comes from automation. Connect Cleanlist to your CRM for continuous enrichment.
+
+**HubSpot Integration:**
+1. Go to Settings → Integrations → Connect HubSpot
+2. Authorize Cleanlist to access your contacts
+3. Configure triggers: "Enrich new contacts automatically" or "Enrich when contact enters [list/workflow]"
+4. Set enrichment rules: partial for all leads, full for accounts matching your ICP
+
+**Salesforce Integration:**
+1. Install the Cleanlist managed package from AppExchange
+2. Configure field mappings in Setup → Cleanlist Settings
+3. Create a Process Builder flow to trigger enrichment on lead creation
+4. Map enriched fields back to standard or custom Salesforce fields
+
+**API Integration:**
+For custom workflows, use the Cleanlist API directly:
+
+```bash
+POST /api/v1/enrich
+{
+  "records": [
+    { "name": "John Smith", "company": "Acme Corp" }
+  ],
+  "type": "full"
+}
+```
+
+Response includes all 25+ fields with confidence scores and source metadata.
+
+**Expected result**: New CRM records automatically enrich within minutes of creation.
+
+## Verify Your Setup
+
+Run these checks to confirm everything works:
+
+1. **Test record**: Add a new contact to your CRM with just name + company. Verify it enriches automatically within 5 minutes.
+2. **Spot check accuracy**: Pick 10 random enriched records. Manually verify emails (send a test) and phone numbers (call them).
+3. **Check coverage**: Review your match rate. Below 70%? Your input data may need cleanup.
+
+**Troubleshooting common issues:**
+
+| Problem | Solution |
+|---------|----------|
+| Low match rate | Add more input fields (LinkedIn URL, domain) |
+| Missing phone numbers | Upgrade to full enrichment (11 credits) |
+| Slow processing | Contact support—may indicate provider issues |
+| Duplicate records | Enable deduplication in enrichment settings |
+
+## Next Steps
+
+You've set up waterfall enrichment. Here's how to get more value from it:
+
+1. **Build an ICP scoring model**: Use enriched firmographics to score leads automatically with [ICP Scoring](/product/icp-scoring)
+2. **Clean your existing database**: Run enrichment on your full CRM to fill data gaps
+3. **Set up enrichment triggers**: Automate enrichment for webinar signups, demo requests, and inbound leads
+
+## Frequently Asked Questions
+
+### How long does waterfall enrichment take?
+
+Most records enrich within 30 seconds. Large batches (10,000+ records) complete in 5-15 minutes depending on complexity. Full enrichment (with phone lookup) takes slightly longer than partial.
+
+### What if a record doesn't enrich?
+
+The waterfall queries all 15+ sources before giving up. If no data is found, you're not charged for that credit. Common reasons for no match: personal email used as input, very small companies, or executives with limited online presence.
+
+### Is waterfall enrichment better than single-source providers?
+
+Yes—by definition. Single providers have data gaps. Waterfall enrichment fills those gaps by combining the best data from multiple sources. Most customers see 20-30% higher fill rates compared to single-source tools.
+
+### How fresh is the enriched data?
+
+We prioritize sources with recently verified data. Each record includes a "last verified" timestamp so you know exactly how fresh it is. For email deliverability, we run real-time verification before returning results.
+
+### Can I use waterfall enrichment for GDPR compliance?
+
+Cleanlist pulls from commercially-licensed data sources that comply with GDPR and CCPA. However, you're responsible for having a lawful basis to process the contact data in your jurisdiction. Consult your legal team for specific compliance questions.
+
+---
+
+Waterfall enrichment turns incomplete lead lists into actionable sales data. One API call, 15+ sources, one golden record. [Start your free trial](/pricing) and see the difference complete data makes.
