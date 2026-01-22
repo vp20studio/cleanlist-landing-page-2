@@ -433,16 +433,6 @@ export default function MegaMenuNavbar() {
               >
                 Pricing
               </Link>
-              <Link
-                href="/about-us"
-                className={`px-4 py-2 text-sm transition-colors ${
-                  theme === "dark"
-                    ? "text-gray-300 hover:text-white"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-              >
-                About
-              </Link>
             </div>
 
             {/* CTA Buttons & Theme Toggle */}
@@ -627,17 +617,6 @@ export default function MegaMenuNavbar() {
                     onClick={() => setMobileOpen(false)}
                   >
                     Pricing
-                  </Link>
-                  <Link
-                    href="/about-us"
-                    className={`text-sm ${
-                      theme === "dark"
-                        ? "text-gray-300 hover:text-white"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    About
                   </Link>
                 </div>
 

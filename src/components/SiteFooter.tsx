@@ -25,7 +25,6 @@ const footerLinks = {
     { label: "Integrations", href: "/resources/integrations" },
   ],
   company: [
-    { label: "About Us", href: "/about-us" },
     { label: "Pricing", href: "/pricing" },
   ],
 };
