@@ -417,10 +417,10 @@ export default function ICPScoringPage() {
 
               <div className="relative">
                 {/* Icon with glow */}
-                <div className="relative inline-block mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-                  <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
-                    <Buildings className="text-white" width={32} height={32} />
+                <div className="relative block mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+                    <Buildings className="text-white" width={40} height={40} />
                   </div>
                 </div>
 
@@ -463,10 +463,10 @@ export default function ICPScoringPage() {
 
               <div className="relative">
                 {/* Icon with glow */}
-                <div className="relative inline-block mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-                  <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
-                    <Users className="text-white" width={32} height={32} />
+                <div className="relative block mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
+                    <Users className="text-white" width={40} height={40} />
                   </div>
                 </div>
 
@@ -509,10 +509,10 @@ export default function ICPScoringPage() {
 
               <div className="relative">
                 {/* Icon with glow */}
-                <div className="relative inline-block mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
-                  <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg">
-                    <Globe className="text-white" width={32} height={32} />
+                <div className="relative block mb-6">
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-600 flex items-center justify-center shadow-lg">
+                    <Globe className="text-white" width={40} height={40} />
                   </div>
                 </div>
 
