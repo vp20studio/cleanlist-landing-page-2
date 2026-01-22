@@ -192,7 +192,7 @@ export default function SalesNavScraperPage() {
               <GlowIcon icon={<GoogleChromeLogo />} size="xs" color="linkedin" variant="ghost" />
               Simple Workflow
             </div>
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               From Search to CRM in Minutes
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -353,7 +353,7 @@ export default function SalesNavScraperPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Enterprise-Grade Features
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -447,7 +447,7 @@ export default function SalesNavScraperPage() {
                 <GlowIcon icon={<Database />} size="xs" color="linkedin" variant="ghost" />
                 Rich Output
               </div>
-              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+              <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Complete Lead Records
               </h2>
               <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
@@ -529,7 +529,7 @@ export default function SalesNavScraperPage() {
             className="max-w-3xl mx-auto text-center"
           >
             <GlowIcon icon={<Lock />} size="xl" color="green" variant="glow" className="mx-auto mb-6" />
-            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Your Account is Safe
             </h2>
             <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>

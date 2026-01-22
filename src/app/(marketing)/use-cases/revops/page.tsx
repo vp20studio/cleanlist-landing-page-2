@@ -146,7 +146,7 @@ export default function RevOpsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               The Data Quality Challenge
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -217,7 +217,7 @@ export default function RevOpsPage() {
                 <GlowIcon icon={<FlowArrow />} size="xs" color="blue" variant="ghost" />
                 Playbook Builder
               </div>
-              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+              <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Automate Your Data Pipeline
               </h2>
               <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
@@ -319,7 +319,7 @@ export default function RevOpsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Data Governance Made Easy
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
