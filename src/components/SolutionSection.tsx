@@ -361,7 +361,7 @@ export default function SolutionSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                 onClick={() => setActiveFeature(feature.id)}
-                className={`flex-1 p-5 rounded-2xl cursor-pointer transition-all duration-300 group border flex items-center ${
+                className={`p-5 rounded-2xl cursor-pointer transition-all duration-300 group border ${
                   activeFeature === feature.id
                     ? isDark
                       ? "bg-[#3e8aff]/10 border-[#3e8aff]/30 shadow-lg shadow-[#3e8aff]/10"
@@ -371,7 +371,7 @@ export default function SolutionSection() {
                       : "bg-white border-gray-200 hover:border-[#3e8aff]/20 hover:shadow-md"
                 }`}
               >
-                <div className="flex items-center gap-4 w-full">
+                <div className="flex items-start gap-4 mb-3">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${
                     activeFeature === feature.id
                       ? "bg-[#3e8aff] text-white shadow-lg shadow-[#3e8aff]/30"
@@ -382,7 +382,7 @@ export default function SolutionSection() {
                     <span className="text-xl">{feature.icon}</span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between mb-0.5">
+                    <div className="flex items-center justify-between mb-1">
                       <h3 className={`text-lg font-bold ${isDark ? "text-white" : "text-gray-900"}`}>{feature.title}</h3>
                       <ArrowRight className={`w-5 h-5 flex-shrink-0 transition-all ${
                         activeFeature === feature.id
@@ -393,6 +393,9 @@ export default function SolutionSection() {
                     <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>{feature.subtitle}</p>
                   </div>
                 </div>
+                <p className={`text-sm leading-relaxed ${isDark ? "text-gray-500" : "text-gray-600"}`}>
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -414,9 +417,9 @@ export default function SolutionSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className={`relative p-6 md:p-8 rounded-3xl border w-full flex flex-col h-[540px] ${
+              className={`relative p-6 md:p-8 rounded-3xl border w-full flex flex-col min-h-[540px] ${
                 isDark
-                  ? "bg-gradient-to-b from-[#0a0a0a] to-[#050505] border-white/[0.08]"
+                  ? "bg-[#030303] border-white/[0.08]"
                   : "bg-white border-gray-200 shadow-xl shadow-[#3e8aff]/5"
               }`}
             >
