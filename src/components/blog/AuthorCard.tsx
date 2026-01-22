@@ -17,6 +17,9 @@ export default function AuthorCard({ author }: AuthorCardProps) {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
+  // Use circular favicon for Cleanlist Team if no avatar is provided
+  const displayAvatar = author.avatar || (author.name === "Cleanlist Team" ? "/images/cleanlist-circle-avatar.png" : null);
+
   return (
     <div
       className={`rounded-2xl border p-6 ${
@@ -34,9 +37,9 @@ export default function AuthorCard({ author }: AuthorCardProps) {
       </p>
 
       <div className="flex items-center gap-4">
-        {author.avatar ? (
+        {displayAvatar ? (
           <Image
-            src={author.avatar}
+            src={displayAvatar}
             alt={author.name}
             width={48}
             height={48}

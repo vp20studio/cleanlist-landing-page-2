@@ -914,15 +914,20 @@ export default function WaterfallEnrichmentPage() {
                 metric: "190+ countries",
               },
             ].map((useCase, index) => (
-              <motion.div
+              <Link
                 key={useCase.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -8, scale: 1.02 }}
-                className={`relative p-6 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-lg group overflow-hidden cursor-pointer`}
+                href="https://portal.cleanlist.ai/auth/register"
+                target="_blank"
+                rel="noopener noreferrer"
               >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  className={`relative p-6 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-lg group overflow-hidden cursor-pointer`}
+                >
                 {/* Animated background gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br from-[${useCase.glowColor}]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
@@ -971,6 +976,7 @@ export default function WaterfallEnrichmentPage() {
                   </div>
                 </div>
               </motion.div>
+              </Link>
             ))}
           </div>
         </div>

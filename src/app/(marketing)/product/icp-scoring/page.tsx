@@ -106,7 +106,9 @@ export default function ICPScoringPage() {
                 className="flex flex-wrap items-center gap-4"
               >
                 <Link
-                  href="#"
+                  href="https://portal.cleanlist.ai/auth/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
                 >
                   Start Free Trial
@@ -405,13 +407,18 @@ export default function ICPScoringPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Company Targeting */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group overflow-hidden`}
+            <Link
+              href="https://portal.cleanlist.ai/auth/register"
+              target="_blank"
+              rel="noopener noreferrer"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -8 }}
+                className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group overflow-hidden cursor-pointer`}
+              >
               {/* Background gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -447,17 +454,23 @@ export default function ICPScoringPage() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+              </motion.div>
+            </Link>
 
             {/* Prospect Targeting */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              whileHover={{ y: -8 }}
-              className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group overflow-hidden`}
+            <Link
+              href="https://portal.cleanlist.ai/auth/register"
+              target="_blank"
+              rel="noopener noreferrer"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                whileHover={{ y: -8 }}
+                className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group overflow-hidden cursor-pointer`}
+              >
               {/* Background gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -493,17 +506,23 @@ export default function ICPScoringPage() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+              </motion.div>
+            </Link>
 
             {/* Geographic Targeting */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              whileHover={{ y: -8 }}
-              className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group overflow-hidden`}
+            <Link
+              href="https://portal.cleanlist.ai/auth/register"
+              target="_blank"
+              rel="noopener noreferrer"
             >
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                whileHover={{ y: -8 }}
+                className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group overflow-hidden cursor-pointer`}
+              >
               {/* Background gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -539,7 +558,8 @@ export default function ICPScoringPage() {
                   ))}
                 </div>
               </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           </div>
         </div>
       </section>

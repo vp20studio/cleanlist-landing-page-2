@@ -624,14 +624,19 @@ export default function PlaybookBuilderPage() {
                 users: "780",
               },
             ].map((template, index) => (
-              <motion.div
+              <Link
                 key={template.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`group p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors cursor-pointer`}
+                href="https://portal.cleanlist.ai/auth/register"
+                target="_blank"
+                rel="noopener noreferrer"
               >
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`group p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors cursor-pointer`}
+                >
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2 group-hover:text-[#3e8aff] transition-colors`}>
                   {template.title}
                 </h3>
@@ -641,6 +646,7 @@ export default function PlaybookBuilderPage() {
                   <span>{template.users} users</span>
                 </div>
               </motion.div>
+              </Link>
             ))}
           </div>
         </div>
