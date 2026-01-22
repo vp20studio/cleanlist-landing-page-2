@@ -144,7 +144,7 @@ export default function SalesTeamsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Sound Familiar?
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -207,7 +207,7 @@ export default function SalesTeamsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Your New Prospecting Workflow
             </h2>
           </motion.div>
@@ -271,7 +271,7 @@ export default function SalesTeamsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Built for Sales Teams
             </h2>
           </motion.div>

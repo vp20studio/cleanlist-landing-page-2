@@ -351,7 +351,7 @@ export default function HomePage() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6"
           >
-            <h1 className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h1 className={`text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
               The{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 GTM Playbook Engine
@@ -613,7 +613,7 @@ export default function HomePage() {
               <Sparkle className="w-4 h-4" />
               COMPARISON
             </motion.div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
               Where Cleanlist{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 sits
@@ -854,7 +854,7 @@ export default function HomePage() {
             className="text-center mb-8"
           >
             <div className="text-sm font-medium text-[#3e8aff] tracking-wider mb-4">ECOSYSTEM</div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Lives in your{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 existing stack
@@ -1144,7 +1144,7 @@ export default function HomePage() {
           >
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
               <div>
-                <h3 className={`text-lg md:text-xl font-semibold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
+                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
                   Native Integrations
                 </h3>
                 <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
@@ -1233,7 +1233,7 @@ export default function HomePage() {
               <Sparkle className="w-4 h-4" />
               Pricing
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Simple, credit-based pricing
             </h2>
             <p className={`text-lg md:text-xl max-w-2xl mx-auto mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -1281,7 +1281,7 @@ export default function HomePage() {
               className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
+                <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
                 <div className="flex gap-1 mt-2">
                   <span className="px-3 py-1 text-xs rounded-md bg-[#3e8aff] text-white">I</span>
                 </div>
@@ -1326,7 +1326,7 @@ export default function HomePage() {
               className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
+                <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.starter.map((tier, i) => (
                     <button
@@ -1397,7 +1397,7 @@ export default function HomePage() {
                 Most Popular
               </div>
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Pro</h3>
+                <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Pro</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.pro.map((tier, i) => (
                     <button
@@ -1465,7 +1465,7 @@ export default function HomePage() {
               className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>
+                <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.enterprise.map((tier, i) => (
                     <button

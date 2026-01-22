@@ -244,7 +244,7 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
+            className={`text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
           >
             Simple Credit Pricing
           </motion.h1>
@@ -309,7 +309,7 @@ export default function PricingPage() {
               className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
+                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
                 <div className="flex gap-1 mt-2">
                   <span
                     className="px-3 py-1 text-xs rounded-md bg-[#3e8aff] text-white"
@@ -357,7 +357,7 @@ export default function PricingPage() {
               className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
+                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.starter.map((tier, i) => (
                     <button
@@ -427,7 +427,7 @@ export default function PricingPage() {
                 Most Popular
               </div>
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Pro</h3>
+                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Pro</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.pro.map((tier, i) => (
                     <button
@@ -494,7 +494,7 @@ export default function PricingPage() {
               className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
-                <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>
+                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>
                 <div className="flex gap-1 mt-2">
                   {pricingTiers.enterprise.map((tier, i) => (
                     <button
@@ -585,7 +585,7 @@ export default function PricingPage() {
             viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Complete Feature Comparison
             </h2>
             <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -722,7 +722,7 @@ export default function PricingPage() {
             viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Frequently Asked Questions
             </h2>
           </motion.div>
@@ -737,7 +737,7 @@ export default function PricingPage() {
                 transition={{ delay: index * 0.1 }}
                 className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
               >
-                <h3 className={`text-lg md:text-xl font-semibold mb-2 flex items-start gap-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold mb-2 flex items-start gap-2 ${isDark ? "text-white" : "text-gray-900"}`}>
                   <Question className="w-5 h-5 text-[#3e8aff] mt-0.5 flex-shrink-0" />
                   {faq.question}
                 </h3>

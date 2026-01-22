@@ -133,7 +133,7 @@ export default function LinkedInScraperPage() {
               Chrome Extension
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
               Extract leads from{" "}
               <span className="text-[#0a66c2]">Sales Navigator</span>
             </h1>
@@ -395,7 +395,7 @@ export default function LinkedInScraperPage() {
                 transition={{ duration: 0.4, delay: index * 0.15 }}
               >
                 <GlowCard className="h-full relative">
-                  <span className="absolute top-4 right-4 text-3xl md:text-4xl lg:text-5xl font-bold text-[rgba(62,138,255,0.1)]">
+                  <span className="absolute top-4 right-4 text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[rgba(62,138,255,0.1)]">
                     {item.step}
                   </span>
                   <div className="w-12 h-12 rounded-xl bg-[rgba(62,138,255,0.1)] flex items-center justify-center text-[#3e8aff] mb-4">

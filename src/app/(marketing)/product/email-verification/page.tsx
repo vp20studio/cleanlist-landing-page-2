@@ -147,7 +147,7 @@ export default function EmailVerificationPage() {
               Triple Verification
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
               99.9% deliverability.{" "}
               <span className="text-[#22c55e]">Guaranteed.</span>
             </h1>
@@ -203,7 +203,7 @@ export default function EmailVerificationPage() {
                     <GlowIcon icon={<step.icon />} size="xl" color={step.glowColor} variant="glow" />
                   </div>
 
-                  <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-2">
                     {step.title}
                   </h3>
                   <p className="text-sm text-[#888888] mb-4">
@@ -271,7 +271,7 @@ export default function EmailVerificationPage() {
                   <div className="flex items-start gap-4">
                     <GlowIcon icon={<feature.icon />} size="lg" color={feature.glowColor} variant="glow" className="flex-shrink-0" />
                     <div>
-                      <h3 className="text-lg md:text-xl font-semibold text-white mb-2">
+                      <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-2">
                         {feature.title}
                       </h3>
                       <p className="text-sm text-[#888888]">
@@ -306,7 +306,7 @@ export default function EmailVerificationPage() {
               transition={{ duration: 0.5 }}
             >
               <GlowCard padding="lg">
-                <h3 className="text-lg md:text-xl font-semibold text-white mb-4">
+                <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-4">
                   Verification Results
                 </h3>
 

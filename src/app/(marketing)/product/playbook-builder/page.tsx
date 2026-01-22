@@ -274,7 +274,7 @@ export default function PlaybookBuilderPage() {
               <GlowIcon icon={<GitBranch />} size="xs" color="blue" variant="ghost" />
               Visual Canvas
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Drag, Drop, Automate
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -461,7 +461,7 @@ export default function PlaybookBuilderPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               25+ Built-in Step Types
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -577,7 +577,7 @@ export default function PlaybookBuilderPage() {
               <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="ghost" />
               Templates
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Start With a Template
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -659,7 +659,7 @@ export default function PlaybookBuilderPage() {
                 <GlowIcon icon={<Clock />} size="xs" color="blue" variant="ghost" />
                 Scheduling
               </div>
-              <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+              <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Run on Your Schedule
               </h2>
               <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>

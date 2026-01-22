@@ -455,7 +455,7 @@ export default function PeopleSearchPage() {
               <GlowIcon icon={<Sparkle />} size="xs" color="blue" variant="ghost" />
               AI-Powered Search
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Search the way you think
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -571,7 +571,7 @@ export default function PeopleSearchPage() {
               <GlowIcon icon={<Funnel />} size="xs" color="blue" variant="ghost" />
               30+ Advanced Filters
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Precision targeting at scale
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -625,7 +625,7 @@ export default function PeopleSearchPage() {
               <GlowIcon icon={<Lightning />} size="xs" color="blue" variant="ghost" />
               Simple Workflow
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               From search to outreach in 3 steps
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -667,7 +667,7 @@ export default function PeopleSearchPage() {
                 )}
                 <div className={`p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200"}`}>
                   <div className="flex items-center gap-4 mb-4">
-                    <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#3e8aff]/30">{step.step}</div>
+                    <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#3e8aff]/30">{step.step}</div>
                     <GlowIcon icon={step.icon} size="xl" color="blue" variant="glow" />
                   </div>
                   <h3 className={`text-xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -696,7 +696,7 @@ export default function PeopleSearchPage() {
                 <GlowIcon icon={<Shield />} size="xs" color="blue" variant="ghost" />
                 Data Quality
               </div>
-              <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+              <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
                 Accuracy you can trust
               </h2>
               <p className={`text-lg mb-8 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -789,7 +789,7 @@ export default function PeopleSearchPage() {
               <GlowIcon icon={<ArrowsClockwise />} size="xs" color="blue" variant="ghost" />
               Seamless Integration
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Works with your existing stack
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -845,7 +845,7 @@ export default function PeopleSearchPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Built for modern GTM teams
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>

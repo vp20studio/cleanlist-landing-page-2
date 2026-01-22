@@ -72,7 +72,7 @@ export default function WaterfallEnrichmentPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
+                className={`text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-6 ${isDark ? "text-white" : "text-gray-900"}`}
               >
                 Waterfall{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
@@ -211,7 +211,7 @@ export default function WaterfallEnrichmentPage() {
               <GlowIcon icon={<GitMerge />} size="xs" color="blue" variant="ghost" />
               The Cascade Logic
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               How Waterfall Enrichment Works
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -390,7 +390,7 @@ export default function WaterfallEnrichmentPage() {
               <GlowIcon icon={<Database />} size="xs" color="blue" variant="ghost" />
               Enrichment Options
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Choose Your Enrichment Level
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -463,7 +463,7 @@ export default function WaterfallEnrichmentPage() {
               <GlowIcon icon={<Crosshair />} size="xs" color="blue" variant="ghost" />
               Output Schema
             </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               25+ Fields Per Record
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -477,7 +477,7 @@ export default function WaterfallEnrichmentPage() {
               <div className="flex items-center gap-3 mb-6">
                 <GlowIcon icon={<User />} size="md" color="blue" variant="glow" />
                 <div>
-                  <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Contact Data</h3>
+                  <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Contact Data</h3>
                   <p className="text-xs text-gray-500">Personal & professional info</p>
                 </div>
               </div>
@@ -510,7 +510,7 @@ export default function WaterfallEnrichmentPage() {
               <div className="flex items-center gap-3 mb-6">
                 <GlowIcon icon={<Buildings />} size="md" color="blue" variant="glow" />
                 <div>
-                  <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Company Data</h3>
+                  <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Company Data</h3>
                   <p className="text-xs text-gray-500">Firmographic details</p>
                 </div>
               </div>
@@ -543,7 +543,7 @@ export default function WaterfallEnrichmentPage() {
               <div className="flex items-center gap-3 mb-6">
                 <GlowIcon icon={<ChartBar />} size="md" color="blue" variant="glow" />
                 <div>
-                  <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Metadata</h3>
+                  <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Metadata</h3>
                   <p className="text-xs text-gray-500">Quality & source info</p>
                 </div>
               </div>
@@ -581,7 +581,7 @@ export default function WaterfallEnrichmentPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Popular Use Cases
             </h2>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
@@ -643,7 +643,7 @@ export default function WaterfallEnrichmentPage() {
                 className={`p-6 rounded-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"} border hover:border-[#3e8aff]/30`}
               >
                 <GlowIcon icon={useCase.icon} size="lg" color="blue" variant="glow" className="mb-4" />
-                <h3 className={`text-lg md:text-xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{useCase.title}</h3>
+                <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>{useCase.title}</h3>
                 <p className={`text-sm mb-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>{useCase.description}</p>
                 <div className="flex items-center gap-2 text-xs text-green-500">
                   <Check />

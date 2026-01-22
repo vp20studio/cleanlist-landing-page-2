@@ -118,7 +118,7 @@ export default function EnrichmentPage() {
               Waterfall Enrichment Engine
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 tracking-tight leading-[1.1]">
               15+ data sources.{" "}
               <span className="gradient-text-blue">One Golden Record.</span>
             </h1>
@@ -352,7 +352,7 @@ export default function EnrichmentPage() {
                     <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-1">
                       Simple Credit Model
                     </h3>
                     <p className="text-sm text-[#888888]">
@@ -369,7 +369,7 @@ export default function EnrichmentPage() {
                     <Shield className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-1">
                       Confidence Scoring
                     </h3>
                     <p className="text-sm text-[#888888]">
@@ -386,7 +386,7 @@ export default function EnrichmentPage() {
                     <Database className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg md:text-xl font-semibold text-white mb-1">
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white mb-1">
                       Source Attribution
                     </h3>
                     <p className="text-sm text-[#888888]">
@@ -495,7 +495,7 @@ function BenefitCard({
         </div>
         <div className="flex-1">
           <div className="flex items-start justify-between mb-2">
-            <h3 className="text-lg md:text-xl font-semibold text-white">{title}</h3>
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold text-white">{title}</h3>
             <div className="text-right">
               <p className="text-xl font-bold" style={{ color }}>
                 {stat}
