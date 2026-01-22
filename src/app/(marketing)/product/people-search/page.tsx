@@ -21,8 +21,6 @@ import {
   Sparkle,
   Target,
   ChartBar,
-  Envelope,
-  Phone,
   LinkedinLogo,
   Globe,
   UserPlus,
@@ -32,7 +30,6 @@ import {
   Stack,
   Crosshair,
   TrendUp,
-  Clock,
   User,
 } from "@/components/icons";
 import {
@@ -677,159 +674,6 @@ export default function PeopleSearchPage() {
                     {step.description}
                   </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Data Quality Section */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                <GlowIcon icon={<Shield />} size="xs" color="blue" variant="ghost" />
-                Data Quality
-              </div>
-              <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-                Accuracy you can trust
-              </h2>
-              <p className={`text-lg mb-8 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                Every contact in our database goes through multiple verification layers. We don&apos;t just find emails — we verify they&apos;re deliverable.
-              </p>
-
-              <div className="space-y-4">
-                {[
-                  { label: "Email Deliverability", value: "98%", color: "green" },
-                  { label: "Phone Accuracy", value: "95%", color: "blue" },
-                  { label: "Job Title Accuracy", value: "97%", color: "purple" },
-                  { label: "Company Match Rate", value: "99%", color: "yellow" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{stat.label}</span>
-                      <span className="text-sm font-semibold text-[#3e8aff]">{stat.value}</span>
-                    </div>
-                    <div className={`h-2 rounded-full ${isDark ? "bg-white/[0.05]" : "bg-gray-200"}`}>
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]"
-                        style={{ width: stat.value }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-4"
-            >
-              {[
-                {
-                  icon: <Envelope />,
-                  title: "Email Verification",
-                  description: "SMTP validation, catch-all detection, and deliverability scoring",
-                },
-                {
-                  icon: <Phone />,
-                  title: "Phone Validation",
-                  description: "Format verification and carrier lookup for direct dials",
-                },
-                {
-                  icon: <Clock />,
-                  title: "Real-Time Updates",
-                  description: "Job changes and company updates within 24-48 hours",
-                },
-                {
-                  icon: <ChartBar />,
-                  title: "Confidence Scores",
-                  description: "Know exactly how reliable each data point is",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`p-4 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200"}`}
-                >
-                  <GlowIcon icon={item.icon} size="md" color="blue" variant="glow" className="mb-3" />
-                  <h3 className={`font-semibold mb-1 ${isDark ? "text-white" : "text-gray-900"}`}>
-                    {item.title}
-                  </h3>
-                  <p className={`text-xs ${isDark ? "text-gray-500" : "text-gray-600"}`}>
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integration Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-              <GlowIcon icon={<ArrowsClockwise />} size="xs" color="blue" variant="ghost" />
-              Seamless Integration
-            </div>
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
-              Works with your existing stack
-            </h2>
-            <p className={`text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-              Push contacts directly to your CRM, enrich them instantly, or export for your outreach tools.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <ListPlus />,
-                title: "Push to List",
-                description: "Save prospects to Cleanlist lists for batch enrichment and export.",
-              },
-              {
-                icon: <ArrowsClockwise />,
-                title: "CRM Sync",
-                description: "One-click sync to Salesforce, HubSpot, Pipedrive, and more.",
-              },
-              {
-                icon: <Export />,
-                title: "CSV Export",
-                description: "Download your list as CSV for import into any tool.",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`p-8 rounded-xl text-center border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200"}`}
-              >
-                <GlowIcon icon={item.icon} size="xl" color="blue" variant="glow" className="mx-auto mb-4" />
-                <h3 className={`text-xl font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
-                  {item.title}
-                </h3>
-                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  {item.description}
-                </p>
               </motion.div>
             ))}
           </div>
