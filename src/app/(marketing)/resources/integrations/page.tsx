@@ -86,7 +86,7 @@ export default function IntegrationsPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`p-5 md:p-8 rounded-2xl border transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
+            className={`p-5 md:p-8 rounded-2xl border transition-colors ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
           >
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
               <div>
@@ -204,7 +204,7 @@ export default function IntegrationsPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`rounded-xl border overflow-hidden ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
+              className={`rounded-xl border overflow-hidden ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className={`flex items-center gap-2 px-4 py-3 border-b ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.08] bg-[#F8F9FA]"}`}>
                 <div className="flex items-center gap-1.5">

@@ -185,7 +185,7 @@ export default function SalesTeamsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+                className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
               >
                 <div className="text-red-500/60 text-sm mb-3 line-through">{item.problem}</div>
                 <div className="flex items-center gap-2 text-green-500">
@@ -247,7 +247,7 @@ export default function SalesTeamsPage() {
                 transition={{ delay: index * 0.1 }}
                 className="relative"
               >
-                <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} h-full`}>
+                <div className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} h-full`}>
                   <GlowIcon icon={item.icon} size="lg" color="blue" variant="glow" className="mb-4" />
                   <div className="text-sm text-[#3e8aff] mb-2">Step {item.step}</div>
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{item.title}</h3>

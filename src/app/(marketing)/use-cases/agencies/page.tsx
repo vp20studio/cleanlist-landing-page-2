@@ -278,7 +278,7 @@ export default function AgenciesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+                className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
               >
                 <h3 className={`text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{useCase.title}</h3>
                 <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>{useCase.description}</p>
@@ -364,7 +364,7 @@ export default function AgenciesPage() {
                 className={`p-6 rounded-xl border ${
                   tier.popular
                     ? "bg-green-500/5 border-green-500/30"
-                    : `${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`
+                    : `${isDark ? "bg-[#030303]" : "bg-white/70"} ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`
                 }`}
               >
                 {tier.popular && (
@@ -419,7 +419,7 @@ export default function AgenciesPage() {
               ].map((cert) => (
                 <div
                   key={cert}
-                  className={`px-4 py-2 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
+                  className={`px-4 py-2 rounded-lg ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
                 >
                   {cert}
                 </div>

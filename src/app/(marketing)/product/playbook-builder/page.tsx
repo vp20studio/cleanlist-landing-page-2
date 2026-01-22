@@ -288,7 +288,7 @@ export default function PlaybookBuilderPage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} overflow-hidden p-6 md:p-8`}
+            className={`rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} overflow-hidden p-6 md:p-8`}
           >
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-2">
@@ -528,7 +528,7 @@ export default function PlaybookBuilderPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className={`p-4 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+                className={`p-4 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
               >
                 <div
                   className={`inline-flex items-center gap-2 px-2 py-1 rounded text-xs font-medium mb-3 ${
@@ -635,7 +635,7 @@ export default function PlaybookBuilderPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className={`group p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors cursor-pointer`}
+                  className={`group p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors cursor-pointer`}
                 >
                 <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2 group-hover:text-[#3e8aff] transition-colors`}>
                   {template.title}
@@ -694,7 +694,7 @@ export default function PlaybookBuilderPage() {
                 ].map((trigger) => (
                   <div
                     key={trigger.title}
-                    className={`flex items-start gap-3 p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+                    className={`flex items-start gap-3 p-4 rounded-lg ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
                   >
                     <Check className="text-[#3e8aff] mt-0.5" />
                     <div>
@@ -710,7 +710,7 @@ export default function PlaybookBuilderPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+              className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>Recent Runs</div>
               <div className="space-y-3">

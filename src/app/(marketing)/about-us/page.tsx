@@ -219,7 +219,7 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a] border border-white/[0.08]" : "bg-white/70 border border-black/[0.08]"}`}
+                className={`p-6 rounded-xl ${isDark ? "bg-[#030303] border border-white/[0.08]" : "bg-white/70 border border-black/[0.08]"}`}
               >
                 <div className="w-12 h-12 rounded-xl bg-[#3e8aff]/10 flex items-center justify-center text-[#3e8aff] mb-4">
                   {value.icon}
@@ -261,7 +261,7 @@ export default function AboutUsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a] border border-white/[0.08]" : "bg-white/70 border border-black/[0.08]"}`}
+                className={`p-6 rounded-xl ${isDark ? "bg-[#030303] border border-white/[0.08]" : "bg-white/70 border border-black/[0.08]"}`}
               >
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5 flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-[#3e8aff]">

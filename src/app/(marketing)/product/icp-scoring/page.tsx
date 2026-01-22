@@ -66,140 +66,137 @@ export default function ICPScoringPage() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
-              >
-                <GlowIcon icon={<Crosshair />} size="xs" color="blue" variant="ghost" />
-                ICP Scoring
-              </motion.div>
+          {/* Hero Text - Centered */}
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
+            >
+              <GlowIcon icon={<Crosshair />} size="xs" color="blue" variant="ghost" />
+              ICP Scoring
+            </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
-              >
-                Score Every Lead Against Your{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                  Ideal Customer
-                </span>
-              </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className={`text-4xl md:text-5xl lg:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
+            >
+              Score Every Lead Against Your{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
+                Ideal Customer
+              </span>
+            </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}
-              >
-                Define your Ideal Customer Profile with granular targeting criteria.
-                Automatically score and rank every lead to focus on your best-fit prospects.
-              </motion.p>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="flex flex-wrap items-center gap-4"
-              >
-                <Link
-                  href="https://portal.cleanlist.ai/auth/register"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
-                >
-                  Start Free Trial
-                  <ArrowRight />
-                </Link>
-                <Link
-                  href="/pricing"
-                  className={`inline-flex items-center gap-2 px-6 py-3 border font-medium rounded-lg transition-colors ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
-                >
-                  View Pricing
-                </Link>
-              </motion.div>
-            </div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8 max-w-2xl mx-auto`}
+            >
+              Define your Ideal Customer Profile with granular targeting criteria.
+              Automatically score and rank every lead to focus on your best-fit prospects.
+            </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-wrap items-center justify-center gap-4"
             >
-              {/* Browser-style video demo */}
-              <div
-                className={`rounded-2xl overflow-hidden border-2 shadow-2xl ${
-                  isDark
-                    ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]"
-                    : "bg-gradient-to-br from-white to-gray-50 border-gray-200"
-                }`}
+              <Link
+                href="https://portal.cleanlist.ai/auth/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
-                {/* Browser Chrome */}
-                <div
-                  className={`flex items-center gap-2 px-4 py-3 border-b ${
-                    isDark ? "border-white/[0.08] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50"
-                  }`}
-                >
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-                  </div>
-                  <div
-                    className={`flex-1 mx-4 px-3 py-1 rounded-md text-xs ${
-                      isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-400"
-                    }`}
-                  >
-                    app.cleanlist.ai/icp-scoring
-                  </div>
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
-                    Live
-                  </span>
-                </div>
-
-                {/* Video */}
-                <div className="relative">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-auto block"
-                  >
-                    <source src="/videos/icp-scoring-demo.mp4" type="video/mp4" />
-                  </video>
-
-                  {/* Subtle vignette overlay */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: isDark
-                        ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)"
-                        : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)",
-                    }}
-                  />
-                </div>
-              </div>
-
-              {/* Reflection effect */}
-              <div
-                className="absolute -bottom-12 left-8 right-8 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
-                style={{
-                  background: isDark
-                    ? "linear-gradient(to bottom, rgba(62, 138, 255, 0.1), transparent)"
-                    : "linear-gradient(to bottom, rgba(62, 138, 255, 0.05), transparent)",
-                  transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
-                }}
-              />
-
-              {/* Decorative glow */}
-              <div className="absolute -inset-4 bg-[#3e8aff]/5 rounded-3xl blur-2xl -z-10" />
+                Start Free Trial
+                <ArrowRight />
+              </Link>
+              <Link
+                href="/pricing"
+                className={`inline-flex items-center gap-2 px-6 py-3 border font-medium rounded-lg transition-colors ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
+              >
+                View Pricing
+              </Link>
             </motion.div>
           </div>
+
+          {/* Large Video Demo */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="relative max-w-5xl mx-auto"
+          >
+            {/* Video Container */}
+            <div
+              className={`relative rounded-2xl overflow-hidden ${
+                isDark
+                  ? "bg-[#030303] border border-white/[0.08]"
+                  : "bg-white border border-black/[0.08] shadow-2xl"
+              }`}
+            >
+              {/* Browser Chrome */}
+              <div
+                className={`flex items-center gap-2 px-4 py-3 border-b ${
+                  isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.05] bg-gray-50"
+                }`}
+              >
+                <div className="flex items-center gap-1.5">
+                  <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                  <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                  <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+                </div>
+                <div
+                  className={`flex-1 mx-4 px-3 py-1 rounded-md text-xs ${
+                    isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-400"
+                  }`}
+                >
+                  app.cleanlist.ai/icp-scoring
+                </div>
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                  Live
+                </span>
+              </div>
+
+              {/* Video */}
+              <div className="relative">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-auto block"
+                >
+                  <source src="/videos/icp-scoring-demo.mp4" type="video/mp4" />
+                </video>
+
+                {/* Subtle vignette overlay */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: isDark
+                      ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)"
+                      : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)",
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Reflection effect */}
+            <div
+              className="absolute -bottom-12 left-8 right-8 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
+              style={{
+                background: isDark
+                  ? "linear-gradient(to bottom, rgba(62, 138, 255, 0.1), transparent)"
+                  : "linear-gradient(to bottom, rgba(62, 138, 255, 0.05), transparent)",
+                transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
+              }}
+            />
+          </motion.div>
         </div>
       </section>
 
@@ -578,7 +575,7 @@ export default function ICPScoringPage() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+              className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
                 <GlowIcon icon={<Sparkle />} size="lg" color="blue" variant="glow" />
@@ -604,7 +601,7 @@ export default function ICPScoringPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+              className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className="flex items-center gap-4 mb-4">
                 <GlowIcon icon={<Stack />} size="lg" color="blue" variant="glow" />

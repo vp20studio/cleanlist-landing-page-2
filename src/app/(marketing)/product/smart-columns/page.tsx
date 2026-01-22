@@ -140,14 +140,14 @@ export default function SmartColumnsPage() {
             <div
               className={`relative rounded-2xl overflow-hidden ${
                 isDark
-                  ? "bg-[#0a0a0a] border border-white/[0.08]"
+                  ? "bg-[#030303] border border-white/[0.08]"
                   : "bg-white border border-black/[0.08] shadow-2xl"
               }`}
             >
               {/* Browser Chrome */}
               <div
                 className={`flex items-center gap-2 px-4 py-3 border-b ${
-                  isDark ? "border-white/[0.08] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50"
+                  isDark ? "border-white/[0.08] bg-[#030303]" : "border-black/[0.05] bg-gray-50"
                 }`}
               >
                 <div className="flex items-center gap-1.5">

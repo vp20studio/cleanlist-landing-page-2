@@ -266,7 +266,7 @@ export default function SalesNavScraperPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
+              <div className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                 <div className="flex items-center gap-2 mb-6">
                   <GoogleChromeLogo className="text-[#0077b5]" />
                   <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Extension Preview</span>
@@ -275,7 +275,7 @@ export default function SalesNavScraperPage() {
                 {/* Browser Mockup */}
                 <div className="rounded-lg bg-[#111] border border-white/[0.05] overflow-hidden">
                   {/* Address Bar */}
-                  <div className="flex items-center gap-2 px-3 py-2 bg-[#0a0a0a] border-b border-white/[0.05]">
+                  <div className="flex items-center gap-2 px-3 py-2 bg-[#030303] border-b border-white/[0.05]">
                     <div className="flex items-center gap-1.5">
                       <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
                       <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -318,7 +318,7 @@ export default function SalesNavScraperPage() {
                       ].map((lead, i) => (
                         <div
                           key={lead.name}
-                          className="flex items-center gap-3 p-2 rounded bg-[#0a0a0a]"
+                          className="flex items-center gap-3 p-2 rounded bg-[#030303]"
                         >
                           <div className="w-8 h-8 rounded-full bg-gray-700" />
                           <div className="flex-1">
@@ -482,7 +482,7 @@ export default function SalesNavScraperPage() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+              className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
             >
               <div className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"} mb-4`}>Sample Export (CSV)</div>
               <div className="overflow-x-auto">
@@ -552,7 +552,7 @@ export default function SalesNavScraperPage() {
                   description: "Conservative settings out of the box. Adjust based on your account age and health.",
                 },
               ].map((item) => (
-                <div key={item.title} className={`p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
+                <div key={item.title} className={`p-4 rounded-lg ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
                   <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{item.title}</h4>
                   <p className="text-sm text-gray-500">{item.description}</p>
                 </div>

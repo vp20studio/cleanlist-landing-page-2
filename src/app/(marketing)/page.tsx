@@ -424,7 +424,7 @@ export default function HomePage() {
             <div
               className={`relative rounded-2xl overflow-hidden ${
                 isDark
-                  ? "bg-[#0a0a0a]"
+                  ? "bg-[#030303]"
                   : "bg-white"
               }`}
               style={{
@@ -440,7 +440,7 @@ export default function HomePage() {
               }`}>
                 {/* Window Chrome */}
                 <div className={`flex items-center justify-between px-4 py-3 border-b ${
-                  isDark ? "border-white/[0.05] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50/50"
+                  isDark ? "border-white/[0.05] bg-[#030303]" : "border-black/[0.05] bg-gray-50/50"
                 }`}>
                   <div className="flex items-center gap-3">
                     <div className="flex gap-2">
@@ -1070,7 +1070,7 @@ export default function HomePage() {
                           integration.needsWhiteBg
                             ? "bg-white border-gray-200"
                             : isDark
-                              ? "bg-[#0a0a0a] border-white/[0.1] group-hover:border-white/[0.3]"
+                              ? "bg-[#030303] border-white/[0.1] group-hover:border-white/[0.3]"
                               : "bg-white border-gray-200 group-hover:border-[#3e8aff]/50"
                         }`}
                         style={{
@@ -1207,7 +1207,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <div className={`p-5 md:p-6 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
+            <div className={`p-5 md:p-6 rounded-2xl border flex flex-col md:flex-row items-center justify-between gap-4 transition-colors ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}>
               <div className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
                 <Lightning className="w-5 h-5 text-[#3e8aff]" />
                 <span><span className="text-[#3e8aff] font-medium">REST API</span> and <span className={`font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Webhooks</span> for custom integrations</span>
@@ -1278,7 +1278,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
@@ -1323,7 +1323,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Starter</h3>
@@ -1462,7 +1462,7 @@ export default function HomePage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
+              className={`p-5 md:p-6 rounded-xl border backdrop-blur-xl transition-colors ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
             >
               <div className="mb-4">
                 <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Enterprise</h3>

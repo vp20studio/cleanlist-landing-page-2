@@ -242,7 +242,7 @@ export default function RevOpsPage() {
                 ].map((playbook) => (
                   <div
                     key={playbook.title}
-                    className={`p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+                    className={`p-4 rounded-lg ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
                   >
                     <h4 className={`font-medium ${isDark ? "text-white" : "text-gray-900"} mb-1`}>{playbook.title}</h4>
                     <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-600"}`}>{playbook.description}</p>

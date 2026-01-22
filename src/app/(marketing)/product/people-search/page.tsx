@@ -263,7 +263,7 @@ export default function PeopleSearchPage() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className={`rounded-2xl overflow-hidden border shadow-2xl ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200"}`}
+            className={`rounded-2xl overflow-hidden border shadow-2xl ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white border-gray-200"}`}
           >
             {/* Search Header */}
             <div className={`px-6 py-4 border-b ${isDark ? "border-white/[0.08] bg-[#030303]" : "border-gray-200 bg-gray-50"}`}>
@@ -662,7 +662,7 @@ export default function PeopleSearchPage() {
                 {index < 2 && (
                   <div className={`hidden md:block absolute top-12 left-1/2 w-full h-px ${isDark ? "bg-gradient-to-r from-white/[0.1] to-transparent" : "bg-gradient-to-r from-gray-200 to-transparent"}`} />
                 )}
-                <div className={`p-6 rounded-xl border ${isDark ? "bg-[#0a0a0a] border-white/[0.08]" : "bg-white border-gray-200"}`}>
+                <div className={`p-6 rounded-xl border ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white border-gray-200"}`}>
                   <div className="flex items-center gap-4 mb-4">
                     <div className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-[#3e8aff]/30">{step.step}</div>
                     <GlowIcon icon={step.icon} size="xl" color="blue" variant="glow" />
@@ -742,7 +742,7 @@ export default function PeopleSearchPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl transition-colors border ${isDark ? "bg-[#0a0a0a] border-white/[0.08] hover:border-[#3e8aff]/30" : "bg-white border-gray-200 hover:border-[#3e8aff]/50"}`}
+                className={`p-6 rounded-xl transition-colors border ${isDark ? "bg-[#030303] border-white/[0.08] hover:border-[#3e8aff]/30" : "bg-white border-gray-200 hover:border-[#3e8aff]/50"}`}
               >
                 <GlowIcon icon={useCase.icon} size="lg" color="blue" variant="glow" className="mb-4" />
                 <h3 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
