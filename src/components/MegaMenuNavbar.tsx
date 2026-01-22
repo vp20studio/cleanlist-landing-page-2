@@ -119,7 +119,7 @@ const resourceItems: NavItem[] = [
   {
     label: "Blog",
     href: "/blog",
-    icon: <Article />,
+    icon: <BookOpen />,
     description: "Insights for growth teams",
   },
   {

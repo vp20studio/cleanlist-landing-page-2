@@ -118,9 +118,9 @@ export default function BlogHeader({
           <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-white/10">
             {/* Author */}
             <div className="flex items-center gap-3">
-              {author.avatar ? (
+              {author.avatar || author.name === "Cleanlist Team" ? (
                 <Image
-                  src={author.avatar}
+                  src={author.avatar || "/images/cleanlist-circle-avatar.png"}
                   alt={author.name}
                   width={40}
                   height={40}
