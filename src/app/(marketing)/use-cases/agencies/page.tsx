@@ -29,8 +29,8 @@ export default function AgenciesPage() {
     <>
       {/* Hero */}
       <section className="relative pt-20 pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-green-500/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-green-500/10 rounded-full blur-[120px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
 
         {/* Animated grid background */}
         <div
@@ -46,9 +46,9 @@ export default function AgenciesPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-500 mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
             >
-              <GlowIcon icon={<Buildings />} size="xs" color="green" variant="ghost" />
+              <GlowIcon icon={<Buildings />} size="xs" color="blue" variant="ghost" />
               For Agencies
             </motion.div>
 
@@ -59,7 +59,7 @@ export default function AgenciesPage() {
               className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
             >
               White-Label Data{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 for Your Clients
               </span>
             </motion.h1>
@@ -81,17 +81,13 @@ export default function AgenciesPage() {
               className="flex flex-wrap items-center gap-4"
             >
               <Link
-                href="#"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-green-500 text-white font-medium rounded-lg hover:bg-green-500/90 transition-colors"
+                href="https://calendly.com/cleanlist/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
                 Apply for Agency Program
                 <ArrowRight />
-              </Link>
-              <Link
-                href="/pricing"
-                className={`inline-flex items-center gap-2 px-6 py-3 border ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"} font-medium rounded-lg transition-colors`}
-              >
-                View Pricing
               </Link>
             </motion.div>
           </div>
@@ -109,7 +105,7 @@ export default function AgenciesPage() {
                 label: "Margin",
                 value: "50%+",
                 subValue: "Typical markup",
-                color: "green",
+                color: "blue",
               },
               {
                 icon: <Users />,
@@ -200,8 +196,8 @@ export default function AgenciesPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <GlowCard className="h-full p-6" glowColor="#22c55e">
-                  <GlowIcon icon={feature.icon} size="lg" color="green" variant="glow" className="mb-4" />
+                <GlowCard className="h-full p-6" glowColor="#3e8aff">
+                  <GlowIcon icon={feature.icon} size="lg" color="blue" variant="glow" className="mb-4" />
                   <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>{feature.title}</h3>
                   <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{feature.description}</p>
                 </GlowCard>
@@ -285,7 +281,7 @@ export default function AgenciesPage() {
                 <div className="grid grid-cols-2 gap-2">
                   {useCase.services.map((service) => (
                     <div key={service} className="flex items-center gap-2 text-sm text-gray-500">
-                      <Check className="text-green-500" />
+                      <Check className="text-[#3e8aff]" />
                       {service}
                     </div>
                   ))}
@@ -296,139 +292,7 @@ export default function AgenciesPage() {
         </div>
       </section>
 
-      {/* Agency Pricing */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
-              Agency Pricing
-            </h2>
-            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
-              Volume discounts and flexible terms for agencies.
-            </p>
-          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                tier: "Agency Starter",
-                credits: "50,000",
-                price: "$199",
-                pricePerCredit: "$0.004",
-                features: [
-                  "5 client workspaces",
-                  "White-label exports",
-                  "Priority support",
-                  "Usage analytics",
-                ],
-              },
-              {
-                tier: "Agency Growth",
-                credits: "250,000",
-                price: "$749",
-                pricePerCredit: "$0.003",
-                popular: true,
-                features: [
-                  "Unlimited workspaces",
-                  "Full white-label",
-                  "Dedicated CSM",
-                  "API access",
-                  "Custom contracts",
-                ],
-              },
-              {
-                tier: "Agency Enterprise",
-                credits: "1,000,000+",
-                price: "Custom",
-                pricePerCredit: "Volume pricing",
-                features: [
-                  "Everything in Growth",
-                  "SLA guarantee",
-                  "Custom integrations",
-                  "On-prem option",
-                  "Revenue share model",
-                ],
-              },
-            ].map((tier, index) => (
-              <motion.div
-                key={tier.tier}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl border ${
-                  tier.popular
-                    ? "bg-green-500/5 border-green-500/30"
-                    : `${isDark ? "bg-[#030303]" : "bg-white/70"} ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`
-                }`}
-              >
-                {tier.popular && (
-                  <div className="text-xs font-medium text-green-500 mb-2">Most Popular</div>
-                )}
-                <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"} mb-1`}>{tier.tier}</h3>
-                <div className={`text-3xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-1`}>{tier.price}</div>
-                <div className="text-sm text-gray-500 mb-4">
-                  {tier.credits} credits • {tier.pricePerCredit}/credit
-                </div>
-                <div className="space-y-2 mb-6">
-                  {tier.features.map((feature) => (
-                    <div key={feature} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                      <Check className="text-green-500" />
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-                <Link
-                  href="#"
-                  className={`block w-full py-2.5 text-center rounded-lg font-medium transition-colors ${
-                    tier.popular
-                      ? "bg-green-500 text-white hover:bg-green-500/90"
-                      : `${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`
-                  }`}
-                >
-                  {tier.price === "Custom" ? "Contact Sales" : "Get Started"}
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Trust */}
-      <section className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <GlowIcon icon={<Shield />} size="xl" color="green" variant="glow" className="mx-auto mb-6" />
-            <h2 className={`text-3xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
-              Enterprise-Grade Security
-            </h2>
-            <p className={`${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
-              Your clients&apos; data is protected with the same security standards as Fortune 500 companies.
-            </p>
-            <div className="flex flex-wrap justify-center gap-6">
-              {[
-                "SOC 2 Type II",
-                "GDPR Compliant",
-                "CCPA Compliant",
-                "256-bit Encryption",
-              ].map((cert) => (
-                <div
-                  key={cert}
-                  className={`px-4 py-2 rounded-lg ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}
-                >
-                  {cert}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </>
+</>
   );
 }

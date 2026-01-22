@@ -152,7 +152,7 @@ export default function SalesTeamsPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
             {[
               {
                 problem: "Emails bounce, hurting sender reputation",
@@ -184,13 +184,52 @@ export default function SalesTeamsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#030303]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className={`group relative p-6 rounded-xl overflow-hidden transition-all ${
+                  isDark
+                    ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]"
+                    : "bg-gradient-to-br from-white to-gray-50 border-gray-200"
+                } border-2 shadow-lg hover:shadow-xl`}
               >
-                <div className="text-red-500/60 text-sm mb-3 line-through">{item.problem}</div>
-                <div className="flex items-center gap-2 text-green-500">
-                  <Check />
-                  {item.solution}
+                {/* Animated gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#3e8aff]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Red X icon for problem */}
+                <div className="relative mb-4">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                    isDark ? "bg-red-500/10" : "bg-red-50"
+                  } border ${isDark ? "border-red-500/20" : "border-red-200"}`}>
+                    <svg className="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Problem text */}
+                <div className={`text-sm font-medium mb-4 ${isDark ? "text-red-400/80" : "text-red-600/80"} line-through`}>
+                  {item.problem}
+                </div>
+
+                {/* Divider with arrow */}
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`flex-1 h-px ${isDark ? "bg-white/[0.08]" : "bg-gray-200"}`} />
+                  <svg className="w-5 h-5 text-[#3e8aff]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                  <div className={`flex-1 h-px ${isDark ? "bg-white/[0.08]" : "bg-gray-200"}`} />
+                </div>
+
+                {/* Solution with checkmark */}
+                <div className={`flex items-start gap-3 p-3 rounded-lg ${
+                  isDark ? "bg-green-500/10" : "bg-green-50"
+                } border ${isDark ? "border-green-500/20" : "border-green-200"}`}>
+                  <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-green-500" />
+                  </div>
+                  <span className={`text-sm font-semibold ${isDark ? "text-green-400" : "text-green-700"}`}>
+                    {item.solution}
+                  </span>
                 </div>
               </motion.div>
             ))}

@@ -156,50 +156,126 @@ export default function RevOpsPage() {
 
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Before */}
-            <div className="p-6 rounded-xl bg-red-500/5 border border-red-500/20">
-              <div className="flex items-center gap-2 text-red-500 mb-4">
-                <Warning />
-                <span className="font-medium">Without Cleanlist</span>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className={`relative p-8 rounded-2xl overflow-hidden ${
+                isDark
+                  ? "bg-gradient-to-br from-red-500/10 via-red-500/5 to-transparent"
+                  : "bg-gradient-to-br from-red-50 via-red-25 to-white"
+              } border-2 ${isDark ? "border-red-500/20" : "border-red-200"}`}
+            >
+              {/* Decorative element */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-3xl" />
+
+              <div className="relative">
+                {/* Header with icon */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                    isDark ? "bg-red-500/20" : "bg-red-100"
+                  } border ${isDark ? "border-red-500/30" : "border-red-300"}`}>
+                    <Warning className="text-red-500" width={24} height={24} />
+                  </div>
+                  <div>
+                    <h3 className={`font-bold text-lg ${isDark ? "text-white" : "text-gray-900"}`}>Without Cleanlist</h3>
+                    <p className="text-xs text-red-500">Manual data management</p>
+                  </div>
+                </div>
+
+                {/* List */}
+                <ul className="space-y-3">
+                  {[
+                    "Manual data cleanup every quarter",
+                    "Duplicate records causing attribution issues",
+                    "Stale contact data leading to bounces",
+                    "Inconsistent field formatting",
+                    "Hours spent merging and deduping",
+                    "No visibility into data quality trends",
+                  ].map((item, i) => (
+                    <motion.li
+                      key={item}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className={`flex items-start gap-3 p-3 rounded-lg ${
+                        isDark ? "bg-red-500/5" : "bg-red-50/50"
+                      }`}
+                    >
+                      <div className="w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-3 h-3 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <span className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                        {item}
+                      </span>
+                    </motion.li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {[
-                  "Manual data cleanup every quarter",
-                  "Duplicate records causing attribution issues",
-                  "Stale contact data leading to bounces",
-                  "Inconsistent field formatting",
-                  "Hours spent merging and deduping",
-                  "No visibility into data quality trends",
-                ].map((item) => (
-                  <li key={item} className={`flex items-start gap-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                    <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </motion.div>
 
             {/* After */}
-            <div className="p-6 rounded-xl bg-green-500/5 border border-green-500/20">
-              <div className="flex items-center gap-2 text-green-500 mb-4">
-                <Check />
-                <span className="font-medium">With Cleanlist</span>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className={`relative p-8 rounded-2xl overflow-hidden ${
+                isDark
+                  ? "bg-gradient-to-br from-green-500/10 via-green-500/5 to-transparent"
+                  : "bg-gradient-to-br from-green-50 via-green-25 to-white"
+              } border-2 ${isDark ? "border-green-500/20" : "border-green-200"}`}
+            >
+              {/* Decorative element */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl" />
+
+              <div className="relative">
+                {/* Header with icon */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
+                    isDark ? "bg-green-500/20" : "bg-green-100"
+                  } border ${isDark ? "border-green-500/30" : "border-green-300"}`}>
+                    <CheckCircle className="text-green-500" width={24} height={24} />
+                  </div>
+                  <div>
+                    <h3 className={`font-bold text-lg ${isDark ? "text-white" : "text-gray-900"}`}>With Cleanlist</h3>
+                    <p className="text-xs text-green-500">Automated data hygiene</p>
+                  </div>
+                </div>
+
+                {/* List */}
+                <ul className="space-y-3">
+                  {[
+                    "Automated data hygiene running 24/7",
+                    "Real-time deduplication on ingest",
+                    "Continuous enrichment and verification",
+                    "AI-powered field normalization",
+                    "Zero-touch data maintenance",
+                    "Full audit trail and quality dashboards",
+                  ].map((item, i) => (
+                    <motion.li
+                      key={item}
+                      initial={{ opacity: 0, x: 10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.05 }}
+                      className={`flex items-start gap-3 p-3 rounded-lg ${
+                        isDark ? "bg-green-500/5" : "bg-green-50/50"
+                      }`}
+                    >
+                      <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <Check className="w-3 h-3 text-green-500" />
+                      </div>
+                      <span className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>
+                        {item}
+                      </span>
+                    </motion.li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {[
-                  "Automated data hygiene running 24/7",
-                  "Real-time deduplication on ingest",
-                  "Continuous enrichment and verification",
-                  "AI-powered field normalization",
-                  "Zero-touch data maintenance",
-                  "Full audit trail and quality dashboards",
-                ].map((item) => (
-                  <li key={item} className={`flex items-start gap-2 ${isDark ? "text-gray-300" : "text-gray-700"}`}>
-                    <Check className="text-green-500 mt-0.5" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
