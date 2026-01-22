@@ -129,80 +129,72 @@ export default function ICPScoringPage() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="relative"
             >
-              {/* ICP Score Demo Card - Compact List View */}
-              <div className={`rounded-2xl overflow-hidden ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-2xl`}>
-                {/* Header */}
-                <div className={`px-6 py-4 border-b ${isDark ? "border-white/[0.08]" : "border-gray-200"}`}>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <div className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>ICP Scores</div>
-                      <div className="text-xs text-gray-500">Scored against: Series B SaaS ICP</div>
-                    </div>
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+              {/* Browser-style video demo */}
+              <div
+                className={`rounded-2xl overflow-hidden border-2 shadow-2xl ${
+                  isDark
+                    ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]"
+                    : "bg-gradient-to-br from-white to-gray-50 border-gray-200"
+                }`}
+              >
+                {/* Browser Chrome */}
+                <div
+                  className={`flex items-center gap-2 px-4 py-3 border-b ${
+                    isDark ? "border-white/[0.08] bg-[#0a0a0a]" : "border-black/[0.05] bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+                    <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+                    <div className="w-3 h-3 rounded-full bg-[#28c840]" />
                   </div>
+                  <div
+                    className={`flex-1 mx-4 px-3 py-1 rounded-md text-xs ${
+                      isDark ? "bg-white/[0.05] text-gray-500" : "bg-gray-100 text-gray-400"
+                    }`}
+                  >
+                    app.cleanlist.ai/icp-scoring
+                  </div>
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className={`text-xs ${isDark ? "text-gray-500" : "text-gray-400"}`}>
+                    Live
+                  </span>
                 </div>
 
-                {/* Compact Lead List */}
-                <div className="p-6 space-y-3">
-                  {[
-                    { name: "Sarah Chen", company: "TechCorp", score: 92, delay: 0 },
-                    { name: "Michael Ross", company: "ScaleUp", score: 85, delay: 0.1 },
-                    { name: "Lisa Park", company: "GrowthCo", score: 68, delay: 0.2 },
-                    { name: "James Wilson", company: "CloudBase", score: 55, delay: 0.3 },
-                    { name: "Emma Davis", company: "StartupXYZ", score: 42, delay: 0.4 },
-                    { name: "David Kim", company: "MediumBiz", score: 28, delay: 0.5 },
-                  ].map((contact) => (
-                    <motion.div
-                      key={contact.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: contact.delay + 0.5 }}
-                      className={`flex items-center justify-between p-4 rounded-xl ${isDark ? "bg-white/[0.03] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"} transition-colors`}
-                    >
-                      <div className="flex items-center gap-4 flex-1">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-white ${
-                          contact.score >= 70 ? "bg-gradient-to-br from-green-500 to-green-600" :
-                          contact.score >= 30 ? "bg-gradient-to-br from-yellow-500 to-yellow-600" :
-                          "bg-gradient-to-br from-red-500 to-red-600"
-                        }`}>
-                          {contact.score}
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className={`text-sm font-semibold truncate ${isDark ? "text-white" : "text-gray-900"}`}>
-                            {contact.name}
-                          </div>
-                          <div className="text-xs text-gray-500 truncate">{contact.company}</div>
-                        </div>
-                      </div>
-                      <div className={`ml-4 px-3 py-1.5 rounded-full text-xs font-bold ${
-                        contact.score >= 70 ? "bg-green-500/20 text-green-600" :
-                        contact.score >= 30 ? "bg-yellow-500/20 text-yellow-600" :
-                        "bg-red-500/20 text-red-600"
-                      }`}>
-                        {contact.score >= 70 ? "High Match" : contact.score >= 30 ? "Medium" : "Low Match"}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
+                {/* Video */}
+                <div className="relative">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto block"
+                  >
+                    <source src="/videos/icp-scoring-demo.mp4" type="video/mp4" />
+                  </video>
 
-                {/* Footer Stats */}
-                <div className={`px-6 py-4 border-t ${isDark ? "border-white/[0.08]" : "border-gray-200"}`}>
-                  <div className="grid grid-cols-3 gap-4 text-center">
-                    <div>
-                      <div className="text-lg font-bold text-green-500">2</div>
-                      <div className="text-[10px] text-gray-500 uppercase tracking-wider">High (70+)</div>
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-yellow-500">2</div>
-                      <div className="text-[10px] text-gray-500 uppercase tracking-wider">Medium (30-70)</div>
-                    </div>
-                    <div>
-                      <div className="text-lg font-bold text-red-500">2</div>
-                      <div className="text-[10px] text-gray-500 uppercase tracking-wider">Low (&lt;30)</div>
-                    </div>
-                  </div>
+                  {/* Subtle vignette overlay */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background: isDark
+                        ? "radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.15) 100%)"
+                        : "radial-gradient(ellipse at center, transparent 70%, rgba(0,0,0,0.05) 100%)",
+                    }}
+                  />
                 </div>
               </div>
+
+              {/* Reflection effect */}
+              <div
+                className="absolute -bottom-12 left-8 right-8 h-24 rounded-2xl opacity-30 -z-10 blur-sm"
+                style={{
+                  background: isDark
+                    ? "linear-gradient(to bottom, rgba(62, 138, 255, 0.1), transparent)"
+                    : "linear-gradient(to bottom, rgba(62, 138, 255, 0.05), transparent)",
+                  transform: "scaleY(-0.3) perspective(500px) rotateX(30deg)",
+                }}
+              />
 
               {/* Decorative glow */}
               <div className="absolute -inset-4 bg-[#3e8aff]/5 rounded-3xl blur-2xl -z-10" />
