@@ -133,7 +133,7 @@ export default function InteractiveDemo() {
   };
 
   return (
-    <section id="solutions" ref={containerRef} className="py-16 md:py-24">
+    <section id="solutions" ref={containerRef} className={`py-16 md:py-24 ${isDark ? "bg-[#030303]" : "bg-white"}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

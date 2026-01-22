@@ -845,7 +845,7 @@ export default function HomePage() {
       </section>
 
       {/* Integrations Section - Hub & Spoke Visual */}
-      <section id="integrations" className="py-16 md:py-24">
+      <section id="integrations" className={`py-16 md:py-24 ${isDark ? "bg-[#030303]" : "bg-white"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1140,7 +1140,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`rounded-2xl p-6 md:p-8 border mb-12 mt-16 ${isDark ? "bg-[rgba(10,10,10,0.6)] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
+            className={`rounded-2xl p-6 md:p-8 border mb-12 mt-16 ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white border-gray-200 shadow-sm"}`}
           >
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
               <div>

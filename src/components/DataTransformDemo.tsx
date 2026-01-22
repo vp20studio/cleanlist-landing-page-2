@@ -113,7 +113,7 @@ export default function DataTransformDemo() {
   };
 
   return (
-    <section id="demo" ref={ref} className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
+    <section id="demo" ref={ref} className={`py-16 md:py-24 transition-colors ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         {/* Header */}
         <motion.div
