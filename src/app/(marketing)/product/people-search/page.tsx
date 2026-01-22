@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
@@ -48,6 +49,7 @@ const sampleResults = [
     employees: "500-1000",
     revenue: "$50M-100M",
     industry: "SaaS",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
   },
   {
     name: "Michael Torres",
@@ -57,6 +59,7 @@ const sampleResults = [
     employees: "1000-5000",
     revenue: "$100M+",
     industry: "SaaS",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
   },
   {
     name: "Emily Rodriguez",
@@ -66,6 +69,7 @@ const sampleResults = [
     employees: "500-1000",
     revenue: "$50M-100M",
     industry: "SaaS",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
   },
   {
     name: "David Kim",
@@ -73,6 +77,7 @@ const sampleResults = [
     company: "Linear",
     location: "Austin, TX",
     employees: "100-500",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
     revenue: "$10M-50M",
     industry: "SaaS",
   },
@@ -335,8 +340,14 @@ export default function PeopleSearchPage() {
                           transition={{ delay: index * 0.1 }}
                           className={`flex items-center gap-4 p-3 rounded-lg transition-colors ${isDark ? "bg-white/[0.02] hover:bg-white/[0.05] border border-white/[0.05]" : "bg-gray-50 hover:bg-gray-100 border border-gray-100"}`}
                         >
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center text-white font-medium text-sm">
-                            {result.name.split(" ").map(n => n[0]).join("")}
+                          <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex-shrink-0">
+                            <Image
+                              src={result.image || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"}
+                              alt={result.name}
+                              width={40}
+                              height={40}
+                              className="w-full h-full object-cover"
+                            />
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">

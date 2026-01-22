@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
+import Image from "next/image";
 import {
   Sparkle,
   Check,
@@ -47,10 +48,10 @@ const demoTabs = [
 ];
 
 const searchResults = [
-  { name: "Sarah Chen", title: "VP of Sales", company: "Amplitude", location: "San Francisco", employees: "500-1K" },
-  { name: "Michael Torres", title: "Head of Sales", company: "Notion", location: "New York", employees: "1K-5K" },
-  { name: "Emily Rodriguez", title: "VP Sales", company: "Figma", location: "Seattle", employees: "500-1K" },
-  { name: "David Kim", title: "Director of Sales", company: "Linear", location: "Austin", employees: "100-500" },
+  { name: "Sarah Chen", title: "VP of Sales", company: "Amplitude", location: "San Francisco", employees: "500-1K", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
+  { name: "Michael Torres", title: "Head of Sales", company: "Notion", location: "New York", employees: "1K-5K", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" },
+  { name: "Emily Rodriguez", title: "VP Sales", company: "Figma", location: "Seattle", employees: "500-1K", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
+  { name: "David Kim", title: "Director of Sales", company: "Linear", location: "Austin", employees: "100-500", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop" },
 ];
 
 const searchQuery = "VP Sales at SaaS companies in US, $1-10M revenue";
@@ -354,8 +355,14 @@ export default function InteractiveDemo() {
                               transition={{ delay: i * 0.1 }}
                               className={`flex items-center gap-3 p-2 rounded-lg ${isDark ? "bg-white/[0.02] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"} transition-colors`}
                             >
-                              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center text-white text-xs font-medium flex-shrink-0">
-                                {result.name.split(" ").map(n => n[0]).join("")}
+                              <div className="w-8 h-8 rounded-full overflow-hidden bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex-shrink-0">
+                                <Image
+                                  src={result.image}
+                                  alt={result.name}
+                                  width={32}
+                                  height={32}
+                                  className="w-full h-full object-cover"
+                                />
                               </div>
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-1.5">

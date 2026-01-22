@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
 import {
   ArrowRight,
@@ -300,8 +301,14 @@ export default function WaterfallEnrichmentPage() {
                 >
                   <div className="text-xs font-semibold text-[#3e8aff] mb-3 tracking-wider">INPUT RECORD</div>
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
-                      <User className="text-white" width={48} height={48} />
+                    <div className="w-14 h-14 rounded-xl overflow-hidden bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] shadow-lg">
+                      <Image
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop"
+                        alt="John Smith"
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <div className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>John Smith</div>

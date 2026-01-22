@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   LinkedinLogo,
   Check,
@@ -68,7 +69,11 @@ const importMethods: ImportMethodConfig[] = [
     id: "hubspot",
     title: "HubSpot Sync",
     subtitle: "Import & live sync with your CRM",
-    icon: <HubSpotLogo className="w-5 h-5" />,
+    icon: (
+      <div className="w-5 h-5 flex items-center justify-center">
+        <Image src="/images/favicons/hubspot.ico" alt="HubSpot" width={20} height={20} className="w-full h-full object-contain" />
+      </div>
+    ),
     color: "#ff7a59",
   },
 ];
@@ -202,8 +207,14 @@ export default function LeadExtractionDemo() {
                   }`}
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#0077b5] to-[#00a0dc] flex items-center justify-center flex-shrink-0">
-                      <User className="text-white" width={28} height={28} />
+                    <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0">
+                      <Image
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
+                        alt="Sarah Chen"
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div
@@ -365,10 +376,10 @@ export default function LeadExtractionDemo() {
 
                   {/* Leads list */}
                   {[
-                    { name: "Sarah Chen", title: "VP Sales", company: "TechCorp" },
-                    { name: "Michael Park", title: "Director", company: "Acme Inc" },
-                    { name: "Emma Wilson", title: "Head of Growth", company: "StartupXYZ" },
-                    { name: "James Liu", title: "CRO", company: "Enterprise Co" },
+                    { name: "Sarah Chen", title: "VP Sales", company: "TechCorp", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop" },
+                    { name: "Michael Park", title: "Director", company: "Acme Inc", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" },
+                    { name: "Emma Wilson", title: "Head of Growth", company: "StartupXYZ", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" },
+                    { name: "James Liu", title: "CRO", company: "Enterprise Co", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop" },
                   ].map((lead, i) => (
                     <motion.div
                       key={lead.name}
@@ -387,8 +398,14 @@ export default function LeadExtractionDemo() {
                         isDark ? "border-white/[0.05]" : "border-gray-100"
                       }`}
                     >
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center text-white text-xs font-medium">
-                        {lead.name[0]}
+                      <div className="w-8 h-8 rounded-full overflow-hidden bg-gradient-to-br from-gray-400 to-gray-500 flex-shrink-0">
+                        <Image
+                          src={lead.image}
+                          alt={lead.name}
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div
@@ -601,8 +618,8 @@ export default function LeadExtractionDemo() {
                     isDark ? "bg-[#ff7a59]/10" : "bg-[#ff7a59]/5"
                   }`}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#ff7a59] flex items-center justify-center">
-                    <HubSpotLogo className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 rounded-lg bg-[#ff7a59] flex items-center justify-center p-2">
+                    <Image src="/images/favicons/hubspot.ico" alt="HubSpot" width={24} height={24} className="w-full h-full object-contain" />
                   </div>
                   <div className="flex-1">
                     <div

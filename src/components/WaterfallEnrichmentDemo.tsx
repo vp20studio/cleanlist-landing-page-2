@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import {
   Check,
   X,
@@ -172,13 +173,56 @@ export default function WaterfallEnrichmentDemo() {
                 >
                   <div className="flex items-center gap-3">
                     {/* Status Icon */}
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold`}
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden`}
                       style={{
                         backgroundColor: `${provider.color}20`,
-                        color: provider.color,
                       }}
                     >
-                      {provider.name[0]}
+                      {provider.name === "Cleanlist" && (
+                        <Image
+                          src="/images/cleanlist-circle-avatar.png"
+                          alt="Cleanlist"
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                      {provider.name === "Wiza" && (
+                        <Image
+                          src="/images/providers/wiza.webp"
+                          alt="Wiza"
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-contain p-0.5"
+                        />
+                      )}
+                      {provider.name === "Findymail" && (
+                        <Image
+                          src="/images/providers/findymail.png"
+                          alt="Findymail"
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-contain p-0.5"
+                        />
+                      )}
+                      {provider.name === "Prospeo" && (
+                        <Image
+                          src="/images/providers/prospeo.png"
+                          alt="Prospeo"
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-contain p-0.5"
+                        />
+                      )}
+                      {provider.name === "Lusha" && (
+                        <Image
+                          src="/images/providers/lusha.jpeg"
+                          alt="Lusha"
+                          width={32}
+                          height={32}
+                          className="w-full h-full object-contain p-0.5"
+                        />
+                      )}
                     </div>
                     <div>
                       <div className={`font-medium text-sm ${isDark ? "text-white" : "text-gray-900"}`}>
@@ -266,7 +310,15 @@ export default function WaterfallEnrichmentDemo() {
               >
                 {/* Lead Header */}
                 <div className="flex items-center gap-3 mb-4">
-                  <GlowIcon icon={<User />} size="md" color="blue" variant="glow" />
+                  <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0">
+                    <Image
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop"
+                      alt={sampleLead.name}
+                      width={40}
+                      height={40}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <div>
                     <div className={`font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
                       {sampleLead.name}
