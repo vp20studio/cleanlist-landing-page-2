@@ -1,0 +1,325 @@
+---
+title: "How to Clean Your CRM Data: A Step-by-Step Guide for RevOps"
+description: "Complete guide to CRM data cleaning for RevOps teams. Learn how to deduplicate, standardize, enrich, and maintain clean Salesforce and HubSpot data."
+date: "2026-01-22"
+category: "guides"
+tags: ["CRM data", "data cleaning", "RevOps", "Salesforce", "HubSpot", "data hygiene"]
+author:
+  name: "Cleanlist Team"
+  role: "RevOps Team"
+featured: false
+draft: false
+keywords: ["how to clean CRM data", "CRM data cleaning", "Salesforce data cleanup", "HubSpot data hygiene", "RevOps data quality"]
+---
+
+Your CRM is lying to you. Not intentionally—but those pipeline forecasts, lead scores, and routing rules are only as accurate as the data underneath them.
+
+Most CRMs are packed with duplicates, outdated contacts, incomplete records, and inconsistent formatting. RevOps teams inherit this mess and are expected to build reliable systems on top of it.
+
+This guide shows you how to clean your CRM data systematically—and keep it clean.
+
+## Why CRM Data Quality Matters for RevOps
+
+Dirty CRM data breaks everything RevOps tries to build:
+
+**Lead scoring fails.** If job titles are inconsistent ("VP Sales" vs "Vice President of Sales" vs "VP, Sales"), your scoring model can't accurately weight seniority.
+
+**Routing breaks.** Territory assignment based on geography doesn't work when half your records have "US" and half have "United States."
+
+**Forecasting is wrong.** Duplicate opportunities inflate pipeline. Missing close dates make predictions impossible.
+
+**Attribution is unreliable.** If contacts aren't properly associated with accounts, you can't measure which campaigns drive revenue.
+
+The downstream impact is significant. Sales teams chase bad leads. Marketing wastes budget on wrong segments. Leadership makes decisions on faulty data.
+
+## The CRM Data Quality Assessment
+
+Before cleaning, understand what you're dealing with.
+
+### Step 1: Run a data quality audit
+
+Check these metrics across your CRM:
+
+| Metric | How to Calculate | Target |
+|--------|------------------|--------|
+| Duplicate rate | Duplicates / Total records | Under 5% |
+| Field completion rate | Filled fields / Total required fields | Over 85% |
+| Email validity rate | Valid emails / Total emails | Over 95% |
+| Stale record rate | Records not updated in 12+ months | Under 20% |
+
+### Step 2: Identify the worst offenders
+
+Run reports to find:
+- Fields with lowest completion rates
+- Most common duplicate patterns
+- Records with no activity in 12+ months
+- Contacts missing email or phone
+
+### Step 3: Quantify the business impact
+
+Connect data quality to business metrics:
+- How many leads failed routing due to missing fields?
+- What's the bounce rate on marketing campaigns?
+- How many sales calls went to wrong numbers?
+
+This builds the business case for cleanup resources.
+
+<Callout type="info" title="Quick Win">
+Check your duplicate rate first. In most CRMs, 10-30% of records are duplicates. Merging them immediately improves every downstream metric.
+</Callout>
+
+## Phase 1: Deduplication
+
+Duplicates are the most damaging data quality issue. They split activity history, confuse sales reps, and inflate metrics.
+
+### Find duplicates
+
+Look for matches on:
+- Exact email match
+- Fuzzy name + company match
+- Phone number match
+- LinkedIn URL match
+
+Most CRMs have built-in duplicate detection:
+- **Salesforce**: Setup > Duplicate Management
+- **HubSpot**: Contacts > Actions > Manage Duplicates
+
+For complex matching, export to a spreadsheet or use a deduplication tool.
+
+### Define merge rules
+
+Before merging, decide which record wins:
+
+| Field | Rule |
+|-------|------|
+| Email | Keep most recently verified |
+| Phone | Keep direct dial over main line |
+| Job title | Keep most recent |
+| Owner | Keep rep with most recent activity |
+| Activity history | Merge all activities |
+
+### Execute merges carefully
+
+1. Start with exact email matches (low risk)
+2. Review fuzzy matches manually
+3. Merge in batches of 100, verify results
+4. Document merge decisions for audit trail
+
+<Callout type="warning" title="Watch Out">
+Some "duplicates" are actually different people at the same company. John Smith at Acme Corp and John Smith Jr. at Acme Corp are not duplicates. Review name-only matches carefully.
+</Callout>
+
+## Phase 2: Standardization
+
+Inconsistent data formats break segmentation, routing, and automation.
+
+### Standardize job titles
+
+Job titles are notoriously inconsistent. Common variations:
+- VP Sales / VP of Sales / Vice President Sales / Vice President of Sales
+- SDR / Sales Development Rep / Sales Development Representative / BDR
+- CEO / Chief Executive Officer / Founder & CEO / Co-Founder/CEO
+
+Use [Smart Columns](/product/smart-columns) to normalize titles automatically:
+- Map variations to standard values
+- Extract seniority level as separate field
+- Identify department from title
+
+### Standardize geography
+
+Create consistent location formats:
+- Country: Use ISO codes (US, GB, CA) or full names consistently
+- State: Abbreviations (CA) or full names (California), pick one
+- City: Proper capitalization, no abbreviations
+
+### Standardize company names
+
+Company name variations cause duplicate accounts and broken reporting:
+- Acme Corp / Acme Corporation / Acme Corp. / ACME
+- With or without Inc., LLC, Ltd.
+- Acquired companies (old name vs new name)
+
+Normalize to legal company names or create a preferred display name field.
+
+### Standardize phone numbers
+
+Format all phones consistently:
+- E.164 format: +1 555 123 4567
+- Or your preferred format: (555) 123-4567
+
+Remove extensions to a separate field. Flag international numbers.
+
+## Phase 3: Enrichment
+
+Clean data isn't enough—you need complete data. Enrichment fills gaps and updates stale information.
+
+### Identify enrichment candidates
+
+Records that need enrichment:
+- Missing email address
+- Missing phone number
+- Missing company information
+- Job title but no seniority level
+- No activity in 12+ months (may have changed jobs)
+
+### Run waterfall enrichment
+
+Single-source enrichment leaves gaps. [Waterfall enrichment](/product/waterfall-enrichment) queries 15+ providers to maximize fill rates.
+
+What enrichment adds:
+- Verified work email
+- Direct dial phone
+- Current job title and company
+- Company firmographics (size, revenue, industry)
+- LinkedIn profile URL
+
+### Update stale records
+
+B2B data decays at 22.5% per year. People change jobs, companies get acquired, phone numbers change.
+
+Set up quarterly re-enrichment for:
+- Records with no activity in 6+ months
+- Key accounts (refresh regardless of activity)
+- Records where email bounced
+
+<Callout type="success" title="Pro Tip">
+When enrichment shows someone changed companies, don't delete them—update to their new company. They're still a potential buyer, just at a different organization.
+</Callout>
+
+## Phase 4: Validation Rules
+
+Prevent bad data from entering in the first place.
+
+### Required field validation
+
+Make critical fields required at the point of entry:
+- Email (with format validation)
+- Company name
+- Lead source
+
+But be careful—too many required fields reduce form conversion.
+
+### Format validation
+
+Enforce formats on entry:
+- Email: Must contain @ and valid domain
+- Phone: Must be proper length for country
+- URL: Must start with http:// or https://
+
+### Real-time verification
+
+Add verification at the point of entry:
+1. Lead submits form with email
+2. Email is verified in real-time
+3. Invalid emails are rejected with error message
+
+This prevents bad data from ever entering your CRM.
+
+### Picklist standardization
+
+Replace free-text fields with picklists where possible:
+- Industry (dropdown, not free text)
+- Country (dropdown with ISO values)
+- Lead source (defined list)
+
+Picklists ensure consistency and enable reliable reporting.
+
+## Phase 5: Ongoing Maintenance
+
+Data quality is a process, not a project.
+
+### Daily: Automated hygiene
+
+Set up automation to handle routine cleanup:
+- New leads automatically enriched
+- Duplicates flagged for review
+- Invalid emails quarantined
+
+### Weekly: Spot checks
+
+Review a sample of recent records:
+- Are required fields being filled?
+- Is data formatting consistent?
+- Are there new duplicate patterns?
+
+### Monthly: Quality metrics
+
+Track data quality KPIs:
+- Duplicate creation rate
+- Field completion rates
+- Email validity rate
+- Enrichment success rate
+
+### Quarterly: Deep audit
+
+Full data quality assessment:
+- Re-run duplicate detection
+- Re-enrich stale records
+- Review and update validation rules
+- Train team on data entry standards
+
+## CRM-Specific Workflows
+
+### Salesforce Cleanup
+
+1. **Enable Duplicate Management**: Setup > Duplicate Rules
+2. **Install Data.com Clean** (or third-party enrichment)
+3. **Create validation rules**: Setup > Object Manager > [Object] > Validation Rules
+4. **Use Flow Builder** for automated enrichment triggers
+
+### HubSpot Cleanup
+
+1. **Use Operations Hub** for data quality automation
+2. **Enable automatic duplicate detection**: Settings > Duplicates
+3. **Create data quality command center**: Reports > Dashboards
+4. **Use workflows** to trigger enrichment on lead creation
+
+### Integration with Cleanlist
+
+Connect [Cleanlist](/product/waterfall-enrichment) to your CRM for automated enrichment:
+
+**HubSpot**: Native integration, one-click setup
+**Salesforce**: Managed package from AppExchange
+**Other CRMs**: API integration or Zapier
+
+Configure triggers:
+- Enrich on lead creation
+- Re-enrich when email bounces
+- Quarterly refresh for all records
+
+## Measuring Success
+
+After implementing these processes, track improvement:
+
+| Metric | Before | 30-Day Target | 90-Day Target |
+|--------|--------|---------------|---------------|
+| Duplicate rate | 20% | 10% | 5% |
+| Email validity | 75% | 90% | 95% |
+| Field completion | 60% | 75% | 85% |
+| Stale records | 40% | 30% | 20% |
+
+## Frequently Asked Questions
+
+### How long does a full CRM cleanup take?
+
+For a database of 50,000 records, expect 2-4 weeks for initial cleanup. This includes deduplication, standardization, and enrichment. Ongoing maintenance takes 2-4 hours per week.
+
+### Should I delete old records or archive them?
+
+Archive rather than delete. Old records may re-engage, and you need history for attribution. Create an "Archived" status and exclude from active campaigns.
+
+### How do I get sales reps to maintain data quality?
+
+Make it easy and visible. Reduce required fields to essentials, add real-time validation, and show reps how bad data hurts their own numbers (bounced emails, wrong phone numbers).
+
+### What's more important: completeness or accuracy?
+
+Accuracy. A smaller database with verified, accurate data outperforms a larger database with questionable quality. Start with accuracy, then build completeness through enrichment.
+
+### How often should I re-enrich data?
+
+Quarterly for most databases. Monthly for high-velocity sales teams. Always re-enrich when you detect signals of data decay (bounced emails, returned mail, failed calls).
+
+---
+
+Clean CRM data isn't a nice-to-have—it's the foundation of everything RevOps builds. Start with deduplication, standardize formats, enrich gaps, and build processes to keep it clean. [Automate enrichment with Cleanlist](/product/waterfall-enrichment) and spend your time on strategy instead of cleanup.

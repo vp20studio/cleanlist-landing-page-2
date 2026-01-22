@@ -1,0 +1,222 @@
+---
+title: "New: AI-Powered Job Title Normalization in Smart Columns"
+description: "Cleanlist Smart Columns now includes AI-powered job title normalization. Automatically standardize messy job titles for better segmentation and scoring."
+date: "2026-01-22"
+category: "product-updates"
+tags: ["product update", "Smart Columns", "job title", "AI", "data normalization"]
+author:
+  name: "Cleanlist Team"
+  role: "Product Team"
+featured: false
+draft: false
+keywords: ["job title normalization", "Smart Columns", "data normalization tool", "job title standardization", "AI data cleaning"]
+---
+
+We've added AI-powered job title normalization to [Smart Columns](/product/smart-columns). Now you can automatically standardize messy job titles across your entire database—no manual cleanup required.
+
+## The Problem
+
+Job titles in CRM data are notoriously inconsistent. The same role might appear as:
+
+- VP Sales
+- VP of Sales
+- Vice President Sales
+- Vice President of Sales
+- Vice President, Sales
+- VP - Sales
+- V.P. Sales
+
+Multiply this across thousands of contacts, and you have a segmentation nightmare. Your "VP-level" segment misses half the VPs because their titles don't match your filters.
+
+Lead scoring breaks. Routing rules fail. Campaign targeting gets messy.
+
+## The Solution
+
+Smart Columns now uses AI to understand job titles semantically, not just match strings.
+
+### How it works
+
+1. Upload or connect your data
+2. Select the job title column
+3. Choose "Normalize Job Titles"
+4. AI analyzes each title's meaning
+5. Output: Standardized titles in your preferred format
+
+### What the AI understands
+
+The model recognizes:
+
+**Seniority levels**:
+- C-Suite (CEO, CTO, CFO, etc.)
+- VP/Vice President
+- Director
+- Manager
+- Individual Contributor
+
+**Departments**:
+- Sales
+- Marketing
+- Engineering
+- Finance
+- Operations
+- Human Resources
+- Product
+
+**Role variations**:
+- "Head of Growth" → VP Marketing
+- "Revenue Leader" → VP Sales
+- "Full-Stack Dev" → Software Engineer
+- "People Operations" → HR Manager
+
+### Customizable output
+
+Choose your normalization format:
+
+**Option 1: Title Case Standard**
+- Input: "vp sales"
+- Output: "Vice President of Sales"
+
+**Option 2: Abbreviated**
+- Input: "Vice President of Sales"
+- Output: "VP Sales"
+
+**Option 3: With Department Extraction**
+- Input: "vp sales"
+- Output: Title: "Vice President", Department: "Sales"
+
+**Option 4: Seniority Extraction**
+- Input: "Senior Director of Marketing"
+- Output: Title: "Senior Director of Marketing", Seniority: "Director"
+
+## Use Cases
+
+### Better lead scoring
+
+Before: Your scoring model gives +10 points for "VP" in title. "Vice President of Sales" gets 0 points because the string "VP" isn't present.
+
+After: All VP-equivalent titles normalize to a standard format. Scoring works consistently.
+
+### Accurate segmentation
+
+Before: Campaign targeting "Directors and above" requires listing every possible title variation.
+
+After: Normalized seniority field lets you filter simply: Seniority = Director OR Seniority = VP OR Seniority = C-Suite.
+
+### Clean reporting
+
+Before: "Contacts by Title" report shows 500 unique titles, most being variations of the same role.
+
+After: Normalized titles consolidate variations. Report shows 30 meaningful role categories.
+
+### ICP matching
+
+Use normalized titles with [ICP Scoring](/product/icp-scoring):
+- Target: "Director or VP of Sales/Marketing"
+- Match: Any title that normalizes to those criteria
+
+## How to Use It
+
+### In the Cleanlist dashboard
+
+1. Go to **Smart Columns**
+2. Select your dataset
+3. Click **Add Transformation**
+4. Choose **Normalize Job Titles**
+5. Select your output format
+6. Run transformation
+
+### Via API
+
+```json
+POST /api/v1/transform
+{
+  "data": [
+    {"title": "vp sales"},
+    {"title": "Vice President, Marketing"},
+    {"title": "head of growth"}
+  ],
+  "transformations": [
+    {
+      "type": "normalize_job_title",
+      "input_field": "title",
+      "output_field": "normalized_title",
+      "extract_seniority": true,
+      "extract_department": true
+    }
+  ]
+}
+```
+
+Response:
+```json
+{
+  "data": [
+    {
+      "title": "vp sales",
+      "normalized_title": "Vice President of Sales",
+      "seniority": "VP",
+      "department": "Sales"
+    },
+    {
+      "title": "Vice President, Marketing",
+      "normalized_title": "Vice President of Marketing",
+      "seniority": "VP",
+      "department": "Marketing"
+    },
+    {
+      "title": "head of growth",
+      "normalized_title": "Vice President of Marketing",
+      "seniority": "VP",
+      "department": "Marketing"
+    }
+  ]
+}
+```
+
+### In CRM workflows
+
+Set up automatic normalization:
+1. Connect Cleanlist to HubSpot/Salesforce
+2. Create workflow: "When new contact created"
+3. Action: Normalize job title via Cleanlist
+4. Update: Write normalized title to custom field
+
+New contacts get normalized titles automatically.
+
+## What's Included
+
+Job title normalization is included with Smart Columns—no additional cost.
+
+**Smart Columns features**:
+- Job title normalization (new)
+- Name parsing (first/last)
+- Phone number formatting
+- Industry categorization
+- Company name cleanup
+- Custom AI transformations
+
+All available on any Cleanlist plan.
+
+## Coming Soon
+
+We're expanding Smart Columns with:
+
+- **Industry normalization**: Map free-text industries to standard categories
+- **Location standardization**: Normalize country, state, city formats
+- **Company name matching**: Identify company variations (Acme Corp = Acme Corporation)
+- **Custom AI prompts**: "Categorize these titles by seniority using our custom framework"
+
+## Get Started
+
+Try job title normalization now:
+
+1. [Log into Cleanlist](https://cleanlist.ai)
+2. Upload a sample file with job titles
+3. Run the normalization transformation
+4. See standardized output
+
+Questions? Reach out to support@cleanlist.ai.
+
+---
+
+Messy job titles shouldn't break your targeting and scoring. Let AI handle the normalization while you focus on selling. [Try Smart Columns](/product/smart-columns) today.

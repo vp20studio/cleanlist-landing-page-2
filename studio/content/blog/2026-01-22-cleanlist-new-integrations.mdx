@@ -1,0 +1,268 @@
+---
+title: "Cleanlist Now Integrates with Clay, HubSpot, and 12 More Tools"
+description: "Announcing new Cleanlist integrations with Clay, HubSpot, Salesforce, Outreach, and more. Connect your GTM stack for seamless data enrichment."
+date: "2026-01-22"
+category: "product-updates"
+tags: ["product update", "integrations", "Clay", "HubSpot", "Salesforce", "GTM stack"]
+author:
+  name: "Cleanlist Team"
+  role: "Product Team"
+featured: false
+draft: false
+keywords: ["Cleanlist integrations", "data enrichment integrations", "Clay integration", "HubSpot enrichment", "CRM data enrichment"]
+---
+
+We've expanded our integration ecosystem. Cleanlist now connects natively with 15+ tools across your GTM stack—including Clay, HubSpot, Salesforce, and more.
+
+Set up once, and enriched data flows automatically wherever you need it.
+
+## New Integrations
+
+### Clay
+
+Clay users can now enrich with Cleanlist's waterfall enrichment directly in their Clay tables.
+
+**What it does**:
+- Add Cleanlist as an enrichment source in Clay
+- Query 15+ data providers through one API
+- Get verified emails and phone numbers
+- Pay only for successful enrichments
+
+**How to set up**:
+1. In Clay, go to **Integrations**
+2. Search for **Cleanlist**
+3. Add your Cleanlist API key
+4. Use in any enrichment column
+
+Clay + Cleanlist = waterfall enrichment without building custom integrations.
+
+### HubSpot
+
+Native HubSpot integration for CRM-triggered enrichment.
+
+**What it does**:
+- Auto-enrich new contacts on creation
+- Enrich when contacts enter specific lists/workflows
+- Update existing contacts with fresh data
+- Write directly to HubSpot contact properties
+
+**How to set up**:
+1. Go to **Cleanlist Settings > Integrations**
+2. Click **Connect HubSpot**
+3. Authorize via OAuth
+4. Configure enrichment triggers
+5. Map Cleanlist fields to HubSpot properties
+
+No more manual exports and imports. Leads enrich automatically.
+
+### Salesforce
+
+Managed package for Salesforce enrichment.
+
+**What it does**:
+- Enrich leads and contacts from within Salesforce
+- Trigger enrichment via Process Builder or Flow
+- Bulk enrich via list views
+- Real-time enrichment on record creation
+
+**How to set up**:
+1. Install Cleanlist package from AppExchange
+2. Configure API credentials in Setup
+3. Add enrichment button to page layouts
+4. Create Flow triggers for automation
+
+Works with Salesforce Classic and Lightning.
+
+### Outreach
+
+Sync enriched data directly to Outreach prospects.
+
+**What it does**:
+- Push enriched contacts to Outreach
+- Update prospect records with verified data
+- Trigger sequences based on enrichment results
+- Keep prospect data fresh
+
+**How to set up**:
+1. Connect Outreach in Cleanlist integrations
+2. Authorize via OAuth
+3. Map fields to Outreach prospect fields
+4. Enable automatic sync
+
+### Salesloft
+
+Similar functionality for Salesloft users.
+
+**What it does**:
+- Create/update Salesloft people with enriched data
+- Add to cadences based on enrichment triggers
+- Keep contact information current
+- Track enrichment in Salesloft activity
+
+**How to set up**:
+1. Connect Salesloft in Cleanlist integrations
+2. Authorize via OAuth
+3. Configure field mappings
+4. Enable sync preferences
+
+### Apollo
+
+Yes, you can use Cleanlist alongside Apollo.
+
+**What it does**:
+- Verify Apollo contacts through Cleanlist
+- Fill Apollo data gaps with waterfall enrichment
+- Compare Apollo emails to Cleanlist for validation
+- Best of both: Apollo's database + Cleanlist's verification
+
+Use Apollo for prospecting, Cleanlist for verification and gap-filling.
+
+### Pipedrive
+
+CRM enrichment for Pipedrive users.
+
+**What it does**:
+- Enrich deals and contacts
+- Trigger on deal stage changes
+- Auto-fill missing contact info
+- Sync firmographic data to Pipedrive fields
+
+Pipedrive + Cleanlist keeps your pipeline data complete.
+
+### Zapier
+
+Connect Cleanlist to 5,000+ apps.
+
+**What it does**:
+- Trigger enrichment from any Zapier-connected app
+- Send enriched data anywhere
+- Build custom workflows without code
+- Chain enrichment with other actions
+
+**Example Zaps**:
+- Typeform submission → Cleanlist enrich → HubSpot create contact
+- Calendly booking → Cleanlist enrich → Slack notification
+- Google Sheets row → Cleanlist enrich → Salesforce lead
+
+### Additional Integrations
+
+Also now supported:
+
+| Tool | Category | Use Case |
+|------|----------|----------|
+| **Segment** | CDP | Enrich user profiles |
+| **Snowflake** | Data Warehouse | Bulk enrichment via SQL |
+| **BigQuery** | Data Warehouse | Enrichment at scale |
+| **Airtable** | Database | Enrich Airtable records |
+| **Notion** | Database | Enrich Notion databases |
+| **Make** | Automation | Alternative to Zapier |
+| **n8n** | Automation | Self-hosted workflows |
+
+## API for Custom Integrations
+
+For tools without native integration, use our API:
+
+```bash
+POST https://api.cleanlist.ai/v1/enrich
+Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json
+
+{
+  "records": [
+    {
+      "first_name": "John",
+      "last_name": "Smith",
+      "company": "Acme Corp"
+    }
+  ],
+  "fields": ["email", "phone", "title", "company_size"]
+}
+```
+
+Response:
+```json
+{
+  "results": [
+    {
+      "input": {"first_name": "John", "last_name": "Smith", "company": "Acme Corp"},
+      "enriched": {
+        "email": "john.smith@acmecorp.com",
+        "email_verified": true,
+        "phone": "+1-555-123-4567",
+        "phone_type": "direct",
+        "title": "VP of Sales",
+        "company_size": "201-500",
+        "confidence_score": 95
+      },
+      "credits_used": 1
+    }
+  ]
+}
+```
+
+API documentation: [docs.cleanlist.ai/api](https://docs.cleanlist.ai/api)
+
+## Integration Recipes
+
+### Recipe 1: Inbound lead enrichment
+
+**Trigger**: New HubSpot contact created
+**Action**: Cleanlist enrichment
+**Result**: Contact updated with verified email, phone, firmographics
+
+```
+HubSpot Contact Created → Cleanlist Enrich → HubSpot Contact Updated
+```
+
+### Recipe 2: ABM list building
+
+**Trigger**: Add company to Salesforce campaign
+**Action**: Cleanlist find contacts matching criteria
+**Result**: Decision-maker contacts added to campaign
+
+```
+Salesforce Campaign → Cleanlist People Search → Salesforce Campaign Members
+```
+
+### Recipe 3: CRM hygiene
+
+**Trigger**: Weekly scheduled job
+**Action**: Cleanlist verify all contacts updated 90+ days ago
+**Result**: Invalid contacts flagged, valid contacts refreshed
+
+```
+Scheduled Trigger → Cleanlist Bulk Verify → CRM Update + Slack Alert
+```
+
+### Recipe 4: Clay waterfall
+
+**Trigger**: New row in Clay table
+**Action**: Cleanlist enrichment column
+**Result**: Waterfall finds best email from 15+ sources
+
+```
+Clay Table Row → Cleanlist Enrichment → Clay Enriched Data
+```
+
+## What's Next
+
+Coming Q1 2026:
+
+- **Gong integration**: Enrich contacts from call recordings
+- **LinkedIn Sales Nav**: Direct enrichment from saved lists
+- **Slack**: Enrich contacts via Slack command
+- **Chrome extension**: Enrich from any webpage
+
+## Get Started with Integrations
+
+1. Log into [Cleanlist](https://cleanlist.ai)
+2. Go to **Settings > Integrations**
+3. Connect your tools
+4. Configure triggers and mappings
+5. Watch data flow automatically
+
+Questions about integrations? Contact support@cleanlist.ai or check [docs.cleanlist.ai](https://docs.cleanlist.ai).
+
+---
+
+Your GTM stack should work together. Cleanlist integrations make enrichment invisible—data flows where it needs to, automatically. [Connect your tools](/pricing) and start enriching.

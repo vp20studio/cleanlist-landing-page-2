@@ -1,0 +1,290 @@
+---
+title: "Multi-Touch Attribution: Why Your Data Source Matters More Than Your Model"
+description: "Multi-touch attribution models are only as good as your data. Learn why data quality determines attribution accuracy and how to fix it."
+date: "2026-01-22"
+category: "sales"
+tags: ["attribution", "multi-touch attribution", "RevOps", "marketing analytics", "data quality"]
+author:
+  name: "Cleanlist Team"
+  role: "Revenue Operations"
+featured: false
+draft: false
+keywords: ["multi-touch attribution", "B2B attribution", "marketing attribution", "attribution data quality", "revenue attribution"]
+---
+
+Your multi-touch attribution model is probably lying to you.
+
+Not because the model is wrong—but because the data feeding it is incomplete, duplicated, and inconsistent. You're running sophisticated attribution on dirty data, then making million-dollar budget decisions based on the results.
+
+The dirty secret of B2B attribution: your data quality matters more than which attribution model you choose.
+
+## Why Attribution Models Fail
+
+The typical attribution conversation focuses on models: first-touch, last-touch, linear, time-decay, position-based, algorithmic. Teams spend months debating which model is "right."
+
+Meanwhile, their data has fundamental problems that make any model unreliable:
+
+### Problem 1: Missing touchpoints
+
+Every missing touchpoint skews attribution. Common gaps:
+
+- **Anonymous website visits**: Before someone fills out a form, you don't know who they are
+- **Dark social**: Conversations in Slack, word-of-mouth, podcasts
+- **Offline events**: Conference conversations, phone calls not logged
+- **Sales touches**: Emails and calls not synced to marketing systems
+
+If your attribution only captures 60% of touchpoints, you're attributing credit based on incomplete data.
+
+### Problem 2: Duplicate contacts
+
+John Smith attends a webinar with john.smith@acme.com. Later, he downloads a whitepaper with jsmith@acme.com. Your system thinks these are two different people.
+
+The webinar gets no credit for John's eventual purchase—even though it was a critical touchpoint—because it's tied to a different contact record.
+
+**Impact**: Channels that capture different email variations get under-credited. Deduplication rates of 10-30% are common in B2B databases.
+
+### Problem 3: Incorrect lead source
+
+Someone clicks a Google ad, then later comes back directly and fills out a form. Your system records "Direct" as the lead source.
+
+Original source: Google Paid. Recorded source: Direct.
+
+Now your attribution says organic/direct drives more pipeline than paid—when the opposite is true.
+
+### Problem 4: Stale data in attribution windows
+
+Attribution windows (30 days, 60 days, 90 days) assume the data is current. But if contact records aren't updated, you're including touchpoints from people who left the company months ago.
+
+They're not going to buy. But your attribution model doesn't know that.
+
+### Problem 5: Missing account associations
+
+B2B purchases involve multiple stakeholders. If contacts aren't properly associated with accounts, you can't see the full buying committee journey.
+
+Attribution might show one champion with 10 touchpoints, but miss the five other stakeholders who influenced the deal.
+
+## Data Quality Metrics for Attribution
+
+Before trusting your attribution, audit these metrics:
+
+### Contact deduplication rate
+
+```
+Duplicates / Total Contacts = Duplication Rate
+```
+
+**Target**: Under 5%
+**Typical**: 15-30%
+
+Every duplicate creates an incomplete touchpoint history.
+
+### Lead source accuracy
+
+Sample 100 recent leads. Verify the recorded source against actual referrer data.
+
+**Target**: 90%+ accuracy
+**Typical**: 60-75%
+
+Incorrect sources poison attribution analysis.
+
+### Contact-to-account association
+
+```
+Contacts with Account / Total Contacts = Association Rate
+```
+
+**Target**: Over 90% for closed-won deals
+**Typical**: 70-80%
+
+Unassociated contacts mean incomplete account-level attribution.
+
+### Data completeness
+
+What percentage of contacts have the fields needed for attribution?
+
+| Field | Attribution Need | Typical Completion |
+|-------|-----------------|-------------------|
+| Email | Link touchpoints | 95% |
+| Company | Account matching | 80% |
+| Lead Source | Channel attribution | 70% |
+| First Touch Date | Journey timeline | 60% |
+
+### Data freshness
+
+```
+Contacts Updated in Last 90 Days / Total Active Contacts
+```
+
+**Target**: Over 80%
+**Typical**: 50-70%
+
+Stale data includes people who are no longer at the company or relevant to attribution.
+
+## The Attribution Data Stack
+
+Clean attribution requires clean data at every layer:
+
+### Layer 1: Contact data
+
+Every person in your database needs:
+- Verified email (to link touchpoints)
+- Current company (to associate with accounts)
+- Job title and seniority (to identify buying committee)
+- Updated regularly (to remove stale records)
+
+Use [waterfall enrichment](/product/waterfall-enrichment) to fill gaps and keep records current.
+
+### Layer 2: Account data
+
+Every company needs:
+- Correct legal name (for matching)
+- Domain (for website visitor matching)
+- Firmographics (for segmentation)
+- All related contacts associated
+
+### Layer 3: Touchpoint capture
+
+Every interaction needs proper tracking:
+- Marketing automation events
+- Website visits (with identity resolution)
+- Sales activities (calls, emails, meetings)
+- Product usage (if applicable)
+
+### Layer 4: Attribution infrastructure
+
+Systems that connect everything:
+- CRM as single source of truth
+- Marketing platform integration
+- Data warehouse for analysis
+- Attribution tool for modeling
+
+## Fixing Attribution Data Quality
+
+### Step 1: Deduplicate contacts
+
+Before any attribution analysis, merge duplicates:
+
+1. Export all contacts
+2. Match on: exact email, fuzzy name + company, phone number
+3. Define merge rules (which record survives)
+4. Merge and consolidate touchpoint history
+
+**Important**: Merge touchpoint history when deduplicating. Don't just delete duplicates—you'll lose attribution data.
+
+### Step 2: Verify and enrich contact data
+
+Run all contacts through verification and enrichment:
+
+- Verify emails exist
+- Update job titles and companies
+- Fill missing firmographics
+- Flag records that have changed jobs
+
+[Cleanlist enrichment](/product/waterfall-enrichment) updates records with current information from 15+ sources.
+
+### Step 3: Fix lead source data
+
+Audit recent leads for source accuracy:
+
+1. Compare recorded source to UTM parameters and referrer data
+2. Identify systematic errors (e.g., all Salesforce imports marked "Direct")
+3. Fix the capture mechanism going forward
+4. Backfill historical data where possible
+
+### Step 4: Associate contacts with accounts
+
+Ensure every contact is linked to the right account:
+
+1. Match contacts to accounts by email domain
+2. Manual review for edge cases (personal emails, shared domains)
+3. Create account records for orphan contacts
+4. Set up automatic association for new leads
+
+### Step 5: Implement ongoing hygiene
+
+Data quality isn't a one-time project:
+
+- Deduplicate on lead creation (prevent new duplicates)
+- Enrich new leads automatically
+- Re-verify quarterly
+- Monitor data quality metrics monthly
+
+## The Impact of Clean Data on Attribution
+
+When you fix your data, attribution insights change—sometimes dramatically.
+
+### Before cleanup (typical findings)
+
+- "Paid search drives 15% of pipeline"
+- "Events are low ROI"
+- "Content marketing doesn't work"
+
+### After cleanup (common revelations)
+
+- "Paid search actually drives 25% of pipeline" (was under-counted due to lead source errors)
+- "Events drive 2x more influenced pipeline than we thought" (contacts weren't associated to accounts)
+- "Content influences 60% of closed-won deals" (duplicates were hiding the journey)
+
+### Case study: What changes with clean data
+
+A B2B SaaS company audited their attribution data:
+
+**Before**:
+- 22% duplicate rate in contacts
+- 65% lead source accuracy
+- 71% contact-to-account association
+
+**After cleanup**:
+- 4% duplicate rate
+- 92% lead source accuracy
+- 94% contact-to-account association
+
+**Attribution changes**:
+- LinkedIn Ads: 8% → 14% of pipeline (was under-counted)
+- Direct: 35% → 18% of pipeline (was over-counted due to UTM issues)
+- Events: 12% → 23% of influenced pipeline (contacts now associated)
+- Content: 5% → 18% first-touch (duplicates merged)
+
+They were about to cut LinkedIn Ads budget by 50%. After fixing data, they increased it.
+
+## Model Selection Matters Less Than You Think
+
+Teams debate first-touch vs. last-touch vs. algorithmic attribution. But when data quality is poor, all models are wrong.
+
+| Model | What It Measures | Data Dependency |
+|-------|-----------------|-----------------|
+| First-touch | Initial source | Requires accurate lead source |
+| Last-touch | Closing channel | Requires complete touchpoint capture |
+| Linear | All touches equally | Requires all touchpoints linked to single contact |
+| Time-decay | Recent touches weighted | Requires accurate timestamps |
+| Algorithmic | ML-determined weights | Requires high-volume, clean data |
+
+With dirty data, first-touch credits the wrong source. Last-touch misses the journey. Linear double-counts duplicates. Algorithmic learns from noise.
+
+The model matters far less than whether the data feeding it is accurate.
+
+## Frequently Asked Questions
+
+### Which attribution model should I use?
+
+Start with position-based (40% first, 40% last, 20% middle) as a reasonable baseline. But fix your data quality first—the model matters less than the data.
+
+### How do I track dark social and word-of-mouth?
+
+You can't perfectly track it. Add "How did you hear about us?" to forms with an "Other" option. This captures some dark social. Accept that attribution will never be 100% complete.
+
+### How often should I clean attribution data?
+
+Deduplicate continuously (prevent on entry). Audit lead source monthly. Full data cleanup quarterly. Re-enrich contacts before major attribution reports.
+
+### Can I trust algorithmic attribution?
+
+Only if your data quality is high and you have sufficient volume (usually 1,000+ closed deals). Algorithmic models amplify data quality issues—garbage in, garbage out faster.
+
+### What's the ROI of fixing attribution data?
+
+If you're making budget decisions based on attribution, the ROI is enormous. One company avoided a bad $500K budget cut because fixed data revealed the true channel performance.
+
+---
+
+Stop debating attribution models and start fixing your data. Clean, complete, deduplicated data makes any model more accurate. [Start with data enrichment](/product/waterfall-enrichment) and build from there.
