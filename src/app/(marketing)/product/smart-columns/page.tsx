@@ -18,6 +18,16 @@ import {
   Cpu,
   Gear,
   Shield,
+  Buildings,
+  Target,
+  Users,
+  Briefcase,
+  Globe,
+  Envelope,
+  Phone,
+  LinkedinLogo,
+  ChartBar,
+  Database,
 } from "@/components/icons";
 import { TechnicalGrid, VerticalStepper, GlowCard, GlowIcon } from "@/components/ui";
 
@@ -305,84 +315,140 @@ export default function SmartColumnsPage() {
               ]}
             />
 
-            {/* Example Card */}
+            {/* Example Card - Enhanced Context */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <div className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
-                <div className="flex items-center gap-2 mb-4">
-                  <Sparkle className="text-[#3e8aff]" />
-                  <span className={`text-sm font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Live Example</span>
-                </div>
-
-                {/* Prompt */}
-                <div className="p-3 rounded-lg bg-[#3e8aff]/5 border border-[#3e8aff]/20 mb-6">
-                  <div className="text-xs text-gray-500 mb-1">Your prompt:</div>
-                  <div className="text-sm text-[#3e8aff] font-mono">
-                    &quot;Standardize job titles to seniority levels: C-Level, VP, Director, Manager, IC&quot;
+              <div className={`p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-2xl`}>
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center">
+                    <Sparkle className="text-white" width={20} height={20} />
+                  </div>
+                  <div>
+                    <span className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Live Enrichment Example</span>
+                    <p className="text-xs text-gray-500">Adding context for personalized outreach</p>
                   </div>
                 </div>
 
-                {/* Before/After */}
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">
-                      Before
+                {/* Before - Basic Data */}
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      Original Data
                     </div>
-                    <div className="space-y-2">
-                      {[
-                        "VP of Sales",
-                        "Vice President, Marketing",
-                        "Sales VP",
-                        "Chief Executive Officer",
-                        "Head of Engineering",
-                        "Senior Account Executive",
-                        "Director of BD",
-                      ].map((title, i) => (
-                        <div
-                          key={i}
-                          className={`p-2 rounded bg-red-500/5 border border-red-500/20 text-xs ${isDark ? "text-gray-400" : "text-gray-600"}`}
-                        >
-                          {title}
-                        </div>
-                      ))}
+                    <div className="flex-1 h-px bg-gradient-to-r from-gray-500/20 to-transparent" />
+                  </div>
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-red-500/5 border-red-500/20" : "bg-red-50 border-red-200"} border-2`}>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div>
+                        <div className="text-[10px] text-gray-500 uppercase mb-1">Name</div>
+                        <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>Sarah Chen</div>
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-gray-500 uppercase mb-1">Email</div>
+                        <div className={`text-sm font-medium ${isDark ? "text-gray-300" : "text-gray-700"}`}>sarah@acme.io</div>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">
-                      After
+                </div>
+
+                {/* Arrow Indicator */}
+                <div className="flex items-center gap-2 my-4">
+                  <div className="text-xs font-semibold text-[#3e8aff]">+ 6 Smart Columns</div>
+                  <motion.div
+                    animate={{ y: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    className="text-[#3e8aff]"
+                  >
+                    <CaretRight className="rotate-90" width={16} height={16} />
+                  </motion.div>
+                </div>
+
+                {/* After - Enriched Context */}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="text-xs font-semibold text-green-500 uppercase tracking-wider">
+                      Enriched for Outreach
                     </div>
-                    <div className="space-y-2">
+                    <div className="flex-1 h-px bg-gradient-to-r from-green-500/20 to-transparent" />
+                  </div>
+                  <div className={`p-4 rounded-xl ${isDark ? "bg-green-500/5 border-green-500/20" : "bg-green-50 border-green-200"} border-2`}>
+                    <div className="space-y-3">
                       {[
-                        "VP",
-                        "VP",
-                        "VP",
-                        "C-Level",
-                        "Director",
-                        "IC",
-                        "Director",
-                      ].map((title, i) => (
+                        {
+                          icon: <Buildings width={14} height={14} />,
+                          label: "Company Context",
+                          value: "Series B SaaS, 150 employees, $25M ARR",
+                          type: "Enrich Company"
+                        },
+                        {
+                          icon: <Target width={14} height={14} />,
+                          label: "ICP Score",
+                          value: "92/100 - Perfect fit",
+                          type: "ICP Analysis"
+                        },
+                        {
+                          icon: <Users width={14} height={14} />,
+                          label: "Recent Activity",
+                          value: "Posted about scaling sales team last week",
+                          type: "LinkedIn Research"
+                        },
+                        {
+                          icon: <Briefcase width={14} height={14} />,
+                          label: "Competitors",
+                          value: "Using Salesforce, Outreach, Apollo",
+                          type: "Find Competitors"
+                        },
+                        {
+                          icon: <Globe width={14} height={14} />,
+                          label: "Tech Stack",
+                          value: "React, AWS, Segment, Intercom",
+                          type: "Website Analysis"
+                        },
+                        {
+                          icon: <Envelope width={14} height={14} />,
+                          label: "Email Opening",
+                          value: "\"Saw your post on scaling - we help Series B...\"",
+                          type: "AI Generated"
+                        },
+                      ].map((item, i) => (
                         <motion.div
                           key={i}
-                          initial={{ opacity: 0, x: 10 }}
+                          initial={{ opacity: 0, x: -10 }}
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ delay: i * 0.1 }}
-                          className={`p-2 rounded bg-green-500/5 border border-green-500/20 text-xs ${isDark ? "text-gray-300" : "text-gray-700"}`}
+                          className={`flex items-start gap-3 p-3 rounded-lg ${isDark ? "bg-white/[0.03]" : "bg-white/60"}`}
                         >
-                          {title}
+                          <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                            <div className="text-green-500">{item.icon}</div>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 mb-0.5">
+                              <div className={`text-xs font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{item.label}</div>
+                              <div className="px-1.5 py-0.5 rounded text-[9px] font-medium bg-green-500/10 text-green-600">
+                                {item.type}
+                              </div>
+                            </div>
+                            <div className="text-xs text-gray-500 line-clamp-1">{item.value}</div>
+                          </div>
                         </motion.div>
                       ))}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 mt-4 text-xs text-green-500">
-                  <Check />
-                  7 rows normalized in 0.3s
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-white/[0.05]">
+                  <div className="flex items-center gap-2 text-xs text-green-500">
+                    <Check width={14} height={14} />
+                    6 columns added in 2.1s
+                  </div>
+                  <div className="text-[10px] text-gray-500">
+                    Context for personalized outreach
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -413,61 +479,97 @@ export default function SmartColumnsPage() {
                 title: "Clean First Name",
                 description: "Extract and format first names from full name fields",
                 category: "Data Cleanup",
+                icon: <Users width={24} height={24} />,
+                color: "from-blue-500 to-blue-600",
+                bgColor: "blue",
               },
               {
                 title: "Format Phone",
                 description: "Standardize phone numbers to consistent formats",
                 category: "Data Cleanup",
+                icon: <Phone width={24} height={24} />,
+                color: "from-blue-500 to-blue-600",
+                bgColor: "blue",
               },
               {
                 title: "Email Validation",
                 description: "Verify email deliverability and catch bounces",
                 category: "Validation",
+                icon: <Shield width={24} height={24} />,
+                color: "from-green-500 to-green-600",
+                bgColor: "green",
               },
               {
                 title: "Enrich Company",
                 description: "Add firmographic data like size, industry, and revenue",
                 category: "Enrichment",
+                icon: <Buildings width={24} height={24} />,
+                color: "from-purple-500 to-purple-600",
+                bgColor: "purple",
               },
               {
                 title: "LinkedIn Research",
                 description: "Pull data from LinkedIn profiles automatically",
                 category: "Research",
+                icon: <LinkedinLogo width={24} height={24} />,
+                color: "from-indigo-500 to-indigo-600",
+                bgColor: "indigo",
               },
               {
                 title: "Website Analysis",
                 description: "Extract key information from company websites",
                 category: "Research",
+                icon: <Globe width={24} height={24} />,
+                color: "from-teal-500 to-teal-600",
+                bgColor: "teal",
               },
               {
                 title: "Find Competitors",
                 description: "Discover competitors for any company",
                 category: "Research",
+                icon: <Target width={24} height={24} />,
+                color: "from-orange-500 to-orange-600",
+                bgColor: "orange",
               },
               {
                 title: "Find Similar Companies",
                 description: "Identify lookalike companies based on attributes",
                 category: "Research",
+                icon: <Briefcase width={24} height={24} />,
+                color: "from-pink-500 to-pink-600",
+                bgColor: "pink",
               },
               {
                 title: "ICP Fit Analysis",
                 description: "Score leads against your ideal customer profile",
                 category: "AI Analysis",
+                icon: <ChartBar width={24} height={24} />,
+                color: "from-yellow-500 to-yellow-600",
+                bgColor: "yellow",
               },
               {
                 title: "Cold Intro Email",
                 description: "Generate personalized outreach emails with AI",
                 category: "AI Generation",
+                icon: <Envelope width={24} height={24} />,
+                color: "from-red-500 to-red-600",
+                bgColor: "red",
               },
               {
                 title: "Custom AI",
                 description: "Create any transformation with natural language prompts",
                 category: "AI",
+                icon: <Brain width={24} height={24} />,
+                color: "from-violet-500 to-violet-600",
+                bgColor: "violet",
               },
               {
                 title: "CRM Contact Lookup",
                 description: "Check if contact exists in your CRM before adding",
                 category: "CRM",
+                icon: <Database width={24} height={24} />,
+                color: "from-cyan-500 to-cyan-600",
+                bgColor: "cyan",
               },
             ].map((column, index) => (
               <motion.div
@@ -476,115 +578,51 @@ export default function SmartColumnsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors`}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className={`relative p-6 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-lg group overflow-hidden cursor-pointer`}
               >
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className={`text-xl md:text-2xl lg:text-3xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{column.title}</h3>
-                  <span className="text-xs px-2 py-1 rounded-full bg-[#3e8aff]/10 text-[#3e8aff]">
+                {/* Animated gradient background */}
+                <div className={`absolute inset-0 bg-gradient-to-br from-${column.bgColor}-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
+                <div className="relative">
+                  {/* Icon */}
+                  <div className="relative inline-block mb-4">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${column.color} rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
+                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${column.color} flex items-center justify-center shadow-lg`}>
+                      <div className="text-white">{column.icon}</div>
+                    </div>
+                  </div>
+
+                  {/* Category Badge */}
+                  <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold mb-3 ${
+                    isDark ? "bg-[#3e8aff]/10 text-[#3e8aff] border border-[#3e8aff]/20" : "bg-blue-50 text-blue-600 border border-blue-200"
+                  }`}>
                     {column.category}
-                  </span>
+                  </div>
+
+                  <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"} group-hover:text-[#3e8aff] transition-colors`}>
+                    {column.title}
+                  </h3>
+
+                  <p className={`text-sm leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                    {column.description}
+                  </p>
                 </div>
-                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>{column.description}</p>
+
+                {/* Hover arrow indicator */}
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-8 h-8 rounded-full bg-[#3e8aff]/10 flex items-center justify-center">
+                    <ArrowRight className="text-[#3e8aff]" width={16} height={16} />
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Custom Prompts */}
+      {/* Integration - Redesigned */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
-                <GlowIcon icon={<Brain />} size="xs" color="blue" variant="ghost" />
-                Custom AI Prompts
-              </div>
-              <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
-                Unlimited Possibilities
-              </h2>
-              <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
-                Beyond built-in rules, create any transformation with natural language.
-                Our GPT-4 engine understands context and handles edge cases.
-              </p>
-
-              <div className="space-y-4">
-                {[
-                  {
-                    prompt: '"If title contains Sales, output Sales; if Marketing, output Marketing; else Other"',
-                    result: "Rule-based categorization",
-                  },
-                  {
-                    prompt: '"Translate company industry to NAICS codes"',
-                    result: "Industry standardization",
-                  },
-                  {
-                    prompt: '"Score job titles 1-10 for decision-making authority"',
-                    result: "Lead scoring",
-                  },
-                ].map((example, i) => (
-                  <div
-                    key={i}
-                    className={`p-4 rounded-lg ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}
-                  >
-                    <div className="text-sm text-[#3e8aff] font-mono mb-2">{example.prompt}</div>
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <ArrowsLeftRight />
-                      {example.result}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <Link
-                href="#"
-                className="inline-flex items-center gap-2 mt-8 text-[#3e8aff] hover:underline"
-              >
-                See prompt library <CaretRight />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="p-6 rounded-xl bg-gradient-to-br from-[#3e8aff]/10 to-transparent border border-[#3e8aff]/20"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <GlowIcon icon={<Brain />} size="md" color="blue" variant="glow" />
-                <div>
-                  <div className={`${isDark ? "text-white" : "text-gray-900"} font-medium`}>GPT-4 Powered</div>
-                  <div className="text-xs text-gray-500">Latest AI model</div>
-                </div>
-              </div>
-
-              <div className={`space-y-4 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                <p>
-                  Smart Columns uses OpenAI&apos;s GPT-4 model—the same technology behind
-                  ChatGPT—to understand your transformation requests.
-                </p>
-                <p>
-                  This means it can handle complex, context-dependent transformations
-                  that traditional rule-based systems cannot.
-                </p>
-                <div className={`pt-4 border-t ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"}`}>
-                  <div className="flex items-center gap-2 text-green-500 text-xs">
-                    <Shield />
-                    Your data is never used for model training
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Integration */}
-      <section className={`py-24 ${isDark ? "bg-[#080808]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -594,101 +632,125 @@ export default function SmartColumnsPage() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-4">
               <GlowIcon icon={<ArrowsClockwise />} size="xs" color="blue" variant="ghost" />
-              Flexible Integration
+              Flexible Workflow
             </div>
             <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
-              Works With Your Data
+              Fits Into Your Existing Workflow
             </h2>
-            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
-              Import from any source, transform with AI, export anywhere.
+            <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-3xl mx-auto`}>
+              Upload your data, run Smart Columns, and export enriched results—all in minutes.
             </p>
           </motion.div>
 
-          {/* Flow Steps */}
-          <div className="relative">
-            {/* Connection Arrows (Desktop) */}
-            <div className="hidden lg:flex absolute top-1/2 left-0 right-0 -translate-y-1/2 justify-center gap-[calc(33.33%-60px)] px-20 pointer-events-none z-10">
-              <div className="flex items-center">
-                <div className={`w-16 h-0.5 ${isDark ? "bg-[#3e8aff]/40" : "bg-[#3e8aff]/30"}`} />
-                <ArrowRight className={`w-5 h-5 -ml-1 ${isDark ? "text-[#3e8aff]/60" : "text-[#3e8aff]/50"}`} />
-              </div>
-              <div className="flex items-center">
-                <div className={`w-16 h-0.5 ${isDark ? "bg-[#3e8aff]/40" : "bg-[#3e8aff]/30"}`} />
-                <ArrowRight className={`w-5 h-5 -ml-1 ${isDark ? "text-[#3e8aff]/60" : "text-[#3e8aff]/50"}`} />
-              </div>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6 lg:gap-8 relative">
+          {/* Flow Steps - Improved Design */}
+          <div className="relative max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 relative">
               {[
                 {
-                  icon: <FileXls />,
-                  title: "Import Sources",
+                  icon: <FileXls width={28} height={28} />,
+                  title: "Upload Your List",
                   step: "01",
-                  description: "Bring your data from anywhere",
-                  items: ["CSV Upload", "Excel Files", "Google Sheets", "API Integration"],
+                  color: "from-blue-500 to-blue-600",
+                  examples: [
+                    { label: "CSV file with 1,000 leads", icon: "📄" },
+                    { label: "Google Sheet from prospecting", icon: "📊" },
+                    { label: "Excel export from trade show", icon: "📈" },
+                  ],
                 },
                 {
-                  icon: <Sparkle />,
-                  title: "Transform With AI",
+                  icon: <Sparkle width={28} height={28} />,
+                  title: "Add Smart Columns",
                   step: "02",
-                  description: "AI-powered transformations",
-                  items: ["Built-in Rules", "Custom Prompts", "Batch Processing", "Real-time Preview"],
+                  color: "from-purple-500 to-purple-600",
+                  examples: [
+                    { label: "Company enrichment (industry, size)", icon: "🏢" },
+                    { label: "ICP scoring (0-100 fit score)", icon: "🎯" },
+                    { label: "AI-generated email openers", icon: "✉️" },
+                  ],
                 },
                 {
-                  icon: <ArrowsClockwise />,
-                  title: "Export Anywhere",
+                  icon: <Lightning width={28} height={28} />,
+                  title: "Export & Use",
                   step: "03",
-                  description: "Send to any destination",
-                  items: ["Download CSV", "Push to CRM", "Webhook Delivery", "API Response"],
+                  color: "from-green-500 to-green-600",
+                  examples: [
+                    { label: "Download enriched CSV", icon: "⬇️" },
+                    { label: "Push to Salesforce CRM", icon: "☁️" },
+                    { label: "Send to Outreach/Apollo", icon: "🚀" },
+                  ],
                 },
               ].map((step, index) => (
                 <motion.div
                   key={step.title}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                  className={`group relative p-6 lg:p-8 rounded-2xl ${isDark ? "bg-[#0a0a0a] hover:bg-[#0d0d0d]" : "bg-white hover:shadow-xl"} border ${isDark ? "border-white/[0.08] hover:border-[#3e8aff]/30" : "border-gray-200 hover:border-[#3e8aff]/30"} shadow-lg transition-all duration-300`}
+                  transition={{ delay: index * 0.2, type: "spring", stiffness: 100 }}
+                  className="relative"
                 >
-                  {/* Step Number Badge */}
-                  <div className="absolute -top-3 left-6">
-                    <span className="px-3 py-1.5 text-xs font-bold bg-gradient-to-r from-[#3e8aff] to-[#60a5fa] text-white rounded-full shadow-lg shadow-[#3e8aff]/25">
-                      Step {step.step}
-                    </span>
-                  </div>
+                  {/* Connecting line (desktop only) */}
+                  {index < 2 && (
+                    <div className="hidden md:block absolute top-20 left-full w-8 h-0.5 bg-gradient-to-r from-[#3e8aff] to-transparent z-0" />
+                  )}
 
-                  {/* Icon */}
-                  <div className="mb-5 pt-3">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${isDark ? "bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5" : "bg-gradient-to-br from-[#3e8aff]/10 to-[#3e8aff]/5"} border ${isDark ? "border-[#3e8aff]/20" : "border-[#3e8aff]/15"} group-hover:scale-105 transition-transform duration-300`}>
-                      <div className="text-[#3e8aff] text-2xl">
-                        {step.icon}
+                  <div className={`relative p-8 rounded-2xl ${isDark ? "bg-gradient-to-br from-[#0a0a0a] to-[#0f0f0f] border-white/[0.08]" : "bg-gradient-to-br from-white to-gray-50 border-gray-200"} border-2 shadow-xl group hover:shadow-2xl transition-all duration-300`}>
+                    {/* Step Badge */}
+                    <div className="absolute -top-4 -left-4">
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg text-white font-bold text-lg`}>
+                        {step.step}
                       </div>
                     </div>
-                  </div>
 
-                  <h3 className={`text-lg md:text-xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>
-                    {step.title}
-                  </h3>
-                  <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-500"} mb-5`}>
-                    {step.description}
-                  </p>
-
-                  <div className={`space-y-2 p-4 rounded-xl ${isDark ? "bg-white/[0.02]" : "bg-gray-50"}`}>
-                    {step.items.map((item) => (
-                      <div
-                        key={item}
-                        className={`flex items-center gap-3 text-sm ${isDark ? "text-gray-300" : "text-gray-700"}`}
-                      >
-                        <div className={`w-5 h-5 rounded-full flex items-center justify-center ${isDark ? "bg-[#3e8aff]/20" : "bg-[#3e8aff]/10"}`}>
-                          <Check className="w-3 h-3 text-[#3e8aff]" />
-                        </div>
-                        {item}
+                    {/* Icon with glow */}
+                    <div className="relative inline-block mb-6">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${step.color} rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
+                      <div className={`relative w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
+                        <div className="text-white">{step.icon}</div>
                       </div>
-                    ))}
+                    </div>
+
+                    <h3 className={`text-xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+                      {step.title}
+                    </h3>
+
+                    {/* Real Examples */}
+                    <div className="space-y-3">
+                      {step.examples.map((example, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.2 + (i * 0.1) }}
+                          className={`flex items-start gap-3 p-3 rounded-xl ${isDark ? "bg-white/[0.03]" : "bg-gray-50"} group-hover:bg-[#3e8aff]/5 transition-colors`}
+                        >
+                          <span className="text-xl flex-shrink-0">{example.icon}</span>
+                          <div className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"} leading-relaxed`}>
+                            {example.label}
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            {/* Bottom CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="mt-16 text-center"
+            >
+              <div className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl ${isDark ? "bg-[#3e8aff]/10 border border-[#3e8aff]/20" : "bg-blue-50 border border-blue-200"}`}>
+                <Lightning className="text-[#3e8aff]" width={20} height={20} />
+                <span className={`text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
+                  Average processing time: <span className="text-[#3e8aff]">2-3 seconds per row</span>
+                </span>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
