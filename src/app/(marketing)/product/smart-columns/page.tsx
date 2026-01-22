@@ -57,7 +57,7 @@ export default function SmartColumnsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
+              className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
             >
               Smart{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
@@ -255,7 +255,7 @@ export default function SmartColumnsPage() {
               <GlowIcon icon={<MagicWand />} size="xs" color="blue" variant="ghost" />
               Natural Language
             </div>
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Describe What You Want
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -399,7 +399,7 @@ export default function SmartColumnsPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               12 Smart Column Types
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -479,7 +479,7 @@ export default function SmartColumnsPage() {
                 className={`p-6 rounded-xl ${isDark ? "bg-[#0a0a0a]" : "bg-white/70"} border ${isDark ? "border-white/[0.08]" : "border-black/[0.08]"} hover:border-[#3e8aff]/30 transition-colors`}
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className={`text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{column.title}</h3>
+                  <h3 className={`text-lg md:text-xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>{column.title}</h3>
                   <span className="text-xs px-2 py-1 rounded-full bg-[#3e8aff]/10 text-[#3e8aff]">
                     {column.category}
                   </span>
@@ -504,7 +504,7 @@ export default function SmartColumnsPage() {
                 <GlowIcon icon={<Brain />} size="xs" color="blue" variant="ghost" />
                 Custom AI Prompts
               </div>
-              <h2 className={`text-4xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+              <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
                 Unlimited Possibilities
               </h2>
               <p className={`text-lg ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}>
@@ -596,7 +596,7 @@ export default function SmartColumnsPage() {
               <GlowIcon icon={<ArrowsClockwise />} size="xs" color="blue" variant="ghost" />
               Flexible Integration
             </div>
-            <h2 className={`text-4xl md:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
               Works With Your Data
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
@@ -666,7 +666,7 @@ export default function SmartColumnsPage() {
                     </div>
                   </div>
 
-                  <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>
+                  <h3 className={`text-lg md:text-xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-2`}>
                     {step.title}
                   </h3>
                   <p className={`text-sm ${isDark ? "text-gray-500" : "text-gray-500"} mb-5`}>
