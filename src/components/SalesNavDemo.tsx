@@ -34,8 +34,6 @@ const sampleLeads: Lead[] = [
   { id: 2, name: "Michael Rodriguez", title: "Head of Revenue", company: "ScaleUp Labs", location: "Austin, TX" },
   { id: 3, name: "Emily Watson", title: "CRO", company: "GrowthOS", location: "New York, NY" },
   { id: 4, name: "James Park", title: "Director of Sales", company: "DataFlow", location: "Seattle, WA" },
-  { id: 5, name: "Lisa Thompson", title: "VP Business Dev", company: "CloudFirst", location: "Boston, MA" },
-  { id: 6, name: "David Kim", title: "Sales Manager", company: "InnovateTech", location: "Chicago, IL" },
 ];
 
 const enrichmentData: Record<number, { email: string; phone: string }> = {
@@ -43,8 +41,6 @@ const enrichmentData: Record<number, { email: string; phone: string }> = {
   2: { email: "m.rodriguez@scaleuplabs.com", phone: "+1 (512) 555-0124" },
   3: { email: "emily.watson@growthos.io", phone: "+1 (212) 555-0125" },
   4: { email: "james.park@dataflow.com", phone: "+1 (206) 555-0126" },
-  5: { email: "l.thompson@cloudfirst.io", phone: "+1 (617) 555-0127" },
-  6: { email: "david.kim@innovatetech.com", phone: "+1 (312) 555-0128" },
 };
 
 type DemoStage = "idle" | "selecting" | "exporting" | "enriching" | "complete";

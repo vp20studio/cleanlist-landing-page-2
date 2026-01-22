@@ -479,7 +479,7 @@ export default function SmartColumnsPage() {
                 title: "Clean First Name",
                 description: "Extract and format first names from full name fields",
                 category: "Data Cleanup",
-                icon: <Users width={24} height={24} />,
+                icon: <Users width={32} height={32} />,
                 color: "from-blue-500 to-blue-600",
                 bgColor: "blue",
               },
@@ -487,7 +487,7 @@ export default function SmartColumnsPage() {
                 title: "Format Phone",
                 description: "Standardize phone numbers to consistent formats",
                 category: "Data Cleanup",
-                icon: <Phone width={24} height={24} />,
+                icon: <Phone width={32} height={32} />,
                 color: "from-blue-500 to-blue-600",
                 bgColor: "blue",
               },
@@ -495,7 +495,7 @@ export default function SmartColumnsPage() {
                 title: "Email Validation",
                 description: "Verify email deliverability and catch bounces",
                 category: "Validation",
-                icon: <Shield width={24} height={24} />,
+                icon: <Shield width={32} height={32} />,
                 color: "from-green-500 to-green-600",
                 bgColor: "green",
               },
@@ -503,7 +503,7 @@ export default function SmartColumnsPage() {
                 title: "Enrich Company",
                 description: "Add firmographic data like size, industry, and revenue",
                 category: "Enrichment",
-                icon: <Buildings width={24} height={24} />,
+                icon: <Buildings width={32} height={32} />,
                 color: "from-purple-500 to-purple-600",
                 bgColor: "purple",
               },
@@ -511,7 +511,7 @@ export default function SmartColumnsPage() {
                 title: "LinkedIn Research",
                 description: "Pull data from LinkedIn profiles automatically",
                 category: "Research",
-                icon: <LinkedinLogo width={24} height={24} />,
+                icon: <LinkedinLogo width={32} height={32} />,
                 color: "from-indigo-500 to-indigo-600",
                 bgColor: "indigo",
               },
@@ -519,7 +519,7 @@ export default function SmartColumnsPage() {
                 title: "Website Analysis",
                 description: "Extract key information from company websites",
                 category: "Research",
-                icon: <Globe width={24} height={24} />,
+                icon: <Globe width={32} height={32} />,
                 color: "from-teal-500 to-teal-600",
                 bgColor: "teal",
               },
@@ -527,7 +527,7 @@ export default function SmartColumnsPage() {
                 title: "Find Competitors",
                 description: "Discover competitors for any company",
                 category: "Research",
-                icon: <Target width={24} height={24} />,
+                icon: <Target width={32} height={32} />,
                 color: "from-orange-500 to-orange-600",
                 bgColor: "orange",
               },
@@ -535,7 +535,7 @@ export default function SmartColumnsPage() {
                 title: "Find Similar Companies",
                 description: "Identify lookalike companies based on attributes",
                 category: "Research",
-                icon: <Briefcase width={24} height={24} />,
+                icon: <Briefcase width={32} height={32} />,
                 color: "from-pink-500 to-pink-600",
                 bgColor: "pink",
               },
@@ -543,7 +543,7 @@ export default function SmartColumnsPage() {
                 title: "ICP Fit Analysis",
                 description: "Score leads against your ideal customer profile",
                 category: "AI Analysis",
-                icon: <ChartBar width={24} height={24} />,
+                icon: <ChartBar width={32} height={32} />,
                 color: "from-yellow-500 to-yellow-600",
                 bgColor: "yellow",
               },
@@ -551,7 +551,7 @@ export default function SmartColumnsPage() {
                 title: "Cold Intro Email",
                 description: "Generate personalized outreach emails with AI",
                 category: "AI Generation",
-                icon: <Envelope width={24} height={24} />,
+                icon: <Envelope width={32} height={32} />,
                 color: "from-red-500 to-red-600",
                 bgColor: "red",
               },
@@ -559,7 +559,7 @@ export default function SmartColumnsPage() {
                 title: "Custom AI",
                 description: "Create any transformation with natural language prompts",
                 category: "AI",
-                icon: <Brain width={24} height={24} />,
+                icon: <Brain width={32} height={32} />,
                 color: "from-violet-500 to-violet-600",
                 bgColor: "violet",
               },
@@ -567,7 +567,7 @@ export default function SmartColumnsPage() {
                 title: "CRM Contact Lookup",
                 description: "Check if contact exists in your CRM before adding",
                 category: "CRM",
-                icon: <Database width={24} height={24} />,
+                icon: <Database width={32} height={32} />,
                 color: "from-cyan-500 to-cyan-600",
                 bgColor: "cyan",
               },
@@ -586,15 +586,15 @@ export default function SmartColumnsPage() {
 
                 <div className="relative">
                   {/* Icon */}
-                  <div className="relative inline-block mb-4">
+                  <div className="relative inline-block mb-5">
                     <div className={`absolute inset-0 bg-gradient-to-br ${column.color} rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${column.color} flex items-center justify-center shadow-lg`}>
+                    <div className={`relative w-16 h-16 rounded-xl bg-gradient-to-br ${column.color} flex items-center justify-center shadow-lg`}>
                       <div className="text-white">{column.icon}</div>
                     </div>
                   </div>
 
                   {/* Category Badge */}
-                  <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold mb-3 ${
+                  <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold mb-4 ${
                     isDark ? "bg-[#3e8aff]/10 text-[#3e8aff] border border-[#3e8aff]/20" : "bg-blue-50 text-blue-600 border border-blue-200"
                   }`}>
                     {column.category}

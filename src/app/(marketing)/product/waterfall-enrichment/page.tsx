@@ -300,8 +300,8 @@ export default function WaterfallEnrichmentPage() {
                 >
                   <div className="text-xs font-semibold text-[#3e8aff] mb-3 tracking-wider">INPUT RECORD</div>
                   <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
-                      <User className="text-white" width={24} height={24} />
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
+                      <User className="text-white" width={32} height={32} />
                     </div>
                     <div>
                       <div className={`text-base font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>John Smith</div>
@@ -410,12 +410,12 @@ export default function WaterfallEnrichmentPage() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { icon: <Envelope width={16} height={16} />, value: "john@acme.com", label: "Work Email" },
-                      { icon: <Phone width={16} height={16} />, value: "+1 (555) 123-4567", label: "Direct Dial" },
-                      { icon: <Buildings width={16} height={16} />, value: "Acme Corporation", label: "Company" },
-                      { icon: <Briefcase width={16} height={16} />, value: "VP of Sales", label: "Title" },
-                      { icon: <MapPin width={16} height={16} />, value: "San Francisco, CA", label: "Location" },
-                      { icon: <LinkIcon width={16} height={16} />, value: "linkedin.com/in/jsmith", label: "LinkedIn" },
+                      { icon: <Envelope width={20} height={20} />, value: "john@acme.com", label: "Work Email" },
+                      { icon: <Phone width={20} height={20} />, value: "+1 (555) 123-4567", label: "Direct Dial" },
+                      { icon: <Buildings width={20} height={20} />, value: "Acme Corporation", label: "Company" },
+                      { icon: <Briefcase width={20} height={20} />, value: "VP of Sales", label: "Title" },
+                      { icon: <MapPin width={20} height={20} />, value: "San Francisco, CA", label: "Location" },
+                      { icon: <LinkIcon width={20} height={20} />, value: "linkedin.com/in/jsmith", label: "LinkedIn" },
                     ].map((item, i) => (
                       <motion.div
                         key={item.label}
@@ -425,7 +425,7 @@ export default function WaterfallEnrichmentPage() {
                         transition={{ delay: 0.5 + (i * 0.05) }}
                         className={`flex items-start gap-3 p-3 rounded-lg ${isDark ? "bg-white/[0.03]" : "bg-white/50"}`}
                       >
-                        <div className="w-8 h-8 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center flex-shrink-0">
                           <div className="text-[#3e8aff]">{item.icon}</div>
                         </div>
                         <div className="min-w-0 flex-1">
@@ -482,7 +482,7 @@ export default function WaterfallEnrichmentPage() {
                 <div className="relative inline-block mb-6">
                   <div className="absolute inset-0 bg-[#3e8aff]/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] flex items-center justify-center shadow-lg">
-                    <Envelope className="text-white" width={28} height={28} />
+                    <Envelope className="text-white" width={32} height={32} />
                   </div>
                 </div>
 
@@ -571,7 +571,7 @@ export default function WaterfallEnrichmentPage() {
                 <div className="relative inline-block mb-6">
                   <div className="absolute inset-0 bg-white/30 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
                   <div className="relative w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-lg">
-                    <Phone className="text-white" width={28} height={28} />
+                    <Phone className="text-white" width={32} height={32} />
                   </div>
                 </div>
 
@@ -670,8 +670,8 @@ export default function WaterfallEnrichmentPage() {
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative">
                     <div className="absolute inset-0 bg-blue-500/20 rounded-xl blur-lg" />
-                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
-                      <User className="text-white" width={24} height={24} />
+                    <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg">
+                      <User className="text-white" width={32} height={32} />
                     </div>
                   </div>
                   <div>
@@ -733,8 +733,8 @@ export default function WaterfallEnrichmentPage() {
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative">
                     <div className="absolute inset-0 bg-purple-500/20 rounded-xl blur-lg" />
-                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
-                      <Buildings className="text-white" width={24} height={24} />
+                    <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center shadow-lg">
+                      <Buildings className="text-white" width={32} height={32} />
                     </div>
                   </div>
                   <div>
@@ -791,8 +791,8 @@ export default function WaterfallEnrichmentPage() {
                 <div className="flex items-start gap-4 mb-6">
                   <div className="relative">
                     <div className="absolute inset-0 bg-yellow-500/20 rounded-xl blur-lg" />
-                    <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center shadow-lg">
-                      <ChartBar className="text-white" width={24} height={24} />
+                    <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600 flex items-center justify-center shadow-lg">
+                      <ChartBar className="text-white" width={32} height={32} />
                     </div>
                   </div>
                   <div>
@@ -928,15 +928,15 @@ export default function WaterfallEnrichmentPage() {
 
                 <div className="relative">
                   {/* Icon with animated glow */}
-                  <div className="relative inline-block mb-4">
+                  <div className="relative inline-block mb-5">
                     <div className={`absolute inset-0 bg-gradient-to-br ${useCase.iconColor} rounded-xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
-                    <div className={`relative w-14 h-14 rounded-xl bg-gradient-to-br ${useCase.iconColor} flex items-center justify-center shadow-lg`}>
+                    <div className={`relative w-16 h-16 rounded-xl bg-gradient-to-br ${useCase.iconColor} flex items-center justify-center shadow-lg`}>
                       <div className="text-white">{useCase.icon}</div>
                     </div>
                   </div>
 
                   {/* Metric badge */}
-                  <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold mb-3 ${
+                  <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold mb-4 ${
                     isDark ? "bg-[#3e8aff]/10 text-[#3e8aff] border border-[#3e8aff]/20" : "bg-blue-50 text-blue-600 border border-blue-200"
                   }`}>
                     <Lightning width={10} height={10} />
