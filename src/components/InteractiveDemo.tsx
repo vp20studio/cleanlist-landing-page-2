@@ -158,12 +158,13 @@ export default function InteractiveDemo() {
         </motion.div>
 
         {/* Demo Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {demoTabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => handleTabChange(tab.id)}
-              className={`inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium transition-all text-sm md:text-base ${
+        <div className="overflow-x-auto scrollbar-hide mb-8 -mx-4 px-4 md:mx-0 md:px-0">
+          <div className="flex md:flex-wrap md:justify-center gap-2 min-w-max md:min-w-0">
+            {demoTabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => handleTabChange(tab.id)}
+                className={`inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium transition-all text-sm md:text-base whitespace-nowrap ${
                 activeTab === tab.id
                   ? "bg-[#3e8aff] text-white shadow-lg shadow-[#3e8aff]/25"
                   : isDark
@@ -175,6 +176,7 @@ export default function InteractiveDemo() {
               {tab.label}
             </button>
           ))}
+          </div>
         </div>
 
         {/* Demo Content */}

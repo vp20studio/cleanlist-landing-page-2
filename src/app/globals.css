@@ -157,6 +157,15 @@ section, main, .container {
   }
 }
 
+/* Scrollbar utilities */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Base Styles */
 html {
   scroll-behavior: smooth;
