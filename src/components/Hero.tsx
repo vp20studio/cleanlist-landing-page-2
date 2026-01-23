@@ -78,16 +78,17 @@ export default function Hero() {
         >
           {/* Badge */}
           <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888]">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-xs sm:text-sm text-[#888888] whitespace-nowrap">
               <Sparkle width={16} height={16} className="text-[#3e8aff]" />
-              <span>Trusted by 500+ growth teams</span>
+              <span className="hidden sm:inline">Trusted by 500+ growth teams</span>
+              <span className="sm:hidden">500+ GTM teams</span>
             </span>
           </motion.div>
 
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-[1.1] px-4"
+            className="text-[2.5rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-[1.1] px-4"
           >
             Turn messy data into your{" "}
             <span className="gradient-text-blue">greatest growth lever</span>
@@ -105,11 +106,11 @@ export default function Hero() {
           {/* CTA Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-16 px-4"
           >
             <motion.a
               href="/get-started"
-              className="group relative w-full sm:w-auto px-8 py-4 text-base font-medium text-white rounded-xl overflow-hidden"
+              className="group relative w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-semibold text-white rounded-xl overflow-hidden shadow-lg"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -118,12 +119,12 @@ export default function Hero() {
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blue-glow" />
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Start cleaning for free
-                <ArrowRight width={16} height={16} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight width={18} height={18} className="group-hover:translate-x-1 transition-transform" />
               </span>
             </motion.a>
             <motion.a
               href="/demo"
-              className="w-full sm:w-auto px-8 py-4 text-base font-medium text-[#888888] hover:text-white rounded-xl border border-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.03)] transition-all duration-300"
+              className="w-full sm:w-auto px-8 py-4 text-base sm:text-lg font-semibold text-[#888888] hover:text-white rounded-xl border border-[rgba(255,255,255,0.15)] hover:border-[rgba(255,255,255,0.3)] hover:bg-[rgba(255,255,255,0.05)] transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -153,9 +154,9 @@ export default function Hero() {
               </div>
 
               {/* Dashboard Content */}
-              <div className="p-6 md:p-8">
+              <div className="p-4 sm:p-6 md:p-8">
                 {/* Stats Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6">
                   <StatsCard
                     icon={<Envelope width={20} height={20} />}
                     label="Emails Verified"
@@ -187,9 +188,9 @@ export default function Hero() {
                 </div>
 
                 {/* Processing Section */}
-                <div className="grid md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Processing State */}
-                  <div className="md:col-span-2 rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-5">
+                  <div className="md:col-span-2 rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-4 sm:p-5">
                     <div className="flex items-center justify-between mb-4">
                       <span className="text-sm font-medium text-white">
                         Data Processing
@@ -226,7 +227,7 @@ export default function Hero() {
                   </div>
 
                   {/* Quality Score */}
-                  <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-5">
+                  <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-4 sm:p-5">
                     <span className="text-sm font-medium text-white mb-4 block">
                       List Quality Score
                     </span>
@@ -340,17 +341,17 @@ function StatsCard({
   positive: boolean;
 }) {
   return (
-    <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-4">
+    <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-3 sm:p-4">
       <div className="flex items-center gap-2 mb-2 text-[#888888]">
-        {icon}
-        <span className="text-xs">{label}</span>
+        <div className="flex-shrink-0">{icon}</div>
+        <span className="text-[10px] sm:text-xs truncate">{label}</span>
       </div>
-      <div className="flex items-end justify-between">
-        <span className="text-xl md:text-2xl font-bold text-white">
+      <div className="flex items-end justify-between gap-1">
+        <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
           {value}
         </span>
         <span
-          className={`text-xs font-medium ${
+          className={`text-[10px] sm:text-xs font-medium flex-shrink-0 ${
             positive ? "text-[#22c55e]" : "text-[#ef4444]"
           }`}
         >

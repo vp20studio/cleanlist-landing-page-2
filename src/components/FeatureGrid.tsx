@@ -62,7 +62,7 @@ export default function FeatureGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16 px-4"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888] mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-xs sm:text-sm text-[#888888] mb-6 whitespace-nowrap">
             <Sparkle width={16} height={16} className="text-[#3e8aff]" />
             How it works
           </span>
@@ -168,7 +168,7 @@ function VerificationCard() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#22c55e]/20 to-[#22c55e]/5 flex items-center justify-center">
             <CheckCircle width={20} height={20} className="text-[#22c55e]" />
           </div>
-          <span className="text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] px-2.5 py-1 rounded-full">
+          <span className="text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] px-2.5 py-1 rounded-full whitespace-nowrap">
             Real-time
           </span>
         </div>
@@ -274,7 +274,7 @@ function EnrichmentCard() {
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3e8aff]/20 to-[#3e8aff]/5 flex items-center justify-center">
             <Sparkle width={20} height={20} className="text-[#3e8aff]" />
           </div>
-          <span className="text-xs font-medium text-[#3e8aff] bg-[rgba(62,138,255,0.1)] px-2.5 py-1 rounded-full">
+          <span className="text-xs font-medium text-[#3e8aff] bg-[rgba(62,138,255,0.1)] px-2.5 py-1 rounded-full whitespace-nowrap">
             AI-Powered
           </span>
         </div>
@@ -288,7 +288,7 @@ function EnrichmentCard() {
         </p>
 
         {/* Profile Enrichment Animation */}
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Input (Email) */}
           <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.3)] p-4">
             <span className="text-xs text-[#888888] block mb-2">Input</span>
@@ -522,7 +522,7 @@ const data = await response.json();
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f59e0b]/20 to-[#f59e0b]/5 flex items-center justify-center">
                 <Lightning width={20} height={20} className="text-[#f59e0b]" />
               </div>
-              <span className="text-xs font-medium text-[#f59e0b] bg-[rgba(245,158,11,0.1)] px-2.5 py-1 rounded-full">
+              <span className="text-xs font-medium text-[#f59e0b] bg-[rgba(245,158,11,0.1)] px-2.5 py-1 rounded-full whitespace-nowrap">
                 {"<"}100ms
               </span>
             </div>

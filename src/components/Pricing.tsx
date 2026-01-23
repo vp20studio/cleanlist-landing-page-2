@@ -125,13 +125,14 @@ export default function Pricing() {
 
             <button
               onClick={() => setIsYearly(!isYearly)}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-200 min-h-[44px] min-w-[56px] flex items-center ${
+              className={`relative p-1 rounded-full transition-colors duration-200 ${
                 isYearly ? "bg-[#3e8aff]" : "bg-[rgba(255,255,255,0.1)]"
               }`}
+              style={{ width: '56px', height: '32px' }}
             >
               <div
-                className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
-                  isYearly ? "left-[calc(100%-24px)]" : "left-1"
+                className={`absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-white transition-all duration-200 ease-out shadow-sm ${
+                  isYearly ? "left-[calc(100%-28px)]" : "left-1"
                 }`}
               />
             </button>

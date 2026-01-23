@@ -372,17 +372,6 @@ h6 {
 
 /* Mobile optimization */
 @media (max-width: 767px) {
-  /* Prevent horizontal overflow on all mobile devices */
-  * {
-    max-width: 100%;
-  }
-
-  /* Ensure touch targets are large enough */
-  button, a, input, select, textarea {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
   /* Better spacing for mobile */
   .container {
     padding-left: 1rem;
@@ -392,6 +381,7 @@ h6 {
   /* Responsive images */
   img {
     height: auto;
+    max-width: 100%;
   }
 
   /* Prevent text overflow */
