@@ -18,7 +18,7 @@ const footerLinks = {
   useCases: [
     { label: "Sales Teams", href: "/use-cases/sales-teams" },
     { label: "RevOps", href: "/use-cases/revops" },
-    { label: "Agencies", href: "/use-cases/agencies" },
+    { label: "Marketing Teams", href: "/use-cases/agencies" },
   ],
   resources: [
     { label: "Blog", href: "/blog" },

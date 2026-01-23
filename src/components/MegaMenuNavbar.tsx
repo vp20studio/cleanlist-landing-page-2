@@ -108,7 +108,7 @@ const useCaseItems: NavItem[] = [
     description: "Automate data hygiene at scale",
   },
   {
-    label: "Agencies",
+    label: "Marketing Teams",
     href: "/use-cases/agencies",
     icon: <Buildings />,
     description: "White-label data solutions",
@@ -510,7 +510,7 @@ export default function MegaMenuNavbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className={`lg:hidden border-t ${
+              className={`lg:hidden border-t overflow-y-auto max-h-[calc(100vh-4rem)] ${
                 theme === "dark"
                   ? "border-white/[0.08] bg-[#0a0a0a]"
                   : "border-gray-200 bg-white"

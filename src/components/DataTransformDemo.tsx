@@ -52,7 +52,7 @@ export default function DataTransformDemo() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const [stage, setStage] = useState<"idle" | "enriching" | "complete">("idle");
   const [enrichedFields, setEnrichedFields] = useState<number[]>([]);

@@ -140,17 +140,17 @@ export default function Hero() {
             {/* Main Dashboard Card */}
             <div className="relative rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.1)] bg-[#0a0a0a] blue-glow">
               {/* Window Header */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
+              <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 border-b border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)]">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-[#ef4444]" />
-                  <div className="w-3 h-3 rounded-full bg-[#f59e0b]" />
-                  <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#ef4444] shadow-[0_0_4px_rgba(239,68,68,0.4)]" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#f59e0b] shadow-[0_0_4px_rgba(245,158,11,0.4)]" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#22c55e] shadow-[0_0_4px_rgba(34,197,94,0.4)]" />
                 </div>
-                <div className="hidden sm:flex items-center gap-2 px-4 py-1.5 rounded-lg bg-[rgba(255,255,255,0.05)] text-xs text-[#888888]">
-                  <Database width={14} height={14} />
-                  <span>cleanlist-dashboard.app</span>
+                <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-4 py-1 sm:py-1.5 rounded-md sm:rounded-lg bg-[rgba(255,255,255,0.05)] border border-[rgba(255,255,255,0.08)]">
+                  <Database width={12} height={12} className="sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
+                  <span className="text-[10px] sm:text-xs text-[#888888] font-medium">cleanlist-dashboard.app</span>
                 </div>
-                <div className="w-16 hidden sm:block" />
+                <div className="w-12 sm:w-16" />
               </div>
 
               {/* Dashboard Content */}

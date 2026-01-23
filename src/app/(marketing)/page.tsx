@@ -494,48 +494,52 @@ export default function HomePage() {
                 isDark ? "border-white/[0.08]" : "border-black/[0.06]"
               }`}>
                 <div className={`border-t ${isDark ? "border-white/[0.05]" : "border-black/[0.05]"}`}>
-                  <div className="relative px-4 py-4 md:py-5">
-                    <div className={`flex flex-wrap justify-center items-center gap-6 md:gap-0 md:divide-x ${
+                  <div className="relative px-3 sm:px-4 py-3 sm:py-4 md:py-5">
+                    <div className={`grid grid-cols-2 md:flex md:flex-wrap md:justify-center items-center gap-3 sm:gap-4 md:gap-0 md:divide-x ${
                       isDark ? "md:divide-white/[0.08]" : "md:divide-black/[0.06]"
                     }`}>
 
                       {/* 15+ Providers */}
-                      <div className="flex items-center gap-2.5 px-4 md:px-6">
-                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <Stack className="w-4 h-4 text-[#3e8aff]" />
+                      <div className="flex items-center gap-2 sm:gap-2.5 px-0 md:px-6">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#3e8aff]/10 border border-[#3e8aff]/20 flex items-center justify-center flex-shrink-0">
+                          <Stack className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#3e8aff]" />
                         </div>
                         <div>
-                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</div>
+                          <div className={`text-xs sm:text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>15+ Providers</div>
+                          <div className={`text-[10px] sm:text-xs md:hidden ${isDark ? "text-gray-500" : "text-gray-500"}`}>Waterfall</div>
                         </div>
                       </div>
 
                       {/* 85% Find Rate */}
-                      <div className="flex items-center gap-2.5 px-4 md:px-6">
-                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <Phone className="w-4 h-4 text-[#3e8aff]" />
+                      <div className="flex items-center gap-2 sm:gap-2.5 px-0 md:px-6">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#22c55e]/10 border border-[#22c55e]/20 flex items-center justify-center flex-shrink-0">
+                          <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#22c55e]" />
                         </div>
                         <div>
-                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</div>
+                          <div className={`text-xs sm:text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>85% Find Rate</div>
+                          <div className={`text-[10px] sm:text-xs md:hidden ${isDark ? "text-gray-500" : "text-gray-500"}`}>Phone</div>
                         </div>
                       </div>
 
                       {/* 98% Coverage */}
-                      <div className="flex items-center gap-2.5 px-4 md:px-6">
-                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <Envelope className="w-4 h-4 text-[#3e8aff]" />
+                      <div className="flex items-center gap-2 sm:gap-2.5 px-0 md:px-6">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#f59e0b]/10 border border-[#f59e0b]/20 flex items-center justify-center flex-shrink-0">
+                          <Envelope className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#f59e0b]" />
                         </div>
                         <div>
-                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>98% Coverage</div>
+                          <div className={`text-xs sm:text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>98% Coverage</div>
+                          <div className={`text-[10px] sm:text-xs md:hidden ${isDark ? "text-gray-500" : "text-gray-500"}`}>Email</div>
                         </div>
                       </div>
 
                       {/* Waterfall Logic */}
-                      <div className="flex items-center gap-2.5 px-4 md:px-6">
-                        <div className="w-9 h-9 rounded-lg bg-[#3e8aff]/10 flex items-center justify-center">
-                          <ArrowsClockwise className="w-4 h-4 text-[#3e8aff]" />
+                      <div className="flex items-center gap-2 sm:gap-2.5 px-0 md:px-6">
+                        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-[#8b5cf6]/10 border border-[#8b5cf6]/20 flex items-center justify-center flex-shrink-0">
+                          <ArrowsClockwise className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8b5cf6]" />
                         </div>
                         <div>
-                          <div className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</div>
+                          <div className={`text-xs sm:text-sm font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Waterfall Logic</div>
+                          <div className={`text-[10px] sm:text-xs md:hidden ${isDark ? "text-gray-500" : "text-gray-500"}`}>Smart</div>
                         </div>
                       </div>
 

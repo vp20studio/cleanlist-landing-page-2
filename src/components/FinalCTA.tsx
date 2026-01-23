@@ -23,13 +23,13 @@ export default function FinalCTA() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-white">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1] tracking-tight text-white">
             Ready to transform your
             <br />
-            <span className="text-[#3e8aff]">GTM strategy?</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">GTM strategy?</span>
           </h2>
 
-          <p className="text-lg sm:text-xl md:text-2xl mb-10 text-gray-400">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed text-gray-400">
             Get 30 free credits. No credit card required.
           </p>
 
