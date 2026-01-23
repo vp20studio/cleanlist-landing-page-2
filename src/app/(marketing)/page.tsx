@@ -673,7 +673,7 @@ export default function HomePage() {
                           <div className={`w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden ${
                             col.bgcolor === "white"
                               ? "bg-white"
-                              : "bg-[#FFEB3B]"
+                              : "bg-[#f8ff2c]"
                           }`}>
                             <Image
                               src={col.favicon}
