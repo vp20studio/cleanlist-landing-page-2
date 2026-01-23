@@ -351,13 +351,12 @@ export default function HomePage() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6"
           >
-            <h1 className={`text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h1 className={`text-7xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
               The{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 GTM Playbook Engine
-              </span>
-              <br />
-              built on clean data
+              </span>{" "}
+              <span className="sm:block">built on clean data</span>
             </h1>
           </motion.div>
 
