@@ -71,7 +71,7 @@ const importMethods: ImportMethodConfig[] = [
     subtitle: "Import & live sync with your CRM",
     icon: (
       <div className="w-5 h-5 flex items-center justify-center">
-        <Image src="/images/favicons/hubspot.png" alt="HubSpot" width={20} height={20} className="w-full h-full object-contain" />
+        <Image src="/images/favicons/hubspot.webp" alt="HubSpot" width={20} height={20} className="w-full h-full object-contain" />
       </div>
     ),
     color: "#ff7a59",
@@ -621,7 +621,7 @@ export default function LeadExtractionDemo() {
                   }`}
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#ff7a59] flex items-center justify-center p-2">
-                    <Image src="/images/favicons/hubspot.png" alt="HubSpot" width={24} height={24} className="w-full h-full object-contain" />
+                    <Image src="/images/favicons/hubspot.webp" alt="HubSpot" width={24} height={24} className="w-full h-full object-contain" />
                   </div>
                   <div className="flex-1">
                     <div

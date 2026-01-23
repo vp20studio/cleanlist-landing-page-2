@@ -49,7 +49,7 @@ const dataProviders = [
 
 // All integrations for the grid (CRMs and outreach platforms)
 const allIntegrations = [
-  { name: "HubSpot", logo: "/images/integrations/hubspot.png", category: "crm", color: "#ff7a59" },
+  { name: "HubSpot", logo: "/images/integrations/hubspot.webp", category: "crm", color: "#ff7a59" },
   { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", category: "marketing", color: "#004cff" },
   { name: "Affinity", logo: "/images/integrations/affinity.svg", category: "crm", color: "#4285f4" },
   { name: "Close", logo: "/images/integrations/close.png", category: "crm", color: "#1a1a1a" },
@@ -151,7 +151,7 @@ export default function HomePage() {
 
   const renderSupportIcon = (value: boolean | string) => {
     if (value === true) return <Check className="w-5 h-5 text-green-500" />;
-    if (value === false) return <X className="w-5 h-5 text-red-400" />;
+    if (value === false) return <X className="w-6 h-6 text-red-400" />;
     return <Minus className="w-5 h-5 text-gray-400" />;
   };
 
@@ -777,7 +777,7 @@ export default function HomePage() {
                               {value === true ? (
                                 <Check className="w-4 h-4 text-green-500" />
                               ) : value === false ? (
-                                <X className="w-4 h-4 text-red-400" />
+                                <X className="w-5 h-5 text-red-400" />
                               ) : (
                                 <Minus className="w-4 h-4 text-gray-400" />
                               )}
@@ -812,7 +812,7 @@ export default function HomePage() {
                     {[
                       { icon: <Check className="w-3.5 h-3.5 text-green-500" />, label: "Full support", bg: "bg-green-500/15" },
                       { icon: <Minus className="w-3.5 h-3.5 text-gray-400" />, label: "Partial", bg: isDark ? "bg-white/10" : "bg-gray-200" },
-                      { icon: <X className="w-3.5 h-3.5 text-red-400" />, label: "Not supported", bg: "bg-red-500/15" },
+                      { icon: <X className="w-4 h-4 text-red-400" />, label: "Not supported", bg: "bg-red-500/15" },
                     ].map((item) => (
                       <div key={item.label} className={`flex items-center gap-2.5 text-sm ${isDark ? "text-gray-400" : "text-gray-500"}`}>
                         <div className={`w-6 h-6 rounded-full ${item.bg} flex items-center justify-center`}>
@@ -1043,7 +1043,7 @@ export default function HomePage() {
 
                 {/* Orbiting Integrations */}
                 {[
-                  { name: "HubSpot", logo: "/images/integrations/hubspot.png", x: "25%", y: "12%", delay: 0.1, category: "crm", needsWhiteBg: false },
+                  { name: "HubSpot", logo: "/images/integrations/hubspot.webp", x: "25%", y: "12%", delay: 0.1, category: "crm", needsWhiteBg: false },
                   { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", x: "75%", y: "12%", delay: 0.15, category: "marketing", needsWhiteBg: false },
                   { name: "Affinity", logo: "/images/integrations/affinity.svg", x: "10%", y: "30%", delay: 0.2, category: "crm", needsWhiteBg: true },
                   { name: "Close", logo: "/images/integrations/close.png", x: "90%", y: "30%", delay: 0.25, category: "crm", needsWhiteBg: false },

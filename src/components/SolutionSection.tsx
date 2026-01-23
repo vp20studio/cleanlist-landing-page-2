@@ -245,7 +245,7 @@ export default function SolutionSection() {
           {/* Integration Flow */}
           <div className="flex items-center justify-center gap-3">
             {[
-              { name: "HubSpot", logo: "/images/integrations/hubspot.png" },
+              { name: "HubSpot", logo: "/images/integrations/hubspot.webp" },
               { name: "Pipedrive", logo: "/images/integrations/pipedrive.png" },
               { name: "Outreach", logo: "/images/integrations/outreach.png" },
             ].map((tool, i) => (
@@ -359,7 +359,7 @@ export default function SolutionSection() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
                 onClick={() => setActiveFeature(feature.id)}
-                className={`p-5 rounded-2xl cursor-pointer transition-all duration-300 group border ${
+                className={`p-5 rounded-2xl cursor-pointer transition-all duration-300 group border min-h-[140px] ${
                   activeFeature === feature.id
                     ? isDark
                       ? "bg-[#3e8aff]/10 border-[#3e8aff]/30 shadow-lg shadow-[#3e8aff]/10"

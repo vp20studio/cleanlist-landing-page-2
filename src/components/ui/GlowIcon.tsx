@@ -13,11 +13,11 @@ export interface GlowIconProps {
 }
 
 const sizeMap = {
-  xs: { container: "w-6 h-6", iconSize: "14px", radius: "rounded-lg" },
-  sm: { container: "w-8 h-8", iconSize: "18px", radius: "rounded-lg" },
-  md: { container: "w-10 h-10", iconSize: "22px", radius: "rounded-xl" },
-  lg: { container: "w-12 h-12", iconSize: "26px", radius: "rounded-xl" },
-  xl: { container: "w-14 h-14", iconSize: "30px", radius: "rounded-2xl" },
+  xs: { container: "w-6 h-6", iconSize: "16px", radius: "rounded-lg" },
+  sm: { container: "w-8 h-8", iconSize: "22px", radius: "rounded-lg" },
+  md: { container: "w-10 h-10", iconSize: "28px", radius: "rounded-xl" },
+  lg: { container: "w-12 h-12", iconSize: "32px", radius: "rounded-xl" },
+  xl: { container: "w-14 h-14", iconSize: "36px", radius: "rounded-2xl" },
 };
 
 const colorMap = {

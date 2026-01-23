@@ -28,7 +28,7 @@ export default function LogoMarquee() {
         transition={{ duration: 0.5 }}
         className={`text-center text-sm mb-10 ${isDark ? "text-gray-500" : "text-gray-400"}`}
       >
-        Trusted by 100+ companies who rely on Growth-Led Outbound
+        Trusted by 500+ companies who rely on Growth-Led Outbound
       </motion.p>
 
       {/* Logo Row - scrolls left */}
@@ -49,7 +49,7 @@ export default function LogoMarquee() {
               className="flex-shrink-0 mx-10 md:mx-14"
             >
               <div
-                className={`relative h-8 md:h-10 w-auto transition-all duration-300 ${
+                className={`relative h-10 md:h-12 w-auto transition-all duration-300 ${
                   isDark
                     ? "opacity-50 hover:opacity-100 brightness-0 invert hover:brightness-100 hover:invert-0"
                     : "opacity-40 hover:opacity-100 grayscale hover:grayscale-0"
@@ -58,10 +58,10 @@ export default function LogoMarquee() {
                 <Image
                   src={logo.src}
                   alt={logo.name}
-                  width={120}
-                  height={40}
+                  width={140}
+                  height={48}
                   className="h-full w-auto object-contain"
-                  style={{ maxWidth: "120px" }}
+                  style={{ maxWidth: "140px", maxHeight: "48px" }}
                 />
               </div>
             </div>

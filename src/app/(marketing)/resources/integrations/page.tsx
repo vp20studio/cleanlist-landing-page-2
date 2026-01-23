@@ -15,7 +15,7 @@ import { useTheme } from "@/context/ThemeContext";
 
 // All integrations - CRMs and outreach platforms
 const allIntegrations = [
-  { name: "HubSpot", logo: "/images/integrations/hubspot.png", category: "crm", color: "#ff7a59" },
+  { name: "HubSpot", logo: "/images/integrations/hubspot.webp", category: "crm", color: "#ff7a59" },
   { name: "ActiveCampaign", logo: "/images/integrations/activecampaign.webp", category: "marketing", color: "#004cff" },
   { name: "Affinity", logo: "/images/integrations/affinity.svg", category: "crm", color: "#4285f4" },
   { name: "Close", logo: "/images/integrations/close.png", category: "crm", color: "#1a1a1a" },
