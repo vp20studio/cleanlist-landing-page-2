@@ -46,10 +46,10 @@ export default function LogoMarquee() {
           {[...customerLogos, ...customerLogos, ...customerLogos].map((logo, index) => (
             <div
               key={`customer-${index}`}
-              className="flex-shrink-0 mx-10 md:mx-14"
+              className="flex-shrink-0 mx-4 sm:mx-8 md:mx-10 lg:mx-14"
             >
               <div
-                className={`relative h-10 md:h-12 w-auto transition-all duration-300 ${
+                className={`relative h-8 sm:h-10 md:h-12 w-auto transition-all duration-300 ${
                   isDark
                     ? "opacity-50 hover:opacity-100 brightness-0 invert hover:brightness-100 hover:invert-0"
                     : "opacity-40 hover:opacity-100 grayscale hover:grayscale-0"
@@ -60,8 +60,7 @@ export default function LogoMarquee() {
                   alt={logo.name}
                   width={140}
                   height={48}
-                  className="h-full w-auto object-contain"
-                  style={{ maxWidth: "140px", maxHeight: "48px" }}
+                  className="h-full w-auto object-contain max-w-[100px] sm:max-w-[120px] md:max-w-[140px]"
                 />
               </div>
             </div>

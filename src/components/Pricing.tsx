@@ -196,7 +196,7 @@ function PricingCard({
         plan.highlight
           ? "border-[rgba(62,138,255,0.4)] bg-gradient-to-b from-[rgba(62,138,255,0.08)] to-[rgba(10,10,10,0.8)]"
           : "border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] hover:border-[rgba(255,255,255,0.15)]"
-      } backdrop-blur-xl p-4 sm:p-6 md:p-8 overflow-hidden`}
+      } backdrop-blur-xl p-3 sm:p-4 md:p-6 lg:p-8 overflow-hidden`}
     >
       {/* Highlight glow effect */}
       {plan.highlight && (
@@ -246,7 +246,7 @@ function PricingCard({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
                 transition={{ duration: 0.2 }}
-                className="text-4xl lg:text-5xl font-bold text-white"
+                className="text-3xl sm:text-4xl md:text-5xl font-bold text-white"
               >
                 ${price}
               </motion.span>
@@ -274,11 +274,11 @@ function PricingCard({
         </motion.a>
 
         {/* Features */}
-        <ul className="space-y-3">
+        <ul className="space-y-2 md:space-y-3">
           {plan.features.map((feature, i) => (
-            <li key={i} className="flex items-start gap-3">
+            <li key={i} className="flex items-start gap-2 md:gap-3">
               <div
-                className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                className={`w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
                   feature.highlighted
                     ? "bg-[rgba(62,138,255,0.15)]"
                     : plan.highlight
@@ -287,11 +287,11 @@ function PricingCard({
                 }`}
               >
                 <Check
-                  width={12} height={12}
-                  className={feature.highlighted || plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}
+                  width={10} height={10}
+                  className={`md:w-3 md:h-3 ${feature.highlighted || plan.highlight ? "text-[#3e8aff]" : "text-[#888888]"}`}
                 />
               </div>
-              <span className={`text-sm ${feature.highlighted ? "text-white font-medium" : "text-[#888888]"}`}>
+              <span className={`text-xs sm:text-sm leading-snug ${feature.highlighted ? "text-white font-medium" : "text-[#888888]"}`}>
                 {feature.text}
               </span>
             </li>

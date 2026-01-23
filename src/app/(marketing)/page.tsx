@@ -1376,7 +1376,7 @@ export default function HomePage() {
                     <button
                       key={tier.tier}
                       onClick={() => setStarterTier(i)}
-                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                      className={`px-4 py-2 text-xs font-medium rounded-md transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center ${
                         starterTier === i
                           ? "bg-[#3e8aff] text-white"
                           : isDark
@@ -1447,7 +1447,7 @@ export default function HomePage() {
                     <button
                       key={tier.tier}
                       onClick={() => setProTier(i)}
-                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                      className={`px-4 py-2 text-xs font-medium rounded-md transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center ${
                         proTier === i
                           ? "bg-[#3e8aff] text-white"
                           : isDark
@@ -1515,7 +1515,7 @@ export default function HomePage() {
                     <button
                       key={tier.tier}
                       onClick={() => setEnterpriseTier(i)}
-                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                      className={`px-4 py-2 text-xs font-medium rounded-md transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center ${
                         enterpriseTier === i
                           ? "bg-[#3e8aff] text-white"
                           : isDark
