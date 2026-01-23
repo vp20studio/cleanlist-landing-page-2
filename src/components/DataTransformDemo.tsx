@@ -190,7 +190,8 @@ export default function DataTransformDemo() {
                   </span>
                 </div>
                 <span className={`text-xs px-2 py-1 rounded ${isDark ? "bg-red-500/10 text-red-400" : "bg-red-100 text-red-600"}`}>
-                  4 missing fields
+                  <span className="md:hidden">2 missing</span>
+                  <span className="hidden md:inline">4 missing fields</span>
                 </span>
               </div>
 
@@ -202,6 +203,8 @@ export default function DataTransformDemo() {
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ delay: 0.1 + index * 0.05 }}
                     className={`flex items-center justify-between p-3 rounded-lg transition-all ${
+                      index >= 4 ? "hidden md:flex" : "flex"
+                    } ${
                       isDark ? "bg-white/[0.03]" : "bg-gray-50"
                     }`}
                   >
@@ -290,6 +293,8 @@ export default function DataTransformDemo() {
                         animate={isInView ? { opacity: 1, x: 0 } : {}}
                         transition={{ delay: 0.1 + index * 0.05 }}
                         className={`flex items-center justify-between p-3 rounded-lg transition-all ${
+                          index >= 4 ? "hidden md:flex" : "flex"
+                        } ${
                           showEnrichedValue
                             ? "bg-[#3e8aff]/10"
                             : isDark ? "bg-white/[0.03]" : "bg-white/50"

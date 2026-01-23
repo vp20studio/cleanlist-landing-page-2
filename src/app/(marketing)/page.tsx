@@ -642,8 +642,8 @@ export default function HomePage() {
               {/* Glow effect for Cleanlist column */}
               <div className="absolute top-0 right-0 w-1/4 h-full bg-gradient-to-l from-[#3e8aff]/5 to-transparent pointer-events-none" />
 
-              {/* Table Container */}
-              <div className="overflow-x-auto">
+              {/* Table Container - Desktop Only */}
+              <div className="overflow-x-auto hidden md:block">
                 <div className="min-w-[750px]">
                   {/* Header Row */}
                   <div className={`grid grid-cols-5 gap-4 p-6 md:p-8 ${isDark ? "border-b border-white/[0.06]" : "border-b border-gray-100"}`}>
@@ -823,6 +823,38 @@ export default function HomePage() {
                     ))}
                   </div>
                 </div>
+              </div>
+
+              {/* Mobile Card Version */}
+              <div className="md:hidden p-4 space-y-3">
+                {comparisonFeatures.map((item, index) => (
+                  <motion.div
+                    key={item.feature}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.05 }}
+                    className={`p-4 rounded-xl ${
+                      isDark
+                        ? "bg-white/[0.03] border border-white/[0.06]"
+                        : "bg-gray-50 border border-gray-100"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-900"}`}>
+                        {item.feature}
+                      </span>
+                      {item.cleanlist && (
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3e8aff]/20 flex items-center justify-center">
+                          <Check width={14} height={14} className="text-[#3e8aff]" />
+                        </div>
+                      )}
+                    </div>
+                    <div className={`text-xs ${isDark ? "text-gray-500" : "text-gray-500"}`}>
+                      <span className="font-medium text-[#3e8aff]">Cleanlist</span> has this feature
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
