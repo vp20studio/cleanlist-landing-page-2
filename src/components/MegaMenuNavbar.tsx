@@ -164,8 +164,8 @@ export default function MegaMenuNavbar() {
             : "border-black/[0.08] bg-white/90 backdrop-blur-xl"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
               <Image
@@ -476,7 +476,7 @@ export default function MegaMenuNavbar() {
             <div className="flex lg:hidden items-center gap-2">
               <button
                 onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-colors ${
+                className={`p-2 rounded-lg transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   theme === "dark"
                     ? "text-gray-400 hover:text-white"
                     : "text-gray-500 hover:text-gray-900"
@@ -491,7 +491,7 @@ export default function MegaMenuNavbar() {
               </button>
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className={`p-2 transition-colors ${
+                className={`p-2 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                   theme === "dark"
                     ? "text-gray-400 hover:text-white"
                     : "text-gray-500 hover:text-gray-900"
@@ -516,21 +516,21 @@ export default function MegaMenuNavbar() {
                   : "border-gray-200 bg-white"
               }`}
             >
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-4">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-6">
                 {/* Products */}
                 <div>
-                  <div className={`text-xs font-medium uppercase tracking-wider mb-2 ${
+                  <div className={`text-xs font-medium uppercase tracking-wider mb-3 ${
                     theme === "dark" ? "text-gray-500" : "text-gray-400"
                   }`}>
                     Products
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {productSections.flatMap((section) =>
                       section.items.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className={`flex items-center gap-3 p-2 rounded-lg ${
+                          className={`flex items-center gap-3 p-3 rounded-lg min-h-[44px] ${
                             theme === "dark"
                               ? "hover:bg-white/[0.08]"
                               : "hover:bg-gray-100"
@@ -549,17 +549,17 @@ export default function MegaMenuNavbar() {
 
                 {/* Use Cases */}
                 <div>
-                  <div className={`text-xs font-medium uppercase tracking-wider mb-2 ${
+                  <div className={`text-xs font-medium uppercase tracking-wider mb-3 ${
                     theme === "dark" ? "text-gray-500" : "text-gray-400"
                   }`}>
                     Use Cases
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {useCaseItems.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className={`flex items-center gap-3 p-2 rounded-lg ${
+                        className={`flex items-center gap-3 p-3 rounded-lg min-h-[44px] ${
                           theme === "dark"
                             ? "hover:bg-white/[0.08]"
                             : "hover:bg-gray-100"
@@ -577,17 +577,17 @@ export default function MegaMenuNavbar() {
 
                 {/* Resources */}
                 <div>
-                  <div className={`text-xs font-medium uppercase tracking-wider mb-2 ${
+                  <div className={`text-xs font-medium uppercase tracking-wider mb-3 ${
                     theme === "dark" ? "text-gray-500" : "text-gray-400"
                   }`}>
                     Resources
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {resourceItems.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}
-                        className={`flex items-center gap-3 p-2 rounded-lg ${
+                        className={`flex items-center gap-3 p-3 rounded-lg min-h-[44px] ${
                           theme === "dark"
                             ? "hover:bg-white/[0.08]"
                             : "hover:bg-gray-100"
@@ -604,15 +604,15 @@ export default function MegaMenuNavbar() {
                 </div>
 
                 {/* Links */}
-                <div className={`flex items-center gap-4 pt-4 border-t ${
+                <div className={`pt-2 border-t ${
                   theme === "dark" ? "border-white/[0.08]" : "border-gray-200"
                 }`}>
                   <Link
                     href="/pricing"
-                    className={`text-sm ${
+                    className={`flex items-center p-3 rounded-lg min-h-[44px] text-sm ${
                       theme === "dark"
-                        ? "text-gray-300 hover:text-white"
-                        : "text-gray-600 hover:text-gray-900"
+                        ? "text-gray-300 hover:text-white hover:bg-white/[0.08]"
+                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                     }`}
                     onClick={() => setMobileOpen(false)}
                   >
@@ -621,17 +621,17 @@ export default function MegaMenuNavbar() {
                 </div>
 
                 {/* CTA */}
-                <div className="flex flex-col gap-2 pt-4">
+                <div className="flex flex-col gap-3 pt-2">
                   <Link
                     href="https://app.cleanlist.ai/auth/register"
-                    className="w-full py-2.5 text-center text-sm font-medium bg-[#3e8aff] text-white rounded-lg"
+                    className="w-full py-3 text-center text-sm font-medium bg-[#3e8aff] text-white rounded-lg min-h-[44px] flex items-center justify-center"
                     onClick={() => setMobileOpen(false)}
                   >
                     Get Started
                   </Link>
                   <Link
                     href="https://app.cleanlist.ai/auth/login"
-                    className={`w-full py-2.5 text-center text-sm ${
+                    className={`w-full py-3 text-center text-sm min-h-[44px] flex items-center justify-center ${
                       theme === "dark" ? "text-gray-400" : "text-gray-600"
                     }`}
                     onClick={() => setMobileOpen(false)}
@@ -646,7 +646,7 @@ export default function MegaMenuNavbar() {
       </nav>
 
       {/* Spacer */}
-      <div className="h-16" />
+      <div className="h-16 md:h-20" />
     </>
   );
 }

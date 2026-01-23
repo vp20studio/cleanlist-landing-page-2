@@ -33,10 +33,10 @@ export default function FinalCTA() {
             Get 30 free credits. No credit card required.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0">
             <Link
               href="https://app.cleanlist.ai/auth/register"
-              className="group inline-flex items-center gap-2.5 px-8 py-4 bg-[#3e8aff] hover:bg-[#2d7af0] text-white font-semibold rounded-xl text-base md:text-lg transition-all duration-300 shadow-xl shadow-[#3e8aff]/30 hover:shadow-2xl hover:shadow-[#3e8aff]/40 hover:scale-[1.02]"
+              className="group inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#3e8aff] hover:bg-[#2d7af0] text-white font-semibold rounded-xl text-base md:text-lg transition-all duration-300 shadow-xl shadow-[#3e8aff]/30 hover:shadow-2xl hover:shadow-[#3e8aff]/40 hover:scale-[1.02] w-full sm:w-auto min-h-[56px]"
             >
               Get Started Free
               <ArrowRight width={22} height={22} className="group-hover:translate-x-1 transition-transform" />
@@ -46,7 +46,7 @@ export default function FinalCTA() {
               href="https://calendly.com/cleanlist/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 px-8 py-4 font-semibold rounded-xl text-base md:text-lg transition-all duration-300 border-2 hover:scale-[1.02] bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/30"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-4 font-semibold rounded-xl text-base md:text-lg transition-all duration-300 border-2 hover:scale-[1.02] bg-white/5 hover:bg-white/10 text-white border-white/20 hover:border-white/30 w-full sm:w-auto min-h-[56px]"
             >
               <Calendar width={22} height={22} className="text-[#3e8aff]" />
               Book a Demo

@@ -60,17 +60,17 @@ export default function FeatureGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 px-4"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888] mb-6">
             <Sparkle width={16} height={16} className="text-[#3e8aff]" />
             How it works
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight px-4">
             Three steps to{" "}
             <span className="gradient-text-blue">perfect data</span>
           </h2>
-          <p className="text-lg text-[#888888] max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-[#888888] max-w-2xl mx-auto px-4">
             Our AI-powered pipeline transforms raw leads into verified,
             enriched, and actionable contacts.
           </p>
@@ -156,7 +156,7 @@ function VerificationCard() {
   return (
     <div
       ref={cardRef}
-      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
+      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
     >
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[rgba(62,138,255,0.05)] to-transparent pointer-events-none" />
@@ -263,7 +263,7 @@ function EnrichmentCard() {
   return (
     <div
       ref={cardRef}
-      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
+      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
     >
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[rgba(62,138,255,0.05)] to-transparent pointer-events-none" />
@@ -509,7 +509,7 @@ const data = await response.json();
   };
 
   return (
-    <div className="group relative rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]">
+    <div className="group relative rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]">
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[rgba(62,138,255,0.05)] to-transparent pointer-events-none" />
       <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl bg-[rgba(62,138,255,0.1)] pointer-events-none" />

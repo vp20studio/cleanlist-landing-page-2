@@ -51,7 +51,7 @@ export default function Hero() {
         />
         {/* Center glow */}
         <div
-          className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
+          className="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[600px] md:h-[800px]"
           style={{
             background:
               "radial-gradient(circle at center, rgba(62, 138, 255, 0.08), transparent 60%)",
@@ -87,7 +87,7 @@ export default function Hero() {
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-[1.1]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-[1.1] px-4"
           >
             Turn messy data into your{" "}
             <span className="gradient-text-blue">greatest growth lever</span>
@@ -96,7 +96,7 @@ export default function Hero() {
           {/* Sub-headline */}
           <motion.p
             variants={itemVariants}
-            className="text-lg md:text-xl text-[#888888] max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-[#888888] max-w-2xl mx-auto mb-10 leading-relaxed px-4"
           >
             Clean, verify, and enrich your leads with 99% accuracy.{" "}
             <span className="text-white">Stop wasting spend on bad data.</span>
@@ -134,7 +134,7 @@ export default function Hero() {
           {/* Product Showcase - Bento Grid */}
           <motion.div
             variants={itemVariants}
-            className="relative max-w-6xl mx-auto"
+            className="relative max-w-6xl mx-auto px-4"
           >
             {/* Main Dashboard Card */}
             <div className="relative rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.1)] bg-[#0a0a0a] blue-glow">
@@ -145,11 +145,11 @@ export default function Hero() {
                   <div className="w-3 h-3 rounded-full bg-[#f59e0b]" />
                   <div className="w-3 h-3 rounded-full bg-[#22c55e]" />
                 </div>
-                <div className="flex items-center gap-2 px-4 py-1.5 rounded-lg bg-[rgba(255,255,255,0.05)] text-xs text-[#888888]">
+                <div className="hidden sm:flex items-center gap-2 px-4 py-1.5 rounded-lg bg-[rgba(255,255,255,0.05)] text-xs text-[#888888]">
                   <Database width={14} height={14} />
                   <span>cleanlist-dashboard.app</span>
                 </div>
-                <div className="w-16" />
+                <div className="w-16 hidden sm:block" />
               </div>
 
               {/* Dashboard Content */}

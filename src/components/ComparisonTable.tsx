@@ -99,16 +99,16 @@ export default function ComparisonTable() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16 px-4"
         >
           <span className="text-xs font-semibold tracking-widest text-[#3e8aff] uppercase mb-4 block">
             The Cleanlist Advantage
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight px-4">
             Cleanlist vs.{" "}
             <span className="text-[#888888]">The Old Way</span>
           </h2>
-          <p className="text-lg text-[#888888] max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-[#888888] max-w-3xl mx-auto px-4">
             Legacy tools were built for a different era. See how Cleanlist
             delivers 10x the value with modern infrastructure and AI-powered
             enrichment.
@@ -187,14 +187,16 @@ export default function ComparisonTable() {
           className="card-glass rounded-2xl overflow-hidden"
         >
           {/* Table Header */}
-          <div className="grid grid-cols-3 gap-4 p-4 border-b border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.3)]">
-            <div className="text-sm font-medium text-white">Feature</div>
-            <div className="text-sm font-medium text-[#888888] text-center">
-              Legacy Tools
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 border-b border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.3)]">
+            <div className="text-xs sm:text-sm font-medium text-white">Feature</div>
+            <div className="text-xs sm:text-sm font-medium text-[#888888] text-center">
+              <span className="hidden sm:inline">Legacy Tools</span>
+              <span className="sm:hidden">Legacy</span>
             </div>
-            <div className="text-sm font-medium text-[#3e8aff] text-center flex items-center justify-center gap-2">
-              <Sparkle width={16} height={16} />
-              Cleanlist
+            <div className="text-xs sm:text-sm font-medium text-[#3e8aff] text-center flex items-center justify-center gap-1 sm:gap-2">
+              <Sparkle width={14} height={14} className="sm:w-4 sm:h-4" />
+              <span className="hidden sm:inline">Cleanlist</span>
+              <span className="sm:hidden">Clean</span>
             </div>
           </div>
 
@@ -207,9 +209,9 @@ export default function ComparisonTable() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.03 }}
-                className="grid grid-cols-3 gap-4 p-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors"
+                className="grid grid-cols-3 gap-2 sm:gap-4 p-3 sm:p-4 hover:bg-[rgba(255,255,255,0.02)] transition-colors"
               >
-                <div className="text-sm text-[#888888]">{item.feature}</div>
+                <div className="text-xs sm:text-sm text-[#888888]">{item.feature}</div>
                 <div className="flex justify-center">
                   {item.oldWay ? (
                     <div className="w-6 h-6 rounded-full bg-[rgba(255,255,255,0.05)] flex items-center justify-center">
@@ -234,9 +236,9 @@ export default function ComparisonTable() {
           </div>
 
           {/* Table Footer */}
-          <div className="p-6 border-t border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.2)]">
+          <div className="p-4 sm:p-6 border-t border-[rgba(255,255,255,0.08)] bg-[rgba(0,0,0,0.2)]">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div>
+              <div className="text-center md:text-left">
                 <p className="text-sm text-white font-medium">
                   Ready to upgrade your data stack?
                 </p>
@@ -244,16 +246,16 @@ export default function ComparisonTable() {
                   See how Cleanlist compares to your current tools.
                 </p>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
                 <a
                   href="/compare"
-                  className="text-sm text-[#888888] hover:text-white transition-colors"
+                  className="text-sm text-[#888888] hover:text-white transition-colors min-h-[44px] flex items-center"
                 >
                   Full comparison
                 </a>
                 <a
                   href="/get-started"
-                  className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#3e8aff] to-[#2563eb] rounded-lg hover:shadow-[0_0_20px_rgba(62,138,255,0.3)] transition-shadow"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium text-white bg-gradient-to-r from-[#3e8aff] to-[#2563eb] rounded-lg hover:shadow-[0_0_20px_rgba(62,138,255,0.3)] transition-shadow w-full sm:w-auto min-h-[44px]"
                 >
                   Try Cleanlist Free
                   <ArrowRight width={16} height={16} />
