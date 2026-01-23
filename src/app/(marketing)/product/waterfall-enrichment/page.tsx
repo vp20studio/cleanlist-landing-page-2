@@ -545,7 +545,7 @@ export default function WaterfallEnrichmentPage() {
 
                 {/* CTA */}
                 <Link
-                  href="https://portal.cleanlist.ai/auth/register"
+                  href="https://app.cleanlist.ai/auth/register"
                   className={`w-full mt-8 py-3 px-6 rounded-xl font-semibold transition-all block text-center ${
                     isDark
                       ? "bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1]"
@@ -636,7 +636,7 @@ export default function WaterfallEnrichmentPage() {
 
                 {/* CTA */}
                 <Link
-                  href="https://portal.cleanlist.ai/auth/register"
+                  href="https://app.cleanlist.ai/auth/register"
                   className="w-full mt-8 py-3 px-6 rounded-xl bg-white text-[#3e8aff] font-semibold hover:bg-white/90 transition-all shadow-xl hover:shadow-2xl hover:scale-[1.02] block text-center"
                 >
                   Start with Full
@@ -930,7 +930,7 @@ export default function WaterfallEnrichmentPage() {
             ].map((useCase, index) => (
               <Link
                 key={useCase.title}
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -145,12 +145,12 @@ export default function LinkedInScraperPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <MagneticButton href="/get-started" size="lg">
+              <MagneticButton href="https://app.cleanlist.ai/auth/register" size="lg">
                 <GoogleChromeLogo className="w-5 h-5" />
                 Install Extension
               </MagneticButton>
-              <MagneticButton href="/docs/linkedin" variant="secondary" size="lg">
-                View Documentation
+              <MagneticButton href="https://calendly.com/cleanlist/30min" variant="secondary" size="lg">
+                Book Demo
               </MagneticButton>
             </div>
 

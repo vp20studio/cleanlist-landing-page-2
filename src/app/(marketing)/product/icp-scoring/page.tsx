@@ -106,7 +106,7 @@ export default function ICPScoringPage() {
               className="flex flex-wrap items-center justify-center gap-4"
             >
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
@@ -397,7 +397,7 @@ export default function ICPScoringPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Company Targeting */}
             <Link
-              href="https://portal.cleanlist.ai/auth/register"
+              href="https://app.cleanlist.ai/auth/register"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -448,7 +448,7 @@ export default function ICPScoringPage() {
 
             {/* Prospect Targeting */}
             <Link
-              href="https://portal.cleanlist.ai/auth/register"
+              href="https://app.cleanlist.ai/auth/register"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -500,7 +500,7 @@ export default function ICPScoringPage() {
 
             {/* Geographic Targeting */}
             <Link
-              href="https://portal.cleanlist.ai/auth/register"
+              href="https://app.cleanlist.ai/auth/register"
               target="_blank"
               rel="noopener noreferrer"
             >

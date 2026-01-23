@@ -141,7 +141,7 @@ export default function IntegrationsPage() {
             {[
               { icon: <ArrowsClockwise />, value: "15+", label: "Native Integrations" },
               { icon: <Clock />, value: "Real-time", label: "Bi-directional Sync" },
-              { icon: <Lightning />, value: "<5 min", label: "Setup Time" },
+              { icon: <Lightning />, value: "<1 min", label: "Setup Time" },
               { icon: <Shield />, value: "OAuth 2.0", label: "Secure Auth" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">

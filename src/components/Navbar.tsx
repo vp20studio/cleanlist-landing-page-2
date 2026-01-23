@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-2">
             <motion.a
-              href="/sign-in"
+              href="https://app.cleanlist.ai/auth/login"
               className="px-4 py-2 text-sm font-medium text-[#888888] hover:text-white transition-colors rounded-lg hover:bg-[rgba(255,255,255,0.05)]"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -103,7 +103,7 @@ export default function Navbar() {
       >
         <div className="px-4 py-4 space-y-2">
           <a
-            href="/sign-in"
+            href="https://app.cleanlist.ai/auth/login"
             className="block px-4 py-3 text-sm font-medium text-[#888888] hover:text-white transition-colors rounded-lg hover:bg-[rgba(255,255,255,0.05)]"
           >
             Sign In

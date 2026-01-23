@@ -227,7 +227,7 @@ export default function PeopleSearchPage() {
               className="flex flex-wrap items-center justify-center gap-4 mb-8"
             >
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors shadow-lg shadow-[#3e8aff]/25"
               >
                 Start Searching Free

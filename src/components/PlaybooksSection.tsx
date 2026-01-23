@@ -342,7 +342,7 @@ function PlaybookCard({
             </div>
             {isActive && (
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-sm font-medium text-[#3e8aff] hover:underline"

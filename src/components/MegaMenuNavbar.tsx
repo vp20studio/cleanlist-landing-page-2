@@ -455,7 +455,7 @@ export default function MegaMenuNavbar() {
               </button>
 
               <Link
-                href="https://portal.cleanlist.ai/auth/login"
+                href="https://app.cleanlist.ai/auth/login"
                 className={`px-4 py-2 text-sm transition-colors ${
                   theme === "dark"
                     ? "text-gray-300 hover:text-white"
@@ -465,7 +465,7 @@ export default function MegaMenuNavbar() {
                 Sign In
               </Link>
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 className="px-5 py-2.5 text-sm font-medium bg-[#3e8aff] text-white rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
                 Get Started
@@ -623,14 +623,14 @@ export default function MegaMenuNavbar() {
                 {/* CTA */}
                 <div className="flex flex-col gap-2 pt-4">
                   <Link
-                    href="https://portal.cleanlist.ai/auth/register"
+                    href="https://app.cleanlist.ai/auth/register"
                     className="w-full py-2.5 text-center text-sm font-medium bg-[#3e8aff] text-white rounded-lg"
                     onClick={() => setMobileOpen(false)}
                   >
                     Get Started
                   </Link>
                   <Link
-                    href="https://portal.cleanlist.ai/auth/login"
+                    href="https://app.cleanlist.ai/auth/login"
                     className={`w-full py-2.5 text-center text-sm ${
                       theme === "dark" ? "text-gray-400" : "text-gray-600"
                     }`}

@@ -381,7 +381,7 @@ export default function HomePage() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
           >
             <Link
-              href="https://portal.cleanlist.ai/auth/register"
+              href="https://app.cleanlist.ai/auth/register"
               className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30"
             >
               Start building for free
@@ -1301,7 +1301,7 @@ export default function HomePage() {
               <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>30 credits</p>
               <p className="text-xs text-gray-500 mb-6">30 emails or 3 phones/mo</p>
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started
@@ -1369,7 +1369,7 @@ export default function HomePage() {
                 {pricingTiers.starter[starterTier].email} emails or {pricingTiers.starter[starterTier].phone} phones/mo
               </p>
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started for Free
@@ -1440,7 +1440,7 @@ export default function HomePage() {
                 {pricingTiers.pro[proTier].email} emails or {pricingTiers.pro[proTier].phone} phones/mo
               </p>
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
               >
                 Get Started for Free
@@ -1508,7 +1508,7 @@ export default function HomePage() {
                 {pricingTiers.enterprise[enterpriseTier].email} emails or {pricingTiers.enterprise[enterpriseTier].phone} phones/mo
               </p>
               <Link
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started for Free

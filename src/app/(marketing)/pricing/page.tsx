@@ -178,7 +178,7 @@ const faqs = [
   {
     question: "How does credit-based pricing work?",
     answer:
-      "Cleanlist uses a simple credit system: 1 credit = 1 email enrichment/verification, and 10 credits = 1 full contact record (email + phone). All plans include access to our full feature set—waterfall enrichment, email verification, Smart Columns AI, Sales Navigator scraper, Playbook Builder, and all CRM integrations. You only pay for the data you enrich.",
+      "Cleanlist uses a simple credit system: 1 credit = 1 email enrichment/verification, and 11 credits = 1 full contact enrichment (email + phone). All plans include access to our full feature set—waterfall enrichment, email verification, Smart Columns AI, Sales Navigator scraper, Playbook Builder, and all CRM integrations. You only pay for the data you enrich.",
   },
   {
     question: "What's the difference between Free and Starter plans?",
@@ -272,7 +272,7 @@ export default function PricingPage() {
             transition={{ delay: 0.2 }}
             className={`text-lg md:text-xl max-w-2xl mx-auto mb-8 ${isDark ? "text-gray-400" : "text-gray-600"}`}
           >
-            1 credit for email enrichment, 10 credits for full contact (email + phone).
+            1 credit for email enrichment, 11 credits for full contact enrichment (email + phone).
             No hidden fees. 98% accuracy guarantee.
           </motion.p>
 

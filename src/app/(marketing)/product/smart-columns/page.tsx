@@ -574,7 +574,7 @@ export default function SmartColumnsPage() {
             ].map((column, index) => (
               <Link
                 key={column.title}
-                href="https://portal.cleanlist.ai/auth/register"
+                href="https://app.cleanlist.ai/auth/register"
                 target="_blank"
                 rel="noopener noreferrer"
               >
