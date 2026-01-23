@@ -44,9 +44,9 @@ export default function WaterfallEnrichmentPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative pt-20 pb-32 overflow-hidden">
+      <section className="relative pt-16 md:pt-20 pb-24 md:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#3e8aff]/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[800px] h-[400px] md:h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]" />
 
         {/* Animated grid background */}
         <div
@@ -57,8 +57,8 @@ export default function WaterfallEnrichmentPage() {
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -85,7 +85,7 @@ export default function WaterfallEnrichmentPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className={`text-xl mb-8 max-w-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}
+                className={`text-lg md:text-xl mb-8 max-w-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}
               >
                 Multi-provider enrichment that queries premium data sources and merges
                 the best results into one complete record. Partial (email) or full enrichment.
@@ -95,18 +95,18 @@ export default function WaterfallEnrichmentPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap items-center gap-4 mb-8"
+                className="flex flex-col sm:flex-row flex-wrap items-center sm:items-start gap-3 sm:gap-4 mb-8"
               >
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors w-full sm:w-auto min-h-[44px]"
                 >
                   Try Waterfall Free
                   <ArrowRight />
                 </Link>
                 <Link
                   href="#how-it-works"
-                  className={`inline-flex items-center gap-2 px-6 py-3 border font-medium rounded-lg transition-colors ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
+                  className={`inline-flex items-center justify-center gap-2 px-6 py-3 border font-medium rounded-lg transition-colors w-full sm:w-auto min-h-[44px] ${isDark ? "border-white/[0.15] text-white hover:bg-white/[0.05]" : "border-gray-300 text-gray-700 hover:bg-gray-100"}`}
                 >
                   See How It Works
                 </Link>
@@ -117,7 +117,7 @@ export default function WaterfallEnrichmentPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="grid grid-cols-3 gap-4"
+                className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4"
               >
                 {[
                   { value: "15+", label: "Data Sources" },
