@@ -1,6 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 // Generate random star positions
@@ -191,93 +190,6 @@ function Rocket() {
   );
 }
 
-interface Leaf {
-  id: number;
-  x: number; // percentage
-  y: number; // percentage from top
-  size: number;
-  rotation: number;
-}
-
-function FloatingLeaves() {
-  const [leaves, setLeaves] = useState<Leaf[]>([]);
-
-  useEffect(() => {
-    // Generate random leaf positions at the bottom of the footer
-    const generatedLeaves = Array.from({ length: 10 }, (_, i) => ({
-      id: i,
-      x: 10 + Math.random() * 80, // 10-90% width
-      y: 85 + Math.random() * 10, // 85-95% height (bottom area)
-      size: 20 + Math.random() * 15, // 20-35px
-      rotation: Math.random() * 360,
-    }));
-    setLeaves(generatedLeaves);
-  }, []);
-
-  // Calculate push direction for each leaf based on rocket position
-  const calculatePush = (leafX: number, leafY: number) => {
-    const rocketX = 88; // rocket is at right-[12%] = 88% from left
-    const rocketY = 80; // rocket is at bottom-[20%] = 80% from top
-
-    // Distance from rocket
-    const deltaX = leafX - rocketX;
-    const deltaY = leafY - rocketY;
-
-    // Push force (stronger if closer)
-    const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
-    const force = Math.max(0, 100 - distance); // inverse distance
-
-    // Push direction (away from rocket)
-    const angle = Math.atan2(deltaY, deltaX);
-    const pushX = Math.cos(angle) * force * 3;
-    const pushY = Math.sin(angle) * force * 2;
-    const pushRotate = (Math.random() - 0.5) * 360;
-
-    return { pushX, pushY, pushRotate };
-  };
-
-  return (
-    <>
-      {leaves.map((leaf) => {
-        const { pushX, pushY, pushRotate } = calculatePush(leaf.x, leaf.y);
-
-        return (
-          <motion.div
-            key={leaf.id}
-            className="absolute hidden lg:block pointer-events-none"
-            style={{
-              left: `${leaf.x}%`,
-              top: `${leaf.y}%`,
-              width: `${leaf.size}px`,
-              height: `${leaf.size}px`,
-            }}
-            initial={{ x: 0, y: 0, opacity: 1, rotate: leaf.rotation }}
-            animate={{
-              // 28 second cycle to match rocket (20s animation + 8s delay)
-              x: [0, 0, pushX, pushX],
-              y: [0, -5, pushY, pushY],
-              rotate: [leaf.rotation, leaf.rotation + 10, leaf.rotation - 10, leaf.rotation + pushRotate],
-              opacity: [1, 1, 1, 0],
-            }}
-            transition={{
-              duration: 20, // match rocket animation duration
-              ease: [0.25, 0.1, 0.25, 1], // match rocket easing
-              times: [0, 0.1, 0.9, 1], // match rocket timing
-              repeat: Infinity,
-              repeatDelay: 8, // match rocket delay
-            }}
-          >
-            {/* Leaf emoji */}
-            <div className="text-green-500 drop-shadow-lg" style={{ fontSize: `${leaf.size}px` }}>
-              🍃
-            </div>
-          </motion.div>
-        );
-      })}
-    </>
-  );
-}
-
 export function StarsBackground({ starCount = 50, seed = 0, className = "", showRocket = false }: StarsBackgroundProps) {
   const stars = generateStars(starCount, seed);
 
@@ -312,9 +224,6 @@ export function StarsBackground({ starCount = 50, seed = 0, className = "", show
 
       {/* Rocket - only on desktop, outside overflow container so it can fly up */}
       {showRocket && <Rocket />}
-
-      {/* Floating Leaves - only on desktop, synced with rocket */}
-      {showRocket && <FloatingLeaves />}
     </div>
   );
 }
