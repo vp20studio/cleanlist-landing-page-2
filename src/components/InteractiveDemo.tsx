@@ -48,10 +48,10 @@ const demoTabs = [
 ];
 
 const searchResults = [
-  { name: "Sarah Chen", title: "VP of Sales", company: "Amplitude", location: "San Francisco", employees: "500-1K", image: "https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff&size=128" },
-  { name: "Michael Torres", title: "Head of Sales", company: "Notion", location: "New York", employees: "1K-5K", image: "https://ui-avatars.com/api/?name=Michael+Torres&background=3b82f6&color=fff&size=128" },
-  { name: "Emily Rodriguez", title: "VP Sales", company: "Figma", location: "Seattle", employees: "500-1K", image: "https://ui-avatars.com/api/?name=Emily+Rodriguez&background=ec4899&color=fff&size=128" },
-  { name: "David Kim", title: "Director of Sales", company: "Linear", location: "Austin", employees: "100-500", image: "https://ui-avatars.com/api/?name=David+Kim&background=14b8a6&color=fff&size=128" },
+  { name: "Sarah Chen", title: "VP of Sales", company: "Amplitude", location: "San Francisco", employees: "500-1K", image: "https://randomuser.me/api/portraits/women/44.jpg" },
+  { name: "Michael Torres", title: "Head of Sales", company: "Notion", location: "New York", employees: "1K-5K", image: "https://randomuser.me/api/portraits/men/32.jpg" },
+  { name: "Emily Rodriguez", title: "VP Sales", company: "Figma", location: "Seattle", employees: "500-1K", image: "https://randomuser.me/api/portraits/women/68.jpg" },
+  { name: "David Kim", title: "Director of Sales", company: "Linear", location: "Austin", employees: "100-500", image: "https://randomuser.me/api/portraits/men/22.jpg" },
 ];
 
 const searchQuery = "VP Sales at SaaS companies in US, $1-10M revenue";

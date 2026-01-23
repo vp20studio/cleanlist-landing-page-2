@@ -209,7 +209,7 @@ export default function LeadExtractionDemo() {
                   <div className="flex items-start gap-3">
                     <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 to-pink-400 flex-shrink-0">
                       <Image
-                        src="https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff&size=128"
+                        src="https://randomuser.me/api/portraits/women/44.jpg"
                         alt="Sarah Chen"
                         width={64}
                         height={64}
@@ -376,10 +376,10 @@ export default function LeadExtractionDemo() {
 
                   {/* Leads list */}
                   {[
-                    { name: "Sarah Chen", title: "VP Sales", company: "TechCorp", image: "https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff&size=128" },
-                    { name: "Michael Park", title: "Director", company: "Acme Inc", image: "https://ui-avatars.com/api/?name=Michael+Park&background=3b82f6&color=fff&size=128" },
-                    { name: "Emma Wilson", title: "Head of Growth", company: "StartupXYZ", image: "https://ui-avatars.com/api/?name=Emma+Wilson&background=ec4899&color=fff&size=128" },
-                    { name: "James Liu", title: "CRO", company: "Enterprise Co", image: "https://ui-avatars.com/api/?name=James+Liu&background=14b8a6&color=fff&size=128" },
+                    { name: "Sarah Chen", title: "VP Sales", company: "TechCorp", image: "https://randomuser.me/api/portraits/women/44.jpg" },
+                    { name: "Michael Park", title: "Director", company: "Acme Inc", image: "https://randomuser.me/api/portraits/men/18.jpg" },
+                    { name: "Emma Wilson", title: "Head of Growth", company: "StartupXYZ", image: "https://randomuser.me/api/portraits/women/22.jpg" },
+                    { name: "James Liu", title: "CRO", company: "Enterprise Co", image: "https://randomuser.me/api/portraits/men/65.jpg" },
                   ].map((lead, i) => (
                     <motion.div
                       key={lead.name}

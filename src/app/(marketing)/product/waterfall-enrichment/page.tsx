@@ -303,7 +303,7 @@ export default function WaterfallEnrichmentPage() {
                   <div className="flex items-center gap-4">
                     <div className="w-14 h-14 rounded-xl overflow-hidden bg-gradient-to-br from-[#3e8aff] to-[#60a5fa] shadow-lg">
                       <Image
-                        src="https://ui-avatars.com/api/?name=John+Smith&background=3b82f6&color=fff&size=128"
+                        src="https://randomuser.me/api/portraits/men/52.jpg"
                         alt="John Smith"
                         width={56}
                         height={56}
