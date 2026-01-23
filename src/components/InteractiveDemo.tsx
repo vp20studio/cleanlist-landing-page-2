@@ -362,6 +362,7 @@ export default function InteractiveDemo() {
                                   width={32}
                                   height={32}
                                   className="w-full h-full object-cover"
+                                  unoptimized
                                 />
                               </div>
                               <div className="flex-1 min-w-0">

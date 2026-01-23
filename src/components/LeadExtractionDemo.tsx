@@ -214,6 +214,7 @@ export default function LeadExtractionDemo() {
                         width={64}
                         height={64}
                         className="w-full h-full object-cover"
+                        unoptimized
                       />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -405,6 +406,7 @@ export default function LeadExtractionDemo() {
                           width={32}
                           height={32}
                           className="w-full h-full object-cover"
+                          unoptimized
                         />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -619,7 +621,7 @@ export default function LeadExtractionDemo() {
                   }`}
                 >
                   <div className="w-10 h-10 rounded-lg bg-[#ff7a59] flex items-center justify-center p-2">
-                    <Image src="/images/favicons/hubspot.ico" alt="HubSpot" width={24} height={24} className="w-full h-full object-contain" />
+                    <Image src="/images/favicons/hubspot.png" alt="HubSpot" width={24} height={24} className="w-full h-full object-contain" />
                   </div>
                   <div className="flex-1">
                     <div

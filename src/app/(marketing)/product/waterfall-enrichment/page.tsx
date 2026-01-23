@@ -308,6 +308,7 @@ export default function WaterfallEnrichmentPage() {
                         width={56}
                         height={56}
                         className="w-full h-full object-cover"
+                        unoptimized
                       />
                     </div>
                     <div>
