@@ -666,7 +666,9 @@ export default function HomePage() {
                         className="text-center"
                       >
                         <div className={`inline-flex flex-col items-center gap-2 p-4 rounded-2xl transition-all hover:scale-105 ${
-                          isDark ? "bg-white/[0.03] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100"
+                          col.bgcolor === "yellow"
+                            ? ""
+                            : (isDark ? "bg-white/[0.03] hover:bg-white/[0.05]" : "bg-gray-50 hover:bg-gray-100")
                         }`}>
                           <div className={`w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden ${
                             col.bgcolor === "white"
