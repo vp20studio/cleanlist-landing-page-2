@@ -327,24 +327,24 @@ export default function SolutionSection() {
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#3e8aff]/30 bg-[#3e8aff]/10 text-[#3e8aff] text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#3e8aff]/30 bg-[#3e8aff]/10 text-[#3e8aff] text-xs sm:text-sm font-medium mb-6 whitespace-nowrap"
           >
             <Lightning className="w-4 h-4" />
             The Solution
           </motion.span>
-          <h2 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${isDark ? "text-white" : "text-gray-900"}`}>
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 px-4 ${isDark ? "text-white" : "text-gray-900"}`}>
             Everything you need to{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
               scale GTM
             </span>
           </h2>
-          <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             Complete, executable playbooks that deploy in minutes — not custom workflows that take months to build.
           </p>
         </motion.div>
 
         {/* Interactive Feature Cards */}
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
           {/* Left: Feature Selector */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

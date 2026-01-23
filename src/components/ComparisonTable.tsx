@@ -101,7 +101,7 @@ export default function ComparisonTable() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16 px-4"
         >
-          <span className="text-xs font-semibold tracking-widest text-[#3e8aff] uppercase mb-4 block">
+          <span className="text-xs font-semibold tracking-widest text-[#3e8aff] uppercase mb-4 block whitespace-nowrap">
             The Cleanlist Advantage
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight px-4">
@@ -121,7 +121,7 @@ export default function ComparisonTable() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="grid md:grid-cols-2 gap-6 mb-12"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
         >
           {comparisonData.map((item, index) => (
             <motion.div

@@ -96,7 +96,7 @@ export default function Pricing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-12 px-4"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888] mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-xs sm:text-sm text-[#888888] mb-6 whitespace-nowrap">
             <Sparkle width={16} height={16} className="text-[#3e8aff]" />
             Pricing
           </span>
