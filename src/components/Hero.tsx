@@ -156,7 +156,7 @@ export default function Hero() {
               {/* Dashboard Content */}
               <div className="p-4 sm:p-6 md:p-8">
                 {/* Stats Row */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-6">
                   <StatsCard
                     icon={<Envelope width={20} height={20} />}
                     label="Emails Verified"
