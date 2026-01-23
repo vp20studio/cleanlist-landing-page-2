@@ -367,7 +367,7 @@ function EnrichmentCard() {
               </div>
 
               {/* Data Points */}
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 <DataPoint
                   icon={<LinkedinLogo width={14} height={14} />}
                   label="LinkedIn"
@@ -571,7 +571,7 @@ const data = await response.json();
 
               {/* Code content */}
               <div className="p-4 overflow-x-auto">
-                <pre className="text-xs md:text-sm font-mono leading-relaxed">
+                <pre className="text-[10px] sm:text-xs md:text-sm font-mono leading-relaxed">
                   <code>
                     <span className="text-[#888888]">
                       {"// Verify and enrich with one request"}

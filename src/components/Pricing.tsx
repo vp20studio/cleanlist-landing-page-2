@@ -263,7 +263,7 @@ function PricingCard({
           href="/get-started"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className={`flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl font-medium text-sm transition-all duration-300 mb-6 ${
+          className={`flex items-center justify-center gap-2 w-full py-4 px-4 rounded-xl font-medium text-sm transition-all duration-300 mb-6 min-h-[48px] ${
             plan.highlight
               ? "bg-gradient-to-r from-[#3e8aff] to-[#2563eb] text-white hover:shadow-[0_0_30px_rgba(62,138,255,0.3)]"
               : "bg-[rgba(255,255,255,0.05)] text-white border border-[rgba(255,255,255,0.1)] hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.2)]"
