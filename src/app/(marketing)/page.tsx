@@ -850,7 +850,7 @@ export default function HomePage() {
                       </span>
                       {item.cleanlist && (
                         <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#3e8aff]/20 flex items-center justify-center">
-                          <Check width={14} height={14} className="text-[#3e8aff]" />
+                          <Check width={17} height={17} className="text-[#3e8aff]" />
                         </div>
                       )}
                     </div>

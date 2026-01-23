@@ -138,7 +138,7 @@ export default function ComparisonTable() {
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-[rgba(62,138,255,0.1)] flex items-center justify-center">
-                  <item.icon width={20} height={20} className="text-[#3e8aff]" />
+                  <item.icon width={28} height={28} className="text-[#3e8aff]" />
                 </div>
                 <h3 className="text-lg font-semibold text-white">
                   {item.category}
@@ -194,7 +194,7 @@ export default function ComparisonTable() {
               <span className="sm:hidden">Legacy</span>
             </div>
             <div className="text-xs sm:text-sm font-medium text-[#3e8aff] text-center flex items-center justify-center gap-1 sm:gap-2">
-              <Sparkle width={14} height={14} className="sm:w-4 sm:h-4" />
+              <Sparkle width={17} height={17} className="sm:w-4 sm:h-4" />
               <span className="hidden sm:inline">Cleanlist</span>
               <span className="sm:hidden">Clean</span>
             </div>
@@ -215,11 +215,11 @@ export default function ComparisonTable() {
                 <div className="flex justify-center">
                   {item.oldWay ? (
                     <div className="w-6 h-6 rounded-full bg-[rgba(255,255,255,0.05)] flex items-center justify-center">
-                      <Check width={14} height={14} className="text-[#888888]" />
+                      <Check width={17} height={17} className="text-[#888888]" />
                     </div>
                   ) : (
                     <div className="w-6 h-6 rounded-full bg-[rgba(239,68,68,0.1)] flex items-center justify-center">
-                      <X width={14} height={14} className="text-[#ef4444]" />
+                      <X width={17} height={17} className="text-[#ef4444]" />
                     </div>
                   )}
                 </div>
@@ -228,7 +228,7 @@ export default function ComparisonTable() {
                     whileHover={{ scale: 1.1 }}
                     className="w-6 h-6 rounded-full bg-[rgba(62,138,255,0.1)] flex items-center justify-center shadow-[0_0_10px_rgba(62,138,255,0.3)]"
                   >
-                    <Check width={14} height={14} className="text-[#3e8aff]" />
+                    <Check width={17} height={17} className="text-[#3e8aff]" />
                   </motion.div>
                 </div>
               </motion.div>

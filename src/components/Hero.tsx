@@ -278,7 +278,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(34,197,94,0.1)] flex items-center justify-center">
-                  <Lightning width={20} height={20} className="text-[#22c55e]" />
+                  <Lightning width={28} height={28} className="text-[#22c55e]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white">Instant API</p>
@@ -295,7 +295,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(62,138,255,0.1)] flex items-center justify-center">
-                  <Shield width={20} height={20} className="text-[#3e8aff]" />
+                  <Shield width={28} height={28} className="text-[#3e8aff]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white">GDPR Ready</p>
@@ -312,7 +312,7 @@ export default function Hero() {
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-[rgba(245,158,11,0.1)] flex items-center justify-center">
-                  <TrendUp width={20} height={20} className="text-[#f59e0b]" />
+                  <TrendUp width={28} height={28} className="text-[#f59e0b]" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white">ROI Boost</p>

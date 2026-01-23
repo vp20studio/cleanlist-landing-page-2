@@ -201,7 +201,7 @@ function IngestionStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(245,158,11,0.1)] flex items-center justify-center">
-            <Upload width={24} height={24} className="text-[#f59e0b]" />
+            <Upload width={32} height={32} className="text-[#f59e0b]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">Step 01: Ingestion</h3>
@@ -295,7 +295,7 @@ function ScrubStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(239,68,68,0.1)] flex items-center justify-center">
-            <Sparkle width={24} height={24} className="text-[#ef4444]" />
+            <Sparkle width={32} height={32} className="text-[#ef4444]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">Step 02: The Scrub</h3>
@@ -371,7 +371,7 @@ function EnrichmentStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(62,138,255,0.1)] flex items-center justify-center">
-            <Database width={24} height={24} className="text-[#3e8aff]" />
+            <Database width={32} height={32} className="text-[#3e8aff]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">
@@ -453,7 +453,7 @@ function OutputStep() {
       <div>
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 rounded-xl bg-[rgba(34,197,94,0.1)] flex items-center justify-center">
-            <Crown width={24} height={24} className="text-[#22c55e]" />
+            <Crown width={32} height={32} className="text-[#22c55e]" />
           </div>
           <div>
             <h3 className="text-2xl font-bold text-white">

@@ -114,7 +114,7 @@ export default function ProductNavbar() {
                         className="flex items-start gap-3 p-3 rounded-lg hover:bg-[rgba(255,255,255,0.05)] transition-colors group"
                       >
                         <div className="w-10 h-10 rounded-lg bg-[rgba(62,138,255,0.1)] flex items-center justify-center text-[#3e8aff] group-hover:bg-[rgba(62,138,255,0.15)] transition-colors">
-                          <product.icon width={20} height={20} />
+                          <product.icon width={28} height={28} />
                         </div>
                         <div>
                           <p className="text-sm font-medium text-white group-hover:text-[#3e8aff] transition-colors">

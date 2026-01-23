@@ -654,17 +654,17 @@ export default function DataTransformDemo() {
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
               {
-                icon: <Sparkle width={24} height={24} />,
+                icon: <Sparkle width={32} height={32} />,
                 title: "AI Enrichments",
                 description: "Access premium data from 15+ providers: identify new leads, score accounts, and personalize outreach automatically."
               },
               {
-                icon: <Lightning width={24} height={24} />,
+                icon: <Lightning width={32} height={32} />,
                 title: "Intent Signals",
                 description: "Take instant action when prospects change jobs, visit your website, or show buying signals across the web."
               },
               {
-                icon: <User width={24} height={24} />,
+                icon: <User width={32} height={32} />,
                 title: "AI-Led Research",
                 description: "Search public databases, navigate gated forms, and find unique datapoints with natural language prompts."
               }

@@ -154,7 +154,7 @@ function PlaybookCard({
                     : "bg-[#3e8aff]/10 text-[#3e8aff]"
               }`}
             >
-              <Icon width={28} height={28} />
+              <Icon width={36} height={36} />
               {isActive && (
                 <motion.div
                   animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
@@ -187,7 +187,7 @@ function PlaybookCard({
                   isDark ? "bg-white/5 text-gray-400" : "bg-gray-100 text-gray-500"
                 } group-hover:bg-[#3e8aff]/10 group-hover:text-[#3e8aff] transition-colors`}
               >
-                <Play width={14} height={14} />
+                <Play width={22} height={22} />
               </motion.div>
             )}
           </div>
@@ -249,7 +249,7 @@ function PlaybookCard({
                               ? "bg-white/10 text-gray-400"
                               : "bg-gray-200 text-gray-500"
                         }`}>
-                          {isStepComplete ? <CheckCircle width={14} height={14} /> : i + 1}
+                          {isStepComplete ? <CheckCircle width={17} height={17} /> : i + 1}
                         </div>
 
                         <motion.div
@@ -263,7 +263,7 @@ function PlaybookCard({
                                 : "bg-gray-200 text-gray-500"
                           }`}
                         >
-                          <StepIcon width={20} height={20} />
+                          <StepIcon width={28} height={28} />
                         </motion.div>
                         <span className={`text-xs font-medium ${
                           isStepActive || isStepComplete
@@ -325,7 +325,7 @@ function PlaybookCard({
                       : "bg-[#3e8aff]/10 text-[#3e8aff]"
                 }`}
               >
-                <CheckCircle width={18} height={18} />
+                <CheckCircle width={22} height={22} />
               </motion.div>
               <div>
                 <span className={`text-xs uppercase tracking-wider ${

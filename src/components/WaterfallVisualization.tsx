@@ -208,7 +208,7 @@ export default function WaterfallVisualization({ compact = false, autoPlay = tru
                     className={`${compact ? 'w-8 h-8' : 'w-10 h-10 md:w-12 md:h-12'} rounded-lg flex items-center justify-center mb-2`}
                     style={{ backgroundColor: `${provider.color}20` }}
                   >
-                    <Database width={compact ? 16 : 20} height={compact ? 16 : 20} style={{ color: provider.color }} />
+                    <Database width={compact ? 22 : 32} height={compact ? 22 : 32} style={{ color: provider.color }} />
                   </div>
 
                   {/* Provider Name */}
