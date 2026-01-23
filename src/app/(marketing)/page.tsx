@@ -351,7 +351,7 @@ export default function HomePage() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6"
           >
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
               The{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 GTM Playbook Engine
@@ -368,7 +368,7 @@ export default function HomePage() {
             transition={{ delay: 0.2 }}
             className="text-center mb-8"
           >
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+            <p className={`text-xl md:text-xl max-w-2xl mx-auto leading-relaxed px-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Upload leads, enrich with email and phone, verify deliverability, and add context. Everything ships into your outbound tools and CRM ready to run.
             </p>
           </motion.div>
@@ -378,11 +378,11 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4 w-full sm:w-auto px-4"
           >
             <Link
               href="https://app.cleanlist.ai/auth/register"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-all shadow-lg shadow-[#3e8aff]/25 hover:shadow-xl hover:shadow-[#3e8aff]/30 w-full sm:w-auto"
             >
               Start building for free
               <ArrowRight className="w-4 h-4" />
@@ -391,7 +391,7 @@ export default function HomePage() {
               href="https://calendly.com/cleanlist/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center justify-center gap-2 px-6 py-3.5 border font-medium rounded-lg transition-colors ${
+              className={`inline-flex items-center justify-center gap-2 px-6 py-3.5 border font-medium rounded-lg transition-colors w-full sm:w-auto ${
                 isDark
                   ? "border-white/[0.15] text-white hover:bg-white/[0.05]"
                   : "border-gray-300 text-gray-900 hover:bg-gray-100"

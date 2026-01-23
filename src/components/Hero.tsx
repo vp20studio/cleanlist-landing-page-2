@@ -232,7 +232,7 @@ export default function Hero() {
                       List Quality Score
                     </span>
                     <div className="relative flex items-center justify-center py-4">
-                      <svg className="w-32 h-32 transform -rotate-90">
+                      <svg className="w-24 h-24 md:w-32 md:h-32 transform -rotate-90" viewBox="0 0 128 128">
                         <circle
                           cx="64"
                           cy="64"
@@ -254,7 +254,7 @@ export default function Hero() {
                         />
                       </svg>
                       <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-3xl font-bold text-white">
+                        <span className="text-2xl md:text-3xl font-bold text-white">
                           92
                         </span>
                         <span className="text-xs text-[#888888]">/ 100</span>
@@ -341,17 +341,17 @@ function StatsCard({
   positive: boolean;
 }) {
   return (
-    <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-3 sm:p-4">
+    <div className="rounded-xl border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.02)] p-4 sm:p-4">
       <div className="flex items-center gap-2 mb-2 text-[#888888]">
         <div className="flex-shrink-0">{icon}</div>
-        <span className="text-[10px] sm:text-xs truncate">{label}</span>
+        <span className="text-xs truncate">{label}</span>
       </div>
       <div className="flex items-end justify-between gap-1">
-        <span className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+        <span className="text-2xl sm:text-xl md:text-2xl font-bold text-white">
           {value}
         </span>
         <span
-          className={`text-[10px] sm:text-xs font-medium flex-shrink-0 ${
+          className={`text-xs font-medium flex-shrink-0 ${
             positive ? "text-[#22c55e]" : "text-[#ef4444]"
           }`}
         >
@@ -376,7 +376,7 @@ function ProcessingRow({
       color: "text-[#22c55e]",
       bg: "bg-[rgba(34,197,94,0.1)]",
       label: "Verified",
-      icon: <CheckCircle width={14} height={14} />,
+      icon: <CheckCircle width={16} height={16} className="md:w-3.5 md:h-3.5" />,
     },
     invalid: {
       color: "text-[#ef4444]",
@@ -384,7 +384,7 @@ function ProcessingRow({
       label: "Invalid",
       icon: (
         <svg
-          className="w-3.5 h-3.5"
+          className="w-4 h-4 md:w-3.5 md:h-3.5"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -400,7 +400,7 @@ function ProcessingRow({
       color: "text-[#3e8aff]",
       bg: "bg-[rgba(62,138,255,0.1)]",
       label: "Enriching...",
-      icon: <Sparkle width={14} height={14} className="animate-pulse" />,
+      icon: <Sparkle width={16} height={16} className="animate-pulse md:w-3.5 md:h-3.5" />,
     },
   };
 
@@ -412,9 +412,9 @@ function ProcessingRow({
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#3e8aff] to-[#2563eb] flex items-center justify-center text-white text-xs font-medium flex-shrink-0">
           {email[0].toUpperCase()}
         </div>
-        <div className="min-w-0">
-          <p className="text-sm text-white truncate">{email}</p>
-          <p className="text-xs text-[#888888]">{company}</p>
+        <div className="min-w-0 flex-1">
+          <p className="text-sm text-white truncate max-w-[180px] md:max-w-none">{email}</p>
+          <p className="text-xs text-[#888888] hidden md:block">{company}</p>
         </div>
       </div>
       <span
