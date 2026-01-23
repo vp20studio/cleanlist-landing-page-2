@@ -172,7 +172,7 @@ export default function HomePage() {
               opacity: [0.15, 0.2, 0.15]
             }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-[#3e8aff]/20 rounded-full blur-[150px]"
+            className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] lg:w-[1000px] lg:h-[800px] bg-[#3e8aff]/20 rounded-full blur-[150px]"
           />
           <motion.div
             animate={{
@@ -180,7 +180,7 @@ export default function HomePage() {
               opacity: [0.1, 0.15, 0.1]
             }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]"
+            className="absolute top-[20%] left-0 md:-left-[10%] w-[200px] h-[200px] md:w-[400px] md:h-[400px] lg:w-[600px] lg:h-[600px] bg-[#3e8aff]/10 rounded-full blur-[120px]"
           />
           <motion.div
             animate={{
@@ -188,14 +188,14 @@ export default function HomePage() {
               opacity: [0.08, 0.12, 0.08]
             }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute top-[30%] -right-[10%] w-[500px] h-[500px] bg-[#3e8aff]/10 rounded-full blur-[100px]"
+            className="absolute top-[30%] right-0 md:-right-[10%] w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[500px] lg:h-[500px] bg-[#3e8aff]/10 rounded-full blur-[100px]"
           />
         </div>
 
         {/* Radial lines emanating from center */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[200%]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full md:w-[200%] md:h-[200%]"
             style={{
               background: isDark
                 ? `conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(62, 138, 255, 0.03) 10deg, transparent 20deg, transparent 40deg, rgba(62, 138, 255, 0.02) 50deg, transparent 60deg, transparent 80deg, rgba(62, 138, 255, 0.03) 90deg, transparent 100deg, transparent 120deg, rgba(62, 138, 255, 0.02) 130deg, transparent 140deg, transparent 160deg, rgba(62, 138, 255, 0.03) 170deg, transparent 180deg, transparent 200deg, rgba(62, 138, 255, 0.02) 210deg, transparent 220deg, transparent 240deg, rgba(62, 138, 255, 0.03) 250deg, transparent 260deg, transparent 280deg, rgba(62, 138, 255, 0.02) 290deg, transparent 300deg, transparent 320deg, rgba(62, 138, 255, 0.03) 330deg, transparent 340deg, transparent 360deg)`
@@ -588,12 +588,12 @@ export default function HomePage() {
           <motion.div
             animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] rounded-full blur-[200px] ${isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/15"}`}
+            className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] lg:w-[1000px] lg:h-[800px] rounded-full blur-[200px] ${isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/15"}`}
           />
           <motion.div
             animate={{ x: [0, 50, 0] }}
             transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-            className={`absolute top-1/4 -left-[10%] w-[400px] h-[400px] rounded-full blur-[120px] ${isDark ? "bg-green-500/5" : "bg-green-400/10"}`}
+            className={`absolute top-1/4 left-0 md:-left-[10%] w-[150px] h-[150px] md:w-[250px] md:h-[250px] lg:w-[400px] lg:h-[400px] rounded-full blur-[120px] ${isDark ? "bg-green-500/5" : "bg-green-400/10"}`}
           />
         </div>
 
@@ -891,7 +891,7 @@ export default function HomePage() {
                 <motion.div
                   animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full blur-[100px] ${
+                  className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] md:w-[250px] md:h-[250px] lg:w-[400px] lg:h-[400px] rounded-full blur-[100px] ${
                     isDark ? "bg-[#3e8aff]/20" : "bg-[#3e8aff]/15"
                   }`}
                 />
@@ -899,14 +899,14 @@ export default function HomePage() {
                 <motion.div
                   animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className={`absolute top-1/4 left-1/4 w-[200px] h-[200px] rounded-full blur-[80px] ${
+                  className={`hidden md:block absolute top-1/4 left-1/4 w-[200px] h-[200px] rounded-full blur-[80px] ${
                     isDark ? "bg-[#22c55e]/15" : "bg-[#22c55e]/10"
                   }`}
                 />
                 <motion.div
                   animate={{ x: [0, -30, 0], y: [0, 20, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className={`absolute bottom-1/4 right-1/4 w-[200px] h-[200px] rounded-full blur-[80px] ${
+                  className={`hidden md:block absolute bottom-1/4 right-1/4 w-[200px] h-[200px] rounded-full blur-[80px] ${
                     isDark ? "bg-[#8b5cf6]/15" : "bg-[#8b5cf6]/10"
                   }`}
                 />

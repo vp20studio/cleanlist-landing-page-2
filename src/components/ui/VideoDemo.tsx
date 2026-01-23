@@ -29,7 +29,7 @@ export default function VideoDemo({
           opacity: [0.15, 0.25, 0.15],
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-20 -left-20 w-64 h-64 bg-[#3e8aff]/20 rounded-full blur-[100px] -z-10"
+        className="hidden md:block absolute -top-20 -left-20 w-64 h-64 bg-[#3e8aff]/20 rounded-full blur-[100px] -z-10"
       />
       <motion.div
         animate={{
@@ -37,7 +37,7 @@ export default function VideoDemo({
           opacity: [0.1, 0.2, 0.1],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute -bottom-20 -right-20 w-72 h-72 bg-purple-500/15 rounded-full blur-[100px] -z-10"
+        className="hidden md:block absolute -bottom-20 -right-20 w-72 h-72 bg-purple-500/15 rounded-full blur-[100px] -z-10"
       />
       <motion.div
         animate={{
@@ -45,7 +45,7 @@ export default function VideoDemo({
           opacity: [0.1, 0.15, 0.1],
         }}
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-1/2 -left-32 w-48 h-48 bg-green-500/10 rounded-full blur-[80px] -z-10"
+        className="hidden md:block absolute top-1/2 -left-32 w-48 h-48 bg-green-500/10 rounded-full blur-[80px] -z-10"
       />
 
       {/* Floating particles */}

@@ -307,12 +307,12 @@ export default function SolutionSection() {
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className={`absolute top-[20%] right-[10%] w-[500px] h-[500px] rounded-full blur-[150px] ${isDark ? "bg-[#3e8aff]/15" : "bg-[#3e8aff]/10"}`}
+          className={`absolute top-[20%] right-0 md:right-[10%] w-[200px] h-[200px] md:w-[300px] md:h-[300px] lg:w-[500px] lg:h-[500px] rounded-full blur-[150px] ${isDark ? "bg-[#3e8aff]/15" : "bg-[#3e8aff]/10"}`}
         />
         <motion.div
           animate={{ y: [0, 30, 0] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className={`absolute bottom-[20%] left-[5%] w-[400px] h-[400px] rounded-full blur-[120px] ${isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/8"}`}
+          className={`absolute bottom-[20%] left-0 md:left-[5%] w-[150px] h-[150px] md:w-[250px] md:h-[250px] lg:w-[400px] lg:h-[400px] rounded-full blur-[120px] ${isDark ? "bg-[#3e8aff]/10" : "bg-[#3e8aff]/8"}`}
         />
       </div>
 

@@ -43,7 +43,7 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         {/* Top radial gradient */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[200%] h-[600px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[300px] md:w-[200%] md:h-[600px]"
           style={{
             background:
               "radial-gradient(ellipse 50% 80% at 50% 0%, rgba(62, 138, 255, 0.15), transparent)",

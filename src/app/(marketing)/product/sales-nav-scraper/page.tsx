@@ -33,7 +33,7 @@ export default function SalesNavScraperPage() {
       {/* Hero Section */}
       <section className="relative pt-20 pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0077b5]/5 via-transparent to-transparent" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#0077b5]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[400px] lg:w-[800px] lg:h-[600px] bg-[#0077b5]/10 rounded-full blur-[120px]" />
 
         {/* Animated grid background */}
         <div

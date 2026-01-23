@@ -87,7 +87,7 @@ export default function BlogPage() {
           {isDark && (
             <>
               <div
-                className="absolute top-0 left-1/2 -translate-x-1/2 w-[200%] h-[400px]"
+                className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[200px] md:w-[200%] md:h-[400px]"
                 style={{
                   background: "radial-gradient(ellipse 50% 80% at 50% 0%, rgba(62, 138, 255, 0.1), transparent)",
                 }}

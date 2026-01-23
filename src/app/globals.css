@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* CRITICAL: Overflow containment - prevents horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Contain all sections */
+section, main, .container {
+  overflow-x: hidden;
+}
+
 /* Cleanlist Design System - Dark & Light Theme */
 
 /* Dark Theme (Default) */

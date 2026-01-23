@@ -46,7 +46,7 @@ export default function FeatureGrid() {
     <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#030303] overflow-hidden">
       {/* Background glow */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[400px] lg:w-[1000px] lg:h-[600px] pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse at center, rgba(62, 138, 255, 0.05), transparent 70%)",
