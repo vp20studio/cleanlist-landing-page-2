@@ -36,8 +36,8 @@ export default function SiteFooter() {
       <StarsBackground starCount={30} seed={100} showRocket />
 
       {/* Main Footer */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 md:gap-8 lg:gap-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-1 sm:col-span-2">
             <Link href="/" className="flex items-center mb-4">
@@ -135,7 +135,7 @@ export default function SiteFooter() {
 
       {/* Bottom Bar */}
       <div className="relative z-10 border-t border-white/[0.08]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-4 text-center md:text-left">
             <div className="flex items-center gap-6 text-xs md:text-sm text-gray-500">
               <span>&copy; {new Date().getFullYear()} Cleanlist. All rights reserved.</span>

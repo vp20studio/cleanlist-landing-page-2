@@ -301,7 +301,7 @@ export default function SolutionSection() {
   const activeData = features.find(f => f.id === activeFeature)!;
 
   return (
-    <section ref={ref} id="solutions" className={`py-24 md:py-32 relative overflow-hidden ${isDark ? "bg-[#030303]" : "bg-gradient-to-b from-white to-[#fafafa]"}`}>
+    <section ref={ref} id="solutions" className={`py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden ${isDark ? "bg-[#030303]" : "bg-gradient-to-b from-white to-[#fafafa]"}`}>
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
@@ -316,7 +316,7 @@ export default function SolutionSection() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

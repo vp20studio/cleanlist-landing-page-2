@@ -11,25 +11,25 @@ export default function FinalCTA() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section ref={ref} className="py-24 md:py-32 relative overflow-hidden bg-[#030303]">
+    <section ref={ref} className="py-12 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden bg-[#030303]">
       {/* Stars Background */}
       <StarsBackground />
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 md:px-6 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight text-white">
             Ready to transform your
             <br />
             <span className="text-[#3e8aff]">GTM strategy?</span>
           </h2>
 
-          <p className="text-lg md:text-xl lg:text-2xl mb-10 text-gray-400">
+          <p className="text-lg sm:text-xl md:text-2xl mb-10 text-gray-400">
             Get 30 free credits. No credit card required.
           </p>
 

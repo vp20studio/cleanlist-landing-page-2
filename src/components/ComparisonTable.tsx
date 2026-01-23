@@ -81,7 +81,7 @@ export default function ComparisonTable() {
   return (
     <section
       id="compare"
-      className="relative py-24 md:py-32 bg-[#030303] overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#030303] overflow-hidden"
     >
       {/* Background */}
       <div

@@ -76,7 +76,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="relative py-24 md:py-32 bg-[#030303] overflow-hidden"
+      className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#030303] overflow-hidden"
     >
       {/* Background gradient */}
       <div
@@ -196,7 +196,7 @@ function PricingCard({
         plan.highlight
           ? "border-[rgba(62,138,255,0.4)] bg-gradient-to-b from-[rgba(62,138,255,0.08)] to-[rgba(10,10,10,0.8)]"
           : "border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] hover:border-[rgba(255,255,255,0.15)]"
-      } backdrop-blur-xl p-5 sm:p-6 lg:p-8 overflow-hidden`}
+      } backdrop-blur-xl p-4 sm:p-6 md:p-8 overflow-hidden`}
     >
       {/* Highlight glow effect */}
       {plan.highlight && (

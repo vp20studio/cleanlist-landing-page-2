@@ -43,7 +43,7 @@ export default function FeatureGrid() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="relative py-20 md:py-32 bg-[#030303] overflow-hidden">
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#030303] overflow-hidden">
       {/* Background glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] pointer-events-none"
@@ -156,7 +156,7 @@ function VerificationCard() {
   return (
     <div
       ref={cardRef}
-      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
+      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
     >
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[rgba(62,138,255,0.05)] to-transparent pointer-events-none" />
@@ -263,7 +263,7 @@ function EnrichmentCard() {
   return (
     <div
       ref={cardRef}
-      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
+      className="group relative h-full rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]"
     >
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[rgba(62,138,255,0.05)] to-transparent pointer-events-none" />
@@ -509,7 +509,7 @@ const data = await response.json();
   };
 
   return (
-    <div className="group relative rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]">
+    <div className="group relative rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] backdrop-blur-xl p-4 sm:p-6 md:p-8 overflow-hidden transition-all duration-500 hover:border-[rgba(62,138,255,0.3)]">
       {/* Hover glow */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-[rgba(62,138,255,0.05)] to-transparent pointer-events-none" />
       <div className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl bg-[rgba(62,138,255,0.1)] pointer-events-none" />
