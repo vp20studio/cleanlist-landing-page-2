@@ -12,6 +12,7 @@ import {
   Question,
   CaretDown,
   CaretUp,
+  Sparkle,
 } from "@/components/icons";
 import { useTheme } from "@/context/ThemeContext";
 
