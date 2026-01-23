@@ -21,7 +21,7 @@ import {
 import { TechnicalGrid, GlowCard, GlowIcon } from "@/components/ui";
 import { useTheme } from "@/context/ThemeContext";
 
-export default function AgenciesPage() {
+export default function MarketingTeamsPage() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
@@ -48,8 +48,8 @@ export default function AgenciesPage() {
               animate={{ opacity: 1, y: 0 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-sm text-[#3e8aff] mb-6"
             >
-              <GlowIcon icon={<Buildings />} size="xs" color="blue" variant="ghost" />
-              For Agencies
+              <GlowIcon icon={<Users />} size="xs" color="blue" variant="ghost" />
+              For Marketing Teams
             </motion.div>
 
             <motion.h1
@@ -58,9 +58,9 @@ export default function AgenciesPage() {
               transition={{ delay: 0.1 }}
               className={`text-5xl md:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} leading-[1.1] mb-6`}
             >
-              White-Label Data{" "}
+              Data Operations{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
-                for Your Clients
+                at Marketing Scale
               </span>
             </motion.h1>
 
@@ -70,8 +70,7 @@ export default function AgenciesPage() {
               transition={{ delay: 0.2 }}
               className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} mb-8`}
             >
-              Offer data services to your clients without building infrastructure.
-              Bulk processing, team workspaces, and margin controls built for agencies.
+              Clean, enrich, and verify your data at scale. Team workspaces, automated workflows, and seamless CRM sync built for modern marketing teams.
             </motion.p>
 
             <motion.div
@@ -86,7 +85,7 @@ export default function AgenciesPage() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
-                Apply for Agency Program
+                Book a Demo
                 <ArrowRight />
               </Link>
             </motion.div>
@@ -101,17 +100,17 @@ export default function AgenciesPage() {
             columns={4}
             blocks={[
               {
-                icon: <CurrencyDollar />,
-                label: "Margin",
-                value: "50%+",
-                subValue: "Typical markup",
+                icon: <ChartBar />,
+                label: "Data Accuracy",
+                value: "95%+",
+                subValue: "Verified contacts",
                 color: "blue",
               },
               {
                 icon: <Users />,
-                label: "Client Limit",
+                label: "Team Members",
                 value: "Unlimited",
-                subValue: "Workspaces",
+                subValue: "Seats included",
                 color: "blue",
               },
               {
@@ -122,10 +121,10 @@ export default function AgenciesPage() {
                 color: "blue",
               },
               {
-                icon: <Shield />,
-                label: "White-Label",
-                value: "100%",
-                subValue: "Your branding",
+                icon: <StackSimple />,
+                label: "Automation",
+                value: "Real-time",
+                subValue: "CRM sync",
                 highlight: true,
               },
             ]}
@@ -133,7 +132,7 @@ export default function AgenciesPage() {
         </div>
       </section>
 
-      {/* Agency Benefits */}
+      {/* Marketing Team Benefits */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
@@ -143,10 +142,10 @@ export default function AgenciesPage() {
             className="text-center mb-16"
           >
             <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
-              Built for Agency Scale
+              Built for Marketing Teams
             </h2>
             <p className={`text-xl ${isDark ? "text-gray-400" : "text-gray-600"} max-w-2xl mx-auto`}>
-              Everything you need to offer data services to your clients.
+              Everything you need to manage data operations at scale.
             </p>
           </motion.div>
 
@@ -154,39 +153,39 @@ export default function AgenciesPage() {
             {[
               {
                 icon: <Users />,
-                title: "Client Workspaces",
+                title: "Team Collaboration",
                 description:
-                  "Separate workspaces for each client with their own users, credits, and data.",
-              },
-              {
-                icon: <Lock />,
-                title: "White-Label Ready",
-                description:
-                  "Remove Cleanlist branding. Present data services as your own offering.",
-              },
-              {
-                icon: <CurrencyDollar />,
-                title: "Margin Controls",
-                description:
-                  "Set your own pricing for clients. Buy credits wholesale, sell retail.",
-              },
-              {
-                icon: <CreditCard />,
-                title: "Flexible Billing",
-                description:
-                  "Bill clients directly or manage all credits centrally. Your choice.",
-              },
-              {
-                icon: <ChartBar />,
-                title: "Usage Analytics",
-                description:
-                  "Track usage by client, project, and user. Detailed reporting for invoicing.",
+                  "Unlimited team members, role-based permissions, and shared workspaces for seamless collaboration.",
               },
               {
                 icon: <StackSimple />,
-                title: "Bulk Processing",
+                title: "Automated Workflows",
                 description:
-                  "Process millions of records per month. Volume discounts available.",
+                  "Set up automated data enrichment, verification, and sync workflows that run on autopilot.",
+              },
+              {
+                icon: <Lightning />,
+                title: "Real-Time Sync",
+                description:
+                  "Bi-directional sync with your CRM. Changes flow automatically between systems in real-time.",
+              },
+              {
+                icon: <ChartBar />,
+                title: "Campaign Analytics",
+                description:
+                  "Track data quality metrics, enrichment coverage, and ROI across all your campaigns.",
+              },
+              {
+                icon: <Shield />,
+                title: "Data Governance",
+                description:
+                  "Built-in deduplication, validation rules, and compliance controls for clean data.",
+              },
+              {
+                icon: <Globe />,
+                title: "Scale Infinitely",
+                description:
+                  "Process millions of records per month. Built to handle enterprise-scale data operations.",
               },
             ].map((feature, index) => (
               <motion.div
@@ -207,7 +206,7 @@ export default function AgenciesPage() {
         </div>
       </section>
 
-      {/* How Agencies Use Cleanlist */}
+      {/* How Marketing Teams Use Cleanlist */}
       <section className={`py-24 ${isDark ? "bg-[#030303]" : "bg-[#F8F9FA]"}`}>
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <motion.div
@@ -217,54 +216,54 @@ export default function AgenciesPage() {
             className="text-center mb-16"
           >
             <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"} mb-4`}>
-              Agency Use Cases
+              Marketing Team Use Cases
             </h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Lead Generation Agencies",
+                title: "Demand Generation",
                 description:
-                  "Offer verified lead lists as a service. Use Cleanlist to source, enrich, and verify leads at scale.",
+                  "Build and maintain high-quality prospect lists for multi-channel campaigns with automated enrichment.",
                 services: [
                   "Prospect list building",
-                  "Lead verification",
-                  "Data enrichment",
-                  "CRM integration",
+                  "Contact enrichment",
+                  "Email verification",
+                  "Campaign segmentation",
                 ],
               },
               {
-                title: "Marketing Agencies",
+                title: "Account-Based Marketing",
                 description:
-                  "Clean and enrich client databases for better campaign targeting and deliverability.",
+                  "Identify and enrich target accounts with decision-maker contacts and firmographic data.",
                 services: [
-                  "Email list cleaning",
-                  "Database enrichment",
-                  "Audience segmentation",
-                  "GDPR compliance",
-                ],
-              },
-              {
-                title: "Sales Consulting",
-                description:
-                  "Help clients build outbound programs with verified contact data and enriched accounts.",
-                services: [
-                  "ICP development",
                   "Account mapping",
-                  "Contact discovery",
-                  "Data hygiene",
+                  "Stakeholder discovery",
+                  "Intent signals",
+                  "Personalization data",
                 ],
               },
               {
-                title: "RevOps Consulting",
+                title: "Database Management",
                 description:
-                  "Implement data governance and automation for your clients using Playbook Builder.",
+                  "Clean and maintain your CRM with automated deduplication, standardization, and enrichment.",
                 services: [
                   "CRM cleanup",
                   "Deduplication",
-                  "Workflow automation",
-                  "Data quality monitoring",
+                  "Data standardization",
+                  "Quality scoring",
+                ],
+              },
+              {
+                title: "Email Marketing",
+                description:
+                  "Maximize deliverability and engagement with verified emails and enriched contact profiles.",
+                services: [
+                  "Email verification",
+                  "List hygiene",
+                  "Bounce prevention",
+                  "Engagement scoring",
                 ],
               },
             ].map((useCase, index) => (
