@@ -37,9 +37,9 @@ export default function SiteFooter() {
 
       {/* Main Footer */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-10 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-6 md:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 md:gap-8 lg:gap-12">
           {/* Brand Column */}
-          <div className="col-span-2">
+          <div className="col-span-1 sm:col-span-2">
             <Link href="/" className="flex items-center mb-4">
               <Image
                 src="/images/logo-dark.png"
@@ -71,7 +71,7 @@ export default function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors text-gray-500 hover:text-white"
+                    className="text-sm transition-colors text-gray-500 hover:text-white inline-block py-1"
                   >
                     {link.label}
                   </Link>
@@ -88,7 +88,7 @@ export default function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors text-gray-500 hover:text-white"
+                    className="text-sm transition-colors text-gray-500 hover:text-white inline-block py-1"
                   >
                     {link.label}
                   </Link>
@@ -105,7 +105,7 @@ export default function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors text-gray-500 hover:text-white"
+                    className="text-sm transition-colors text-gray-500 hover:text-white inline-block py-1"
                   >
                     {link.label}
                   </Link>
@@ -122,7 +122,7 @@ export default function SiteFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm transition-colors text-gray-500 hover:text-white"
+                    className="text-sm transition-colors text-gray-500 hover:text-white inline-block py-1"
                   >
                     {link.label}
                   </Link>
@@ -136,13 +136,13 @@ export default function SiteFooter() {
       {/* Bottom Bar */}
       <div className="relative z-10 border-t border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 py-4 md:py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-4 text-center md:text-left">
             <div className="flex items-center gap-6 text-xs md:text-sm text-gray-500">
               <span>&copy; {new Date().getFullYear()} Cleanlist. All rights reserved.</span>
             </div>
-            <div className="flex items-center gap-4 md:gap-6 text-xs md:text-sm text-gray-500">
-              <Link href="/privacy-policy" className="hover:text-[#3e8aff] transition-colors">Privacy Policy</Link>
-              <Link href="/terms-conditions" className="hover:text-[#3e8aff] transition-colors">Terms & Conditions</Link>
+            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs md:text-sm text-gray-500">
+              <Link href="/privacy-policy" className="hover:text-[#3e8aff] transition-colors py-2">Privacy Policy</Link>
+              <Link href="/terms-conditions" className="hover:text-[#3e8aff] transition-colors py-2">Terms & Conditions</Link>
             </div>
             <div className="flex items-center gap-2 text-xs md:text-sm text-gray-500">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />

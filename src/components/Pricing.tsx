@@ -94,16 +94,16 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12 px-4"
         >
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.03)] text-sm text-[#888888] mb-6">
             <Sparkle width={16} height={16} className="text-[#3e8aff]" />
             Pricing
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight px-4">
             Simple, credit-based pricing
           </h2>
-          <p className="text-lg text-[#888888] max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-[#888888] max-w-2xl mx-auto px-4">
             Start free, scale as you grow. No hidden fees, no surprises.
           </p>
         </motion.div>
@@ -114,7 +114,7 @@ export default function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="relative flex items-center justify-center mb-12"
+          className="relative flex flex-col sm:flex-row items-center justify-center mb-10 md:mb-12 gap-3"
         >
           <div className="flex items-center gap-3">
             <span
@@ -125,13 +125,13 @@ export default function Pricing() {
 
             <button
               onClick={() => setIsYearly(!isYearly)}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-200 ${
+              className={`relative w-14 h-7 rounded-full transition-colors duration-200 min-h-[44px] min-w-[56px] flex items-center ${
                 isYearly ? "bg-[#3e8aff]" : "bg-[rgba(255,255,255,0.1)]"
               }`}
             >
               <div
-                className={`absolute top-1 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
-                  isYearly ? "left-8" : "left-1"
+                className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full bg-white transition-all duration-200 ease-out ${
+                  isYearly ? "left-[calc(100%-24px)]" : "left-1"
                 }`}
               />
             </button>
@@ -141,12 +141,12 @@ export default function Pricing() {
             >
               Yearly
             </span>
-
-            {/* Save badge - absolute so it doesn't affect centering */}
-            <span className={`absolute left-1/2 ml-[85px] px-2 py-1 text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] rounded-full transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>
-              Save 20%
-            </span>
           </div>
+
+          {/* Save badge - visible on mobile below toggle */}
+          <span className={`px-2 py-1 text-xs font-medium text-[#22c55e] bg-[rgba(34,197,94,0.1)] rounded-full transition-opacity duration-200 ${isYearly ? "opacity-100" : "opacity-0"}`}>
+            Save 20%
+          </span>
         </motion.div>
 
         {/* Pricing Cards */}
@@ -170,7 +170,7 @@ export default function Pricing() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center text-sm text-[#888888] mt-12"
+          className="text-center text-sm text-[#888888] mt-10 md:mt-12 px-4"
         >
           All plans include a 14-day free trial. No credit card required.
         </motion.p>
@@ -195,7 +195,7 @@ function PricingCard({
         plan.highlight
           ? "border-[rgba(62,138,255,0.4)] bg-gradient-to-b from-[rgba(62,138,255,0.08)] to-[rgba(10,10,10,0.8)]"
           : "border-[rgba(255,255,255,0.08)] bg-[rgba(10,10,10,0.6)] hover:border-[rgba(255,255,255,0.15)]"
-      } backdrop-blur-xl p-6 lg:p-8 overflow-hidden`}
+      } backdrop-blur-xl p-5 sm:p-6 lg:p-8 overflow-hidden`}
     >
       {/* Highlight glow effect */}
       {plan.highlight && (
