@@ -72,8 +72,6 @@ const detailedFeatures = [
   { feature: "Intent signals", oldWay: false, cleanlist: true },
   { feature: "Webhook delivery", oldWay: false, cleanlist: true },
   { feature: "Bulk API processing", oldWay: true, cleanlist: true },
-  { feature: "SOC 2 Type II certified", oldWay: false, cleanlist: true },
-  { feature: "GDPR compliant", oldWay: true, cleanlist: true },
   { feature: "99.9% uptime SLA", oldWay: false, cleanlist: true },
 ];
 

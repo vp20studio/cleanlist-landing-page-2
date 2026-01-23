@@ -318,25 +318,25 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-center mb-8"
           >
-            <div className={`inline-flex items-center divide-x rounded-full border text-sm ${
+            <div className={`inline-flex flex-col sm:flex-row items-center sm:divide-x rounded-xl sm:rounded-full border text-xs sm:text-sm ${
               isDark
-                ? "bg-white/[0.02] border-white/[0.08] divide-white/[0.08]"
-                : "bg-white border-gray-200 divide-gray-200 shadow-sm"
+                ? "bg-white/[0.02] border-white/[0.08] sm:divide-white/[0.08]"
+                : "bg-white border-gray-200 sm:divide-gray-200 shadow-sm"
             }`}>
-              <div className="flex items-center gap-2 px-4 py-2">
-                <Database className="w-3.5 h-3.5 text-[#3e8aff]" />
+              <div className="flex items-center gap-2 sm:gap-2 px-4 py-2.5 sm:py-2">
+                <Database className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
                   <span className="font-semibold">400M+</span> Contacts
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2">
-                <Envelope className="w-3.5 h-3.5 text-[#3e8aff]" />
+              <div className="flex items-center gap-2 sm:gap-2 px-4 py-2.5 sm:py-2">
+                <Envelope className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
                   <span className="font-semibold">98%</span> Email Coverage
                 </span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2">
-                <Phone className="w-3.5 h-3.5 text-[#3e8aff]" />
+              <div className="flex items-center gap-2 sm:gap-2 px-4 py-2.5 sm:py-2">
+                <Phone className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
                   <span className="font-semibold">85%</span> Phone Find Rate
                 </span>
@@ -351,7 +351,7 @@ export default function HomePage() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6"
           >
-            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
               The{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 GTM Playbook Engine
@@ -368,7 +368,7 @@ export default function HomePage() {
             transition={{ delay: 0.2 }}
             className="text-center mb-8"
           >
-            <p className={`text-xl md:text-xl max-w-2xl mx-auto leading-relaxed px-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+            <p className={`text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed px-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Upload leads, enrich with email and phone, verify deliverability, and add context. Everything ships into your outbound tools and CRM ready to run.
             </p>
           </motion.div>
@@ -779,11 +779,11 @@ export default function HomePage() {
                               }`}
                             >
                               {value === true ? (
-                                <Check className="w-4 h-4 text-green-500" />
+                                <Check className="w-5 h-5 text-green-500" />
                               ) : value === false ? (
                                 <X className="w-5 h-5 text-red-400" />
                               ) : (
-                                <Minus className="w-4 h-4 text-gray-400" />
+                                <Minus className="w-5 h-5 text-gray-400" />
                               )}
                             </motion.div>
                           </div>
@@ -1327,7 +1327,7 @@ export default function HomePage() {
               <div className="mb-4">
                 <h3 className={`text-lg md:text-xl lg:text-2xl font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>Free</h3>
                 <div className="flex gap-1 mt-2">
-                  <span className="px-3 py-1 text-xs rounded-md bg-[#3e8aff] text-white">I</span>
+                  <span className="px-4 py-2 text-xs font-medium rounded-md bg-[#3e8aff] text-white min-w-[44px] min-h-[44px] flex items-center justify-center">I</span>
                 </div>
               </div>
               <div className="mb-4">
@@ -1571,23 +1571,6 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {/* All plans include */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-10 md:mt-12 text-center"
-          >
-            <p className="text-sm text-gray-500 mb-4">All plans include</p>
-            <div className="flex items-center justify-center gap-4 md:gap-8 flex-wrap">
-              {["Credit Rollover", "Unlimited Users", "GDPR Compliant", "SOC II Certified"].map((item) => (
-                <div key={item} className={`flex items-center gap-2 text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
-                  <Check className="w-4 h-4 text-[#3e8aff]" />
-                  {item}
-                </div>
-              ))}
-            </div>
-          </motion.div>
         </div>
       </section>
 
