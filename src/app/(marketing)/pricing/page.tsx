@@ -726,20 +726,32 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-3xl mx-auto px-4 md:px-6">
+      <section className={`relative py-16 md:py-24 overflow-hidden ${isDark ? "bg-[#030303]" : "bg-gradient-to-b from-white to-[#fafafa]"}`}>
+        {/* Background gradient */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#3e8aff]/5 rounded-full blur-[150px]" />
+        </div>
+
+        <div className="relative max-w-3xl mx-auto px-4 md:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-10 md:mb-16"
           >
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
-              FAQs
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 mb-6">
+              <Sparkle className="w-4 h-4 text-[#3e8aff]" />
+              <span className="text-sm font-semibold text-[#3e8aff]">FAQs</span>
+            </div>
+            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
+              Frequently Asked Questions
             </h2>
+            <p className={`text-sm sm:text-base md:text-lg ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+              Everything you need to know about Cleanlist pricing
+            </p>
           </motion.div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
                 key={faq.question}
@@ -747,30 +759,58 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className={`rounded-xl border backdrop-blur-xl transition-all overflow-hidden ${isDark ? "bg-[#030303] border-white/[0.08]" : "bg-white/70 border-black/[0.08]"}`}
+                className={`group rounded-2xl border backdrop-blur-xl transition-all overflow-hidden ${
+                  expandedFaqs.includes(index)
+                    ? isDark
+                      ? "bg-[#3e8aff]/5 border-[#3e8aff]/30"
+                      : "bg-[#3e8aff]/5 border-[#3e8aff]/30 shadow-lg shadow-[#3e8aff]/10"
+                    : isDark
+                      ? "bg-white/[0.02] border-white/[0.08] hover:border-[#3e8aff]/30"
+                      : "bg-white/50 border-gray-200 hover:border-[#3e8aff]/30 hover:shadow-md"
+                }`}
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full p-5 md:p-6 text-left flex items-center justify-between gap-4 hover:bg-white/[0.02] transition-colors"
+                  className="w-full p-5 md:p-6 text-left flex items-start gap-4 transition-colors"
                 >
-                  <h3 className={`text-base md:text-lg font-semibold ${isDark ? "text-white" : "text-gray-900"}`}>
-                    {faq.question}
-                  </h3>
-                  {expandedFaqs.includes(index) ? (
-                    <CaretUp className={`w-5 h-5 flex-shrink-0 ${isDark ? "text-gray-400" : "text-gray-600"}`} />
-                  ) : (
-                    <CaretDown className={`w-5 h-5 flex-shrink-0 ${isDark ? "text-gray-400" : "text-gray-600"}`} />
-                  )}
+                  <div className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${
+                    expandedFaqs.includes(index)
+                      ? "bg-[#3e8aff] text-white"
+                      : isDark
+                        ? "bg-white/[0.05] text-gray-400 group-hover:bg-[#3e8aff]/20 group-hover:text-[#3e8aff]"
+                        : "bg-gray-100 text-gray-500 group-hover:bg-[#3e8aff]/10 group-hover:text-[#3e8aff]"
+                  }`}>
+                    {expandedFaqs.includes(index) ? (
+                      <CaretUp className="w-5 h-5" />
+                    ) : (
+                      <CaretDown className="w-5 h-5" />
+                    )}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-base md:text-lg font-semibold transition-colors ${
+                      expandedFaqs.includes(index)
+                        ? "text-[#3e8aff]"
+                        : isDark
+                          ? "text-white group-hover:text-[#3e8aff]"
+                          : "text-gray-900 group-hover:text-[#3e8aff]"
+                    }`}>
+                      {faq.question}
+                    </h3>
+                  </div>
                 </button>
                 {expandedFaqs.includes(index) && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.3 }}
                     className="px-5 md:px-6 pb-5 md:pb-6"
                   >
-                    <p className={`text-sm md:text-base ${isDark ? "text-gray-400" : "text-gray-600"}`}>{faq.answer}</p>
+                    <div className="pl-12">
+                      <p className={`text-sm md:text-base leading-relaxed ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                        {faq.answer}
+                      </p>
+                    </div>
                   </motion.div>
                 )}
               </motion.div>
