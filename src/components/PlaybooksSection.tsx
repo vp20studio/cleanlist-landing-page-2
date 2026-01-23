@@ -215,7 +215,7 @@ function PlaybookCard({
                 </div>
 
                 {/* Steps */}
-                <div className="grid grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                   {playbook.steps.map((step, i) => {
                     const StepIcon = step.icon;
                     const isStepActive = currentStep === i;
@@ -227,7 +227,7 @@ function PlaybookCard({
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className={`relative p-4 rounded-xl text-center transition-all ${
+                        className={`relative p-2.5 md:p-4 rounded-xl text-center transition-all ${
                           isStepActive
                             ? isDark
                               ? "bg-[#3e8aff]/20 border border-[#3e8aff]/40"

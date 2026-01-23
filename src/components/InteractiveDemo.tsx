@@ -159,12 +159,12 @@ export default function InteractiveDemo() {
 
         {/* Demo Tabs */}
         <div className="overflow-x-auto scrollbar-hide mb-8 -mx-4 px-4 md:mx-0 md:px-0">
-          <div className="flex md:flex-wrap md:justify-center gap-2 min-w-max md:min-w-0">
+          <div className="flex md:flex-wrap md:justify-center gap-1 sm:gap-2 min-w-max md:min-w-0">
             {demoTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id)}
-                className={`inline-flex items-center gap-2 px-4 md:px-6 py-2.5 md:py-3 rounded-lg font-medium transition-all text-sm md:text-base whitespace-nowrap ${
+                className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 md:px-6 py-2 md:py-3 rounded-lg font-medium transition-all text-xs sm:text-sm md:text-base whitespace-nowrap ${
                 activeTab === tab.id
                   ? "bg-[#3e8aff] text-white shadow-lg shadow-[#3e8aff]/25"
                   : isDark
@@ -172,8 +172,9 @@ export default function InteractiveDemo() {
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
               }`}
             >
-              {tab.icon}
-              {tab.label}
+              <span className="flex-shrink-0">{tab.icon}</span>
+              <span className="hidden sm:inline">{tab.label}</span>
+              <span className="sm:hidden">{tab.id === "scoring" ? "Smart + ICP" : tab.label}</span>
             </button>
           ))}
           </div>

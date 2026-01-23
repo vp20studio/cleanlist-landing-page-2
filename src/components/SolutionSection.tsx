@@ -54,12 +54,12 @@ export default function SolutionSection() {
       ctaText: "See it in action",
       visual: (
         <div className="space-y-3">
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-3">
             {[
-              { name: "Outbound ICP", icon: <Target className="w-4 h-4" /> },
-              { name: "Intent Signals", icon: <TrendUp className="w-4 h-4" /> },
-              { name: "ABM Accounts", icon: <Sparkle className="w-4 h-4" /> },
-              { name: "Inbound Qualify", icon: <CheckCircle className="w-4 h-4" /> },
+              { name: "Outbound ICP", icon: <Target className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> },
+              { name: "Intent Signals", icon: <TrendUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> },
+              { name: "ABM Accounts", icon: <Sparkle className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> },
+              { name: "Inbound Qualify", icon: <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> },
             ].map((item, i) => (
               <motion.div
                 key={item.name}
@@ -67,17 +67,17 @@ export default function SolutionSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ scale: 1.03, y: -2 }}
-                className={`p-4 rounded-xl border transition-all cursor-pointer ${
+                className={`p-3 sm:p-4 rounded-xl border transition-all cursor-pointer ${
                   isDark
                     ? "bg-[#3e8aff]/10 border-[#3e8aff]/20 hover:border-[#3e8aff]/40"
                     : "bg-[#3e8aff]/5 border-[#3e8aff]/15 hover:border-[#3e8aff]/30 hover:shadow-lg hover:shadow-[#3e8aff]/10"
                 }`}
               >
-                <div className="flex items-center gap-2">
-                  <div className={`p-1.5 rounded-lg ${isDark ? "bg-[#3e8aff]/20" : "bg-[#3e8aff]/10"}`}>
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <div className={`p-1 sm:p-1.5 rounded-lg ${isDark ? "bg-[#3e8aff]/20" : "bg-[#3e8aff]/10"}`}>
                     <span className="text-[#3e8aff]">{item.icon}</span>
                   </div>
-                  <span className={`text-sm font-medium ${isDark ? "text-white" : "text-gray-800"}`}>{item.name}</span>
+                  <span className={`text-xs sm:text-sm font-medium ${isDark ? "text-white" : "text-gray-800"}`}>{item.name}</span>
                 </div>
               </motion.div>
             ))}
@@ -129,7 +129,7 @@ export default function SolutionSection() {
                     : "bg-gray-50 border border-gray-100"
               }`}
             >
-              <div className="w-7 h-7 rounded-lg overflow-hidden flex-shrink-0 bg-white">
+              <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg overflow-hidden flex-shrink-0 bg-white">
                 <Image
                   src={provider.logo}
                   alt={provider.name}

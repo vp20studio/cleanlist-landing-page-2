@@ -107,7 +107,7 @@ export default function WaterfallEnrichmentDemo() {
   }, [runEnrichment]);
 
   return (
-    <div className={`p-6 md:p-8 rounded-2xl border ${
+    <div className={`p-4 md:p-6 lg:p-8 rounded-2xl border ${
       isDark
         ? "bg-gradient-to-br from-white/[0.03] to-white/[0.01] border-white/[0.08]"
         : "bg-white/70 border-black/[0.08]"
@@ -160,7 +160,7 @@ export default function WaterfallEnrichmentDemo() {
                       ? `0 0 20px ${provider.color}30`
                       : "none",
                   }}
-                  className={`flex items-center justify-between p-3 rounded-xl border transition-all ${
+                  className={`flex items-center justify-between p-2.5 md:p-3 rounded-xl border transition-all ${
                     isActive
                       ? `border-[${provider.color}]/30`
                       : isDark
@@ -171,9 +171,9 @@ export default function WaterfallEnrichmentDemo() {
                     borderColor: isActive ? `${provider.color}50` : undefined,
                   }}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 md:gap-3">
                     {/* Status Icon */}
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden`}
+                    <div className={`w-6 h-6 md:w-8 md:h-8 rounded-lg flex items-center justify-center overflow-hidden`}
                       style={{
                         backgroundColor: `${provider.color}20`,
                       }}

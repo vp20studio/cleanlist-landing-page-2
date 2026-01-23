@@ -144,7 +144,71 @@ export default function DataTransformDemo() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 relative">
+          {/* Simplified Mobile View */}
+          <div className="md:hidden">
+            <div className={`p-5 rounded-xl border ${
+              isDark
+                ? "bg-[#0a0a0a] border-white/[0.08]"
+                : "bg-white/70 border-black/[0.08]"
+            }`}>
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#3e8aff]/10 border border-[#3e8aff]/20 text-xs text-[#3e8aff] mb-3">
+                  <Lightning width={14} height={14} />
+                  15+ Data Sources
+                </div>
+                <h3 className={`text-lg font-semibold mb-2 ${isDark ? "text-white" : "text-gray-900"}`}>
+                  Waterfall Enrichment
+                </h3>
+                <p className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+                  We query 15+ providers until we find your data
+                </p>
+              </div>
+
+              {/* Simple Before/After Comparison */}
+              <div className="space-y-4">
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 rounded-full bg-red-500" />
+                    <span className={`text-xs font-medium ${isDark ? "text-gray-400" : "text-gray-600"}`}>Before</span>
+                  </div>
+                  <div className={`p-3 rounded-lg space-y-2 ${isDark ? "bg-white/[0.03]" : "bg-gray-50"}`}>
+                    <div className="flex justify-between text-sm">
+                      <span className={isDark ? "text-gray-500" : "text-gray-600"}>Email</span>
+                      <span className="text-gray-600">—</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className={isDark ? "text-gray-500" : "text-gray-600"}>Phone</span>
+                      <span className="text-gray-600">—</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex justify-center">
+                  <ArrowRight className="w-5 h-5 text-[#3e8aff] rotate-90" />
+                </div>
+
+                <div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                    <span className={`text-xs font-medium text-green-500`}>After</span>
+                  </div>
+                  <div className={`p-3 rounded-lg space-y-2 bg-[#3e8aff]/10 border border-[#3e8aff]/20`}>
+                    <div className="flex justify-between text-sm">
+                      <span className={isDark ? "text-gray-400" : "text-gray-600"}>Email</span>
+                      <span className="text-[#3e8aff] font-medium">john@acme.com</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className={isDark ? "text-gray-400" : "text-gray-600"}>Phone</span>
+                      <span className="text-[#3e8aff] font-medium">+1 (555) 123-4567</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Full Demo */}
+          <div className="hidden md:grid md:grid-cols-2 gap-6 md:gap-8 relative">
             {/* Connection Line - Desktop Only */}
             <div className="hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
               <motion.div
@@ -354,13 +418,13 @@ export default function DataTransformDemo() {
             </div>
           </div>
 
-          {/* Provider Stream */}
+          {/* Provider Stream - Desktop Only */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className={`mt-6 md:mt-8 p-4 rounded-xl border transition-colors ${
+            className={`hidden md:block mt-6 md:mt-8 p-4 rounded-xl border transition-colors ${
               isDark
                 ? "bg-[#0a0a0a] border-white/[0.08]"
                 : "bg-white/70 border-black/[0.08]"

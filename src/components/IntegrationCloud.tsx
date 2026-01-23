@@ -109,7 +109,7 @@ export default function IntegrationCloud() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="relative h-[500px] md:h-[600px] mb-16"
+          className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] mb-16"
         >
           {/* Connection Lines */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
