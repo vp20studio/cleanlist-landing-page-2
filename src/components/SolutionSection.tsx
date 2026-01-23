@@ -338,7 +338,7 @@ export default function SolutionSection() {
               scale GTM
             </span>
           </h2>
-          <p className={`text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p className={`text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             Complete, executable playbooks that deploy in minutes — not custom workflows that take months to build.
           </p>
         </motion.div>

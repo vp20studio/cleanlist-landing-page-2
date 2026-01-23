@@ -97,7 +97,7 @@ export default function Hero() {
           {/* Sub-headline */}
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-[#888888] max-w-2xl mx-auto mb-10 leading-relaxed px-4"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-[#888888] max-w-2xl mx-auto mb-10 leading-relaxed px-4"
           >
             Clean, verify, and enrich your leads with 99% accuracy.{" "}
             <span className="text-white">Stop wasting spend on bad data.</span>

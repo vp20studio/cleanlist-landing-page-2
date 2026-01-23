@@ -152,7 +152,7 @@ export default function InteractiveDemo() {
               work
             </span>
           </h2>
-          <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p className={`text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             From extraction to enrichment to scoring — see how teams get verified contact data in seconds.
           </p>
         </motion.div>

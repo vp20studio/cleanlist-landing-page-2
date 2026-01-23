@@ -132,7 +132,7 @@ export default function DataTransformDemo() {
               transform
             </span>
           </h2>
-          <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+          <p className={`text-sm sm:text-base md:text-lg max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
             Follow a real record through our waterfall enrichment pipeline.
           </p>
         </motion.div>
@@ -524,7 +524,7 @@ export default function DataTransformDemo() {
                 AI
               </span>
             </h2>
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+            <p className={`text-sm sm:text-base md:text-lg max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Normalize job titles, parse names, format phone numbers, categorize industries — all automatically. Your messy data, instantly structured.
             </p>
           </div>

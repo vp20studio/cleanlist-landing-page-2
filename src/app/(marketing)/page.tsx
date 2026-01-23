@@ -623,7 +623,7 @@ export default function HomePage() {
                 sits
               </span>
             </h2>
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+            <p className={`text-sm sm:text-base md:text-lg max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Cleanlist gives you the playbooks Clay requires you to build and the orchestration
               Apollo doesn&apos;t have.
             </p>
@@ -902,7 +902,7 @@ export default function HomePage() {
                 existing stack
               </span>
             </h2>
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+            <p className={`text-sm sm:text-base md:text-lg max-w-2xl mx-auto ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               Cleanlist connects natively to 15+ tools you already use. No data silos, no manual exports—just
               seamless, real-time data flow.
             </p>
@@ -1278,7 +1278,7 @@ export default function HomePage() {
             <h2 className={`text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 ${isDark ? "text-white" : "text-gray-900"}`}>
               Simple, credit-based pricing
             </h2>
-            <p className={`text-lg md:text-xl max-w-2xl mx-auto mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
+            <p className={`text-sm sm:text-base md:text-lg max-w-2xl mx-auto mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>
               1 email = 1 credit. 1 phone = 10 credits. No hidden fees.
             </p>
           </motion.div>

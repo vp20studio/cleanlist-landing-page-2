@@ -70,7 +70,7 @@ export default function FeatureGrid() {
             Three steps to{" "}
             <span className="gradient-text-blue">perfect data</span>
           </h2>
-          <p className="text-base md:text-lg text-[#888888] max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base md:text-lg text-[#888888] max-w-2xl mx-auto px-4">
             Our AI-powered pipeline transforms raw leads into verified,
             enriched, and actionable contacts.
           </p>
