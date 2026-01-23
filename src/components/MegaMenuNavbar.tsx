@@ -173,7 +173,7 @@ export default function MegaMenuNavbar() {
                 alt="Cleanlist"
                 width={140}
                 height={32}
-                className="h-6 sm:h-7 md:h-8 w-auto"
+                className="h-5 sm:h-6 md:h-7 w-auto"
               />
             </Link>
 

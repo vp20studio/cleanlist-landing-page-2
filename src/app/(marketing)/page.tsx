@@ -318,27 +318,27 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-center mb-8"
           >
-            <div className={`inline-flex flex-col sm:flex-row items-center sm:divide-x rounded-xl sm:rounded-full border text-xs sm:text-sm ${
+            <div className={`inline-flex flex-row items-center divide-x rounded-full border text-[10px] sm:text-xs md:text-sm ${
               isDark
-                ? "bg-white/[0.02] border-white/[0.08] sm:divide-white/[0.08]"
-                : "bg-white border-gray-200 sm:divide-gray-200 shadow-sm"
+                ? "bg-white/[0.02] border-white/[0.08] divide-white/[0.08]"
+                : "bg-white border-gray-200 divide-gray-200 shadow-sm"
             }`}>
-              <div className="flex items-center gap-2 sm:gap-2 px-4 py-2.5 sm:py-2">
-                <Database className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2">
+                <Database className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
                   <span className="font-semibold">400M+</span> Contacts
                 </span>
               </div>
-              <div className="flex items-center gap-2 sm:gap-2 px-4 py-2.5 sm:py-2">
-                <Envelope className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2">
+                <Envelope className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
-                  <span className="font-semibold">98%</span> Email Coverage
+                  <span className="font-semibold">98%</span> Email
                 </span>
               </div>
-              <div className="flex items-center gap-2 sm:gap-2 px-4 py-2.5 sm:py-2">
-                <Phone className="w-4 h-4 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2">
+                <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#3e8aff]" />
                 <span className={isDark ? "text-gray-300" : "text-gray-700"}>
-                  <span className="font-semibold">85%</span> Phone Find Rate
+                  <span className="font-semibold">85%</span> Phone
                 </span>
               </div>
             </div>
@@ -351,7 +351,7 @@ export default function HomePage() {
             transition={{ delay: 0.1 }}
             className="text-center mb-6"
           >
-            <h1 className={`text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
+            <h1 className={`text-6xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-[1.1] tracking-tight ${isDark ? "text-white" : "text-gray-900"}`}>
               The{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3e8aff] to-[#60a5fa]">
                 GTM Playbook Engine
