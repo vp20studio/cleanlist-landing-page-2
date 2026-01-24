@@ -165,7 +165,7 @@ function PlaybookCard({
             </motion.div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
-                <h3 className={`text-xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
+                <h3 className={`text-base font-bold ${isDark ? "text-white" : "text-gray-900"}`}>
                   {playbook.title}
                 </h3>
                 {!isActive && (

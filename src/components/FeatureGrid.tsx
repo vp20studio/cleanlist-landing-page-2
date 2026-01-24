@@ -173,7 +173,7 @@ function VerificationCard() {
           </span>
         </div>
 
-        <h3 className="text-xl font-semibold text-white mb-2">
+        <h3 className="text-base font-semibold text-white mb-2">
           99.9% Deliverability
         </h3>
         <p className="text-sm text-[#888888] mb-6">
@@ -279,7 +279,7 @@ function EnrichmentCard() {
           </span>
         </div>
 
-        <h3 className="text-xl font-semibold text-white mb-2">
+        <h3 className="text-base font-semibold text-white mb-2">
           Deep Enrichment
         </h3>
         <p className="text-sm text-[#888888] mb-6">
@@ -527,7 +527,7 @@ const data = await response.json();
               </span>
             </div>
 
-            <h3 className="text-xl font-semibold text-white mb-2">
+            <h3 className="text-base font-semibold text-white mb-2">
               Plug & Play API
             </h3>
             <p className="text-sm text-[#888888] mb-4">

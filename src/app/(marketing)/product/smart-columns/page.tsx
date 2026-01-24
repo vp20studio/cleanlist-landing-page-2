@@ -605,7 +605,7 @@ export default function SmartColumnsPage() {
                     {column.category}
                   </div>
 
-                  <h3 className={`text-lg font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"} group-hover:text-[#3e8aff] transition-colors`}>
+                  <h3 className={`text-base font-bold mb-2 ${isDark ? "text-white" : "text-gray-900"} group-hover:text-[#3e8aff] transition-colors`}>
                     {column.title}
                   </h3>
 
