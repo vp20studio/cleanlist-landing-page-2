@@ -338,7 +338,7 @@ export default function PricingPage() {
               <p className={`text-sm mb-2 ${isDark ? "text-gray-400" : "text-gray-600"}`}>30 credits</p>
               <p className="text-xs text-gray-500 mb-6">30 emails or 3 phones/mo</p>
               <Link
-                href="#"
+                href="https://app.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started
@@ -405,7 +405,7 @@ export default function PricingPage() {
                 {pricingTiers.starter[starterTier].email} emails or {pricingTiers.starter[starterTier].phone} phones/mo
               </p>
               <Link
-                href="#"
+                href="https://app.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started for Free
@@ -475,7 +475,7 @@ export default function PricingPage() {
                 {pricingTiers.pro[proTier].email} emails or {pricingTiers.pro[proTier].phone} phones/mo
               </p>
               <Link
-                href="#"
+                href="https://app.cleanlist.ai/auth/register"
                 className="block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 bg-[#3e8aff] text-white hover:bg-[#3e8aff]/90"
               >
                 Get Started for Free
@@ -542,7 +542,7 @@ export default function PricingPage() {
                 {pricingTiers.enterprise[enterpriseTier].email} emails or {pricingTiers.enterprise[enterpriseTier].phone} phones/mo
               </p>
               <Link
-                href="#"
+                href="https://app.cleanlist.ai/auth/register"
                 className={`block w-full py-3 text-center rounded-lg font-medium transition-colors mb-6 ${isDark ? "bg-white/[0.05] text-white hover:bg-white/[0.1]" : "bg-gray-100 text-gray-900 hover:bg-gray-200"}`}
               >
                 Get Started for Free
