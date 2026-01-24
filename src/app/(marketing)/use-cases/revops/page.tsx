@@ -81,7 +81,7 @@ export default function RevOpsPage() {
               className="flex flex-wrap items-center gap-4"
             >
               <Link
-                href="#"
+                href="https://app.cleanlist.ai/auth/register"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors"
               >
                 See Playbook Builder

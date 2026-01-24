@@ -98,7 +98,7 @@ export default function WaterfallEnrichmentPage() {
                 className="flex flex-col sm:flex-row flex-wrap items-center sm:items-start gap-3 sm:gap-4 mb-8"
               >
                 <Link
-                  href="#"
+                  href="https://app.cleanlist.ai/auth/register"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#3e8aff] text-white font-medium rounded-lg hover:bg-[#3e8aff]/90 transition-colors w-full sm:w-auto min-h-[44px]"
                 >
                   Try Waterfall Free
